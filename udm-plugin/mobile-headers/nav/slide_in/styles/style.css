@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+/*
+ Theme Name: UDM Child 01
+ Template: uglyduck
+*/
+/* Base Styles
+--------------------------------------------------------------*/
+html {
+    background-color: #f0f0f0;
+}
+
+body {
+    background-color: #fff;
+    color: #606c76;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    letter-spacing: .01em;
+    line-height: 1.7;
+    overflow-x: hidden !important;
+    margin: 0;
+}
+
+#mobile-menu{
+    padding:0;
+    margin:0;
+}
+
+.wrapper {
+	padding-top: 65px;
+	padding-bottom: 0;
+	background: #ccc;
+}
+
+
+/* Treatments & CTA
+--------------------------------------------------------------*/
+
+
+.dark-nav .request-button {
+    color: #333232;
+    border: 2px solid #333232;
+}
+
+.dark-nav .request-button:hover {
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+
+/* Header
+--------------------------------------------------------------*/
+header {
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    height:60px;
+    background: transparent;
+    z-index: 9999;
+    transition: all .3s ease;
+    background:#fff;
+}
+
+.dark-nav {
+    background: rgba(255,255,255,.9)
+}
+
+/* Main Logo
+--------------------------------------------------------------*/
+.main-logo {
+    width: 20%;
+    float: left;
+}
+
+.main-logo img {
+    max-height: 70px;
+    margin-top: 10px;
+    margin-left: 40px;
+    position: fixed;
+    transition: all .5s ease;
+}
+
+.logo-dark img {
+    opacity: 0;
+}
+
+.dark-nav .logo-light img {
+    opacity: 0;
+}
+
+.dark-nav .logo-dark img {
+    opacity: 1;
+}
+
+
+/* Mobile Navigation
+--------------------------------------------------------------*/
+
+.main-logo img {
+	margin-left: 13px;
+	max-height: 50px;
+	margin-top: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.mobile-menu-container {
+    background-color: rgba(44, 53, 59, 0.95);
+    position: fixed;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    z-index: 999;
+    height: 100%;
+    top: -100%;
+    transform: translate(0%,-100%) translate3d(0px,0px,0px);
+    width: 100%;
+    -webkit-transition: all .7s cubic-bezier(.69,0,.25,.90);
+    transition: all .7s cubic-bezier(.69,0,.25,.90);
+}
+
+.is-visible {
+    transform: translate3d(0px,0px,0px);
+    top: 0%;
+}
+
+#mobile-menu {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+}
+
+#mobile-menu li {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+#mobile-menu a {
+    font-weight: 400;
+    font-size:24px;
+    line-height: 1;
+    display: inline-block;
+    margin-bottom:0px;
+    padding: 0;
+    background: transparent;
+    color: #fff;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    transition: all .2s ease;
+    border-bottom: 0px solid rgba(0,0,0,0);
+    text-decoration:none;
+}
+
+#mobile-menu .current_page_item a {
+    font-weight: 400;
+    line-height: 1;
+    padding: 0;
+    background: transparent;
+    color: #E55217;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+
+#mobile-menu a:hover {
+    padding: 4px 0;
+    color: #fff;
+    border-bottom: 2px solid #E55217;
+}
+
+#mobile-menu .menu-item-has-children > a:after {
+    font-family: FontAwesome;
+    color: #606C7C;
+    content: "\f107";
+    float: right;
+    padding-right: 10px;
+}
+
+.mobile-menu-container .sub-menu {
+    display: none;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.mobile-menu-container .sub-menu a {
+    background: #efefef !important;
+    border: none !important;
+    font-size: 14px !important;
+}
+
+/* Menu button */
+.menu-button {
+    position:relative;
+    z-index: 1000;
+    top:0px;
+    left:20px;
+    width: 30px;
+    height: 24px;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent !important;
+    
+}
+
+.menu-button:active,.menu-button:hover {
+    background: transparent !important;
+}
+
+.menu-button::before,.menu-button::after,.menu-button span {
+    background:#212944;
+}
+
+.dark-nav .menu-button::before,.dark-nav .menu-button::after,.dark-nav .menu-button span {
+    background: #333232;
+}
+
+.menu-button::before,.menu-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height:2px;
+    pointer-events: none;
+    -webkit-transition: -webkit-transform .45s;
+    transition: transform .35s;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.menu-button span {
+    position: absolute;
+    left: 3.3px;
+    overflow: hidden;
+    width: 78%;
+    height:2px;
+    text-indent: 0;
+    -webkit-transition: opacity .25s;
+    transition: opacity .25s;
+}
+
+.menu-button::before {
+    -webkit-transform: translate3d(0,-8px,0) scale3d(0.8,1,1);
+    transform: translate3d(0,-8px,0) scale3d(0.8,1,1);
+}
+
+.menu-button:hover::before {
+    -webkit-transform: translate3d(0,-9.5px,0) scale3d(0.8,1,1);
+    transform: translate3d(0,-9.5px,0) scale3d(0.8,1,1);
+}
+
+.menu-button::after {
+    -webkit-transform: translate3d(0,8px,0) scale3d(0.8,1,1);
+    transform: translate3d(0,8px,0) scale3d(0.8,1,1);
+}
+
+.menu-button:hover::after {
+    -webkit-transform: translate3d(0,9.5px,0) scale3d(0.8,1,1);
+    transform: translate3d(0,9.5px,0) scale3d(0.8,1,1);
+}
+
+.menu-button-open span {
+    opacity: 0;
+}
+
+.menu-button-open::before {
+    -webkit-transform: rotate3d(0,0,1,45deg);
+    transform: rotate3d(0,0,1,45deg);
+}
+
+.menu-button-open:hover::before {
+    -webkit-transform: rotate3d(0,0,1,45deg);
+    transform: rotate3d(0,0,1,45deg);
+}
+
+.menu-button-open::after {
+    -webkit-transform: rotate3d(0,0,1,-45deg);
+    transform: rotate3d(0,0,1,-45deg);
+}
+
+.menu-button-open:hover::after {
+    -webkit-transform: rotate3d(0,0,1,-45deg);
+    transform: rotate3d(0,0,1,-45deg);
+}
+
+.mobile-navigation-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: rgba(255,255,255,.1);
+    margin-top: -25px;
+}
+
+.mobile-navigation-bottom a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Ubuntu',sans-serif;
+    background: #606C7C;
+    width: 50%;
+    display: inline-block;
+    padding: 15px;
+    text-align: center;
+}
+
+.mobile-navigation-bottom a:nth-child(1) {
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+@media only screen and (min-width: 800px) {
+
+  
+
+    #mobile-menu {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+    }
+
+    .is-visible #mobile-menu {
+        top: 50%;
+    }
+
+}
+
+
