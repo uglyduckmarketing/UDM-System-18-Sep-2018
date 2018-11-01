@@ -1,0 +1,60 @@
+.mrtop_60{margin-top:60px;}
+.padded-top{padding-top: 105px;}
+.border-right, .border-bottom, .border-top, .border-left{border-color: rgba(0,0,0,0.1) !important;}
+.border-right{border-right: 1px solid #dee2e6 !important;border-right-color: rgb(222, 226, 230);}  
+.single.single-service .intro p{font-size: 18px;line-height: 24px;margin-top: 30px;}
+.service_breakdown .alignleftrow, .service_breakdown .alignrightrow{-ms-flex-align: center !important;align-items: center !important;} 
+.service_breakdown .alignleftrow .p1-left, .service_breakdown .alignrightrow .p1-left{color: rgba(255, 255, 255, .8);}
+.single-service .service_breakdown .heading{text-transform: none;font-size: 36px;font-weight: 700;letter-spacing: normal;color:#fff;}
+.single-service .service_breakdown .eyebrow{font-size: 28px;font-weight: 700;letter-spacing: normal;color:#fff;} 
+.single-service .service_breakdown .brakdowbutton{margin-top:15px;} 
+.single-service .service_breakdown .brakdowbutton a{display:inline-block;} 
+.service_video, .service_gallery, .service_related{padding: 127.5px 0;border-top: 1px solid rgba(0,0,0,.05);border-bottom: 1px solid rgba(0,0,0,.05);}
+.service_video .eyebrow, .service_gallery .eyebrow, .service_related .eyebrow{font-weight: 600;font-size: 24px;line-height: 30px;letter-spacing: .007em;margin-bottom: 22.5px;display: block;}
+/*.service_video .heading, .service_related .heading{color:#fff!important;}*/
+/* .service_gallery .heading{color:#252525!important;} */
+.video_desc{margin-top:40px;}
+.video_desc p{font-size: 18px;line-height: 21px;margin-top: 30px;font-weight:400;}  
+.service_breakdown .p1-both{position:relative;}
+.service_breakdown .p1-both:after{content:"";position:absolute;top:0px;left:0px;width: 100%;height: 100%;z-index: 1;} 
+
+.get_in_splitscreen .label-above .nf-field-label{margin-bottom: 5px;}
+.get_in_splitscreen .nf-input-limit{margin-top: 0px;}
+.get_in_splitscreen .nf-field-container{margin-bottom:5px;padding-top:0px;}
+.get_in_splitscreen .nf-before-form-content{padding-bottom:10px;}
+.get_in_splitscreen .label-above label{position:static;transform: translate(0px, 0px);}
+.get_in_splitscreen .label-above input, .get_in_splitscreen .label-above select, .get_in_splitscreen .label-above textarea{padding:5px 10px;}
+.get_in_splitscreen .label-above textarea{height:80px;}
+.get_in_splitscreen .main_content_box{width:100%;}
+.get_in_splitscreen .p1-both.align-self-stretch.shadow .image, .get_in_splitscreen .p1-both.align-self-stretch.shadow img{height:100%;}
+
+
+
+@media(min-width:992px){
+	/* .service_breakdown .alignleftrow .p1-left, .service_breakdown .alignrightrow .p1-left{padding: 0px 7%;}  */
+	.service_breakdown .align-items-center .p1-left, .service_breakdown .align-items-center .p1-both{padding: 90px 7%;min-height:450px;}
+	/* .service_breakdown .alignleftrow .p1-both, .service_breakdown .alignrightrow .p1-both{padding:0px;} */ 
+	.row-eq-height .padded{padding: 100px 0px 110px 105px;}
+} 
+@media(max-width:991px){
+	.service_breakdown .align-items-center .p1-left, .service_breakdown .align-items-center .p1-both{padding: 90px 30px;min-height:450px;}
+	.basic_header_default #collapsibleNavbar ul li a{padding:45px 15px 45px 0px;font-size: 15px;}
+	.basic_header_default #collapsibleNavbar ul li:last-child a{padding-right:10px;}
+	.row-eq-height .padded{padding: 100px 30px 30px;} 
+} 
+@media(min-width:768px){
+	.get_in_splitscreen.back .p1-left{padding: 40px 75px 32px;}	
+}  
+@media(max-width:767px){
+	.get_in_splitscreen.back .p1-left{padding: 40px 20px 32px;}	
+	.get_in_splitscreen .p1-both.align-self-stretch{height:auto;}
+	.service_breakdown .align-items-center .p1-left, .service_breakdown .align-items-center .p1-both{-webkit-box-flex: 1;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;}
+	.container{max-width:100%!important;} 
+	footer .container{max-width: 77% !important;padding-top:45px;}
+	.single.single-service .basic_headersec{display:none;}
+	.single.single-service .basic_header_default a.navbar-brand img{width:auto;}
+	.single.single-service .basic_header_default button.navbar-toggler{border-color: rgb(89, 164, 59);}
+	.single.single-service .basic_header_default ul li, .single.single-service .basic_header_default ul li a{display:block;} 
+	.single.single-service .basic_header_default #collapsibleNavbar ul li a{padding: 10px 5px;}
+	.single.single-service .basic_header_default .right_side_bt .btn{width: 120px;margin-top:10px;}
+}
