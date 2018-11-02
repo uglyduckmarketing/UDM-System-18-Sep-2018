@@ -2,8 +2,17 @@
 Theme Name: UDM Base
 Author: Heroistic - Group
 Author URI: https://heroistic-group.com/
-Version: 1.2.3
+Version: 1.2.4
 */
+
+
+/* Notes
+------------------------------
+Remove bg-light class from 'Basic Header', this makes it unable to switch colors.
+Image upload on 'Stacked Header' does nothing.
+'Right Phone Widget' for staked header has no options.
+
+/*
 
 
 /* Basic Styles
@@ -118,7 +127,7 @@ nav .menu-item-has-children a::after {
 .menu-item-has-children .sub-menu a::after {
 	display: none;
 }
-.basic_header_default #collapsibleNavbar ul.sub-menu {
+#collapsibleNavbar ul.sub-menu {
   z-index: 1;
   min-width: 250px;
   position: absolute;
@@ -126,11 +135,11 @@ nav .menu-item-has-children a::after {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-top: none;
 }
-.basic_header_default #collapsibleNavbar ul.sub-menu li {
+#collapsibleNavbar ul.sub-menu li {
 	display: block;
 	width: 100%;
 }
-.basic_header_default #collapsibleNavbar ul.sub-menu li a {
+#collapsibleNavbar ul.sub-menu li a {
   padding: 1.25rem 15px;
   height: inherit;
   line-height: 1;
@@ -138,17 +147,17 @@ nav .menu-item-has-children a::after {
 	border-bottom: 1px solid rgba(0,0,0,.1);
 	transition: all .3s ease;
 }
-.basic_header_default #collapsibleNavbar ul.sub-menu li a::before {
+#collapsibleNavbar ul.sub-menu li a::before {
 	display: none;
 }
-.basic_header_default #collapsibleNavbar ul.sub-menu {
+#collapsibleNavbar ul.sub-menu {
   opacity: 0;
 	transform: translateY(15px);
 	pointer-events: none;
 	display: block;
 	transition: all .3s ease;
 }
-.basic_header_default #collapsibleNavbar li:hover ul.sub-menu {
+#collapsibleNavbar li:hover ul.sub-menu {
 	opacity: 1;
 	transform: translateY(0);
 	pointer-events: initial;
@@ -184,9 +193,60 @@ header .top_basic_header p a {
 	display: inline-block;
 }
 
+/* Header - Stacked
+------------------------------ */
+header .stacked_header .logo_stacked img {
+  width: auto !important;
+  max-width: 100% !important;
+  position: absolute;
+  width: 85% !important;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.stacked_header .container-fluid .p-no {
+  padding: 0;
+  position: relative;
+	background-size: cover;
+	background-position: center;
+}
+.top_stacked_header {
+	height: auto;
+	padding: 1rem;
+}
+header .stacked_header .bottom_stacked_header .navbar {
+	padding: 0 3rem;
+}
+header .stacked_header .bottom_stacked_header .navbar ul li a {
+  color: #ffffff;
+  display: inline-block;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.top_stacked_header .top_heade_right li a .fa {
+  font-size: 1rem;
+  padding: 0px 12px;
+}
+.top_stacked_header .top_heade_left {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+.top_stacked_header .top_heade_left li a.contact_stacked {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: .25px;
+}
+
 /* Hero - Basic
 ------------------------------ */
-
 .basic_hero {
   display:flex;
   flex-basis: auto;
@@ -217,8 +277,8 @@ header .top_basic_header p a {
   line-height: 2.675;
 }
 
-
-
+/* Hero - Fullwidth
+------------------------------ */
 .fullwidth-hero-3{
   display: flex;
   flex-basis: 100%;
@@ -255,6 +315,42 @@ header .top_basic_header p a {
   display: block;
 }
 
+/* Hero - Splitscreen
+------------------------------ */
+.splitscreen-hero {
+	margin-bottom: 4rem;
+}
+.splitscreen-hero .row .p1-both {
+  height: 80vh;
+  overflow: hidden;
+  padding: 0;
+}
+.splitscreen-hero .row .p1-both .image_repsonsive {
+  width: auto;
+  max-width: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.splitscreen-hero.contained .p1-left {
+  padding: 5rem;
+}
+.splitscreen-hero span {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+.splitscreen-hero h2 {
+	font-size: 3rem;
+}
+.splitscreen-hero p {
+  font-size: 1.35rem;
+  margin-bottom: 2rem;
+  display: block;
+}
 
 
 .latest-posts-view{
@@ -1595,11 +1691,6 @@ footer .footer-bottom{
 	font-size: 14px;
 }
 
-.splitscreen-hero  .col h2{
-	font-size: 30px;
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
 
 .splitscreen-hero .right_side_bt{
     margin-top:30px;
@@ -1643,43 +1734,12 @@ footer .footer-bottom{
 }
 
 
-/*******responsive*******/
-
-@media(min-width:992px) and (max-width:1199px){
-    .splitscreen-hero .col span{
-        margin-bottom:10px;
-    }
-    .splitscreen-hero .col h2 {
-	   font-size: 24px;
-	   margin-bottom: 15px;
-	   margin-top: 15px;
-    }
-    .splitscreen-hero .col h2 {
-	   font-size: 24px;
-	   margin-bottom: 15px;
-	   margin-top: 15px;
-    }
-
-    .splitscreen-hero{
-        height:auto !important;
-    }
-
-    .splitscreen-hero .row .p1-both{
-        height: auto !important;
-    }
-}
-
 @media(min-width:768px) and (max-width:991px){
     .splitscreen-hero .p1-left {
 	   padding-left: 15px;
     }
     .splitscreen-hero .col span{
         margin-bottom: 5px;
-    }
-    .splitscreen-hero .col h2 {
-	   font-size: 20px;
-	   margin-bottom:8px;
-	   margin-top: 8px;
     }
 
      .splitscreen-hero .col p{
@@ -2007,17 +2067,7 @@ footer .footer-bottom{
 }
 
 
-.top_stacked_header .top_heade_left {
-	display: flex;
-	list-style: none;
-	margin-bottom: 0;
-	padding-left: 0;
-	height: 75px;
-	background:#4781ff;
-	padding: 0 50px;
-	flex-direction: column;
-	justify-content: center;
-}
+
 
 .top_stacked_header .top_heade_left li a{
 /*     color:#fff;*/
@@ -2029,10 +2079,6 @@ footer .footer-bottom{
 
 }
 
-.top_stacked_header .top_heade_left li a.contact_stacked{
-    font-size:24px;
-    font-weight:600;
-}
 
 .top_stacked_header .top_heade_left li:last-child a{
     border-right:0;
@@ -2049,15 +2095,6 @@ footer .footer-bottom{
     margin-bottom:0;
     padding-left:0;
     margin-left:0;
-}
-
-.top_stacked_header .top_heade_right li a .fa{
-    font-size:20px;
-    padding:0px 12px;
-}
-
-.top_stacked_header .top_heade_right li:last-child a .fa{
-    padding-right:0;
 }
 
 .top_stacked_header .row{
