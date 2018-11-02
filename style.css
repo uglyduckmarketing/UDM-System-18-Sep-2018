@@ -11,6 +11,7 @@ Version: 1.2.4
 Remove bg-light class from 'Basic Header', this makes it unable to switch colors.
 Image upload on 'Stacked Header' does nothing.
 'Right Phone Widget' for staked header has no options.
+Right Widget on stacked header placement doesn't work without a left widget
 
 /*
 
@@ -134,6 +135,7 @@ nav .menu-item-has-children a::after {
   width: auto;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-top: none;
+	display: block;
 }
 #collapsibleNavbar ul.sub-menu li {
 	display: block;
@@ -1895,11 +1897,7 @@ footer .footer-bottom{
 .basic_header_default #collapsibleNavbar{
     justify-content: flex-end;
 }
-.basic_header_default #collapsibleNavbar ul{
-    list-style:none;
-    display: flex;
 
-}
 
 .menu-about-container{
     display:flex;
