@@ -340,7 +340,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			
 	  		$('#newleftbarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
-				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
+			<?php if(!empty($topdata)){ ?>	if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) { <?php } ?>
 				if(widget == '1')
 				{
 						jQuery.ajax({
@@ -413,12 +413,12 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						}
 						});
 				}
-			}
+			<?php if(!empty($topdata) ){ ?> } <?php }?>
 			});
 			
 			$('#newmiddlebarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
-				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
+				<?php if(!empty($topdata) ){ ?>  if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) { <?php } ?>
 				if(widget == '1')
 				{
 					
@@ -493,14 +493,14 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						}
 						});
 				}
-			}
+				<?php if(!empty($topdata)){ ?> } <?php } ?>
 			});
 			
 			
 			
 			$('#newrightbarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
-				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
+				<?php if(!empty($topdata)){ ?> if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) { <?php } ?>
 				if(widget == '1')
 				{
 					jQuery.ajax({
@@ -574,7 +574,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						});
 
 				}
-				}
+				<?php if(!empty($topdata) ){ ?>  } <?php } ?>
 			});
 			
 			$('.colorchange select').change(function(){
