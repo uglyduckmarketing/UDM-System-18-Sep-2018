@@ -340,7 +340,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			
 	  		$('#newleftbarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
-				
+				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
 				if(widget == '1')
 				{
 						jQuery.ajax({
@@ -413,13 +413,15 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						}
 						});
 				}
+			}
 			});
 			
 			$('#newmiddlebarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
-				
+				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
 				if(widget == '1')
 				{
+					
 						jQuery.ajax({
 						type: 'post',
 						data:'location=middletopbar',
@@ -434,6 +436,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 							$('#middletopbar').html(result);
 						}
 						});
+					
 					
 				}
 				else if(widget == '2')
@@ -490,12 +493,14 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						}
 						});
 				}
+			}
 			});
 			
 			
 			
 			$('#newrightbarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
+				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
 				if(widget == '1')
 				{
 					jQuery.ajax({
@@ -568,6 +573,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						}
 						});
 
+				}
 				}
 			});
 			
