@@ -250,7 +250,7 @@ header ul.sub-menu li a:hover{
 	}
 	else
 	{
-		$logo_background="url(".$data['button_text_color'].")";
+		$logo_background="url(".$data['logo_background_image'].")";
 	}
 	
 	if($data['lefttopbar_social_icon_color']=="custom")

@@ -168,9 +168,9 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<?php } ?>
         
         
-        <!--basic-header-default-->    
+        <!--basic-header-default-->    <!--bg-light-->
         <section class="basic_header_default">
-            <nav class="navbar navbar-expand-md bg-light navbar-light">
+            <nav class="navbar navbar-expand-md  navbar-light">
                 <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>

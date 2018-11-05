@@ -33,8 +33,9 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<option value="color" <?php selected("color",$data['logo_background_type']); ?>>Color</option>
 			<option value="image" <?php selected("image",$data['logo_background_type']); ?>>Image</option>
 		</select>
-		<ul id="logo_back_opt" <?php if($data['logo_background_type']=="image"){ ?> style="display:none;" <?php } ?>>
-			<li class="colorchange"><h3>Logo Background Color: </h3>
+		 <?php/* if($data['logo_background_type']=="image"){ style="display:none;" } */?>
+		<ul id="logo_back_opt">
+			<li class="colorchange" <?php if($data['logo_background_color']=="image"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>
 				<select name="logo_background_color" id="logo_background_color">
 					
 					<option value="primary" <?php selected('primary',$data['logo_background_color']); ?>>Primary</option>
@@ -52,7 +53,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			</li>
 			<li class="imageupload" <?php if($data['logo_background_type']=="image"){}else{ ?> style="display:none;" <?php } ?>>
 				<h3>Logo Background Image</h3>
-				<input type="text" name="logo_background_image" class="background-logo" value="">
+				<input type="text" name="logo_background_image" class="background-logo" value="<?php echo $data['logo_background_image']; ?>">
 				<input class="btn upload-image" my-attr="background-logo" type="button" value="Upload Image" />
 			</li>
 		</ul>
@@ -268,6 +269,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			
 			$('#newbottombarwidget a').click(function(){
 				var widget = $(this).attr('data-widget');
+				if (confirm("You are changing it to a new widget. 'Would you like to do that ' ?")) {
 				if(widget == '1')
 				{
 					jQuery.ajax({
@@ -341,6 +343,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						}
 					});
 				}
+				}
 			});					
 	
 	  $('.upload-image').click(function() {
@@ -371,7 +374,20 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				// Open the uploader dialog
 				mediaUploader.open();
 			  });
-	
+		
+		$('#logo_background_type').change(function(){
+			if($(this).val() == "image")
+			{
+				$('#logo_back_opt li:nth-child(1)').hide();
+				$('#logo_back_opt li:nth-child(2)').show();
+			}
+			else
+			{
+				$('#logo_back_opt li:nth-child(1)').show();
+				$('#logo_back_opt li:nth-child(2)').hide();
+			}
+		});	
+		
 		$('#editright_side_widget').change(function(){
 			if($(this).val() == "1")
 			{
