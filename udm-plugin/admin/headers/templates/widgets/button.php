@@ -13,7 +13,8 @@ include '../../../../../../../../wp-load.php';
 	});
 </script>
 <?php
-$buttodata=unserialize(get_option('header_layout_'.$_POST['header']));
+$bheader = isset($_POST['header']) ? $_POST['header'] : '';
+$buttodata=unserialize(get_option('header_layout_'.$bheader));
 $location=$_POST['location'];
 ?>
 

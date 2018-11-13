@@ -111,7 +111,7 @@
 	else
 	{
 		
-	if( $meta['hero_image_show']!="yes"){
+	if( isset($meta['hero_image_show']) && $meta['hero_image_show']!="yes"){
 		
 		if(strpos(get_post_meta( $pid, 'udm_specific_hero', true ), 'Basic_Hero') !== false){
 			$layout=get_post_meta( $pid, 'udm_specific_hero', true );

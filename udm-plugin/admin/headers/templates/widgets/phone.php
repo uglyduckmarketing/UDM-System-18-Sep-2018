@@ -7,7 +7,8 @@ include '../../../../../../../../wp-load.php';
 ?>
 
 <?php
-$phonedata=unserialize(get_option('header_layout_'.$_POST['header']));
+$header = isset($_POST['header']) ? $_POST['header'] : '';
+$phonedata=unserialize(get_option('header_layout_'.$header));
 
 $location=$_POST['location'];
 ?>
@@ -18,10 +19,10 @@ $location=$_POST['location'];
 		<li><h5>Text and Company Phone Number (Shows Automatically) <span>Another Number (Optional)</span></h5><input type="text" name="<?php echo $location; ?>_phone_left_text" value="<?php echo $phonedata[$location.'_phone_left_text']; ?>" /></li>
 	
 		<li><h5>Phone Overright: </h5><span class="switch">
-			<input type="checkbox" name="<?php echo $location; ?>_phone_overright" class="switch" id="<?php echo $location; ?>_phone_overright" value="yes" <?php checked("yes",$phonedata[$location.'_phone_overright']); ?>>
+			<input type="checkbox" name="<?php echo $location; ?>_phone_overright" class="switch" id="<?php echo $location; ?>_phone_overright" value="yes" <?php checked("yes",isset($phonedata[$location.'_phone_overright']) ? $phonedata[$location.'_phone_overright'] : ''); ?>>
 			<label for="<?php echo $location; ?>_phone_overright">No / Yes</label>
 		</span></li>
-		<div id="<?php echo $location; ?>_numberdata" <?php if($phonedata[$location.'_phone_overright']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+		<div id="<?php echo $location; ?>_numberdata" <?php if(isset($phonedata[$location.'_phone_overright']) && $phonedata[$location.'_phone_overright']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 			<li><h5>Phone Number: </h5><input type="text" name="<?php echo $location; ?>_phone_number" value="<?php echo $phonedata[$location.'_phone_number']; ?>" /></li>
 		</div>
 	</ul>

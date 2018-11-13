@@ -15,7 +15,8 @@ jQuery(document).ready(function($) {
   });
 </script>
 <?php
-$textdata=unserialize(get_option('header_layout_'.$_POST['header']));
+$theader = isset($_POST['header']) ? $_POST['header'] : '';
+$textdata=unserialize(get_option('header_layout_'.$theader));
 	$location=$_POST['location'];
 ?>
 

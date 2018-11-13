@@ -5,6 +5,7 @@ define('WP_USE_THEMES', true);
 /** Loads the WordPress Environment and Template */
 //require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
+$layout = '';
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];

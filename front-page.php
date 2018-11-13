@@ -20,7 +20,7 @@ if ( $post && preg_match( '/vc_row/', $post->post_content ) ) {
 						<?php 	
 							while(have_posts()):the_post();
 								the_content();
-							endwhile; wp_reset_query
+							endwhile; wp_reset_query();
 							?>
 				
 			<?php

@@ -196,12 +196,12 @@
 
 jQuery(document).ready(function($) {
   	$('.udm_color_picker').wpColorPicker();   
-   $('.icp.icp-auto').iconpicker('.icp.icp-auto');
+ //	  $('.icp.icp-auto').iconpicker('.icp.icp-auto');
  });
   
 
 </script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/udm-plugin/js/jquery-2.0.0.min.js"></script>
+<!--<script type="text/javascript" src="<?php //bloginfo('template_directory'); ?>/udm-plugin/js/jquery-2.0.0.min.js"></script>-->
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/udm-plugin/js/jquery.smartWizard.js"></script>
 
 <script type="text/javascript">

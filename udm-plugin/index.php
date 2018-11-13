@@ -4,7 +4,7 @@
 ################################################################################
 
 //Admin Scripts
-
+define('VERSION','1.0');
 add_action( 'admin_head', 'wp_admin_header_scripts' );
 function wp_admin_header_scripts( $hook_suffix ) {
 	wp_enqueue_style( 'udm-bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
@@ -203,7 +203,8 @@ function udm_specific_header_save( $post_id ) {
       return;
 
   // verify nonce
-  if ( !wp_verify_nonce( $_POST['udm_specific_header_nonce'], basename( __FILE__ ) ) )
+  $udm_specific_header_nonce = isset($_POST['udm_specific_header_nonce']) ? $_POST['udm_specific_header_nonce'] : '';
+  if ( !wp_verify_nonce( $udm_specific_header_nonce, basename( __FILE__ ) ) )
       return;
 
 
@@ -346,7 +347,8 @@ function udm_specific_hero_save( $post_id ) {
       return;
 
   // verify nonce
-  if ( !wp_verify_nonce( $_POST['udm_specific_hero_nonce'], basename( __FILE__ ) ) )
+ $udm_specific_hero_nonce =  isset($_POST['udm_specific_hero_nonce']) ? $_POST['udm_specific_hero_nonce'] : '';
+  if ( !wp_verify_nonce( $udm_specific_hero_nonce, basename( __FILE__ ) ) )
       return;
 
 
@@ -398,7 +400,7 @@ function show_hero_fields_meta_box($post) {
 				<label for="hero_fields[hero_image_show]">Hero Section Hide</label>
 				<br>
 				<span class="switch">
-					<input type="checkbox" name="hero_fields[hero_image_show]" class="switch" id="hero_fields[hero_image_show]" value="yes" <?php checked('yes', $meta['hero_image_show']); ?>>
+					<input type="checkbox" name="hero_fields[hero_image_show]" class="switch" id="hero_fields[hero_image_show]" value="yes" <?php checked('yes', isset($meta['hero_image_show']) ? $meta['hero_image_show'] : ''); ?>>
 					<label for="hero_fields[hero_image_show]">Show/Hide</label>
 				</span>
 		</p>
@@ -413,6 +415,7 @@ function show_hero_fields_meta_box($post) {
 		<div id="fulwidth_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Fulwidth_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Fulwidth_Hero') !== false){}else{ ?>  style="display:none;" <?php } ?>>
 		
 			<?php 
+			$smalltextshow = '';
 				if (is_array($meta) && isset($meta['udm_fullwidth_eyebrow_text_show'])) {	$smalltextshow=$meta['udm_fullwidth_eyebrow_text_show']; }
 			?>
 			<p>
@@ -438,7 +441,7 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_fullwidth_description]">Description</label>
 				<br>
-				<textarea name="hero_fields[udm_fullwidth_description]" id="hero_fields[udm_fullwidth_description]" rows="5" cols="30" style="width:500px;"><?php echo $meta['udm_fullwidth_description']; ?></textarea>
+				<textarea name="hero_fields[udm_fullwidth_description]" id="hero_fields[udm_fullwidth_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_fullwidth_description']) ? $meta['udm_fullwidth_description'] : ''; ?></textarea>
 			</p>
 		</div>
 		<div id="splitscreen_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Splitscreen_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Splitscreen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
@@ -695,7 +698,8 @@ function udm_specific_galley_save( $post_id ) {
       return;
 
   // verify nonce
-  if ( !wp_verify_nonce( $_POST['udm_specific_galley_nonce'], basename( __FILE__ ) ) )
+  $udm_specific_galley_nonce = isset($_POST['udm_specific_galley_nonce']) ? $_POST['udm_specific_galley_nonce'] : '';
+  if ( !wp_verify_nonce( $udm_specific_galley_nonce, basename( __FILE__ ) ) )
       return;
 
 

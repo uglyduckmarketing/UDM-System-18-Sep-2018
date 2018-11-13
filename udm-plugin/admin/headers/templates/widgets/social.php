@@ -8,7 +8,8 @@ include '../../../../../../../../wp-load.php';
 ?>
 
 <?php
-$socialdata=unserialize(get_option('header_layout_'.$_POST['header']));
+$sheader = isset($_POST['header']) ? $_POST['header'] : '';
+$socialdata=unserialize(get_option('header_layout_'.$sheader));
 	$location=$_POST['location'];
 ?>
 
