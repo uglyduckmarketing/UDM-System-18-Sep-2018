@@ -32,16 +32,16 @@
 	<li class="colorchange"><h3>Overlay Color: </h3>
 		<select name="overlay_color" id="overlay_color">
 			
-			<option value="primary" <?php selected('primary',$data['overlay_color']); ?>>Primary</option>
-			<option value="secondary" <?php selected('secondary',$data['overlay_color']); ?>>Secondary</option>
-			<option value="global_light" <?php selected('global_light',$data['overlay_color']); ?>>Global Light</option>
-			<option value="global_dark" <?php selected('global_dark',$data['overlay_color']); ?>>Global Dark</option>
-			<option value="custom" <?php selected('custom',$data['overlay_color']); ?>>Custom</option>
+			<option value="primary">Primary</option>
+			<option value="secondary">Secondary</option>
+			<option value="global_light">Global Light</option>
+			<option value="global_dark">Global Dark</option>
+			<option value="custom">Custom</option>
 		</select>
-		<ul class="customcolor" <?php if($data['overlay_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+		<ul class="customcolor">
 			<li>
 				<h3>Overlay Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo $data['overlay_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="" />
 			</li>
 		</ul>
 	</li>

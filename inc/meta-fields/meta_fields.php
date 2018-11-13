@@ -26,8 +26,10 @@ function add_script() { ?>
    <script>
      jQuery(document).ready( function($) {
        function ct_media_upload(button_class) {
-         var _custom_media = true,
+         var _custom_media = true;
+		 if(!_custom_media){
          _orig_send_attachment = wp.media.editor.send.attachment;
+		 }
          $('body').on('click', button_class, function(e) {
            var button_id = '#'+$(this).attr('id');
            var send_attachment_bkp = wp.media.editor.send.attachment;
@@ -50,17 +52,6 @@ function add_script() { ?>
      $('body').on('click','.ct_tax_media_remove',function(){
        $('#category-image-id').val('');
        $('#category-image-wrapper').html('<img class="custom_media_image" src="" style="margin:0;padding:0;max-height:100px;float:none;" />');
-     });
-     $(document).ajaxComplete(function(event, xhr, settings) {
-       var queryStringArr = settings.data.split('&');
-       if( $.inArray('action=add-tag', queryStringArr) !== -1 ){
-         var xml = xhr.responseXML;
-         $response = $(xml).find('term_id').text();
-         if($response!=""){
-           // Clear the thumb image
-           $('#category-image-wrapper').html('');
-         }
-       }
      });
    });
  </script>
@@ -354,7 +345,7 @@ function save_service_benifit_meta( $post_id ) {
         }
     }
 
-			$new = $_POST['benifit'];
+			$new = isset($_POST['benifit']) ? $_POST['benifit'] : '';
 			update_post_meta( $post_id, 'benifit', $new );
 	
 }
@@ -1095,7 +1086,8 @@ function udm_service_options_save( $post_id ) {
       return;
 
   // verify nonce
-  if ( !wp_verify_nonce( $_POST['udm_service_options_nonce'], basename( __FILE__ ) ) )
+  $udm_service_options_nonce = isset($_POST['udm_service_options_nonce']) ? $_POST['udm_service_options_nonce'] : '';
+  if ( !wp_verify_nonce( $udm_service_options_nonce, basename( __FILE__ ) ) )
       return;
 
 

@@ -25,7 +25,7 @@
 	</div>
 </section>
 <?php $bkmeta = get_post_meta(get_the_ID(),'breakdown', true);
-if(count(array_filter($bkmeta)) != 0){
+if(is_array($bkmeta) && count(array_filter($bkmeta)) != 0){
  ?>
 <section class="service_breakdown">
 	<div class="container-fluid">
