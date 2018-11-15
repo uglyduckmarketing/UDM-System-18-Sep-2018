@@ -899,7 +899,7 @@ function udm_service_cta_display($post){
 			<label>Ninja Form</label>
 			<?php global $wpdb;
 			$tblname = $wpdb->prefix.'nf3_forms';
-			if (in_array('nf3_forms', $wpdb->tables)) {
+			if($wpdb->get_var("SHOW TABLES LIKE '$tblname'") == $tblname) {
 				$ninjaform = $wpdb->get_results("select * from $tblname order by created_at DESC");
 			?>
 			<div class="own_label">
