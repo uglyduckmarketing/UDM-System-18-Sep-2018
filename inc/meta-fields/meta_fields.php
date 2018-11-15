@@ -250,13 +250,13 @@ function udm_service_benifits_display($post){
 								<div class="own_fields own_input_field_text">
 									<label>Benefit Title</label>
 									<div class="own_label">
-										<input type="text" id="benefit_title" class="text " name="benifit[<?php echo $i; ?>][benefit_<?php echo $i; ?>_title]" value="<?php echo $bmeta[$i]['benefit_'.$i.'_title']; ?>" placeholder="">
+										<input type="text" id="benefit_title" class="text " name="benifit[<?php echo $i; ?>][benefit_<?php echo $i; ?>_title]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_title']) ? $bmeta[$i]['benefit_'.$i.'_title'] : ''; ?>" placeholder="">
 									</div> 
 								</div>
 								<div class="own_fields own_input_field_text">
 									<label>Benefit Text</label>
 									<div class="own_label">
-										<input type="text" id="benifit_text" class="text " name="benifit[<?php echo $i; ?>][benefit_<?php echo $i; ?>_text]" value="<?php echo $bmeta[$i]['benefit_'.$i.'_text']; ?>" placeholder=""> 
+										<input type="text" id="benifit_text" class="text " name="benifit[<?php echo $i; ?>][benefit_<?php echo $i; ?>_text]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_text']) ? $bmeta[$i]['benefit_'.$i.'_text'] : ''; ?>" placeholder=""> 
 									</div>
 								</div>
 							</td>
@@ -897,8 +897,9 @@ function udm_service_cta_display($post){
 					
 		<div class="own_fields own_input_field_text showform"  <?php if($choose_btn_form == ''){ ?> style="display:none;" <?php }else if($choose_btn_form == 'button'){ ?> style="display:none;" <?php }  ?>>
 			<label>Ninja Form</label>
-			<?php global $wpdb; 
-				$tblname = $wpdb->prefix.'nf3_forms';
+			<?php global $wpdb;
+			$tblname = $wpdb->prefix.'nf3_forms';
+			if (in_array('nf3_forms', $wpdb->tables)) {
 				$ninjaform = $wpdb->get_results("select * from $tblname order by created_at DESC");
 			?>
 			<div class="own_label">
@@ -914,6 +915,7 @@ function udm_service_cta_display($post){
 					?>
 				</select>
 			</div>
+				<?php }else{ echo '<div class="own_label"> Ninja Form Plugin Required</div>'; } ?>
 		</div>
 	</div>
 	<script>

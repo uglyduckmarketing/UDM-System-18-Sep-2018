@@ -108,11 +108,11 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 	<li>
 		<h3>Button:</h3>
 		<span class="switch">
-			<input type="checkbox" name="show_button" class="switch" id="editshow_button" value="yes" <?php checked('yes',$data['show_button']); ?>>
+			<input type="checkbox" name="show_button" class="switch" id="editshow_button" value="yes" <?php checked('yes',isset($data['show_button']) ? $data['show_button'] : ''); ?>>
 			<label for="editshow_button">Off/On</label>
 		</span>
 	</li>
-	<div id="editcallactionwidget" <?php if($data['show_button']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+	<div id="editcallactionwidget" <?php if(isset($data['show_button']) && $data['show_button']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 		<li class="colorchange"><h3>Button Color: </h3>
 			<select name="button_color" id="button_color">
 				

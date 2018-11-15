@@ -15,38 +15,38 @@
 							//if($data['header_topbar']=="yes")
 						//	{
 						?>
-					   <section class="top_stacked_header top_basic_show <?php if($data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
+					   <section class="top_stacked_header top_basic_show <?php if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
                             <div class="container-fluid">
                                 <div class="row">
 								
 							
 									<?php 
-										if($data['lefttopbartext'] == 'yes')
+										if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
 										{
 									?>
                                     <div class="col">
                                     <ul class="top_header_get_bt top_header_get_bt_show lefttoptext">
-										<li><p><?php echo $data['lefttopbar_text']; ?></p></li>
+										<li><p><?php echo isset($data['lefttopbar_text']) ? $data['lefttopbar_text'] : ''; ?></p></li>
 										</ul>
                                     </div>
 									<?php 
 										}
-										else if($data['lefttopbarphone'] == 'yes')
+										else if(isset($data['lefttopbarphone']) && $data['lefttopbarphone'] == 'yes')
 										{
 									?>
                                     <div class="col-12 col-xl-3 col-lg-4 col-md-5 col-sm-12">
 									 <ul class="top_heade_left top_header_left_show lefttopphone">
 										<?php 
-											if($data['lefttopbar_phone_left_text']!="")
+											if(isset($data['lefttopbar_phone_left_text']) && $data['lefttopbar_phone_left_text']!="")
 											{
 										?>
-										<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo $data['lefttopbar_phone_left_text']; ?></a></li>
+										<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></a></li>
 										<?php
 											}										
-											if($data['lefttopbar_phone_overright']=="yes")
+											if(isset($data['lefttopbar_phone_overright']) && $data['lefttopbar_phone_overright']=="yes")
 											{
 										?>
-										<li><a class="contact_stacked" href="tel:<?php echo $data['lefttopbar_phone_number']; ?>"><?php echo $data['lefttopbar_phone_number']; ?></a></li>
+										<li><a class="contact_stacked" href="tel:<?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?>"><?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?></a></li>
 										<?php
 											}else{
 										?>
@@ -58,14 +58,14 @@
                                     </div>
 									<?php 
 										}
-										else if($data['lefttopbarsocial'] == 'yes')
+										else if(isset($data['lefttopbarsocial']) && $data['lefttopbarsocial'] == 'yes')
 										{ 
 									?>
 									<div class="col social_icon_box">	 
                                     <ul class="top_heade_right lefttopsocial">
                                    	
 										<?php
-										if($data['lefttopbar_social_icon_style']=='square')
+										if(isset($data['lefttopbar_social_icon_style']) && $data['lefttopbar_social_icon_style']=='square')
 										{
 											 $type="-square"; 
 										}
@@ -110,54 +110,54 @@
                                         </div>
 										<?php										
 										}
-										else if($data['lefttopbarbutton'] == 'yes')
+										else if(isset($data['lefttopbarbutton']) && $data['lefttopbarbutton'] == 'yes')
 										{
-											$scheme = parse_url( $data['lefttopbar_button_link'], PHP_URL_SCHEME);
+											$scheme = parse_url( isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '', PHP_URL_SCHEME);
 											if( !in_array( $scheme, array( 'http', 'https'))){
-												$url="http://".$data['lefttopbar_button_link'];
+												$url="http://".isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '';
 											}
 											else
 											{
-												$url=$data['lefttopbar_button_link'];
+												$url=isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '';
 											}
 										?>
                                     <div class="col-6 col-sm-6 col-md-5 col-lg-5 col-xl-7">
                                     <ul class="top_header_get_bt top_header_get_bt_show lefttopbutton">
-											<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['lefttopbar_button_text']!=""){ echo $data['lefttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+											<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['lefttopbar_button_text']) && $data['lefttopbar_button_text']!=""){ echo $data['lefttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 											</ul>
                                     </div>
 									<?php 
 										}
 									
-									if($data['top_bar_style']=="1_3"){
+									if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){
 								?>
                                <?php 
-										if($data['middletopbartext'] == 'yes')
+										if(isset($data['middletopbartext']) && $data['middletopbartext'] == 'yes')
 										{
 									?>
                                        <div class="col">
 										<ul class="top_header_get_bt top_header_get_bt_show middletoptext">
-										<li><p><?php echo $data['middletopbar_text']; ?></p></li>
+										<li><p><?php echo isset($data['middletopbar_text']) ? $data['middletopbar_text'] : ''; ?></p></li>
 										</ul>
                                     </div>
 									<?php 
 										}
-										else if($data['middletopbarphone'] == 'yes')
+										else if(isset($data['middletopbarphone']) && $data['middletopbarphone'] == 'yes')
 										{
 									?> 
                                     <div class="col-6 col-xl-3 col-lg-4 col-md-4 col-sm-6">
                                     <ul class="top_heade_left top_header_left_show middletopphone">
                                      <?php 
-											if($data['middletopbar_phone_left_text']!="")
+											if(isset($data['middletopbar_phone_left_text']) && $data['middletopbar_phone_left_text']!="")
 											{
 										?>
-										<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo $data['middletopbar_phone_left_text']; ?></a></li>
+										<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['middletopbar_phone_left_text']) ? $data['middletopbar_phone_left_text'] : ''; ?></a></li>
 										<?php 
 											}
-											if($data['middletopbar_phone_overright']=="yes")
+											if(isset($data['middletopbar_phone_overright']) && $data['middletopbar_phone_overright']=="yes")
 											{
 										?>
-										<li><a class="contact_stacked" href="tel:<?php echo $data['middletopbar_phone_number']; ?>"><?php echo $data['middletopbar_phone_number']; ?></a></li>
+										<li><a class="contact_stacked" href="tel:<?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?>"><?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?></a></li>
 										<?php
 											}else{
 										?>
@@ -169,14 +169,14 @@
                                     </div>
 									<?php 
 										}
-										else if($data['middletopbarsocial'] == 'yes')
+										else if(isset($data['middletopbarsocial']) && $data['middletopbarsocial'] == 'yes')
 										{ 
 									?> 
                                     <div class="col">
                                     <ul class="top_heade_right middletopsocial">
                                    	
 										<?php
-										if($data['middletopbar_social_icon_style']=='square')
+										if(isset($data['middletopbar_social_icon_style']) && $data['middletopbar_social_icon_style']=='square')
 										{
 											 $type="-square"; 
 										}
@@ -221,20 +221,20 @@
                                     </div>
 											<?php
 										}
-										else if($data['middletopbarbutton'] == 'yes')
+										else if(isset($data['middletopbarbutton']) && $data['middletopbarbutton'] == 'yes')
 										{
-											$scheme = parse_url( $data['middletopbar_button_link'], PHP_URL_SCHEME);
+											$scheme = parse_url( isset($data['middletopbar_button_link']) ? $data['middletopbar_button_link'] : '', PHP_URL_SCHEME);
 											if( !in_array( $scheme, array( 'http', 'https'))){
-												$url="http://".$data['middletopbar_button_link'];
+												$url="http://".isset($data['middletopbar_button_link']) ? $data['middletopbar_button_link'] : '';
 											}
 											else
 											{
-												$url=$data['middletopbar_button_link'];
+												$url=isset($data['middletopbar_button_link']) ? $data['middletopbar_button_link'] : '';
 											}
 										?>
                                     <div class="col">
 										<ul class="top_header_get_bt top_header_get_bt_show middletopbutton">
-											<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['middletopbar_button_text']!=""){ echo $data['middletopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+											<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['middletopbar_button_text']) && $data['middletopbar_button_text']!=""){ echo $data['middletopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 											</ul>
                                     </div>
 									<?php 
@@ -242,32 +242,32 @@
 									} ?>
                                 
                                     <?php 
-										if($data['righttopbartext'] == 'yes')
+										if(isset($data['righttopbartext']) && $data['righttopbartext'] == 'yes')
 										{
 									?>
                                     <div class="col">
 									<ul class="top_header_get_bt top_header_get_bt_show righttoptext">
-										<li><p><?php echo $data['righttopbar_text']; ?></p></li>
+										<li><p><?php echo isset($data['righttopbar_text']) ? $data['righttopbar_text'] : ''; ?></p></li>
 									</ul>
                                     </div>
 									<?php 
 										}
-										else if($data['righttopbarphone'] == 'yes')
+										else if(isset($data['righttopbarphone']) && $data['righttopbarphone'] == 'yes')
 										{
 									?> 
                                     <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3">
                                     <ul class="top_heade_left top_header_left_show righttopphone">
                                      <?php 
-											if($data['righttopbar_phone_left_text']!="")
+											if(isset($data['righttopbar_phone_left_text']) && $data['righttopbar_phone_left_text']!="")
 											{
 										?>
 										<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo $data['righttopbar_phone_left_text']; ?></a></li>
 										<?php 
 											}
-											if($data['righttopbar_phone_overright']=="yes")
+											if(isset($data['righttopbar_phone_overright']) && $data['righttopbar_phone_overright']=="yes")
 											{
 										?>
-										<li><a class="contact_stacked" href="tel:<?php echo $data['righttopbar_phone_number']; ?>"><?php echo $data['righttopbar_phone_number']; ?></a></li>
+										<li><a class="contact_stacked" href="tel:<?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?>"><?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?></a></li>
 										<?php
 											}else{
 										?>
@@ -279,13 +279,13 @@
                                     </div>
 									<?php 
 										}
-										else if($data['righttopbarsocial'] == 'yes')
+										else if(isset($data['righttopbarsocial']) && $data['righttopbarsocial'] == 'yes')
 										{ 
 									?>
                                     <div class="col">
                                     <ul class="top_heade_right righttopsocial">
 										<?php
-										if($data['righttopbar_social_icon_style']=='square')
+										if(isset($data['righttopbar_social_icon_style']) && $data['righttopbar_social_icon_style']=='square')
 										{
 											 $type="-square"; 
 										}
@@ -330,20 +330,20 @@
                                         </div>
 											<?php
 										}
-										else if($data['righttopbarbutton'] == 'yes')
+										else if(isset($data['righttopbarbutton']) && $data['righttopbarbutton'] == 'yes')
 										{
-											$scheme = parse_url( $data['righttopbar_button_link'], PHP_URL_SCHEME);
+											$scheme = parse_url( isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '', PHP_URL_SCHEME);
 											if( !in_array( $scheme, array( 'http', 'https'))){
-												$url="http://".$data['righttopbar_button_link'];
+												$url="http://".isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '';
 											}
 											else
 											{
-												$url=$data['righttopbar_button_link'];
+												$url=isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '';
 											}
 										?>
                                     <div class="col col-sm-2">
                                     <ul class="top_header_get_bt top_header_get_bt_show righttopbutton">
-											<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['righttopbar_button_text']!=""){ echo $data['righttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+											<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['righttopbar_button_text']) && $data['righttopbar_button_text']!=""){ echo $data['righttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 											</ul>
                                     </div>
 									<?php 
@@ -364,7 +364,7 @@
                                   </button>
                                   <div class="collapse navbar-collapse" id="collapsibleNavbar">
                                      <?php
-										$menu=$data['navigation'];
+										$menu=isset($data['navigation']) ? $data['navigation'] : '';
 										if($menu!="")
 										{
 											wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
@@ -377,26 +377,26 @@
 									  <ul class="navbar-nav">
                                        <li class="nav-item get_started_show">
                                          <?php 
-												if($data['bottombartext'] == 'yes')
+												if(isset($data['bottombartext']) && $data['bottombartext'] == 'yes')
 												{
 											?>
-												 <ul class="bottomtext"><li><p><?php echo $data['bottombar_text']; ?></p></li> </ul>
+												 <ul class="bottomtext"><li><p><?php echo isset($data['bottombar_text']) ? $data['bottombar_text'] : ''; ?></p></li> </ul>
 											<?php 
 												}
-												else if($data['bottombarphone'] == 'yes')
+												else if(isset($data['bottombarphone']) &&  $data['bottombarphone'] == 'yes')
 												{
 											?>	<ul class="bottomphone">
 											<?php 
-											if($data['bottombar_phone_left_text']!="")
+											if(isset($data['bottombar_phone_left_text']) && $data['bottombar_phone_left_text']!="")
 											{
 										?>
-											<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo $data['bottombar_phone_left_text']; ?></a></li>
+											<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['bottombar_phone_left_text']) ?  $data['bottombar_phone_left_text'] : ''; ?></a></li>
 										<?php
 											}												
-											if($data['bottomtopbar_phone_overright']=="yes")
+											if(isset($data['bottomtopbar_phone_overright']) && $data['bottomtopbar_phone_overright']=="yes")
 											{
 										?>
-										<li><a class="contact_stacked" href="tel:<?php echo $data['bottomtopbar_phone_number']; ?>"><?php echo $data['bottomtopbar_phone_number']; ?></a></li>
+										<li><a class="contact_stacked" href="tel:<?php echo isset($data['bottomtopbar_phone_number']) ? $data['bottomtopbar_phone_number'] : ''; ?>"><?php echo isset($data['bottomtopbar_phone_number']) ? $data['bottomtopbar_phone_number'] : ''; ?></a></li>
 										<?php
 											}else{
 										?>
@@ -407,11 +407,11 @@
 										</ul>
 											<?php 
 												}
-												else if($data['bottombarsocial'] == 'yes')
+												else if(isset($data['bottombarsocial']) && $data['bottombarsocial'] == 'yes')
 												{ 
 											?> <ul class="bottomsocial">
 												<?php
-												if($data['bottombar_social_icon_style']=='square')
+												if(isset($data['bottombar_social_icon_style']) && $data['bottombar_social_icon_style']=='square')
 												{
 													 $type="-square"; 
 												}
@@ -456,11 +456,11 @@
 												<?php
 												
 												}
-												else if($data['bottombarbutton'] == 'yes')
+												else if(isset($data['bottombarbutton']) && $data['bottombarbutton'] == 'yes')
 												{
 												?>
 													<ul class="bottomphone">
-														<li><span class="right_side_bt"><a href="<?php if($data['bottom_button_link']!=""){ echo $data['bottombar_button_link']; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['bottombar_button_text']!=""){ echo $data['bottombar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+														<li><span class="right_side_bt"><a href="<?php if(isset($data['bottom_button_link']) && $data['bottom_button_link']!=""){ echo isset($data['bottombar_button_link']) ? $data['bottombar_button_link'] : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['bottombar_button_text']) && $data['bottombar_button_text']!=""){ echo isset($data['bottombar_button_text']) ? $data['bottombar_button_text'] : ''; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 													</ul>
 											<?php  
 												}

@@ -5,7 +5,7 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 ?>
 
 <!--fullwidth-hero-3-->
-<section class="fullwidth-hero-3 <?php echo $transparent_header_class; ?>">
+<section class="fullwidth-hero-3 <?php //echo $transparent_header_class; ?>">
     <div class="container">
         <div class="row">
             <div class="col <?php if($data['text_align']=="left"){ echo "text-left"; }else if($data['text_align']=="right"){ echo "text-right"; }else{ echo "text-center"; } ?>">

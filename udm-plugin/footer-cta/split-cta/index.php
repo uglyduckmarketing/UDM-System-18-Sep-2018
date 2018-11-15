@@ -12,14 +12,14 @@ $datas=unserialize(get_option('service_layout_'.$layout));
         <div class="row">
             <div class="col col-lg-6 p1-left align-self-stretch <?php if($cta['choose_btn_form'] == 'form'){ echo "form_text"; } else if($data['element_type']=="form"){ echo "form_text"; }else if($data['element_type']=="image"){ echo "mobbackimage"; } ?>">
                 <div class="main_content_box">
-				<?php if($cta['choose_btn_form'] == 'form'){ 
+				<?php if(isset($cta['choose_btn_form']) && $cta['choose_btn_form'] == 'form'){ 
 					echo do_shortcode('[ninja_form id='.$cta['choose_ninja_form'].']');
 				}else {?>
                     <div class="fullwidth_content">
 					
-						<?php if(isset($cta) && $cta['cta_eyebrow'] != ''){ echo '<span class="eyebrow" style="">'.$cta['cta_eyebrow'].'</span>'; } ?>
-                        <h2><?php if(isset($cta) && $cta['cta_heading'] != ''){ echo $cta['cta_heading']; }else if($data['title_text']!=""){ echo $data['title_text']; }else{ ?>An intelligent design platform build for<br>every type of industry.<?php } ?></h2>
-                        <p><?php if(isset($cta) && $cta['cta_description'] != ''){ echo $cta['cta_description']; } else if($data['description_text']!=""){ echo $data['description_text']; }else{ ?>We design and build the tools necessary to compete and win<br>in the digital marketplace.<?php } ?></p>
+						<?php if(isset($cta) && isset($cta['cta_eyebrow']) && $cta['cta_eyebrow'] != ''){ echo '<span class="eyebrow" style="">'.$cta['cta_eyebrow'].'</span>'; } ?>
+                        <h2><?php if(isset($cta) && isset($cta['cta_heading']) && $cta['cta_heading'] != ''){ echo $cta['cta_heading']; }else if($data['title_text']!=""){ echo $data['title_text']; }else{ ?>An intelligent design platform build for<br>every type of industry.<?php } ?></h2>
+                        <p><?php if(isset($cta) && isset($cta['cta_description']) &&  $cta['cta_description'] != ''){ echo $cta['cta_description']; } else if($data['description_text']!=""){ echo $data['description_text']; }else{ ?>We design and build the tools necessary to compete and win<br>in the digital marketplace.<?php } ?></p>
                     </div>
                     <?php
 					if(get_post_meta($post->ID, 'service_cta', true) != '' && $cta['cta_button_text'] != '' && $cta['cta_button_link'] != ''){
@@ -51,20 +51,20 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 						}
 						if($datas['cta_button_text'] != ''){ $button = $datas['cta_button_text']; }else if($datas['button_text']!=""){ $button = $datas['button_text']; }else{ $button = 'Get Started'; }
 					}else{
-						 if($data['button_url']!=""){ 
-								$scheme = parse_url( $data['button_url'], PHP_URL_SCHEME);
+						 if(isset($data['button_url']) && $data['button_url']!=""){ 
+								$scheme = parse_url( isset($data['button_url']) ? $data['button_url'] : '', PHP_URL_SCHEME);
 									if( !in_array( $scheme, array( 'http', 'https'))){
-										$url="http://".$data['button_url'];
+										$url="http://".isset($data['button_url']) ? $data['button_url'] : '';
 									}
 									else
 									{
-										$url=$data['button_url'];
+										$url=isset($data['button_url']) ? $data['button_url'] : '';
 									}
 						}
 						if($data['button_text']!=""){ $button = $data['button_text']; }else{ $button = 'Get Started'; }
 					}
 				?>
-                <span class="right_side_bt"><a <?php if($url!=""){ ?> target="_blank" <?php } ?> class="btn" href="<?php if($url!=""){ echo $url;}else{ ?>#<?php } ?>"><h6><?php echo $button; ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+                <span class="right_side_bt"><a <?php if(isset($url) && $url!=""){ ?> target="_blank" <?php } ?> class="btn" href="<?php if($url!=""){ echo $url;}else{ ?>#<?php } ?>"><h6><?php echo $button; ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 				<?php } ?>
                 </div>
             </div>
@@ -170,6 +170,3 @@ $datas=unserialize(get_option('service_layout_'.$layout));
         </div>
     </div>
 </section>
-
- 
-

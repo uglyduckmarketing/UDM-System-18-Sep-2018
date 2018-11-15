@@ -1283,11 +1283,17 @@ display:flex;
 }
 .footer_cta_type_style li input[type="text"]{
 	width: 74%;
+}
+.footer_cta_type_style li input[type="text"], .footer_cta_type_style li select{
+	
 	padding: 0 10px;
 	font-size: 14px;
 	height: 32px;
 	line-height: 32px;
 	margin-left:0px;
+}
+.footer_cta_type_style li select{
+	width: 74%!important;
 }
 
 .footer_cta_type_style li ul li {

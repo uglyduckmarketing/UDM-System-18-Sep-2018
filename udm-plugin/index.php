@@ -173,12 +173,12 @@ function udm_specific_header() {
 
 // voodoo dropdown display
 function udm_specific_header_display( $post ) {
-
+$postid = isset($_GET['post']) ? $_GET['post'] : '';
   // Use nonce for verification
   wp_nonce_field( basename( __FILE__ ), 'udm_specific_header_nonce' );
 
   // get current value
-  $dropdown_value = get_post_meta( $post->ID, 'udm_specific_header', true );
+  $dropdown_value = get_post_meta( $postid, 'udm_specific_header', true );
   ?> 
     <select name="udm_specific_header" id="udm_specific_header">
 		<option value="">Default Header</option>
@@ -244,12 +244,12 @@ function udm_specific_hero() {
 }
 // Hero dropdown display
 function udm_specific_hero_display( $post ) {
-
+$postid = isset($_GET['post']) ? $_GET['post'] : '';
   // Use nonce for verification
   wp_nonce_field( basename( __FILE__ ), 'udm_specific_hero_nonce' );
 
   // get current value
-  $dropdown_value = get_post_meta( $post->ID, 'udm_specific_hero', true );
+  $dropdown_value = get_post_meta( $postid, 'udm_specific_hero', true );
   ?> 
 
     <select name="udm_specific_hero" id="udm_specific_hero">
@@ -380,7 +380,7 @@ function add_hero_fields_meta_box() {
 add_action( 'add_meta_boxes', 'add_hero_fields_meta_box' );
 function show_hero_fields_meta_box($post) {
    // global $post;  
-    
+    $postid = isset($_GET['post']) ? $_GET['post'] : '';
 		if(is_home() || is_archive())
 		{
 			$pid = get_option( 'page_for_posts' );
@@ -390,7 +390,7 @@ function show_hero_fields_meta_box($post) {
 			$pid = $post->ID;
 		}
 		
-		$meta = get_post_meta( $pid, 'hero_fields', true ); 
+		$meta = get_post_meta( $postid, 'hero_fields', true ); 
 		
 		?>
 
@@ -405,14 +405,14 @@ function show_hero_fields_meta_box($post) {
 				</span>
 		</p>
 		
-		<div id="basic_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Basic_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Basic_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
+		<div id="basic_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Basic_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Basic_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
 			<p>
 				<label for="hero_fields[udm_basic_header_text]">Header Text</label>
 				<br>
 				<input type="text" name="hero_fields[udm_basic_header_text]" id="hero_fields[udm_basic_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_basic_header_text'])) {	echo $meta['udm_basic_header_text']; } ?>">
 			</p>
 		</div>
-		<div id="fulwidth_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Fulwidth_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Fulwidth_Hero') !== false){}else{ ?>  style="display:none;" <?php } ?>>
+		<div id="fulwidth_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Fulwidth_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Fulwidth_Hero') !== false){}else{ ?>  style="display:none;" <?php } ?>>
 		
 			<?php 
 			$smalltextshow = '';
@@ -444,7 +444,7 @@ function show_hero_fields_meta_box($post) {
 				<textarea name="hero_fields[udm_fullwidth_description]" id="hero_fields[udm_fullwidth_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_fullwidth_description']) ? $meta['udm_fullwidth_description'] : ''; ?></textarea>
 			</p>
 		</div>
-		<div id="splitscreen_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Splitscreen_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Splitscreen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
+		<div id="splitscreen_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Splitscreen_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Splitscreen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
 		
 			<?php 
 				if (is_array($meta) && isset($meta['udm_splitscreen_eyebrow_text_show'])) {	$smalltextshow=$meta['udm_splitscreen_eyebrow_text_show']; }
@@ -472,10 +472,10 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_splitscreen_description]">Description</label>
 				<br>
-				<textarea name="hero_fields[udm_splitscreen_description]" id="hero_fields[udm_splitscreen_description]" rows="5" cols="30" style="width:500px;"><?php echo $meta['udm_splitscreen_description']; ?></textarea>
+				<textarea name="hero_fields[udm_splitscreen_description]" id="hero_fields[udm_splitscreen_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_splitscreen_description']) ? $meta['udm_splitscreen_description'] : ''; ?></textarea>
 			</p>
 		</div>
-		<div id="leftright_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Leftrightelement_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Leftrightelement_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
+		<div id="leftright_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Leftrightelement_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Leftrightelement_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
 	
 			<?php 
 				if (is_array($meta) && isset($meta['udm_leftrightelement_eyebrow_text_show'])) {	$smalltextshow=$meta['udm_leftrightelement_eyebrow_text_show']; }
@@ -504,7 +504,7 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_leftrightelement_description]">Description</label>
 				<br>
-				<textarea name="hero_fields[udm_leftrightelement_description]" id="hero_fields[udm_leftrightelement_description]" rows="5" cols="30" style="width:500px;"><?php echo $meta['udm_leftrightelement_description']; ?></textarea>
+				<textarea name="hero_fields[udm_leftrightelement_description]" id="hero_fields[udm_leftrightelement_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_leftrightelement_description']) ? $meta['udm_leftrightelement_description'] : ''; ?></textarea>
 			</p>
 			
 			<p id="element">
@@ -518,16 +518,16 @@ function show_hero_fields_meta_box($post) {
 			</p>
 			<p id="imageurl" <?php if (is_array($meta) && $meta['udm_leftrightelement_element']!="image") { ?>style="display:none;"<?php } ?>>
 				<label for="hero_fields[udm_leftrightelement_image]">Image Url</label><br>
-				<input type="text" name="hero_fields[udm_leftrightelement_image]" id="hero_fields[udm_leftrightelement_image]" class="meta-image regular-text main-image" value="<?php echo $meta['udm_leftrightelement_image']; ?>">
+				<input type="text" name="hero_fields[udm_leftrightelement_image]" id="hero_fields[udm_leftrightelement_image]" class="meta-image regular-text main-image" value="<?php echo isset($meta['udm_leftrightelement_image']) ? $meta['udm_leftrightelement_image'] : ''; ?>">
 				<input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" />
 			</p>
 			
 			<p id="videourl" <?php if (is_array($meta) && $meta['udm_leftrightelement_element']!="video") { ?>style="display:none;"<?php } ?>>
 				<label for="hero_fields[udm_leftrightelement_video]">Youtube/Vimeo Video Url</label><br>
-				<input type="text" name="hero_fields[udm_leftrightelement_video]" id="hero_fields[udm_leftrightelement_video]" class="meta-image regular-text" value="<?php echo $meta['udm_leftrightelement_video']; ?>">
+				<input type="text" name="hero_fields[udm_leftrightelement_video]" id="hero_fields[udm_leftrightelement_video]" class="meta-image regular-text" value="<?php echo isset($meta['udm_leftrightelement_video']) ? $meta['udm_leftrightelement_video'] : ''; ?>">
 			</p>
 		</div>
-		<div id="leadgen_hero_meta" <?php if(strpos(get_post_meta( get_the_ID(), 'udm_specific_hero', true ), 'Leadgen_Hero') !== false){ ?> <?php }else if(get_post_meta( get_the_ID(), 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Leadgen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
+		<div id="leadgen_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Leadgen_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Leadgen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
 	
 			
 			<?php 
@@ -556,7 +556,7 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_leadgen_description]">Description</label>
 				<br>
-				<textarea name="hero_fields[udm_leadgen_description]" id="hero_fields[udm_leadgen_description]" rows="5" cols="30" style="width:500px;"><?php echo $meta['udm_leadgen_description']; ?></textarea>
+				<textarea name="hero_fields[udm_leadgen_description]" id="hero_fields[udm_leadgen_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_leadgen_description']) ? $meta['udm_leadgen_description'] : ''; ?></textarea>
 			</p>
 
 		</div>
@@ -641,9 +641,9 @@ function save_hero_fields_meta( $post_id ) {
 	$old = get_post_meta( $post_id, 'hero_fields', true );
 		if (isset($_POST['hero_fields'])) { //Fix 3
 			$new = $_POST['hero_fields'];
-			
+			update_post_meta( $post_id, 'hero_fields', $new );
 			if ( $new && $new !== $old ) {
-				update_post_meta( $post_id, 'hero_fields', $new );
+				//update_post_meta( $post_id, 'hero_fields', $new );
 			} elseif ( '' === $new && $old ) {
 				//delete_post_meta( $post_id, 'hero_fields', $old );
 			}

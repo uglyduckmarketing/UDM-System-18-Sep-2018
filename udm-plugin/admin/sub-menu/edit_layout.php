@@ -10,15 +10,16 @@ if(isset($_POST['layout']))
 	$layout=$_POST['layout']; 
 }
 $data=unserialize(get_option('submenu_layout_'.$layout));
-
 ?>
-
+ 
 <form method="post" action="" enctype="multipart/form-data">
 	<?php 
 		if(get_option('submenu_layout_'.$layout)!="")
 		{
-			echo '<input type="hidden" name="submenu_layout_name" value="'.$data['mobile_nav_layout_name'].'" readonly>';
-			echo '<input type="hidden" name="submenu_layout_template" value="'.$data['mobile_nav_layout_template'].'" readonly>';
+			$mobile_nav_layout_name = isset($data['submenu_layout_name']) ? $data['submenu_layout_name'] : '';
+			$mobile_nav_layout_template = isset($data['submenu_layout_template']) ? $data['submenu_layout_template'] : '';
+			echo '<input type="hidden" name="submenu_layout_name" value="'.$mobile_nav_layout_name.'" readonly>';
+			echo '<input type="hidden" name="submenu_layout_template" value="'.$mobile_nav_layout_template.'" readonly>';
 		}
 		else
 		{

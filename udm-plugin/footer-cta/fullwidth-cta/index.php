@@ -13,7 +13,7 @@
                 </div>
 				<?php
 				
-				if($data['show_button']=="yes")
+				if(isset($data['show_button']) && $data['show_button']=="yes")
 				{
 					if($data['button_url']!=""){ 
 							$scheme = parse_url( $data['button_url'], PHP_URL_SCHEME);

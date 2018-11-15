@@ -14,7 +14,7 @@
             <div class="col col-lg-6 p1-left">
 				<div class="innercontet">
 					<div class="fullwidth_content">
-					   <?php if (is_array($meta) && $meta['udm_splitscreen_eyebrow_text_show']=="no") {}else{ ?> <span><?php if (is_array($meta) && $meta['udm_splitscreen_eyebrow_text']!="") {	echo $meta['udm_splitscreen_eyebrow_text']; } ?></span><?php } ?>
+					   <?php if (is_array($meta) && isset($meta['udm_splitscreen_eyebrow_text_show']) && $meta['udm_splitscreen_eyebrow_text_show']=="no") {}else{ ?> <span><?php if (is_array($meta) && $meta['udm_splitscreen_eyebrow_text']!="") {	echo $meta['udm_splitscreen_eyebrow_text']; } ?></span><?php } ?>
 						  <h2><?php if (is_array($meta) && $meta['udm_splitscreen_header_text']!=="") {	echo $meta['udm_splitscreen_header_text']; }else{ the_title(); } ?></h2>
 						<p><?php if (is_array($meta) && $meta['udm_splitscreen_description']!="") {	echo $meta['udm_splitscreen_description']; } ?></p>
 					</div>
@@ -34,7 +34,7 @@
             <div class="col col-md-6 p1-left">
                 <div class="innercontet">
 					<div class="fullwidth_content">
-						<?php if (is_array($meta) && $meta['udm_splitscreen_eyebrow_text_show']=="no") {}else{ ?> <span><?php if (is_array($meta) && $meta['udm_splitscreen_eyebrow_text']!="") {	echo $meta['udm_splitscreen_eyebrow_text']; } ?></span><?php } ?>
+						<?php if (is_array($meta) && isset($meta['udm_splitscreen_eyebrow_text_show']) && $meta['udm_splitscreen_eyebrow_text_show']=="no") {}else{ ?> <span><?php if (is_array($meta) && $meta['udm_splitscreen_eyebrow_text']!="") {	echo $meta['udm_splitscreen_eyebrow_text']; } ?></span><?php } ?>
 						<h2><?php if (is_array($meta) && $meta['udm_splitscreen_header_text']!="") {	echo $meta['udm_splitscreen_header_text']; }else{ the_title(); } ?></h2>
 						<p><?php if (is_array($meta) && $meta['udm_splitscreen_description']!="") {	echo $meta['udm_splitscreen_description']; }else{ ?>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<?php } ?></p>
 					</div>

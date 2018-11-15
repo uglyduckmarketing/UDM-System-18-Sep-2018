@@ -23,8 +23,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<li>
 		<h3>Logo size</h3>
 		<select name="logo_size">
-			<option value="default" <?php selected("default",$data['logo']); ?>>Default</option>
-			<option value="large" <?php selected("large",$data['logo']); ?>>Large</option>
+			<option value="default" <?php selected("default",isset($data['logo']) ? $data['logo'] : ''); ?>>Default</option>
+			<option value="large" <?php selected("large",isset($data['logo']) ? $data['logo'] : ''); ?>>Large</option>
 		</select>
 	</li>
 	<li>

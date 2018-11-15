@@ -8,7 +8,7 @@
         <div class="row <?php if($data['content_side']=="right"){ echo "content-right"; } ?>">
             <div class="col col-md-6">
                 <div class="fullwidth_content">
-                    <?php if (is_array($meta) && $meta['udm_leftrightelement_eyebrow_text_show']=="yes") { ?> <span><?php if (is_array($meta) && $meta['udm_leftrightelement_eyebrow_text']!="") {	echo $meta['udm_leftrightelement_eyebrow_text']; } ?></span><?php } ?>
+                    <?php if (is_array($meta) && isset($meta['udm_leftrightelement_eyebrow_text_show']) && $meta['udm_leftrightelement_eyebrow_text_show']=="yes") { ?> <span><?php if (is_array($meta) && $meta['udm_leftrightelement_eyebrow_text']!="") {	echo $meta['udm_leftrightelement_eyebrow_text']; } ?></span><?php } ?>
                     <h2><?php if (is_array($meta) && $meta['udm_leftrightelement_header_text']!="") {	echo $meta['udm_leftrightelement_header_text']; }else{ the_title(); } ?></h2>
                     <p><?php if (is_array($meta) && $meta['udm_leftrightelement_description']!="") {	echo $meta['udm_leftrightelement_description']; }else{ ?>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<?php } ?></p>
                 </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="col col-md-6">
                 <div class="form_part_top">
-					<?php if(is_array($meta) && $meta['udm_leftrightelement_element']=="video"){
+					<?php if(is_array($meta) && isset($meta['udm_leftrightelement_element']) && $meta['udm_leftrightelement_element']=="video"){
 						if(strpos($meta['udm_leftrightelement_video'], 'youtube') !== false)
 						{
 							if(strpos($meta['udm_leftrightelement_video'], 'https://www.youtube.com/embed/') !== false)

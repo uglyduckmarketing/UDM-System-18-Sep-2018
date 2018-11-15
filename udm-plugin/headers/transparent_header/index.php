@@ -4,31 +4,31 @@ $data=unserialize(get_option('header_layout_'.$layout));
 <header class="transparent">
 <div class="main_transparent_box">
 
-	<?php if($data['top_bar']=="yes"){ ?>
+	<?php if(isset($data['top_bar']) && $data['top_bar']=="yes"){ ?>
         <!--top-header_basic-->
         <section class="top_basic_header top_basic_show">
             <div class="container-fluid">
                 <div class="row">
                  <ul class="top_heade_left">
                     <?php 
-							if($data['lefttopbartext'] == 'yes')
+							if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
 							{
 						?>
-							<li><p><?php echo $data['lefttopbar_text']; ?></p></li>
+							<li><p><?php echo isset($data['lefttopbar_text']) ? $data['lefttopbar_text'] : ''; ?></p></li>
 						<?php 
 							}
-							else if($data['lefttopbarphone'] == 'yes')
+							else if(isset($data['lefttopbarphone']) && $data['lefttopbarphone'] == 'yes')
 							{
 						?>
-							<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo $data['lefttopbar_phone_left_text']; ?></a></li>
+							<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></a></li>
 							<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a></li>
 						<?php 
 							}
-							else if($data['lefttopbarsocial'] == 'yes')
+							else if(isset($data['lefttopbarsocial']) && $data['lefttopbarsocial'] == 'yes')
 							{ 
 						?>
 							<?php
-							if($data['lefttopbar_social_icon_style']=='square')
+							if(isset($data['lefttopbar_social_icon_style']) && $data['lefttopbar_social_icon_style']=='square')
 							{
 								 $type="-square"; 
 							}
@@ -69,42 +69,42 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							<?php
 								}
 							}
-							else if($data['lefttopbarbutton'] == 'yes')
+							else if(isset($data['lefttopbarbutton']) && $data['lefttopbarbutton'] == 'yes')
 							{
-								$scheme = parse_url( $data['lefttopbar_button_link'], PHP_URL_SCHEME);
+								$scheme = parse_url( isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '', PHP_URL_SCHEME);
 								if( !in_array( $scheme, array( 'http', 'https'))){
-									$url="http://".$data['lefttopbar_button_link'];
+									$url="http://".isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '';
 								}
 								else
 								{
-									$url=$data['lefttopbar_button_link'];
+									$url=isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '';
 								}
 							?>
-								<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['lefttopbar_button_text']!=""){ echo $data['lefttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+								<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['lefttopbar_button_text']) && $data['lefttopbar_button_text']!=""){ echo $data['lefttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 						<?php 
 							}
 						?>
                 </ul>
                 <ul class="top_heade_right">
                    <?php 
-							if($data['righttopbartext'] == 'yes')
+							if(isset($data['righttopbartext']) && $data['righttopbartext'] == 'yes')
 							{
 						?>
-							<li><p><?php echo $data['righttopbar_text']; ?></p></li>
+							<li><p><?php echo isset($data['righttopbar_text']) ? $data['righttopbar_text'] : ''; ?></p></li>
 						<?php 
 							}
-							else if($data['righttopbarphone'] == 'yes')
+							else if(isset($data['righttopbarphone']) && $data['righttopbarphone'] == 'yes')
 							{
 						?>
 							<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo $data['righttopbar_phone_left_text']; ?></a></li>
 							<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a></li>
 						<?php 
 							}
-							else if($data['righttopbarsocial'] == 'yes')
+							else if(isset($data['righttopbarsocial']) && $data['righttopbarsocial'] == 'yes')
 							{ 
 						?>
 							<?php
-							if($data['righttopbar_social_icon_style']=='square')
+							if(isset($data['righttopbar_social_icon_style']) && $data['righttopbar_social_icon_style']=='square')
 							{
 								 $type="-square"; 
 							}
@@ -145,18 +145,18 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							<?php
 								}
 							}
-							else if($data['righttopbarbutton'] == 'yes')
+							else if(isset($data['righttopbarbutton']) && $data['righttopbarbutton'] == 'yes')
 							{
-								$scheme = parse_url( $data['righttopbar_button_link'], PHP_URL_SCHEME);
+								$scheme = parse_url( isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '', PHP_URL_SCHEME);
 								if( !in_array( $scheme, array( 'http', 'https'))){
-									$url="http://".$data['righttopbar_button_link'];
+									$url="http://".isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '';
 								}
 								else
 								{
-									$url=$data['righttopbar_button_link'];
+									$url=isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '';
 								}
 							?>
-								<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['righttopbar_button_text']!=""){ echo $data['righttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+								<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo $url; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['righttopbar_button_text']) && $data['righttopbar_button_text']!=""){ echo $data['righttopbar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 						<?php 
 							}
 						?>
@@ -175,7 +175,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
                   </button>
                   <div class="collapse navbar-collapse" id="collapsibleNavbar">
                      <?php
-						$menu=$data['navigation'];
+						$menu=isset($data['navigation']) ? $data['navigation'] : '';
 						if($menu!="")
 						{
 							wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
@@ -185,8 +185,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							wp_nav_menu(array('menu_class' => 'navbar-nav'));
 						}
 					?>
-                  <?php if($data['bottom_button_hide']!="yes"){ ?>
-						<span class="right_side_bt"><a href="<?php if($data['bottombar_button_link']!=""){ echo $data['bottombar_button_link']; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if($data['bottombar_button_text']!=""){ echo $data['bottombar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span>
+                  <?php if(isset($data['bottom_button_hide']) && $data['bottom_button_hide']!="yes"){ ?>
+						<span class="right_side_bt"><a href="<?php if(isset($data['bottombar_button_link']) &&  $data['bottombar_button_link']!=""){ echo $data['bottombar_button_link']; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['bottombar_button_text']) && $data['bottombar_button_text']!=""){ echo $data['bottombar_button_text']; }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span>
 					<?php } ?>
                 </div>  
             </nav>

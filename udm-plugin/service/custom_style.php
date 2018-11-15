@@ -17,7 +17,7 @@
 		$layout='';
 	}
 	$data=unserialize(get_option('service_layout_'.$layout));
-print_r($data);
+
 	if($data['desc_eyebrow_color']=="custom")
 	{
 		$desc_eyebrow_color=$data['desc_eyebrow_custom_color'];
@@ -338,7 +338,7 @@ print_r($data);
 }
 
 	.single-service .fullwidth-hero-3 .col h2 {
-	opacity: 0;
+	<!--opacity: 0;-->
 	color:  <?php echo $desc_heading_color; ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
@@ -350,7 +350,7 @@ print_r($data);
 }	
 
 .single-service .service_desc h2 {
-	opacity: 0;
+<!--opacity: 0;-->
 	color:  <?php echo $desc_heading_color; ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
@@ -362,7 +362,7 @@ print_r($data);
 }	
 	
 	.single-service .fullwidth-hero-3 .col p {
-	opacity: 0;
+	<!--opacity: 0;-->
 	color: <?php echo $services_description_color; ?>;
 	font-size: 1.25rem;
 	font-weight: 300;
