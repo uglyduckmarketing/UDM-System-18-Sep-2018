@@ -136,13 +136,13 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<li class="colorchange"><h3>Text Color: </h3>
 				<select name="topbar_text_color" id="topbar_text_color">
 					
-					<option value="primary" <?php selected('primary',$data['topbar_text_color']); ?>>Primary</option>
-					<option value="secondary" <?php selected('secondary',$data['topbar_text_color']); ?>>Secondary</option>
-					<option value="global_light" <?php selected('global_light',$data['topbar_text_color']); ?>>Global Light</option>
-					<option value="global_dark" <?php selected('global_dark',$data['topbar_text_color']); ?>>Global Dark</option>
-					<option value="custom" <?php selected('custom',$data['topbar_text_color']); ?>>Custom</option>
+					<option value="primary" <?php selected('primary',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Primary</option>
+					<option value="secondary" <?php selected('secondary',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Secondary</option>
+					<option value="global_light" <?php selected('global_light',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Global Light</option>
+					<option value="global_dark" <?php selected('global_dark',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Global Dark</option>
+					<option value="custom" <?php selected('custom',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Custom</option>
 				</select>
-				<ul class="customcolor" <?php if($data['topbar_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+				<ul class="customcolor" <?php if(isset($data['topbar_text_color']) && $data['topbar_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Text Custom Color: </h3>
 						<input class="udm_color_picker" type="text" name="topbar_text_custom_color" value="<?php echo $data['topbar_text_custom_color']; ?>" />

@@ -695,6 +695,19 @@
 		$background="var(--global_dark-color)";
 	}
 	
+	if($data['overlay_color']=="custom")
+	{
+		$overlay_color=$data['overlay_custom_color'];
+	}
+	else if($data['overlay_color']!="")
+	{
+		$overlay_color="var(--".$data['overlay_color']."-color)";
+	}
+	else
+	{
+		$overlay_color="rgb(0,0,0)";
+	}
+	
 	if($data['background_opacity']!="")
 	{
 		$background_opacity = (1*$data['background_opacity'])/100;
@@ -790,6 +803,7 @@
 }
 .fullwidth-hero-3.leadgen-hero::before{
 	opacity:<?php echo $background_opacity; ?>;
+	background:<?php echo $overlay_color; ?>;
 }
 
 

@@ -114,7 +114,7 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 	<li>
 		<h3>Social Icons: </h3>
 		<span class="switch">
-			<input type="checkbox" name="social_icons" class="switch" id="editsocial_icons" value="yes" <?php checked("yes",$data['social_icons']); ?>>
+			<input type="checkbox" name="social_icons" class="switch" id="editsocial_icons" value="yes" <?php checked("yes",isset($data['social_icons']) ? $data['social_icons'] : ''); ?>>
 			<label for="editsocial_icons">Hide/Show </label>
 		</span>
 	</li>
@@ -122,11 +122,11 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 	<li>
 		<h3>Apps Icons: </h3>
 		<span class="switch">
-			<input type="checkbox" name="apps_icons" class="switch" id="editapps_icons" value="yes" <?php checked("yes",$data['apps_icons']); ?>>
+			<input type="checkbox" name="apps_icons" class="switch" id="editapps_icons" value="yes" <?php checked("yes",isset($data['apps_icons']) ? $data['apps_icons'] : ''); ?>>
 			<label for="editapps_icons">Hide/Show</label>
 		</span>
 	</li>
-	<div id="editappsicondata" <?php if($data['apps_icons']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+	<div id="editappsicondata" <?php if(isset($data['apps_icons']) && $data['apps_icons']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 		<li><h3>Android App Url: </h3>
 			<input type="text" name="android_app_url" value="<?php echo $data['android_app_url']; ?>">
 		</li>

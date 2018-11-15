@@ -20,7 +20,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 	<?php 
 		echo '<input type="hidden" name="mobile_header_layout_name" value="'.$data['mobile_header_layout_name'].'" readonly>';
 	?>
-	<li><h3>Hamber: </h3> <span><input type="radio" name="hamber_position" value="left" <?php checked('left',$data['hamber_position']); ?>> Left </span><span><input type="radio" name="hamber_position" value="right" <?php checked('right',$data['hamber_position']); ?>> Right </span></li>
+	<li><h3>Hamber: </h3> <span><input type="radio" name="hamber_position" value="left" <?php checked('left',isset($data['hamber_position']) ? $data['hamber_position'] : ''); ?>> Left </span><span><input type="radio" name="hamber_position" value="right" <?php checked('right',isset($data['hamber_position']) ? $data['hamber_position'] : ''); ?>> Right </span></li>
 	<li><h3>Navigation: </h3>
 		<select name="navigation">
 			<?php $menus=wp_get_nav_menus();
@@ -62,16 +62,16 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 			</li>
 		</ul>
 	</li>
-	<li><h3>Logo Position: </h3> <span><input type="radio" name="logo_position" value="center" <?php checked('center',$data['logo_position']); ?>> Center </span><span><input type="radio" name="logo_position" value="opposite" <?php checked('opposite',$data['logo_position']); ?>> Opposite of hamberger</span></li>
-	<li class="imageupload"><h3>Logo Url: </h3><input type="text" name="logo_url" id="editlogo_url" class="meta-image regular-text main-image" value="<?php echo $data['logo_url']; ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
+	<li><h3>Logo Position: </h3> <span><input type="radio" name="logo_position" value="center" <?php checked('center',isset($data['logo_position']) ? $data['logo_position'] : ''); ?>> Center </span><span><input type="radio" name="logo_position" value="opposite" <?php checked('opposite',isset($data['logo_position']) ? $data['logo_position'] : ''); ?>> Opposite of hamberger</span></li>
+	<li class="imageupload"><h3>Logo Url: </h3><input type="text" name="logo_url" id="editlogo_url" class="meta-image regular-text main-image" value="<?php echo isset($data['logo_url']) ? $data['logo_url'] : ''; ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
 	<li>
 		<h3>Web App: </h3>
 		<span class="switch">
-			<input type="checkbox" name="webapp" class="switch" id="editwebapp" value="yes" <?php checked('yes',$data['webapp']); ?>>
+			<input type="checkbox" name="webapp" class="switch" id="editwebapp" value="yes" <?php checked('yes',isset($data['webapp']) ? $data['webapp'] : ''); ?>>
 			<label for="editwebapp">On/Off</label>
 		</span>
 	</li>
-	<div id="editwebappdata" <?php if($data['webapp']=="yes"){ }else{ ?>style="display:none;"<?php } ?>>
+	<div id="editwebappdata" <?php if(isset($data['webapp']) && $data['webapp']=="yes"){ }else{ ?>style="display:none;"<?php } ?>>
 	<h2>Web App Settings</h2>
 	<li class="colorchange"><h3>Hamberger Color: </h3>
 		<select name="whamberger_color" id="editwhamberger_color">
@@ -119,17 +119,17 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		</ul>
 	</li>	
 	<li class="imageupload"><h3>Profile Image: </h3><input type="text" name="profile_image" id="editprofile_image" class="meta-image regular-text main-image" value="<?php echo $data['profile_image']; ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
-	<li><h3>Profile Image Type: </h3> <span><input type="radio" name="profile_image_type" value="circle" <?php checked('circle',$data['profile_image_type']); ?>> Circle </span><span><input type="radio" name="profile_image_type" value="square" <?php checked('square',$data['profile_image_type']); ?>> Square</span></li>
+	<li><h3>Profile Image Type: </h3> <span><input type="radio" name="profile_image_type" value="circle" <?php checked('circle',isset($data['profile_image_type']) ? $data['profile_image_type'] : ''); ?>> Circle </span><span><input type="radio" name="profile_image_type" value="square" <?php checked('square',isset($data['profile_image_type']) ? $data['profile_image_type'] : ''); ?>> Square</span></li>
 	<li><h3>Company Name: </h3> <input type="text" name="company_name" value="<?php echo $data['company_name']; ?>"></li>
 	<li><h3>Text Under Company Name: </h3> <input type="text" name="text_under_company_name" value="<?php echo $data['text_under_company_name']; ?>"></li>
 	<li>
 		<h3>Star Rating: </h3>
 		<span class="switch">
-		<input type="checkbox" name="star_rating" class="switch" id="editstar_rating" value="yes" <?php checked('yes',$data['star_rating']); ?>>
+		<input type="checkbox" name="star_rating" class="switch" id="editstar_rating" value="yes" <?php checked('yes',isset($data['star_rating']) ? $data['star_rating'] : ''); ?>>
 		<label for="editstar_rating">On/Off</label>
 		</span>
 	</li>
-	<div id="editreviewdata" <?php if($data['star_rating']=="yes"){}else{ ?>style="display:none;"<?php } ?>>
+	<div id="editreviewdata" <?php if(isset($data['star_rating']) && $data['star_rating']=="yes"){}else{ ?>style="display:none;"<?php } ?>>
 	<li class="colorchange"><h3>Review Star Color: </h3>
 		<select name="review_star_color" id="editreview_star_color">
 			<option value="primary" <?php selected('primary',$data['review_star_color']); ?>>Primary</option>
@@ -167,7 +167,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 	<li>
 		<h3>Reviews Button: </h3>
 		<span class="switch">
-		<input type="checkbox" name="reviews_button" class="switch" id="editreviews_button" value="yes" <?php checked('yes',$data['reviews_button']); ?>>
+		<input type="checkbox" name="reviews_button" class="switch" id="editreviews_button" value="yes" <?php checked('yes',isset($data['reviews_button']) ? $data['reviews_button'] : ''); ?>>
 		<label for="editreviews_button">On/Off</label>
 		</span>
 	</li>

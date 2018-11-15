@@ -30,7 +30,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		<input type="text" name="background_image" id="editbackground_image" class="meta-image regular-text main-image" value="<?php echo $data['background_image']; ?>">
 		<input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" />
 	</li>
-	<li id="edittype_color" class="colorchange" <?php if($data['background_type']=='image'){ }else{ ?> style="display:none;" <?php } ?>><h3>Background Color: </h3>
+	<li id="edittype_color" class="colorchange" <?php if($data['background_type']=='color'){ }else{ ?> style="display:none;" <?php } ?>><h3>Background Color: </h3>
 		<select name="background_color" id="editbackground_color">
 			<option value="primary" <?php selected('primary',$data['background_color']); ?>>Primary</option>
 			<option value="secondary" <?php selected('secondary',$data['background_color']); ?>>Secondary</option>
@@ -66,11 +66,11 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 	<li>
 		<h3>Button: </h3>
 		<span class="switch">
-			<input type="checkbox" name="show_button" class="switch" id="editshow_button" value="yes" <?php checked('yes',$data['show_button']); ?>>
+			<input type="checkbox" name="show_button" class="switch" id="editshow_button" value="yes" <?php checked('yes',isset($data['show_button']) ? $data['show_button'] : ''); ?>>
 			<label for="editshow_button">Off/On</label>
 		</span>
 	</li>
-	<div id="editcallactionwidget" <?php if($data['show_button']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+	<div id="editcallactionwidget" <?php if(isset($data['show_button']) && $data['show_button']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 		<li class="colorchange"><h3>Button Color: </h3>
 			<select name="button_color" id="editbutton_color">
 				<option value="primary" <?php selected('primary',$data['button_color']); ?>>Primary</option>

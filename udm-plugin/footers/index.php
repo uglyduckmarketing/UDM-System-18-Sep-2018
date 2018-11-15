@@ -71,7 +71,7 @@
 			<p><?php echo ($data['desc_text']!="" ? $data['desc_text'] : "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."); ?></p>
 			<ul class="footer_social_icons">
 			<?php
-				if($data['social_icons']=="yes")
+				if(isset($data['social_icons']) && $data['social_icons']=="yes")
 				{
 						if(get_option('udm_facebook_link')!=""){
 							?>
@@ -110,7 +110,7 @@
 			</ul>
 			<ul class="footer_apps_icons">
 			<?php
-				if($data['apps_icons']=="yes")
+				if(isset($data['apps_icons']) && $data['apps_icons']=="yes")
 				{
 					if($data['android_app_url']!=""){
 			?>

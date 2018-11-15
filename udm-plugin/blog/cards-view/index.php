@@ -10,7 +10,7 @@
 					global $post;
 					if ( have_posts() ) : while ( have_posts() ) : the_post();
 					$img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-					$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+					$alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
 					$title = get_post(get_post_thumbnail_id())->post_title;
 					$caption = get_post(get_post_thumbnail_id())->post_excerpt;
 					$description = get_post(get_post_thumbnail_id())->post_content;

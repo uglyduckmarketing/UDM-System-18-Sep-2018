@@ -4,23 +4,23 @@
 	{
 		
 		$service_layout = serialize($_POST);  // Get form fields data
-		if($_POST["service_layout_template"]=="1")
+		if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="1")
 		{
 			$servicename="Basic_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="2")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="2")
 		{
 			$servicename="Fulwidth_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		} 
-		else if($_POST["service_layout_template"]=="3")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="3")
 		{
 			$servicename="Splitscreen_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="4")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="4")
 		{
 			$servicename="Leftrightelement_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="5")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="5")
 		{
 			$servicename="Leadgen_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}else{
@@ -38,27 +38,27 @@
 	{
 		
 		$service_layout = serialize($_POST);  // Get form fields data
-		if($_POST["service_layout_template"]=="1")
+		if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="1")
 		{
 			$servicename="Basic_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 		
 			$prevlayout=$servicename;
 		}
-		else if($_POST["service_layout_template"]=="2")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="2")
 		{
 			$servicename="Fulwidth_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 		
 			$prevlayout=$servicename;
 		}
-		else if($_POST["service_layout_template"]=="3")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="3")
 		{
 			$servicename="Splitscreen_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 		
 			$prevlayout=$servicename;
 		}
-		else if($_POST["service_layout_template"]=="4")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="4")
 		{
 			$servicename="Leftrightelement_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 		
 			$prevlayout=$servicename;
 		}
-		else if($_POST["service_layout_template"]=="5")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="5")
 		{
 			$servicename="Leadgen_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 		
 			$prevlayout=$servicename;
@@ -77,23 +77,23 @@
 	if(isset($_POST['service_deletelayout_submit']))  //check if "service_deletelayout_submit" submit button is clicked
 	{
 		
-		if($_POST["service_layout_template"]=="1")
+		if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="1")
 		{
 			$servicename="Basic_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="2")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="2")
 		{
 			$servicename="Fulwidth_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="3")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="3")
 		{
 			$servicename="Splitscreen_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="4")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="4")
 		{
 			$servicename="Leftrightelement_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}
-		else if($_POST["service_layout_template"]=="5")
+		else if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="5")
 		{
 			$servicename="Leadgen_service_".str_replace(" ","_",$_POST["service_layout_name"]);  //service layout number to save 
 		}else{

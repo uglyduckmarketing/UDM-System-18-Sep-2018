@@ -21,13 +21,13 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 	<li><h3>Title Text</h3><input type="text" name="title_text" value="<?php echo $data['title_text']; ?>"></li>
 	<li class="colorchange"><h3>Title Text Color: </h3>
 		<select name="title_text_color" id="edittitle_text_color">
-				<option value="primary" <?php selected('primary',$data['title_text_color']); ?>>Primary</option>
-				<option value="secondary" <?php selected('secondary',$data['title_text_color']); ?>>Secondary</option>
-				<option value="global_light" <?php selected('global_light',$data['title_text_color']); ?>>Global Light</option>
-				<option value="global_dark" <?php selected('global_dark',$data['title_text_color']); ?>>Global Dark</option>
-				<option value="custom" <?php selected('custom',$data['title_text_color']); ?>>Custom</option>
+				<option value="primary" <?php selected('primary',isset($data['title_text_color']) ? $data['title_text_color'] : ''); ?>>Primary</option>
+				<option value="secondary" <?php selected('secondary',isset($data['title_text_color']) ? $data['title_text_color'] : ''); ?>>Secondary</option>
+				<option value="global_light" <?php selected('global_light',isset($data['title_text_color']) ? $data['title_text_color'] : ''); ?>>Global Light</option>
+				<option value="global_dark" <?php selected('global_dark',isset($data['title_text_color']) ? $data['title_text_color'] : ''); ?>>Global Dark</option>
+				<option value="custom" <?php selected('custom',isset($data['title_text_color']) ? $data['title_text_color'] : ''); ?>>Custom</option>
 		</select>
-		<ul class="customcolor" <?php if($data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+		<ul class="customcolor" <?php if(isset($data['title_text_color']) && $data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Title Text Custom Color: </h3>
 				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="<?php echo $data['title_text_custom_color']; ?>" />
@@ -53,11 +53,11 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 	<li>
 		<h3>Button: </h3>
 		<span class="switch">
-			<input type="checkbox" name="show_button" class="switch" id="editshow_button" value="yes" <?php checked('yes',$data['show_button']); ?>>
+			<input type="checkbox" name="show_button" class="switch" id="editshow_button" value="yes" <?php checked('yes',isset($data['show_button']) ? $data['show_button'] : ''); ?>>
 			<label for="editshow_button">Off/On</label>
 		</span>
 	</li>
-	<div id="editbuttondata" <?php if($data['show_button']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+	<div id="editbuttondata" <?php if(isset($data['show_button']) && $data['show_button']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 		<li class="colorchange"><h3>Button Color: </h3>
 			<select name="button_color" id="editbutton_color">
 					<option value="primary" <?php selected('primary',$data['button_color']); ?>>Primary</option>
@@ -100,7 +100,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 				<option value="global_dark" <?php selected('global_dark',$data['background_color']); ?>>Global Dark</option>
 				<option value="custom" <?php selected('custom',$data['background_color']); ?>>Custom</option>
 		</select>
-		<ul class="customcolor"  <?php if($data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+		<ul class="customcolor"  <?php if(isset($data['title_text_color']) && $data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
 				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
@@ -122,7 +122,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 				<option value="global_dark" <?php selected('global_dark',$data['element_background_color']); ?>>Global Dark</option>
 				<option value="custom" <?php selected('custom',$data['element_background_color']); ?>>Custom</option>
 		</select>
-		<ul class="customcolor" <?php if($data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+		<ul class="customcolor" <?php if(isset($data['title_text_color']) && $data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
 				<input class="udm_color_picker" type="text" name="element_background_custom_color" value="<?php echo $data['element_background_custom_color']; ?>" />

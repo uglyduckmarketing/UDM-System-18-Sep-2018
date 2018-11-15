@@ -103,8 +103,8 @@ if($vmeta['vimeo_id'] != '' || $vmeta['youtube_link'] != ''){
 			<?php 
 				//$veyebrowstyle = "color: rgba(0,0,0,0.5)!important;";
 				//$vheadingstyle = "color: rgba(0,0,0,0.5)!important;";
-				echo isset($vmeta['video_desc_eyebrow']) ? '<span class="eyebrow" style="'.$veyebrowstyle.'">'.$vmeta['video_desc_eyebrow'].'</span>' : '';
-				echo isset($vmeta['video_desc_heading']) ? '<h2 class="heading" style="'.$vheadingstyle.'">'.$vmeta['video_desc_heading'].'</h2>' : ''; 	
+				echo isset($vmeta['video_desc_eyebrow']) ? '<span class="eyebrow">'.$vmeta['video_desc_eyebrow'].'</span>' : '';
+				echo isset($vmeta['video_desc_heading']) ? '<h2 class="heading" >'.$vmeta['video_desc_heading'].'</h2>' : ''; 	
 			?> 
 			<div class="col-md-10 offset-md-1 text-center">
 				<div class="embed-responsive embed-responsive-16by9 mrtop_60">
@@ -186,6 +186,8 @@ if($data['show_related'] == 'yes'){
 
 				$categories = get_the_terms( $post->ID, 'services' ); 
 				$cats_ids = array();  
+				
+				if(!empty($categories)){
 				foreach( $categories as $wpex_related_cat ) {
 					$cats_ids[] = $wpex_related_cat->term_id; 
 				}
@@ -209,7 +211,7 @@ if($data['show_related'] == 'yes'){
 							</div>
 						</a>
 					</div> 
-				<?php endwhile; endif; wp_reset_postdata(); ?>
+<?php endwhile; endif; wp_reset_postdata(); } ?>
 			</div>
 			</div>
 		</div>

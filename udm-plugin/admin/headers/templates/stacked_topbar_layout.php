@@ -170,7 +170,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			<?php		
 				}
 			 
-				if($topdata['middletopbartext'] == 'yes')
+				if(isset($topdata['middletopbartext']) && $topdata['middletopbartext'] == 'yes')
 				{ 
 			?>
 					jQuery.ajax({
@@ -190,7 +190,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					
 			<?php 
 				}
-				else if($topdata['middletopbarphone'] == 'yes')
+				else if(isset($topdata['middletopbarphone']) && $topdata['middletopbarphone'] == 'yes')
 				{				
 			?>
 					jQuery.ajax({
@@ -211,7 +211,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 				
 			<?php 
 				}
-				else if($topdata['middletopbarsocial'] == 'yes')
+				else if(isset($topdata['middletopbarsocial']) && $topdata['middletopbarsocial'] == 'yes')
 				{
 			?>	
 					jQuery.ajax({
@@ -232,7 +232,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 				
 			<?php		
 				}
-				else if($topdata['middletopbarbutton'] == 'yes')
+				else if(isset($topdata['middletopbarbutton']) && $topdata['middletopbarbutton'] == 'yes')
 				{
 			?>	
 					jQuery.ajax({
@@ -253,7 +253,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 				
 			<?php		
 				}
-			if($topdata['righttopbartext'] == 'yes')
+			if(isset($topdata['righttopbartext']) && $topdata['righttopbartext'] == 'yes')
 				{ 
 			?>
 					jQuery.ajax({
@@ -273,7 +273,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					
 			<?php 
 				}
-				else if($topdata['righttopbarphone'] == 'yes')
+				else if(isset($topdata['righttopbarphone']) && $topdata['righttopbarphone'] == 'yes')
 				{				
 			?>
 					jQuery.ajax({
@@ -293,7 +293,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 
 			<?php 
 				}
-				else if($topdata['righttopbarsocial'] == 'yes')
+				else if(isset($topdata['righttopbarsocial']) && $topdata['righttopbarsocial'] == 'yes')
 				{
 			?>
 					jQuery.ajax({
@@ -313,7 +313,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					});
 			<?php		
 				}
-				else if($topdata['righttopbarbutton'] == 'yes')
+				else if(isset($topdata['righttopbarbutton']) && $topdata['righttopbarbutton'] == 'yes')
 				{
 			?>
 					jQuery.ajax({
