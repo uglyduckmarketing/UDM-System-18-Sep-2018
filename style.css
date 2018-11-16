@@ -185,7 +185,7 @@ nav .menu-item-has-children a::after {
 }
 header .top_basic_header p {
   margin-bottom: 0;
-  color: #383838 !important;
+ /* color: #383838 !important;*/
   font-size: 14px;
   font-weight: 500;
 }

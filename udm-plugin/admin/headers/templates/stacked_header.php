@@ -29,7 +29,7 @@
 			<option value="image">Image</option>
 		</select>
 		<ul id="logo_back_opt">
-			<li>
+			<li class="colorchange">
 				<h3>Logo Background Color</h3>
 				<select name="logo_background_color" id="logo_background_color">
 						
