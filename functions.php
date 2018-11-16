@@ -536,3 +536,33 @@ function my_theme_register_required_plugins() {
 	);
 	udmpa( $plugins, $config );
 }
+
+function theme_pre_set_transient_update_theme ( $transient ) {
+ if( empty( $transient->checked['udmbase'] ) )
+    return $transient;
+
+  $ch = curl_init();
+ 
+  curl_setopt($ch, CURLOPT_URL, 'http://ppcfollowers.com/test.php' );
+ 
+ // 3 second timeout to avoid issue on the server
+ curl_setopt($ch, CURLOPT_TIMEOUT, 3 ); 
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+ $result = curl_exec($ch);
+ curl_close($ch);
+
+ // make sure that we received the data in the response is not empty
+ if( empty( $result ) )
+   return $transient;
+
+ //check server version against current installed version
+ if( $data = json_decode( $result ) ){
+   if( version_compare( $transient->checked['udmbase'], $data->new_version, '<' ) )
+ $transient->response['udmbase'] = (array) $data;
+ }
+ 
+ return $transient;
+
+} 
+add_filter ( 'pre_set_site_transient_update_themes', 'theme_pre_set_transient_update_theme' );
