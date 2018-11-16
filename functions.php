@@ -492,3 +492,47 @@ function service_cat() {
 }
 add_action( 'init', 'service_cat', 0 );
 }
+
+require_once dirname( __FILE__ ) . '/inc/class-udm-plugin-activation.php';
+add_action( 'udmpa_register', 'my_theme_register_required_plugins' );
+function my_theme_register_required_plugins() {
+	$plugins = array(
+	
+		array(
+			'name'               => 'Ninja Form', 
+			'slug'               => 'ninja-forms',
+			'source'             => get_stylesheet_directory() . '/plugins/ninja-forms.zip', 
+			'required'           => true, 
+			'version'            => '', 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+			'external_url'       => '', 
+			'is_callable'        => '', 
+		),array(
+			'name'               => 'Advanced Custom Fields', 
+			'slug'               => 'advanced-custom-fields-pro',
+			'source'             => get_stylesheet_directory() . '/plugins/advanced-custom-fields-pro.zip', 
+			'required'           => true, 
+			'version'            => '', 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+			'external_url'       => '', 
+			'is_callable'        => '', 
+		),
+		
+	);
+	
+	$config = array(
+		'id'           => 'udmpa',             
+		'default_path' => '',  
+		'menu'         => 'udmpa-install-plugins', 
+		'parent_slug'  => 'themes.php',           
+		'capability'   => 'edit_theme_options',    
+		'has_notices'  => true,                  
+		'dismissable'  => true,                 
+		'dismiss_msg'  => '',                     
+		'is_automatic' => false,                   
+		'message'      => '',              
+	);
+	udmpa( $plugins, $config );
+}
