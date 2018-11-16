@@ -68,7 +68,7 @@
 		{
 		?>
 		(function ($) {   //Slide In navigation script 
-            $(document).ready(function () {
+            /*$(document).ready(function () {
 
                 var menuLeft = $('#mobile-slide-in').slideMenu({
                     position: 'left',
@@ -77,7 +77,7 @@
                 });
 
 
-            });
+            });*/
         })(jQuery);
 		
 			$('#mobile-slide-in').attr('style',"");	

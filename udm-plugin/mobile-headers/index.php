@@ -67,10 +67,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="webapp" <?php if($data['webapp']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+	<div class="webapp" <?php if(isset($data['webapp']) && $data['webapp']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 		<div class="header_top">
 			<div class="left">
-			<?php if($data['profile_image']!=""){ ?>
+			<?php if(isset($data['profile_image']) && $data['profile_image']!=""){ ?>
 				<div class="logo <?php if($data['profile_image_type']=="circle"){ echo "logo_circle"; }else{ echo "logo_square"; }  ?>">
 					<img src="<?php echo $data['profile_image']; ?>">
 				</div>
@@ -79,7 +79,7 @@
 					<h3><?php echo $data['company_name']; ?></h3>
 					<h4><?php echo $data['text_under_company_name']; ?></h4>
 					<?php 
-						if($data['star_rating']=="yes")
+						if(isset($data['star_rating']) && $data['star_rating']=="yes")
 						{
 					?>
 						<h5><?php echo $data['review_score']; ?>: <div id="rateyo"></div>(<?php echo $data['number_of_reviews']; ?>)</h5>
@@ -106,19 +106,19 @@
 			<div class="buttons">
 				<div class="row">
 				<?php
-					if($data['call_button']=="yes")
+					if(isset($data['call_button']) && $data['call_button']=="yes")
 					{
 				?>
 					<div class="col"><a href="tel: <?php echo get_option('udm_phone_number'); ?>" class="btn">Call Now</a></div>
 				<?php 
 					}
-					if($data['reviews_button']=="yes")
+					if(isset($data['reviews_button']) && $data['reviews_button']=="yes")
 					{
 				?>
 				<div class="col"><a href="#" class="btn">Reviews</a></div>
 				<?php 
 					}
-					if($data['email_button']=="yes")
+					if(isset($data['email_button']) && $data['email_button']=="yes")
 					{
 				?>
 				<div class="col"><a href="mailto: <?php echo get_option('udm_email_address'); ?>" class="btn">Email</a></div>

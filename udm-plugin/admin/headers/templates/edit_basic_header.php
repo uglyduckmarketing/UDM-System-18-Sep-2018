@@ -149,7 +149,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				</ul>
 			</li>
 			<li class="colorchange"><h3>Text Color: </h3>
-				<select name="topbar_link_color" id="topbar_text_color">
+				<select name="topbar_text_color" id="topbar_text_color">
 					
 					<option value="primary" <?php selected('primary',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Primary</option>
 					<option value="secondary" <?php selected('secondary',isset($data['topbar_text_color']) ? $data['topbar_text_color'] : ''); ?>>Secondary</option>
