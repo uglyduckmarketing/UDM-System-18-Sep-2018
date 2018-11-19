@@ -2,7 +2,6 @@
 	$prevlayout="";
 	if(isset($_POST['service_createlayout_submit']))  //check if "service_createlayout_submit" submit button is clicked
 	{
-		
 		$service_layout = serialize($_POST);  // Get form fields data
 		if(isset($_POST["service_layout_template"]) && $_POST["service_layout_template"]=="1")
 		{
@@ -115,121 +114,111 @@
 					<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
 				</div>
 			</div>
-		
 		</div>
 </div>
 	<!-- Create service section End -->
 	<!-- Edit service section Start -->
 <div class="wrap udm-opt service_layouts">
 	<h1>Edit Layouts</h1>
-		<div class="container">
-			<div class="row editsection">
-				<div class="col-md-12">
-					<select name="editsavedlayout" id="editsavedlayout">
-						<option value="">Default Layout <?php if(get_option('udm_service_default')!=""){ echo "( ".str_replace("_"," ", get_option('udm_service_default')).")"; } ?></option>	
-					<?php  
-						global $wpdb;
-						$layouts=$wpdb->get_col( "SELECT option_name FROM ".$wpdb->prefix."options WHERE option_name LIKE 'service_layout_%'");
-						foreach($layouts as $layout){
-					?>
-						<option value="<?php echo str_replace("service_layout_","",$layout); ?>" <?php selected($prevlayout,str_replace("service_layout_","",$layout)); ?> <?php if(get_option('udm_service_default')==str_replace("service_layout_","",$layout)){ echo ' class="selectedlayout"'; } ?>><?php echo str_replace("_"," ", str_replace("service_layout_","",$layout)); ?></option>
-					<?php	
-						
-						}
-					?>
-					</select>
-					
-					<div id="editlayout"><div class='empty'><p>Select service Layout to change settings.</p></div></div>
-				</div>
+	<div class="container">
+		<div class="row editsection">
+			<div class="col-md-12">
+				<select name="editsavedlayout" id="editsavedlayout">
+					<option value="">Default Layout <?php if(get_option('udm_service_default')!=""){ echo "( ".str_replace("_"," ", get_option('udm_service_default')).")"; } ?></option>	
+				<?php  
+					global $wpdb;
+					$layouts=$wpdb->get_col( "SELECT option_name FROM ".$wpdb->prefix."options WHERE option_name LIKE 'service_layout_%'");
+					foreach($layouts as $layout){
+				?>
+					<option value="<?php echo str_replace("service_layout_","",$layout); ?>" <?php selected($prevlayout,str_replace("service_layout_","",$layout)); ?> <?php if(get_option('udm_service_default')==str_replace("service_layout_","",$layout)){ echo ' class="selectedlayout"'; } ?>><?php echo str_replace("_"," ", str_replace("service_layout_","",$layout)); ?></option>
+				<?php	
+					}
+				?>
+				</select>
+				<div id="editlayout"><div class='empty'><p>Select service Layout to change settings.</p></div></div>
 			</div>
-		
 		</div>
+	</div>
 </div>
-	<!-- Edit services section End -->
+<!-- Edit services section End -->
 <!-- Theme Options JS -->
 <script>
-	jQuery(document).ready(function($) {
-	  	$('#savedeafultcolor').on('click', function(){
-			jQuery.ajax({
-					type: 'post',
-					url: "<?php echo admin_url('admin-ajax.php'); ?>",
-					data: {colorval1:$('#udm_primary_color').val(),colorval2:$('#udm_secondary_color').val(),colorval3:$('#udm_global_light').val(),colorval4:$('#udm_global_dark').val(),action:'change_defualt_color'},
-					datatype: 'json',
-					success: function(response){
-						var obj = jQuery.parseJSON(response);
-						if(obj.success){
-							alert("saved successfully");
-						}else{
-							alert("please try again");
-						}
+jQuery(document).ready(function($) {
+	$('#savedeafultcolor').on('click', function(){
+		jQuery.ajax({
+				type: 'post',
+				url: "<?php echo admin_url('admin-ajax.php'); ?>",
+				data: {colorval1:$('#udm_primary_color').val(),colorval2:$('#udm_secondary_color').val(),colorval3:$('#udm_global_light').val(),colorval4:$('#udm_global_dark').val(),action:'change_defualt_color'},
+				datatype: 'json',
+				success: function(response){
+					var obj = jQuery.parseJSON(response);
+					if(obj.success){
+						alert("saved successfully");
+					}else{
+						alert("please try again");
 					}
-				});
-		});
-	  	$('.udm_color_picker').wpColorPicker(); //Add color picker on fields  
-	  	$('.udm_color_picker1').wpColorPicker(); //Add color picker on fields  
-		 
-	   $('#newfeatlayout').click(function(){ //Create service layout
-				jQuery.ajax({
-					type: 'get',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/create_layout.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						setTimeout(function() {
-								$(".preloader").hide()
-							}, 3000);
-					   },
-					success: function(result) {
-						$('#newlayout').html(result);
-					}
-				});
-	   });
-	   
-	   $('#editsavedlayout').change(function(){ //Edit saved service layout
-			var service = $(this).val();
-			jQuery.ajax({
-					type: 'post',
-					data:'layout='+service,
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/edit_layout.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						setTimeout(function() {
-								$(".preloader").hide()
-							}, 3000);
-					   },
-					success: function(result) {
-						$('#editlayout').html(result);
-					}
+				}
 			});
-	   });
-	  <?php if($prevlayout!=""){ ?>	
-	  jQuery.ajax({	
-	  type: 'post',			
-	  data:'layout='+'<?php echo $prevlayout; ?>',
-	  url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/edit_layout.php",	
-	  beforeSend: function(){		
-	  $(".preloader").show();	
-	  },				
-	  success: function(result) {
-		  $('#editlayout').html(result);
-		  },			
-		  complete: function(){
-			  setTimeout(function() {
-				  $(".preloader").hide()		
-				  }, 3000);	
-				  }		
-				  });
-				  <?php 	
-				  } 		
-				  ?>
-	  });
-	  
-	
+	});
+	$('.udm_color_picker').wpColorPicker(); //Add color picker on fields  
+	$('.udm_color_picker1').wpColorPicker(); //Add color picker on fields  
+	$('#newfeatlayout').click(function(){ //Create service layout
+		jQuery.ajax({
+			type: 'get',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/create_layout.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				setTimeout(function() {
+						$(".preloader").hide()
+					}, 3000);
+			   },
+			success: function(result) {
+				$('#newlayout').html(result);
+			}
+		});
+	});
+	   
+   $('#editsavedlayout').change(function(){ //Edit saved service layout
+		var service = $(this).val();
+		jQuery.ajax({
+				type: 'post',
+				data:'layout='+service,
+				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/edit_layout.php",
+				beforeSend: function(){
+					 $(".preloader").show();
+				   },
+				   complete: function(){
+					setTimeout(function() {
+							$(".preloader").hide()
+						}, 3000);
+				   },
+				success: function(result) {
+					$('#editlayout').html(result);
+				}
+		});
+   });
+	<?php if($prevlayout!=""){ ?>	
+		jQuery.ajax({	
+			type: 'post',			
+			data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/edit_layout.php",	
+			beforeSend: function(){		
+			$(".preloader").show();	
+			},				
+			success: function(result) {
+			  $('#editlayout').html(result);
+			},			
+			complete: function(){
+				setTimeout(function() {
+					$(".preloader").hide()		
+					  }, 3000);	
+			}		
+		});
+	<?php } ?>
+});
 </script>
-
 <div class="defaultdatasection">
 	<h2>Default Colors</h2>
 	<ul class="list">
@@ -242,4 +231,3 @@
 		<button type="button" class="button button-primary" id="savedeafultcolor">Save</button>
 	</div>
 </div>
-

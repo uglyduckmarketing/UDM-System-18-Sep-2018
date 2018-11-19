@@ -173,46 +173,46 @@
 ?>
 
 header .basic_header_default{
-	background:<?php echo $background; ?>;
+	background:<?php echo esc_attr($background); ?>;
 }
 .basic_header_default a.navbar-brand img
 {
-	width: <?php echo $logo_size; ?>px;
-	max-width: <?php echo $logo_size; ?>px;
+	width: <?php echo esc_attr($logo_size); ?>px;
+	max-width: <?php echo esc_attr($logo_size); ?>px;
 }
 header .btn{
-	background:<?php echo $button_color; ?>;
-	border-color:<?php echo $button_color; ?>;
-	color:<?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color:<?php echo esc_attr($button_color); ?>;
+	color:<?php echo esc_attr($button_text_color); ?>;
 	
 }
 
 header .btn .fa{
-	border-left: 1px solid <?php echo $button_color; ?>;	
+	border-left: 1px solid <?php echo esc_attr($button_color); ?>;	
 }
 header a{
-	color:<?php echo $link_color; ?>;
+	color:<?php echo esc_attr($link_color); ?>;
 }
 
 header .top_basic_header{
-	background:<?php echo $topbar_background; ?>;
+	background:<?php echo esc_attr($topbar_background); ?>;
 }
 header .top_basic_header a{
-	color:<?php echo $topbar_link_color; ?>;
+	color:<?php echo esc_attr($topbar_link_color); ?>;
 }
 header .top_basic_header p{
-	color:<?php echo $topbar_text_color; ?>;
+	color:<?php echo esc_attr($topbar_text_color); ?>;
 }
 
 header ul.sub-menu{
-	background:<?php echo $subbackground; ?>;
+	background:<?php echo esc_attr($subbackground); ?>;
 }
 
 header ul.sub-menu li a{
-	color:<?php echo $subtext_color; ?>;
+	color:<?php echo esc_attr($subtext_color); ?>;
 }
 header ul.sub-menu li a:hover{
-	color:<?php echo $subhover_text_color; ?>;
+	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
 
 
@@ -386,47 +386,47 @@ header ul.sub-menu li a:hover{
 
 
 header .stacked_header .logo_stacked{
-	background:<?php echo $logo_background; ?>;
+	background:<?php echo esc_attr($logo_background); ?>;
 }
 
 header .stacked_header .logo_stacked img{
-	width:<?php echo $logo_size; ?>px;
-	max-width:<?php echo $logo_size; ?>px;
+	width:<?php echo esc_attr($logo_size); ?>px;
+	max-width:<?php echo esc_attr($logo_size); ?>px;
 }
 
 header .lefttopsocial li a .fa{
-	color:<?php echo $lefttopbar_social_icon_color; ?>;
+	color:<?php echo esc_attr($lefttopbar_social_icon_color); ?>;
 }
 
 header .middletopsocial li a .fa{
-	color:<?php echo $middletopbar_social_icon_color; ?>;
+	color:<?php echo esc_attr($middletopbar_social_icon_color); ?>;
 }
 
 header .righttopsocial li a .fa{
-	color:<?php echo $righttopbar_social_icon_color; ?>;
+	color:<?php echo esc_attr($righttopbar_social_icon_color); ?>;
 }
 
 header .bottomsocial li a .fa{
-	color:<?php echo $bottombar_social_icon_color; ?>;
+	color:<?php echo esc_attr($bottombar_social_icon_color); ?>;
 }
 
 header .stacked_header .bottom_stacked_header .navbar {
-   background: <?php echo $bottombar_background_color; ?>;
+   background: <?php echo esc_attr($bottombar_background_color); ?>;
 }
 
 header .stacked_header .bottom_stacked_header .navbar ul li a {
-    color: <?php echo $bottombar_nav_link_color; ?>;
+    color: <?php echo esc_attr($bottombar_nav_link_color); ?>;
 }
 
 header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu{
-	background:<?php echo $subbackground; ?>;
+	background:<?php echo esc_attr($subbackground); ?>;
 }
 
 header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a{
-	color:<?php echo $subtext_color; ?>;
+	color:<?php echo esc_attr($subtext_color); ?>;
 }
 header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hover{
-	color:<?php echo $subhover_text_color; ?>;
+	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
 
 <?php
@@ -586,8 +586,8 @@ header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hov
 
 
 header .main_transparent_box::before{
-	background-color:<?php echo $opacity_color; ?>;
-	opacity:<?php echo $opacity; ?>;
+	background-color:<?php echo esc_attr($opacity_color); ?>;
+	opacity:<?php echo esc_attr($opacity); ?>;
 	position:absolute;
     content: '';
     width: 100%;
@@ -595,43 +595,43 @@ header .main_transparent_box::before{
 }
 
 header .main_transparent_box .btn{
-	background:<?php echo $button_color; ?>;
-	border-color:<?php echo $button_color; ?>;
-	color:<?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color:<?php echo esc_attr($button_color); ?>;
+	color:<?php echo esc_attr($button_text_color); ?>;
 	
 }
 
 header .main_transparent_box .btn .fa{
-	border-left: 1px solid <?php echo $button_color; ?>;	
+	border-left: 1px solid <?php echo esc_attr($button_color); ?>;	
 }
 header .main_transparent_box a{
-	color:<?php echo $link_color; ?>;
+	color:<?php echo esc_attr($link_color); ?>;
 }
 
 header .main_transparent_box .top_basic_header{
-	background:<?php echo $topbar_background; ?>;
+	background:<?php echo esc_attr($topbar_background); ?>;
 }
 header .main_transparent_box .top_basic_header a{
-	color:<?php echo $topbar_link_color; ?>;
+	color:<?php echo esc_attr($topbar_link_color); ?>;
 }
 header .main_transparent_box .top_basic_header p{
-	color:<?php echo $topbar_text_color; ?>;
+	color:<?php echo esc_attr($topbar_text_color); ?>;
 }
 
 .main_transparent_box .navbar-brand img{
-	width: <?php echo $logo_size; ?>px;
-	max-width: <?php echo $logo_size; ?>px;
+	width: <?php echo esc_attr($logo_size); ?>px;
+	max-width: <?php echo esc_attr($logo_size); ?>px;
 }
 
 header .main_transparent_box  ul.sub-menu{
-	background:<?php echo $subbackground; ?>;
+	background:<?php echo esc_attr($subbackground); ?>;
 }
 
 header .main_transparent_box  ul.sub-menu li a{
-	color:<?php echo $subtext_color; ?>;
+	color:<?php echo esc_attr($subtext_color); ?>;
 }
 header .main_transparent_box  ul.sub-menu li a:hover{
-	color:<?php echo $subhover_text_color; ?>;
+	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
 
 <?php
@@ -715,17 +715,16 @@ header .top_basic_header p{
 }
 
 header ul.sub-menu{
-	background:<?php echo $subbackground; ?>;
+	background:<?php echo esc_attr($subbackground); ?>;
 }
 
 header ul.sub-menu li a{
-	color:<?php echo $subtext_color; ?>;
+	color:<?php echo esc_attr($subtext_color); ?>;
 }
 
 header ul.sub-menu li a:hover{
-	color:<?php echo $subhover_text_color; ?>;
+	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
-
 <?php
 	}
 ?>

@@ -7,10 +7,9 @@ $title = get_post(get_post_thumbnail_id())->post_title; //The Title
 $caption = get_post(get_post_thumbnail_id())->post_excerpt; //The Caption
 $description = get_post(get_post_thumbnail_id())->post_content; // The Description
 ?>
-
 <?php if($img) : ?>
 <section class="hero-three">
-	<img class="hero-full" src="<?php echo $img[0]; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
+	<img class="hero-full" src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" alt="<?php echo esc_attr($alt); ?>" title="<?php echo esc_attr($title); ?>" />
 	<div class="hero-overlay"></div>
 	<div class="container hero-container">
 		<div class="row">

@@ -225,29 +225,29 @@
 		
 		?>
 		.get_in_touch_fullwidth{
-			background:<?php echo $background; ?>;
+			background:<?php echo esc_attr($background); ?>;
 			background-repeat: no-repeat;
 			background-size:cover;
-			height:<?php echo $height; ?>
+			height:<?php echo esc_attr($height); ?>
 		}
 		.get_in_touch_fullwidth:before{
-			background-color:<?php echo $overlay_color; ?>;
-			opacity:<?php echo $background_opacity; ?>;
+			background-color:<?php echo esc_attr($overlay_color); ?>;
+			opacity:<?php echo esc_attr($background_opacity); ?>;
 		}
 		.get_in_touch_fullwidth .col h2{
-			color:<?php echo $title_text_color; ?>;
+			color:<?php echo esc_attr($title_text_color); ?>;
 		}
 		.get_in_touch_fullwidth .col p{
-			color:<?php echo $desc_text_color; ?>;
+			color:<?php echo esc_attr($desc_text_color); ?>;
 		}
 		
 		.get_in_touch_fullwidth .col .btn{
-			background:<?php echo $button_color; ?>;
-			border:1px solid <?php echo $button_color; ?>;
-			color:<?php echo $button_text_color; ?>;
+			background:<?php echo esc_attr($button_color); ?>;
+			border:1px solid <?php echo esc_attr($button_color); ?>;
+			color:<?php echo esc_attr($button_text_color); ?>;
 		}
 		.right_side_bt .btn .fa{
-			border-left:1px solid <?php echo $button_text_color; ?>;
+			border-left:1px solid <?php echo esc_attr($button_text_color); ?>;
 		}
 		<?php
 	}
@@ -479,47 +479,47 @@
 	}
 		?>
 		.get_in_splitscreen.back .p1-left{
-			background:<?php echo $background; ?>;
+			background:<?php echo esc_attr($background); ?>;
 		}
 		
 		.col.col-lg-6.p1-both.align-self-stretch.element{
-			background:<?php echo $element_background; ?>;
+			background:<?php echo esc_attr($element_background); ?>;
 		}
 		.get_in_splitscreen .col h2{
-			color:<?php echo $title_text_color; ?>;
+			color:<?php echo esc_attr($title_text_color); ?>;
 		}
 		.get_in_splitscreen .col p{
-			color:<?php echo $desc_text_color; ?>;
+			color:<?php echo esc_attr($desc_text_color); ?>;
 		}
 		
 		.get_in_splitscreen .col .btn{
-			background:<?php echo $button_color; ?>;
-			border:1px solid <?php echo $button_color; ?>;
-			color:<?php echo $button_text_color; ?>;
+			background:<?php echo esc_attr($button_color); ?>;
+			border:1px solid <?php echo esc_attr($button_color); ?>;
+			color:<?php echo esc_attr($button_text_color); ?>;
 		}
 		.get_in_splitscreen .right_side_bt .btn .fa{
-			border-left:1px solid <?php echo $button_text_color; ?>;
+			border-left:1px solid <?php echo esc_attr($button_text_color); ?>;
 		}
 		.get_in_splitscreen .element.shadow::after{
-			background-color:<?php echo $overlay_color; ?>;
-			opacity:<?php echo $background_opacity; ?>;
+			background-color:<?php echo esc_attr($overlay_color); ?>;
+			opacity:<?php echo esc_attr($background_opacity); ?>;
 		}
 
 		.get_in_splitscreen .videoPoster {
-			background-image:url('<?php echo $element_video_poster_url; ?>');
+			background-image:url('<?php echo esc_attr($element_video_poster_url); ?>');
 			background-size: cover;
 			background-repeat:no-repeat;
 		}
 		.videoPoster button:before
 		{
-			border:1px solid <?php echo $video_play_icon_color; ?>;
+			border:1px solid <?php echo esc_attr($video_play_icon_color); ?>;
 		}
 		.videoPoster button:after
 		{
-			border-left: 40px solid <?php echo $video_play_icon_color; ?>;
+			border-left: 40px solid <?php echo esc_attr($video_play_icon_color); ?>;
 		}
 		.get_in_splitscreen .element, .get_in_splitscreen .align-self-stretch, .videoPoster, .videoIframe,#map  {
-			height:<?php echo $height; ?>
+			height:<?php echo esc_attr($height); ?>
 		}
 		 .videoIframe{
 			 position:absolute;
@@ -530,7 +530,7 @@
 			font-size: 24px;
 			line-height: 1.14286;
 			letter-spacing: .007em;
-			color: <?php echo $cta_eyebrow_color; ?>;
+			color: <?php echo esc_attr($cta_eyebrow_color); ?>;
 			margin-bottom: 1.5rem;
 			display: block;
 		}
@@ -539,7 +539,7 @@
 			font-size: 24px;
 			line-height: 1.14286;
 			letter-spacing: .007em;
-			color: <?php echo $cta_heading_color; ?>;
+			color: <?php echo esc_attr($cta_heading_color); ?>;
 			margin-bottom: 1.5rem;
 			display: block;
 		}

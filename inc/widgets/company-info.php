@@ -11,22 +11,21 @@ class UDM_Company_Info_Card extends WP_Widget{
 		// outputs the options form on admin
 		$title = esc_attr($instance['title']);
 		$company_info_content = esc_attr($instance['company_info_content']);
-    if(empty($company_info_content)){
-      $company_info_content = "<img class=\"widget_logo\" src=\"[udm_company_logo]\" /><br />\n";
-      $company_info_content .= "<p>[udm_company_address]<br/>\n";
-      $company_info_content .= "[udm_company_city], [udm_company_state] [udm_company_zipcode]<br/>\n";
-      $company_info_content .= "<br><a class=\"widget_phone\" href=\"#\">[udm_company_phone]</a></p>";
-    }
+		if(empty($company_info_content)){
+		  $company_info_content = "<img class=\"widget_logo\" src=\"[udm_company_logo]\" /><br />\n";
+		  $company_info_content .= "<p>[udm_company_address]<br/>\n";
+		  $company_info_content .= "[udm_company_city], [udm_company_state] [udm_company_zipcode]<br/>\n";
+		  $company_info_content .= "<br><a class=\"widget_phone\" href=\"#\">[udm_company_phone]</a></p>";
+		}
 	?>
-
-  <p>
-  	<label for="<?php echo $this->get_field_id('title'); ?>">Title:
-  		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" />
-  	</label>
-  	<label for="<?php echo $this->get_field_id('company_info_content'); ?>">Content:
-      <textarea class="widefat" id="<?php echo $this->get_field_id('company_info_content'); ?>" name="<?php echo $this->get_field_name('company_info_content'); ?>" ><?php echo attribute_escape($company_info_content); ?></textarea>
-  	</label>
-  </p>
+	<p>
+		<label for="<?php echo esc_attr($this->get_field_id('title')); ?>">Title:
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		</label>
+		<label for="<?php echo esc_attr($this->get_field_id('company_info_content')); ?>">Content:
+		  <textarea class="widefat" id="<?php echo esc_attr($this->get_field_id('company_info_content')); ?>" name="<?php echo esc_attr($this->get_field_name('company_info_content')); ?>" ><?php echo esc_attr($company_info_content); ?></textarea>
+		</label>
+	  </p>
 
 	<?php
 
@@ -43,16 +42,16 @@ class UDM_Company_Info_Card extends WP_Widget{
 	function widget($args, $instance) {
     // outputs the content of the widget
 		extract($args, EXTR_SKIP);
-		echo $args['before_widget'];
+		echo esc_attr($args['before_widget']);
     // Header Title
 		if (!empty($instance['title'])) {
-      echo $args['before_title'] . $instance['title']. $args['after_title'];
+      echo esc_attr($args['before_title']) . $instance['title']. $args['after_title'];
     };
     // Widget Content
 		if(!empty($instance['company_info_content'])){
       echo do_shortcode($instance['company_info_content']);
     }
-		echo $args['after_widget'];
+		echo esc_attr($args['after_widget']);
   }
 
 }
@@ -77,18 +76,15 @@ class UDM_Company_Info extends WP_Widget{
       $company_info_content .= "[udm_company_phone]<br/>";
     }
 	?>
-
-  <p>
-  	<label for="<?php echo $this->get_field_id('title'); ?>">Title:
-  		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" />
-  	</label>
-  	<label for="<?php echo $this->get_field_id('company_info_content'); ?>">Content:
-      <textarea class="widefat" id="<?php echo $this->get_field_id('company_info_content'); ?>" name="<?php echo $this->get_field_name('company_info_content'); ?>" ><?php echo attribute_escape($company_info_content); ?></textarea>
-  	</label>
-  </p>
-
+	<p>
+		<label for="<?php echo esc_attr($this->get_field_id('title')); ?>">Title:
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		</label>
+		<label for="<?php echo esc_attr($this->get_field_id('company_info_content')); ?>">Content:
+		  <textarea class="widefat" id="<?php echo esc_attr($this->get_field_id('company_info_content')); ?>" name="<?php echo esc_attr($this->get_field_name('company_info_content')); ?>" ><?php echo esc_attr($company_info_content); ?></textarea>
+		</label>
+	</p>
 	<?php
-
 	}
 
 	function update($new_instance, $old_instance) {
@@ -102,16 +98,16 @@ class UDM_Company_Info extends WP_Widget{
 	function widget($args, $instance) {
     // outputs the content of the widget
 		extract($args, EXTR_SKIP);
-		echo $args['before_widget'];
+		echo esc_attr($args['before_widget']);
     // Header Title
 		if (!empty($instance['title'])) {
-      echo $args['before_title'] . $instance['title']. $args['after_title'];
+      echo esc_attr($args['before_title']) . $instance['title']. $args['after_title'];
     };
     // Widget Content
 		if(!empty($instance['company_info_content'])){
       echo do_shortcode($instance['company_info_content']);
     }
-		echo $args['after_widget'];
+		echo esc_attr($args['after_widget']);
   }
 }
 

@@ -1,7 +1,5 @@
-
-	<div id="slideshow-scode" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
+<div id="slideshow-scode" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
   <ul class="carousel-indicators">
 			<?php 
 					$temp="0";	
@@ -16,9 +14,9 @@
 					$title=$attachment->post_title;
 
 				?>
-    <li data-target="#slideshow-scode" data-slide-to="<?php echo $temp; ?>" class="<?php if($temp=="0"){ ?>active<?php } ?>"></li>
+    <li data-target="#slideshow-scode" data-slide-to="<?php echo isset($temp) ? $temp : ''; ?>" class="<?php if($temp=="0"){ ?>active<?php } ?>"></li>
  <?php $temp++; endforeach; ?>
-  </ul>
+</ul>
   
   <!-- The slideshow -->
   <div class="carousel-inner">
@@ -35,7 +33,7 @@
 				$title=$attachment->post_title;
 				?>
     <div class="carousel-item  col-md-12 <?php if($temp2=="0"){ ?>active<?php } ?>">
-      <img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" width="100%" height="500">
+      <img src="<?php echo isset($src) ? $src : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" width="100%" height="500">
     </div>
       <?php $temp2++; endforeach; ?>
   </div>

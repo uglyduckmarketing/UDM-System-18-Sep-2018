@@ -1,7 +1,5 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
 include '../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
@@ -9,12 +7,10 @@ if(isset($_POST['layout']))
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('service_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
 	<?php 
-			echo '<input type="hidden" name="service_layout_name" value="'.$data['service_layout_name'].'" readonly>';
+		echo '<input type="hidden" name="service_layout_name" value="'.$data['service_layout_name'].'" readonly>';
 	?>
 	<div id="editselected_layout">
 	<h2 class="header_layout_heading">
@@ -33,7 +29,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['desc_eyebrow_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Description Eyebrow Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="desc_eyebrow_custom_color" value="<?php echo $data['desc_eyebrow_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="desc_eyebrow_custom_color" value="<?php echo esc_attr($data['desc_eyebrow_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -48,7 +44,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor"  <?php if($data['desc_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Description Heading Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="desc_heading_custom_color" value="<?php echo $data['desc_heading_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="desc_heading_custom_color" value="<?php echo esc_attr($data['desc_heading_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -63,7 +59,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['services_description_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Services Description Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="services_description_custom_color" value="<?php echo $data['services_description_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="services_description_custom_color" value="<?php echo esc_attr($data['services_description_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -78,7 +74,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['desc_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="desc_background_custom_color" value="<?php echo $data['desc_background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="desc_background_custom_color" value="<?php echo esc_attr($data['desc_background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -100,7 +96,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['benefit_title_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Benefit Title Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="benefit_title_custom_color" value="<?php echo $data['benefit_title_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="benefit_title_custom_color" value="<?php echo esc_attr($data['benefit_title_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -115,7 +111,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor"  <?php if($data['benefit_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Benefit Text Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="benefit_text_custom_color" value="<?php echo $data['benefit_text_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="benefit_text_custom_color" value="<?php echo esc_attr($data['benefit_text_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -136,7 +132,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['breakdown_eyebrow_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Description Eyebrow Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="breakdown_eyebrow_custom_color" value="<?php echo $data['breakdown_eyebrow_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="breakdown_eyebrow_custom_color" value="<?php echo esc_attr($data['breakdown_eyebrow_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -151,7 +147,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['breakdown_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Description Heading Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="breakdown_heading_custom_color" value="<?php echo $data['breakdown_heading_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="breakdown_heading_custom_color" value="<?php echo esc_attr($data['breakdown_heading_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -166,7 +162,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['breakdown_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Description Heading Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="breakdown_text_custom_color" value="<?php echo $data['breakdown_text_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="breakdown_text_custom_color" value="<?php echo esc_attr($data['breakdown_text_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -181,7 +177,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor"  <?php if($data['breakdown_back_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Breakdown background Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="breakdown_back_custom_color" value="<?php echo $data['breakdown_back_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="breakdown_back_custom_color" value="<?php echo esc_attr($data['breakdown_back_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -196,14 +192,14 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['breakdown_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Overlay Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="breakdown_overlay_custom_color" value="<?php echo $data['breakdown_overlay_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="breakdown_overlay_custom_color" value="<?php echo esc_attr($data['breakdown_overlay_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
 		<li class="colorchange" id="overlayrange"><h3>Overlay Opacity: </h3>
 			<div id="opacityslider"></div>
-			<input type="hidden" name="breakdown_overlay_opacity" value="<?php echo $data['breakdown_overlay_opacity']; ?>" class="percent" readonly />
-			<div class="show_per"><?php echo $data['breakdown_overlay_opacity']; ?></div>
+			<input type="hidden" name="breakdown_overlay_opacity" value="<?php echo esc_attr($data['breakdown_overlay_opacity']); ?>" class="percent" readonly />
+			<div class="show_per"><?php echo esc_attr($data['breakdown_overlay_opacity']); ?></div>
 		</li>
 	</ul>
 	
@@ -223,7 +219,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['video_eyebrow_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Description Eyebrow Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="video_eyebrow_custom_color" value="<?php echo $data['video_eyebrow_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="video_eyebrow_custom_color" value="<?php echo esc_attr($data['video_eyebrow_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -238,7 +234,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['video_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Description Heading Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="video_heading_custom_color" value="<?php echo $data['video_heading_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="video_heading_custom_color" value="<?php echo esc_attr($data['video_heading_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -253,7 +249,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['video_serv_desc_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Service Description Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="video_serv_desc_custom_color" value="<?php echo $data['video_serv_desc_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="video_serv_desc_custom_color" value="<?php echo esc_attr($data['video_serv_desc_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -268,7 +264,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['video_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Background Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="video_background_custom_color" value="<?php echo $data['video_background_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="video_background_custom_color" value="<?php echo esc_attr($data['video_background_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -289,7 +285,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['gallery_eyebrow_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Gallery Eyebrow Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="gallery_eyebrow_custom_color" value="<?php echo $data['gallery_eyebrow_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="gallery_eyebrow_custom_color" value="<?php echo esc_attr($data['gallery_eyebrow_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -304,7 +300,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['gallery_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Description Heading Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="gallery_heading_custom_color" value="<?php echo $data['gallery_heading_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="gallery_heading_custom_color" value="<?php echo esc_attr($data['gallery_heading_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -319,7 +315,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['gallery_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Background Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="gallery_background_custom_color" value="<?php echo $data['gallery_background_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="gallery_background_custom_color" value="<?php echo esc_attr($data['gallery_background_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -340,7 +336,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['cta_eyebrow_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>CTA Eyebrow Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="cta_eyebrow_custom_color" value="<?php echo $data['cta_eyebrow_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="cta_eyebrow_custom_color" value="<?php echo esc_attr($data['cta_eyebrow_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -355,7 +351,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['cta_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>CTA Heading Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="cta_heading_custom_color" value="<?php echo $data['cta_heading_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="cta_heading_custom_color" value="<?php echo esc_attr($data['cta_heading_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -370,7 +366,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<ul class="customcolor"  <?php if($data['cta_description_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>CTA Description Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="cta_description_custom_color" value="<?php echo $data['cta_description_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="cta_description_custom_color" value="<?php echo esc_attr($data['cta_description_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -385,7 +381,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['cta_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Background Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="cta_background_custom_color" value="<?php echo $data['cta_background_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="cta_background_custom_color" value="<?php echo esc_attr($data['cta_background_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -398,8 +394,8 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			</li>
 			<?php $choose_btn_form = isset($data['cta_choose_button_form']) ? $data['cta_choose_button_form'] : ''; ?>
 			<li class="show_button_f" <?php if($choose_btn_form == 'form'){ echo 'style="display:none;"'; } ?>>
-				<div class="own_fields own_input_field_text"><h3>Button Text</h3><div class="own_label"><input type="text" class="" name="cta_button_text" value="<?php echo $data['cta_button_text']; ?>"></div></div>
-				<div class="own_fields own_input_field_text"><h3>Button Link</h3><div class="own_label"><input type="text" class="" name="cta_button_link" value="<?php echo $data['cta_button_link']; ?>"></div></div>
+				<div class="own_fields own_input_field_text"><h3>Button Text</h3><div class="own_label"><input type="text" class="" name="cta_button_text" value="<?php echo esc_attr($data['cta_button_text']); ?>"></div></div>
+				<div class="own_fields own_input_field_text"><h3>Button Link</h3><div class="own_label"><input type="text" class="" name="cta_button_link" value="<?php echo esc_attr($data['cta_button_link']); ?>"></div></div>
 				<div class="own_fields own_input_field_text">
 					<h3>Button Color</h3>
 					<div class="own_label colorchange">
@@ -413,7 +409,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 						<ul class="customcolor" <?php if($data['cta_button_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 							<li>
 								<h3>Button Custom Color: </h3>
-								<input class="udm_color_picker" type="text" name="cta_button_custom_color" value="<?php echo $data['cta_button_custom_color']; ?>" />
+								<input class="udm_color_picker" type="text" name="cta_button_custom_color" value="<?php echo esc_attr($data['cta_button_custom_color']); ?>" />
 							</li>
 						</ul>
 					</div>
@@ -431,7 +427,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 						<ul class="customcolor" <?php if($data['cta_button_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 							<li>
 								<h3>Button Text Custom Color: </h3>
-								<input class="udm_color_picker" type="text" name="cta_button_text_custom_color" value="<?php echo $data['cta_button_text_custom_color']; ?>" />
+								<input class="udm_color_picker" type="text" name="cta_button_text_custom_color" value="<?php echo esc_attr($data['cta_button_text_custom_color']); ?>" />
 							</li>
 						</ul>
 					</div>
@@ -449,7 +445,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 					<?php
 						foreach($ninjaform as $list){
 							?>
-							<option value="<?php echo $list->id; ?>"  <?php selected($list->id,$choose_ninja_form); ?>><?php echo $list->title; ?></option>
+							<option value="<?php echo esc_attr($list->id); ?>"  <?php selected($list->id,$choose_ninja_form); ?>><?php echo esc_attr($list->title); ?></option>
 							<?php
 						}
 					?>
@@ -484,7 +480,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['related_eyebrow_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Related Eyebrow Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="related_eyebrow_custom_color" value="<?php echo $data['related_eyebrow_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="related_eyebrow_custom_color" value="<?php echo esc_attr($data['related_eyebrow_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -499,7 +495,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['related_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Related Heading Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="related_heading_custom_color" value="<?php echo $data['related_heading_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="related_heading_custom_color" value="<?php echo esc_attr($data['related_heading_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -514,7 +510,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['related_description_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Related Description Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="related_description_custom_color" value="<?php echo $data['related_description_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="related_description_custom_color" value="<?php echo esc_attr($data['related_description_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -529,20 +525,18 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['related_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Related Background Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="related_background_custom_color" value="<?php echo $data['related_background_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="related_background_custom_color" value="<?php echo esc_attr($data['related_background_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
 			<li class="colorchange"><h3>Number of Post To Show: </h3>
-				<input type="number" id="related_show_post" name="related_show_post" value="<?php echo $data['related_show_post']; ?>">
+				<input type="number" id="related_show_post" name="related_show_post" value="<?php echo esc_attr($data['related_show_post']); ?>">
 			</li>
 		</ul>
 </div>
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="service_editlayout_submit" class="button button-primary" value="Save Layout"><input type="submit" name="service_deletelayout_submit" class="button button-primary" value="Delete Layout"></p> </div>
 
 </form>
-
-
 <!-- Theme Options JS -->
 <script>
 	jQuery(document).ready(function($) {
@@ -600,20 +594,6 @@ $data=unserialize(get_option('service_layout_'.$layout));
         }
       }
     });
-			jQuery.ajax({
-				type: 'post',
-				data:'layout=<?php echo $layout; ?>',
-				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/service/templates/edit_basic_hero.php",
-				beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-				success: function(result) {
-				$('#editselected_layout').html(result);
-				}
-			});
 	  	$('.udm_color_picker').wpColorPicker(); //Add color picker on fields  
 		
 		$('.colorchange select').change(function(){
@@ -626,7 +606,5 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				$(this).parent().find('.customcolor').hide();
 			}
 		});
-	});
-	  
-	
+	});	
 </script>

@@ -1,16 +1,12 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */ 
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('footer_cta_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
 <h2 class="header_layout_heading">
@@ -18,7 +14,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 </h2>
 
 <ul id="edittextsettings" class="footer_cta_type_style collapse show split_cta">
-	<li><h3>Title Text</h3><input type="text" name="title_text" value="<?php echo $data['title_text']; ?>"></li>
+	<li><h3>Title Text</h3><input type="text" name="title_text" value="<?php echo esc_attr($data['title_text']); ?>"></li>
 	<li class="colorchange"><h3>Title Text Color: </h3>
 		<select name="title_text_color" id="edittitle_text_color">
 				<option value="primary" <?php selected('primary',isset($data['title_text_color']) ? $data['title_text_color'] : ''); ?>>Primary</option>
@@ -30,11 +26,11 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		<ul class="customcolor" <?php if(isset($data['title_text_color']) && $data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Title Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="<?php echo $data['title_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="<?php echo esc_attr($data['title_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-	<li><h3>Description Text</h3><textarea name="description_text"><?php echo $data['description_text']; ?></textarea></li>
+	<li><h3>Description Text</h3><textarea name="description_text"><?php echo esc_attr($data['description_text']); ?></textarea></li>
 	<li class="colorchange"><h3>Description Text Color: </h3>
 		<select name="description_text_color" id="editdescription_text_color">
 				<option value="primary" <?php selected('primary',$data['description_text_color']); ?>>Primary</option>
@@ -46,7 +42,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['description_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Description Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="description_text_custom_color" value="<?php echo $data['description_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="description_text_custom_color" value="<?php echo esc_attr($data['description_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -69,7 +65,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['button_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Button Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="button_custom_color" value="<?php echo $data['button_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="button_custom_color" value="<?php echo esc_attr($data['button_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -84,12 +80,12 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['button_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Button Text Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo $data['button_text_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo esc_attr($data['button_text_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
-		<li><h3>Button Link: </h3><input type="text" name="button_link" value="<?php echo $data['button_link']; ?>" /></li>
-		<li><h3>Button Text: </h3><input type="text" name="button_text" value="<?php echo $data['button_text']; ?>" /></li>
+		<li><h3>Button Link: </h3><input type="text" name="button_link" value="<?php echo esc_attr($data['button_link']); ?>" /></li>
+		<li><h3>Button Text: </h3><input type="text" name="button_text" value="<?php echo esc_attr($data['button_text']); ?>" /></li>
 	</div>
 	
 	<li class="colorchange"><h3>Background Color: </h3>
@@ -103,7 +99,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		<ul class="customcolor"  <?php if(isset($data['title_text_color']) && $data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -113,7 +109,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#editelementsettings">Element Side Settings</a>
 </h2>
 <ul id="editelementsettings" class="footer_cta_type_style collapse show split_cta">
-	<li><h3>Height: </h3><input type="text" name="height" value="<?php echo $data['height']; ?>" /></li>
+	<li><h3>Height: </h3><input type="text" name="height" value="<?php echo esc_attr($data['height']); ?>" /></li>
 	<li class="colorchange"><h3>Background Color: </h3>
 		<select name="element_background_color" id="editelement_background_color">
 				<option value="primary" <?php selected('primary',$data['element_background_color']); ?>>Primary</option>
@@ -125,11 +121,11 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		<ul class="customcolor" <?php if(isset($data['title_text_color']) && $data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="element_background_custom_color" value="<?php echo $data['element_background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="element_background_custom_color" value="<?php echo esc_attr($data['element_background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Image Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo $data['background_opacity']; ?>" /></li>
+	<li><h3>Background Image Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo esc_attr($data['background_opacity']); ?>" /></li>
 	<li class="colorchange"><h3>Overlay Color: </h3>
 		<select name="overlay_color" id="editoverlay_color">
 			<option value="primary" <?php selected('primary',$data['overlay_color']); ?>>Primary</option>
@@ -141,7 +137,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['overlay_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Overlay Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo $data['overlay_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo esc_attr($data['overlay_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -156,17 +152,17 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 	</li>
 	<div id="editimagedata" <?php if($data['element_type']=="image"){}else{ ?> style="display:none;" <?php } ?>>
 		<li class="imageupload"><h4>Image Url: </h4>
-			<input type="text" name="element_image_url" id="editelement_image_url" class="meta-image regular-text main-image" value="<?php echo $data['element_image_url']; ?>">
+			<input type="text" name="element_image_url" id="editelement_image_url" class="meta-image regular-text main-image" value="<?php echo esc_attr($data['element_image_url']); ?>">
 			<input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" />
 		</li>
 	</div>
 	<div id="editvideodata" <?php if($data['element_type']=="video"){}else{ ?> style="display:none;" <?php } ?>>
 		<li><h4>Video Link: <span>Enter youtube/vimeo link.</span> </h4>
-			<input type="text" name="element_video_link" id="editelement_video_link" value="<?php echo $data['element_video_link']; ?>">
+			<input type="text" name="element_video_link" id="editelement_video_link" value="<?php echo esc_attr($data['element_video_link']); ?>">
 		</li>
 		
 		<li><h4>Video Poster Url: </h4>
-			<input type="text" name="element_video_poster_url" id="editelement_video_poster_url" class="meta-image regular-text video-image" value="<?php echo $data['element_video_poster_url']; ?>">
+			<input type="text" name="element_video_poster_url" id="editelement_video_poster_url" class="meta-image regular-text video-image" value="<?php echo esc_attr($data['element_video_poster_url']); ?>">
 			<input class="btn upload-image" my-attr="video-image" type="button" value="Upload Image" />
 		</li>
 		<li class="colorchange"><h3>Video Play Icon Color: </h3>
@@ -180,26 +176,26 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['video_play_icon_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Video Play Icon Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="video_play_icon_custom_color" value="<?php echo $data['video_play_icon_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="video_play_icon_custom_color" value="<?php echo esc_attr($data['video_play_icon_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
 	</div>
 	<div id="editformdata" <?php if($data['element_type']=="form"){}else{ ?> style="display:none;" <?php } ?>>
 		<li><h4>Form Shortcode: </h4>
-			<input type="text" name="element_form_shortcode" id="editelement_form_shortcode" value="<?php echo $data['element_form_shortcode']; ?>">
+			<input type="text" name="element_form_shortcode" id="editelement_form_shortcode" value="<?php echo esc_attr($data['element_form_shortcode']); ?>">
 		</li>
 	</div>
 	<div id="editmapdata" <?php if($data['element_type']=="map"){}else{ ?> style="display:none;" <?php } ?>>
 		<li><h4>Map latitude: </h4>
-			<input type="text" name="element_map_lat" id="editelement_map_lat" value="<?php echo $data['element_map_lat']; ?>">
+			<input type="text" name="element_map_lat" id="editelement_map_lat" value="<?php echo esc_attr($data['element_map_lat']); ?>">
 		</li>
 		
 		<li><h4>Map longitude: </h4>
-			<input type="text" name="element_map_long" id="editelement_map_long" value="<?php echo $data['element_map_long']; ?>">
+			<input type="text" name="element_map_long" id="editelement_map_long" value="<?php echo esc_attr($data['element_map_long']); ?>">
 		</li>
 		<li><h4>Google Maps Api Key: </h4>
-			<input type="text" name="element_map_api_key" id="element_map_api_key" value="<?php echo $data['element_map_api_key']; ?>">
+			<input type="text" name="element_map_api_key" id="element_map_api_key" value="<?php echo esc_attr($data['element_map_api_key']); ?>">
 		</li>
 		<li class="colorchange"><h3>Map Color: </h3>
 			<select name="map_color" id="editmap_color">
@@ -212,7 +208,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['map_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Map Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="map_custom_color" value="<?php echo $data['map_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="map_custom_color" value="<?php echo esc_attr($data['map_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>

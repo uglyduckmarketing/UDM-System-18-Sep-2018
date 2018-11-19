@@ -1,19 +1,14 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('mobile_header_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
@@ -31,7 +26,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -46,14 +41,14 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo $data['text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo esc_attr($data['text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>	
-	<li><h3>Profile Image: </h3><input type="text" name="profile_image" id="editprofile_image" class="meta-image regular-text main-image" value="<?php echo $data['profile_image']; ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
+	<li><h3>Profile Image: </h3><input type="text" name="profile_image" id="editprofile_image" class="meta-image regular-text main-image" value="<?php echo esc_attr($data['profile_image']); ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
 	<li><h3>Profile Image Type: </h3> <span><input type="radio" name="profile_image_type" value="circle" <?php checked('circle',$data['profile_image_type']); ?>> Circle </span><span><input type="radio" name="profile_image_type" value="square" <?php checked('square',$data['profile_image_type']); ?>> Square</span></li>
-	<li><h3>Company Name: </h3> <input type="text" name="company_name" value="<?php echo $data['company_name']; ?>"></li>
-	<li><h3>Text Under Company Name: </h3> <input type="text" name="text_under_company_name" value="<?php echo $data['text_under_company_name']; ?>"></li>
+	<li><h3>Company Name: </h3> <input type="text" name="company_name" value="<?php echo esc_attr($data['company_name']); ?>"></li>
+	<li><h3>Text Under Company Name: </h3> <input type="text" name="text_under_company_name" value="<?php echo esc_attr($data['text_under_company_name']); ?>"></li>
 	<li>
 		<h3>Star Rating: </h3>
 		<span class="switch">
@@ -73,12 +68,12 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor">
 			<li>
 				<h3>Review Star Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="review_star_custom_color" value="<?php echo $data['review_star_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="review_star_custom_color" value="<?php echo esc_attr($data['review_star_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>	
-	<li><h3>Review Score: </h3> <input type="number" name="review_score" value="<?php echo $data['review_score']; ?>" step="0.5" min="0" max="5" ></li>
-	<li><h3>Number of Reviews: </h3> <input type="number" name="number_of_reviews" value="<?php echo $data['number_of_reviews']; ?>"></li>
+	<li><h3>Review Score: </h3> <input type="number" name="review_score" value="<?php echo esc_attr($data['review_score']); ?>" step="0.5" min="0" max="5" ></li>
+	<li><h3>Number of Reviews: </h3> <input type="number" name="number_of_reviews" value="<?php echo esc_attr($data['number_of_reviews']); ?>"></li>
 	</div>
 	<li>
 		<h3>Call Button: </h3>

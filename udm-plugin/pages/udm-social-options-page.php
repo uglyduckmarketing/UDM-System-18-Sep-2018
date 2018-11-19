@@ -1,4 +1,3 @@
-
 <div class="wrap udm-opt">
 	<h1>Social Icons Options</h1>
 	<form method="post" action="options.php" enctype="multipart/form-data">
@@ -22,8 +21,6 @@
     ?>
 	</form>
 </div>
-
-
 <div class="defaultdatasection">
 	<h2>Default Colors</h2>
 	<ul class="list">

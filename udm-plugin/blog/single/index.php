@@ -31,7 +31,7 @@ $description = get_post(get_post_thumbnail_id())->post_content; // The Descripti
 				</a>
 			</div>
 			<?php if(has_post_thumbnail()) : ?>
-			<img src="<?php echo $img[0]; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
+			<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" />
 			<?php endif; ?>
 		</div>
 			<?php the_content(); ?>
@@ -55,7 +55,7 @@ $description = get_post(get_post_thumbnail_id())->post_content; // The Descripti
 					?>
 					<div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
 						<div class="inner_grid_sec">
-						  <span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+						  <span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" /></a></span>
 							<div class="desc">
 								<div class="date_time"><?php echo get_the_date('F jS, Y'); ?></div>
 								<h4><?php the_title(); ?></h4>

@@ -1,5 +1,4 @@
 <?php
-
 $prevlayout="";
 	if(isset($_POST['footer_createlayout_submit']))  //check if "footer_createlayout_submit" submit button is clicked
 	{	
@@ -86,7 +85,7 @@ $prevlayout="";
 		 ?>
 		 jQuery.ajax({
 					type: 'post',
-					data:'layout='+'<?php echo $prevlayout; ?>',
+					data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/footers/edit_layout.php",
 					beforeSend: function(){
 						 $(".preloader").show();

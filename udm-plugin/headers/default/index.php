@@ -12,18 +12,18 @@
 								$type="";
 								if(get_option('udm_facebook_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo $type; ?>"></i></a></li>
+								<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo esc_attr($type); ?>"></i></a></li>
 							<?php
 								}	
 								if(get_option('udm_googleplus_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo $type; ?>"></i></a></li>
+								<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo esc_attr($type); ?>"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_linkedin_link')!="")
 								{
 							?>
-								<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo $type; ?>"></i></a></li>
+								<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo esc_attr($type); ?>"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_instagram_link')!="")
@@ -34,12 +34,12 @@
 								}
 								if(get_option('udm_twitter_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo $type; ?>"></i></a></li>
+								<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo esc_attr($type); ?>"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_pinterest_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo $type; } ; ?>"></i></a></li>
+								<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo esc_attr($type); } ; ?>"></i></a></li>
 							<?php
 								}
 						?>
@@ -47,20 +47,18 @@
                 </div>
             </div>
         </section>
-        
-        
-        <!--basic-header-default-->    
+ <!--basic-header-default-->    
         <section class="basic_header_default">
             <nav class="navbar navbar-expand-md bg-light navbar-light">
-                <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php if(get_option('udm_company_logo')!=""){ echo get_option('udm_company_logo'); }else{ echo get_template_directory_uri()."/images/login_logo.png"; } ?>" width="200"></a>
+                <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php if(get_option('udm_company_logo')!=""){ echo get_option('udm_company_logo'); }else{ echo get_template_directory_uri()."/images/login_logo.png"; } ?>" width="200"></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-					<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 						<?php
 							wp_nav_menu(array('menu_class' => 'navbar-nav'));
 						?>
-					</div>  
+				   </div>  
             </nav>
         </section>
 </header>

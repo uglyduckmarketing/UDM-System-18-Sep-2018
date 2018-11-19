@@ -7,8 +7,8 @@
 		?><div class="col-md-3 border-right padded-top benefit" >
 			<?php for($i = 0 ; $i<count($bmeta); $i++){ ?>
 				<div class="left-benefit">
-					<h3><?php echo $bmeta[$i]['benefit_'.$i.'_title']; ?></h3>
-					<?php echo $bmeta[$i]['benefit_'.$i.'_text']; ?><br>
+					<h3><?php echo esc_attr($bmeta[$i]['benefit_'.$i.'_title']); ?></h3>
+					<?php echo esc_attr($bmeta[$i]['benefit_'.$i.'_text']); ?><br>
 				</div>
 			<?php } ?>
     		</div> 
@@ -36,59 +36,53 @@ if(is_array($bkmeta) && count(array_filter($bkmeta)) != 0){
 					   $class="alignrightrow";
 				 }
 			?>
-			<div class="row align-items-center <?php echo $class; ?>" style="">
+			<div class="row align-items-center <?php echo esc_attr($class); ?>" style="">
 			<?php if (0 == $i % 2) {
 				?>
 				<div class="col col-lg-6  p1-left">
 					<span class="eyebrow" style="">
-						<?php echo $bkmeta[$i]['service_break_'.$i.'_eyebrow']; ?>
+						<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_eyebrow']); ?>
 					</span>
 					<h2 class="heading" style="">
-						<?php echo $bkmeta[$i]['service_break_'.$i.'_heading']; ?>
+						<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_heading']); ?>
 					</h2>
 					<div class="desc">
 						<?php echo nl2br($bkmeta[$i]['service_break_'.$i.'_text']); ?>
 					</div>
 					<?php if($bkmeta[$i]['button_'.$i.'_title'] != ''){ ?>
 					<div class="brakdowbutton">
-							<a target="_blank" class="btn btn-info" href="<?php echo $bkmeta[$i]['button_'.$i.'_link']; ?>"><?php echo $bkmeta[$i]['button_'.$i.'_title']; ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+							<a target="_blank" class="btn btn-info" href="<?php echo esc_attr($bkmeta[$i]['button_'.$i.'_link']); ?>"><?php echo esc_attr($bkmeta[$i]['button_'.$i.'_title']); ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 					</div>	
 					<?php } ?>					
 				</div> 
 				<?php $url = wp_get_attachment_image_url( $bkmeta[$i]['service_break_'.$i.'_image'],'full'); ?>
-				<div class="col col-lg-6 p1-both element" style="background-image:url(<?php echo $url; ?>)">
-				
-					<!--<img src="<?php //echo $url; ?>">-->
+				<div class="col col-lg-6 p1-both element" style="background-image:url(<?php echo esc_attr($url); ?>)">
 				</div>
 				<?php
 			}else{
 				?>  
 				<?php $url1 = wp_get_attachment_image_url( $bkmeta[$i]['service_break_'.$i.'_image'],'full'); ?>
-				<div class="col col-lg-6 p1-both element" style="background-image:url(<?php echo $url1; ?>)">
-				
-					<!--<img src="<?php //echo $url; ?>">-->
+				<div class="col col-lg-6 p1-both element" style="background-image:url(<?php echo esc_attr($url1); ?>)">
 				</div>
 				<div class="col col-lg-6 p1-left">
 					<span class="eyebrow" style="">
-						<?php echo $bkmeta[$i]['service_break_'.$i.'_eyebrow']; ?>
+						<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_eyebrow']); ?>
 					</span>
 					<h2 class="heading" style="">
-						<?php echo $bkmeta[$i]['service_break_'.$i.'_heading']; ?>
+						<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_heading']); ?>
 					</h2>
 					<div class="desc">
 						<?php echo nl2br($bkmeta[$i]['service_break_'.$i.'_text']); ?>
 					</div>
 					<?php if($bkmeta[$i]['button_'.$i.'_title'] != ''){ ?>
 					<div class="brakdowbutton">
-							<a target="_blank" class="btn btn-info" href="<?php echo $bkmeta[$i]['button_'.$i.'_link']; ?>"><?php echo $bkmeta[$i]['button_'.$i.'_title']; ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+							<a target="_blank" class="btn btn-info" href="<?php echo esc_attr($bkmeta[$i]['button_'.$i.'_link']); ?>"><?php echo esc_attr($bkmeta[$i]['button_'.$i.'_title']); ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 					</div>	
 					<?php } ?>					
 				</div>
-				
 				<?php
 			}
 			?>
-				
 			</div>
 			<?php } ?>
 	</div>
@@ -101,17 +95,15 @@ if($vmeta['vimeo_id'] != '' || $vmeta['youtube_link'] != ''){
 		<div class="row align-items-center">
 			<div class="col-md-10 offset-md-1 text-center">
 			<?php 
-				//$veyebrowstyle = "color: rgba(0,0,0,0.5)!important;";
-				//$vheadingstyle = "color: rgba(0,0,0,0.5)!important;";
 				echo isset($vmeta['video_desc_eyebrow']) ? '<span class="eyebrow">'.$vmeta['video_desc_eyebrow'].'</span>' : '';
 				echo isset($vmeta['video_desc_heading']) ? '<h2 class="heading" >'.$vmeta['video_desc_heading'].'</h2>' : ''; 	
 			?> 
 			<div class="col-md-10 offset-md-1 text-center">
 				<div class="embed-responsive embed-responsive-16by9 mrtop_60">
 					<?php if(isset($vmeta['youtube_link']) && $vmeta['youtube_link'] != ''){ ?>
-						<iframe class="embed-responsive-item" src="<?php echo $vmeta['youtube_link']; ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
+						<iframe class="embed-responsive-item" src="<?php echo esc_attr($vmeta['youtube_link']); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
 					<?php }else if(isset($vmeta['vimeo_id']) && $vmeta['vimeo_id'] != ''){ ?>
-						<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $vmeta['vimeo_id']; ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
+						<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo esc_attr($vmeta['vimeo_id']); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
 					<?php }						
 					?>
 				</div> 
@@ -149,8 +141,8 @@ if(count(array_filter($gmeta)) != 0){
 				$description = $attachment->post_content;
 				$alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
 			?>
-			<figure class="masonry-brick" href="<?php echo $src; ?>" data-desc="<?php echo $description; ?>">
-				<img class="masonry-img" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>">
+			<figure class="masonry-brick" href="<?php echo esc_attr($src); ?>" data-desc="<?php echo esc_attr($description); ?>">
+				<img class="masonry-img" src="<?php echo esc_attr($src); ?>" alt="<?php echo esc_attr($alt); ?>" title="<?php echo esc_attr($title); ?>">
 			</figure>
 			<?php endforeach; ?>
 		</div>
@@ -203,7 +195,7 @@ if($data['show_related'] == 'yes'){
 				<?php if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
 				<?php $img = wp_get_attachment_image_src( get_post_thumbnail_id($loop->post->ID), array( 5600,1000 ), false, '' ); ?>
 					<div class="col-md-4 padded_col">
-						<a href="<?php the_permalink(); ?>" class="service_box" style="background-image: url(<?php echo $img[0]; ?>)">
+						<a href="<?php the_permalink(); ?>" class="service_box" style="background-image: url(<?php echo esc_attr($img[0]); ?>)">
 							<div class="padded_col-overlay"></div>
 							<div class="service_box-content">
 								<h3><?php the_title(); ?></h3>

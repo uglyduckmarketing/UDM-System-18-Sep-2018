@@ -37,8 +37,8 @@
 				$title=$attachment->post_title;
 
 			?>
-				<a href="<?php echo $src; ?>" title="<?php echo $title; ?>" data-desc="<?php echo $description; ?>">
-					<img class="img-fluid" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>">
+				<a href="<?php echo isset($src) ? $src : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" data-desc="<?php echo isset($description) ? $description : ''; ?>">
+					<img class="img-fluid" src="<?php echo isset($src) ? $src : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>">
 				</a>
 			<?php endforeach; ?>
 			</div>

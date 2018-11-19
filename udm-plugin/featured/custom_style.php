@@ -117,28 +117,28 @@
 ?>
 
 .basic_hero{
-	background:<?php echo $background; ?>;
+	background:<?php echo esc_attr($background); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
 }
 .basic_hero::before{
-	background:<?php echo $overlay_color; ?>;
-	opacity:<?php echo $background_opacity; ?>
+	background:<?php echo esc_attr($overlay_color); ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>
 }
 
 .basic_hero .basic_hero_inner h4{
-	color:<?php echo $header_text_color; ?>;
+	color:<?php echo esc_attr($header_text_color); ?>;
 }
 
 .basic_hero .basic_hero_inner .right_side_bt .btn-info{
-	background:<?php echo $button_color; ?>;
-	border-color: <?php echo $button_color; ?>;
-	color:<?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color: <?php echo esc_attr($button_color); ?>;
+	color:<?php echo esc_attr($button_text_color); ?>;
 	
 }
 
 .basic_hero .basic_hero_inner .right_side_bt .phonetext{
-	color: <?php echo $phone_number_color; ?>;
+	color: <?php echo esc_attr($phone_number_color); ?>;
 	font-size:30px;
 	font-weight: bold;
 }
@@ -267,28 +267,28 @@
 ?>
 
 .fullwidth-hero-3{
-	background:<?php echo $background; ?>;
-	height:<?php echo $height; ?>;
+	background:<?php echo esc_attr($background); ?>;
+	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
 }
 .fullwidth-hero-3::before{
-	background:<?php echo $overlay_color; ?>;
-	opacity:<?php echo $background_opacity; ?>;
+	background:<?php echo esc_attr($overlay_color); ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>;
 }
 .fullwidth-hero-3 .fullwidth_content h2{
-	color:<?php echo $header_text_color; ?>;
+	color:<?php echo esc_attr($header_text_color); ?>;
 }
 .fullwidth-hero-3 .fullwidth_content span{
-	color:<?php echo $eyebrow_text_color; ?>;
+	color:<?php echo esc_attr($eyebrow_text_color); ?>;
 }
 .fullwidth-hero-3 .fullwidth_content p{
-	color:<?php echo $description_color; ?>;
+	color:<?php echo esc_attr($description_color); ?>;
 }
 .fullwidth-hero-3 .right_side_bt .btn-info{
-	background:<?php echo $button_color; ?>;
-	border-color: <?php echo $button_color; ?>;
-	color:<?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color: <?php echo esc_attr($button_color); ?>;
+	color:<?php echo esc_attr($button_text_color); ?>;
 }
 
 <?php
@@ -448,56 +448,56 @@
 
 .splitscreen-hero{
 	
-	background:<?php echo $background; ?>;
-	height:<?php echo $height; ?>;
+	background:<?php echo esc_attr($background); ?>;
+	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
 }
 .splitscreen-hero::before{
-	background:<?php echo $overlay_color; ?>;
-	opacity:<?php echo $background_opacity; ?>;
+	background:<?php echo esc_attr($overlay_color); ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>;
 	<?php if($data['content_side']=="left"){ echo "left:0;"; }else{  echo "right:0;"; } ?>
 }
 
 .splitscreen-hero.back::before
 {
-	background:<?php echo $overlay_color; ?>;
-	opacity:<?php echo $background_opacity; ?>;	
+	background:<?php echo esc_attr($overlay_color); ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>;	
 }
 
 .splitscreen-hero.contained .p1-both::before
 {
-	background:<?php echo $overlay_color; ?>;
-	opacity:<?php echo $background_opacity; ?>;	
+	background:<?php echo esc_attr($overlay_color); ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>;	
 }
 .splitscreen-hero .fullwidth_content h2{
-	color:<?php echo $header_text_color; ?>;
+	color:<?php echo esc_attr($header_text_color); ?>;
 }
 .splitscreen-hero .fullwidth_content span{
-	color:<?php echo $eyebrow_text_color; ?>;
+	color:<?php echo esc_attr($eyebrow_text_color); ?>;
 }
 .splitscreen-hero .fullwidth_content p{
-	color:<?php echo $description_color; ?>;
+	color:<?php echo esc_attr($description_color); ?>;
 }
 .splitscreen-hero .right_side_bt .btn-info{
-	background:<?php echo $button_color; ?>;
-	border-color: <?php echo $button_color; ?>;
-	color:<?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color: <?php echo esc_attr($button_color); ?>;
+	color:<?php echo esc_attr($button_text_color); ?>;
 }
 
 .splitscreen-hero .right_side_bt .phonetext{
-	color: <?php echo $phone_number_color; ?>;
+	color: <?php echo esc_attr($phone_number_color); ?>;
 	font-size:30px;
 	font-weight: bold;
 }
 
 .splitscreen-hero .row .p1-both {
-  height:<?php echo $height; ?>;
+  height:<?php echo esc_attr($height); ?>;
   overflow: hidden;
 }
 
 .splitscreen-hero .row .p1-both .image_repsonsive {
-  height:<?php echo $height; ?>;
+  height:<?php echo esc_attr($height); ?>;
 }
 
 .splitscreen-hero .row.content-left {
@@ -506,7 +506,7 @@
 }
 .splitscreen-hero.contained .p1-left
 {
-	background:<?php echo $content_background; ?>;
+	background:<?php echo esc_attr($content_background); ?>;
 	align-items: center;
     display: flex;
 }
@@ -640,30 +640,30 @@
 ?>
 
 .fullwidth-hero-3.leadgen-hero.left-right_hero{
-	background:<?php echo $background; ?>;
-	height:<?php echo $height; ?>;
+	background:<?php echo esc_attr($background); ?>;
+	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
 }
 .fullwidth-hero-3.leadgen-hero.left-right_hero::before{
-	background:<?php echo $overlay_color; ?>;
-	opacity:<?php echo $background_opacity; ?>;
+	background:<?php echo esc_attr($overlay_color); ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>;
 }
 
 .fullwidth-hero-3.leadgen-hero.left-right_hero .fullwidth_content h2{
-	color:<?php echo $header_text_color; ?>;
+	color:<?php echo esc_attr($header_text_color); ?>;
 }
 .fullwidth-hero-3.leadgen-hero.left-right_hero .fullwidth_content span{
-	color:<?php echo $eyebrow_text_color; ?>;
+	color:<?php echo esc_attr($eyebrow_text_color); ?>;
 }
 .fullwidth-hero-3.leadgen-hero.left-right_hero .fullwidth_content p{
-	color:<?php echo $description_color; ?>;
+	color:<?php echo esc_attr($description_color); ?>;
 }
 
 .fullwidth-hero-3.leadgen-hero.left-right_hero .right_side_bt .btn-info{
-	background:<?php echo $button_color; ?>;
-	border-color: <?php echo $button_color; ?>;
-	color:<?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color: <?php echo esc_attr($button_color); ?>;
+	color:<?php echo esc_attr($button_text_color); ?>;
 }
 
 .fullwidth-hero-3.leadgen-hero.left-right_hero .row.content-right {
@@ -795,36 +795,32 @@
 ?>
 
 .fullwidth-hero-3.leadgen-hero{
-	background:<?php echo $background; ?>;
-	height:<?php echo $height; ?>;
+	background:<?php echo esc_attr($background); ?>;
+	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
 	padding:30px 0;
 }
 .fullwidth-hero-3.leadgen-hero::before{
-	opacity:<?php echo $background_opacity; ?>;
-	background:<?php echo $overlay_color; ?>;
+	opacity:<?php echo esc_attr($background_opacity); ?>;
+	background:<?php echo esc_attr($overlay_color); ?>;
 }
-
 
 .fullwidth-hero-3.leadgen-hero .fullwidth_content h2{
-	color:<?php echo $header_text_color; ?>;
+	color:<?php echo esc_attr($header_text_color); ?>;
 }
 .fullwidth-hero-3.leadgen-hero .fullwidth_content span{
-	color:<?php echo $eyebrow_text_color; ?>;
+	color:<?php echo esc_attr($eyebrow_text_color); ?>;
 }
 .fullwidth-hero-3.leadgen-hero .fullwidth_content p{
-	color:<?php echo $description_color; ?>;
+	color:<?php echo esc_attr($description_color); ?>;
 }
 
 .fullwidth-hero-3.leadgen-hero .right_side_bt .btn-info{
-	background:<?php echo $button_color; ?>;
-	border-color: <?php echo $button_color; ?>;
-	color: <?php echo $button_text_color; ?>;
+	background:<?php echo esc_attr($button_color); ?>;
+	border-color: <?php echo esc_attr($button_color); ?>;
+	color: <?php echo esc_attr($button_text_color); ?>;
 }
-
-
 <?php
 	}
-	
- ?>
+?>

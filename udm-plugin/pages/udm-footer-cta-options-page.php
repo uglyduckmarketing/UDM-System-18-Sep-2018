@@ -105,27 +105,25 @@ $prevlayout="";
 	<!-- Edit footer_ctas section End -->
 <!-- Theme Options JS -->
 <script>
-	jQuery(document).ready(function($) {
-	  	
-	  	$('.udm_color_picker').wpColorPicker(); //Add color picker on fields  
-		 
-	   $('#newfeatlayout').click(function(){ //Create footer_cta layout
-				jQuery.ajax({
-					type: 'get',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/footer-cta/create_layout.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						setTimeout(function() {
-								$(".preloader").hide()
-							}, 3000);
-					   },
-					success: function(result) {
-						$('#newlayout').html(result);
-					}
-				});
-	   });
+jQuery(document).ready(function($) {
+	$('.udm_color_picker').wpColorPicker(); //Add color picker on fields  
+	$('#newfeatlayout').click(function(){ //Create footer_cta layout
+		jQuery.ajax({
+			type: 'get',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/footer-cta/create_layout.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				setTimeout(function() {
+						$(".preloader").hide()
+					}, 3000);
+			   },
+			success: function(result) {
+				$('#newlayout').html(result);
+			}
+		});
+	 });
 	   
 	   $('#editsavedlayout').change(function(){ //Edit saved footer_cta layout
 			var footer_cta = $(this).val();
@@ -149,7 +147,7 @@ $prevlayout="";
 	   <?php if($prevlayout!=""){ ?> 
 	   jQuery.ajax({	
 	   type: 'post',	
-	   data:'layout='+'<?php echo $prevlayout; ?>',	
+	   data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',	
 	   url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/footer-cta/edit_layout.php",	
 	   beforeSend: function(){	
 	   $(".preloader").show();
@@ -167,11 +165,7 @@ $prevlayout="";
 	   <?php 
 	   } 	
 	   ?>
-	  
-	  
 	  });
-	  
-	
 </script>
 
 <div class="defaultdatasection">
@@ -183,4 +177,3 @@ $prevlayout="";
 		<li><span>Global Dark: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_dark'); ?>" readonly="" /></li>
 	</ul>
 </div>
-

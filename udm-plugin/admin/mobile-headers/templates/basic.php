@@ -18,7 +18,7 @@
         <?php $menus=wp_get_nav_menus();
 			foreach( $menus as $item ) {
         ?>
-            <option value="<?php echo $item->slug;  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo $item->name;  ?></option>
+            <option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
 		<?php
 			}
 		?>

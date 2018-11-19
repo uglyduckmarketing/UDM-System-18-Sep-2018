@@ -17,7 +17,7 @@
 			<div class="col-md-4 col-sm-12 gallery__block">
 				<a href="<?php the_permalink(); ?>" class="gallery__block-wrap">
 					<div class="gallery__block-image">
-						<img src="<?php echo $img[0]; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
+						<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" />
 					</div>
 					<h2 class="gallery__block-title"><?php the_title(); ?></h2>
 					<span class="gallery__block-button btn"><?php the_content(); ?>View Gallery <i class="ion-android-arrow-forward"></i></span>

@@ -1,8 +1,6 @@
 <?php
 /** Loads the WordPress Environment and Template */
-
 include '../../../../../../../wp-load.php'; 
-
 if($_POST['layout'])
 {
 	$layout=$_POST['layout'];
@@ -50,74 +48,63 @@ $data=unserialize(get_option('header_layout_'.$layout));
             </div>
         </div>
     </li>
-	
-	
-	
-	
-	<script>
-	jQuery(document).ready(function($) {
-		
-			<?php 
-				if($data['lefttopbartext'] == 'yes')
-				{ 
+<script>
+jQuery(document).ready(function($) {
+	<?php 
+		if($data['lefttopbartext'] == 'yes'){ 
 			?>
-					jQuery.ajax({
-					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#lefttopbar').html(result);
-					}
-					});
-					
+			jQuery.ajax({
+			type: 'post',
+			data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				 $(".preloader").hide();
+			   },
+			success: function(result) {
+				$('#lefttopbar').html(result);
+			}
+			});
 			<?php 
+		}
+		else if($data['lefttopbarphone'] == 'yes')
+		{				
+		?>
+		jQuery.ajax({
+			type: 'post',
+			data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				 $(".preloader").hide();
+			   },
+			success: function(result) {
+				$('#lefttopbar').html(result);
+			}
+		});
+		<?php 
+		}
+		else if($data['lefttopbarsocial'] == 'yes')
+		{
+		?>	
+			jQuery.ajax({
+				type: 'post',
+				data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
+				beforeSend: function(){
+					 $(".preloader").show();
+				   },
+				   complete: function(){
+					 $(".preloader").hide();
+				   },
+				success: function(result) {
+					$('#lefttopbar').html(result);
 				}
-				else if($data['lefttopbarphone'] == 'yes')
-				{				
-			?>
-					jQuery.ajax({
-					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#lefttopbar').html(result);
-					}
-					});
-
-				
-			<?php 
-				}
-				else if($data['lefttopbarsocial'] == 'yes')
-				{
-			?>	
-					jQuery.ajax({
-					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#lefttopbar').html(result);
-					}
-					});
-					
-				
+			});
 			<?php		
 				}
 				else if($data['lefttopbarbutton'] == 'yes')
@@ -125,7 +112,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			?>	
 					jQuery.ajax({
 					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
+					data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -137,68 +124,63 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						$('#lefttopbar').html(result);
 					}
 					});
-					
-				
 			<?php		
 				}
-				
 			if($data['righttopbartext'] == 'yes')
-				{ 
+			{ 
 			?>
-					jQuery.ajax({
-					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#righttopbar').html(result);
-					}
-					});
-					
+				jQuery.ajax({
+				type: 'post',
+				data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
+				beforeSend: function(){
+					 $(".preloader").show();
+				   },
+				   complete: function(){
+					 $(".preloader").hide();
+				   },
+				success: function(result) {
+					$('#righttopbar').html(result);
+				}
+				});
 			<?php 
 				}
 				else if($data['righttopbarphone'] == 'yes')
 				{				
 			?>
 					jQuery.ajax({
-					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#righttopbar').html(result);
-					}
+						type: 'post',
+						data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+						url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
+						beforeSend: function(){
+							 $(".preloader").show();
+						   },
+						   complete: function(){
+							 $(".preloader").hide();
+						   },
+						success: function(result) {
+							$('#righttopbar').html(result);
+						}
 					});
-
 			<?php 
 				}
 				else if($data['righttopbarsocial'] == 'yes')
 				{
 			?>
 					jQuery.ajax({
-					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#righttopbar').html(result);
-						$('#menuintopbar').val("yes");
-					}
+						type: 'post',
+						data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+						url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
+						beforeSend: function(){
+							 $(".preloader").show();
+						   },
+						   complete: function(){
+							 $(".preloader").hide();
+						   },
+						success: function(result) {
+							$('#righttopbar').html(result);
+							$('#menuintopbar').val("yes");
+						}
 					});
 			<?php		
 				}
@@ -206,19 +188,19 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				{
 			?>
 					jQuery.ajax({
-					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#righttopbar').html(result);
-						$('#menuintopbar').val("yes");
-					}
+						type: 'post',
+						data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
+						url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
+						beforeSend: function(){
+							 $(".preloader").show();
+						   },
+						   complete: function(){
+							 $(".preloader").hide();
+						   },
+						success: function(result) {
+							$('#righttopbar').html(result);
+							$('#menuintopbar').val("yes");
+						}
 					});
 			<?php	
 				}

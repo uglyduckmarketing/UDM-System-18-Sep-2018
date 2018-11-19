@@ -20,9 +20,9 @@ $location=$_POST['location'];
 
 <div id="bottommenu"> 
 	<h4>Button</h4>
-	<input type="hidden" name="<?php echo $location; ?>button" value="yes">
+	<input type="hidden" name="<?php echo esc_attr($location); ?>button" value="yes">
 	<ul class="menuwidget">
-			<li><h5>Button Text </h5><input type="text" name="<?php echo $location; ?>_button_text" value="<?php echo $buttodata[$location.'_button_text']; ?>" ></li>	 
-			<li><h5>Button Link </h5><input type="text" name="<?php echo $location; ?>_button_link" value="<?php echo $buttodata[$location.'_button_link']; ?>" ></li>
+			<li><h5>Button Text </h5><input type="text" name="<?php echo esc_attr($location); ?>_button_text" value="<?php echo esc_attr($buttodata[$location.'_button_text']); ?>" ></li>	 
+			<li><h5>Button Link </h5><input type="text" name="<?php echo esc_attr($location); ?>_button_link" value="<?php echo esc_attr($buttodata[$location.'_button_link']); ?>" ></li>
 	</ul>
 </div>

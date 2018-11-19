@@ -1,6 +1,5 @@
 <?php
-
-	$prevlayout="";
+$prevlayout="";
 	//blog Layout Start
 	if(isset($_POST['blog_createlayout_submit']))  //check if "blog_createlayout_submit" submit button is clicked
 	{
@@ -149,7 +148,7 @@
 	   ?>
 	   jQuery.ajax({
 		   type: 'post',
-		   data:'layout='+'<?php echo $prevlayout; ?>',
+		   data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
 		   url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/blog/edit_layout.php",
 		   beforeSend: function(){
 			   $(".preloader").show();
@@ -168,11 +167,7 @@
 	   ?>
 	  
 	  });
-	  
-	
 </script>
-
-
 <div class="defaultdatasection">
 	<h2>Default Colors</h2>
 	<ul class="list">
@@ -199,5 +194,4 @@
 .defaultdatasection .wp-picker-input-wrap{
     display: none;
 }
-
 </style>

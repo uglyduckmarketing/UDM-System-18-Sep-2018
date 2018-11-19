@@ -1,10 +1,7 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
@@ -13,7 +10,6 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
@@ -30,7 +26,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -45,7 +41,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo $data['text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo esc_attr($data['text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>	
@@ -60,7 +56,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['submenu_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="submenu_background_custom_color" value="<?php echo $data['submenu_background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="submenu_background_custom_color" value="<?php echo esc_attr($data['submenu_background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -75,7 +71,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['submenu_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="submenu_text_custom_color" value="<?php echo $data['submenu_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="submenu_text_custom_color" value="<?php echo esc_attr($data['submenu_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>

@@ -1,6 +1,5 @@
 <?php
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../../wp-load.php'; 
 $layout = '';
 if($_POST['layout'])
@@ -11,10 +10,7 @@ if($_POST['layoutnew'])
 {
 	$layoutnew=$_POST['layoutnew'];
 }
-
-
 $topdata=unserialize(get_option('header_layout_'.$layout));
-
 ?>
     <li>
         <h3>Left Top Bar Widget</h3>
@@ -91,7 +87,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
+					data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout: ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -111,7 +107,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
+					data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -132,7 +128,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>	
 					jQuery.ajax({
 					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
+					data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -153,7 +149,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>	
 					jQuery.ajax({
 					type: 'post',
-					data:'location=lefttopbar&header=<?php echo $layout; ?>',
+					data:'location=lefttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -175,7 +171,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=middletopbar&header=<?php echo $layout; ?>',
+					data:'location=middletopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -195,7 +191,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=middletopbar&header=<?php echo $layout; ?>',
+					data:'location=middletopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -216,7 +212,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>	
 					jQuery.ajax({
 					type: 'post',
-					data:'location=middletopbar&header=<?php echo $layout; ?>',
+					data:'location=middletopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -237,7 +233,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>	
 					jQuery.ajax({
 					type: 'post',
-					data:'location=middletopbar&header=<?php echo $layout; ?>',
+					data:'location=middletopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -258,7 +254,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
+					data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -278,7 +274,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
+					data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -298,7 +294,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
+					data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -318,7 +314,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=righttopbar&header=<?php echo $layout; ?>',
+					data:'location=righttopbar&header=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
 					beforeSend: function(){
 						 $(".preloader").show();

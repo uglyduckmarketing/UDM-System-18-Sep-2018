@@ -1,7 +1,6 @@
 <?php
 	$data=unserialize(get_option('mobile_header_layout_'.$mobilelayout));
 ?>
-
 <header class="d-md-none mobileheader <?php if($data['webapp']=="yes"){ ?>webappshow<?php } ?>">
 	<div class="basic">
 		<div class="container">
@@ -17,7 +16,7 @@
 					if($data['logo_position']=="center")
 					{
 					?>
-						<a class="" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 					<?php
 						}
 					?>
@@ -27,7 +26,7 @@
 					if($data['logo_position']!="center")
 					{
 				?>
-					<a class="" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+					<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 				<?php
 					}
 				?>
@@ -42,7 +41,7 @@
 						if($data['logo_position']!="center")
 						{
 					?>
-						<a class="" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 					<?php
 						}
 					?>
@@ -52,7 +51,7 @@
 					if($data['logo_position']=="center")
 					{
 					?>
-						<a class="" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 					<?php
 					}
 					?>
@@ -72,23 +71,23 @@
 			<div class="left">
 			<?php if(isset($data['profile_image']) && $data['profile_image']!=""){ ?>
 				<div class="logo <?php if($data['profile_image_type']=="circle"){ echo "logo_circle"; }else{ echo "logo_square"; }  ?>">
-					<img src="<?php echo $data['profile_image']; ?>">
+					<img src="<?php echo isset($data['profile_image']) ? $data['profile_image'] : ''; ?>">
 				</div>
 			<?php } ?>
 				<div class="companyinfo">
-					<h3><?php echo $data['company_name']; ?></h3>
-					<h4><?php echo $data['text_under_company_name']; ?></h4>
+					<h3><?php echo isset($data['company_name']) ? $data['company_name'] : ''; ?></h3>
+					<h4><?php echo isset($data['text_under_company_name']) ? $data['text_under_company_name'] : ''; ?></h4>
 					<?php 
 						if(isset($data['star_rating']) && $data['star_rating']=="yes")
 						{
 					?>
-						<h5><?php echo $data['review_score']; ?>: <div id="rateyo"></div>(<?php echo $data['number_of_reviews']; ?>)</h5>
+						<h5><?php echo isset($data['review_score']) ? $data['review_score'] : ''; ?>: <div id="rateyo"></div>(<?php echo esc_attr($data['number_of_reviews']); ?>)</h5>
 						<script>
 							$(document).ready(function(){
 									$("#rateyo").rateYo({
-										rating: <?php echo $data['review_score']; ?>,
+										rating: <?php echo isset($data['review_score']) ? $data['review_score'] : ''; ?>,
 										readOnly: true,
-										ratedFill :	'<?php if($data['review_star_color']=="custom"){ echo $data['review_star_custom_color'];  }else if($data['review_star_color']!=""){ if($data['review_star_color']=='primary' ||  $data['review_star_color']=='secondary'){ $color="_color";  }else{ $color=""; } echo get_option('udm_'.$color);  }else{ echo "#fff"; } ?>'
+										ratedFill :	'<?php if($data['review_star_color']=="custom"){ echo esc_attr($data['review_star_custom_color']);  }else if($data['review_star_color']!=""){ if($data['review_star_color']=='primary' ||  $data['review_star_color']=='secondary'){ $color="_color";  }else{ $color=""; } echo get_option('udm_'.$color);  }else{ echo "#fff"; } ?>'
 										});
 								});
 

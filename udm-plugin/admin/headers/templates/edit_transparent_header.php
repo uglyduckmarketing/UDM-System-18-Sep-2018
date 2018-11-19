@@ -1,19 +1,14 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('header_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
@@ -24,7 +19,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<?php $menus=wp_get_nav_menus();
 					foreach( $menus as $item ) {
 				?>
-					<option value="<?php echo $item->slug;  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo $item->name;  ?></option>
+					<option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
 				<?php
 					}
 				?>
@@ -44,7 +39,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		</select>
 	</li>
 	
-	<li><h3>Opacity(in %): </h3><input type="number" name="opacity" value="<?php echo $data['opacity']; ?>" /></li>
+	<li><h3>Opacity(in %): </h3><input type="number" name="opacity" value="<?php echo esc_attr($data['opacity']); ?>" /></li>
 	
 	<li class="colorchange"><h3>Opacity Color: </h3>
 		<select name="opacity_color" id="opacity_color">
@@ -58,7 +53,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['opacity_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Opacity Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="opacity_custom_color" value="<?php echo $data['opacity_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="opacity_custom_color" value="<?php echo esc_attr($data['opacity_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -74,7 +69,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['button_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Button Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="button_custom_color" value="<?php echo $data['button_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="button_custom_color" value="<?php echo esc_attr($data['button_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -90,7 +85,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['button_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Button Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo $data['button_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo esc_attr($data['button_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -106,7 +101,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['link_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Links Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="link_custom_color" value="<?php echo $data['link_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="link_custom_color" value="<?php echo esc_attr($data['link_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -129,7 +124,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['topbar_link_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Links Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="topbar_link_custom_color" value="<?php echo $data['topbar_link_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="topbar_link_custom_color" value="<?php echo esc_attr($data['topbar_link_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -145,7 +140,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				<ul class="customcolor" <?php if(isset($data['topbar_text_color']) && $data['topbar_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Text Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="topbar_text_custom_color" value="<?php echo $data['topbar_text_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="topbar_text_custom_color" value="<?php echo esc_attr($data['topbar_text_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
@@ -167,11 +162,11 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		<ul id="show_button_text">
 			<li>
 			<h3>Header Button Text: </h3>
-				<input class="" type="text" name="header_button_text" value="<?php echo $data['header_button_text']; ?>" />
+				<input class="" type="text" name="header_button_text" value="<?php echo esc_attr($data['header_button_text']); ?>" />
 			</li>
 			<li>
 				<h3>Header Button Link: </h3>
-				<input class="" type="text" name="header_button_link" value="<?php echo $data['header_button_link']; ?>" />
+				<input class="" type="text" name="header_button_link" value="<?php echo esc_attr($data['header_button_link']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -183,8 +178,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 					<label for="bottom_button_hide">No/Yes</label> 
 				</span>
 			</li>
-			<li><h5>Bottom Button Text </h5><input type="text" name="bottombar_button_text" value="<?php echo $data['bottombar_button_text']; ?>" ></li>	 
-			<li><h5>Bottom Button Link </h5><input type="text" name="bottombar_button_link" value="<?php echo $data['bottombar_button_link']; ?>" ></li>
+			<li><h5>Bottom Button Text </h5><input type="text" name="bottombar_button_text" value="<?php echo esc_attr($data['bottombar_button_text']); ?>" ></li>	 
+			<li><h5>Bottom Button Link </h5><input type="text" name="bottombar_button_link" value="<?php echo esc_attr($data['bottombar_button_link']); ?>" ></li>
 		</ul>
 	</li>
 </ul>

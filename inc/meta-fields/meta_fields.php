@@ -1,15 +1,13 @@
 <?php
 add_action( 'services_add_form_fields', 'add_category_image', 10, 2 );
 add_action( 'created_services','save_category_image', 10, 2 );
- add_action( 'services_edit_form_fields', 'update_category_image', 10, 2 );
+add_action( 'services_edit_form_fields', 'update_category_image', 10, 2 );
 add_action( 'edited_services', 'updated_category_image', 10, 2 );
-
 add_action( 'admin_enqueue_scripts', 'load_media');
 add_action( 'admin_footer', 'add_script' );
 function load_media() {
 	wp_enqueue_media();
 } 
-
 function add_category_image ( $taxonomy ) { ?>
 	<div class="form-field term-group">
      <label for="category-image-id"><?php _e('Featured Image', 'hero-theme'); ?></label>
@@ -71,7 +69,7 @@ function update_category_image ( $term, $taxonomy ) { ?>
      </th>
      <td>
        <?php $image_id = get_term_meta ( $term -> term_id, 'category-image-id', true ); ?>
-       <input type="hidden" id="category-image-id" name="category-image-id" value="<?php echo $image_id; ?>">
+       <input type="hidden" id="category-image-id" name="category-image-id" value="<?php echo isset($image_id) ? $image_id : ''; ?>">
        <div id="category-image-wrapper">
          <?php if ( $image_id ) { ?>
            <?php echo wp_get_attachment_image ( $image_id, 'thumbnail' ); ?>
@@ -155,7 +153,6 @@ function udm_service_options() {
     
     );
 }
-
 add_action( 'add_meta_boxes', 'udm_related_service_meta',1 );
 add_action( 'add_meta_boxes', 'udm_benifit_service_meta',2 );
 add_action( 'add_meta_boxes', 'udm_breakdown_service_meta',3 );
@@ -186,23 +183,10 @@ function udm_service_description_display( $post ) {
 			<div class="own_fields own_input_field_textarea">
 				<label>Services Description</label>
 				<div class="own_label">
-					<?php wp_editor( htmlspecialchars_decode($service_description), 'service_description', $settings = array('textarea_name'=>'service_desc[service_description]','textarea_rows' => 15) ); ?>
+					<?php wp_editor( wp_specialchars_decode($service_description), 'service_description', $settings = array('textarea_name'=>'service_desc[service_description]','textarea_rows' => 15) ); ?>
 				</div>
 			</div>
-			<!--<div class="own_fields own_input_field_colorpicker">
-				<label>Choose background color:</label>
-				<div class="own_label">
-					<input class="color_field" type="text" name="service_desc[background_color]" value="<?php //echo isset($meta['background_color']) ? $meta['background_color'] : '#FFFFFF' ?>"/>
-				</div>
-			</div>-->
 		</div>
-		<!--<script>
-        jQuery(document).ready(function($){
-            $('.color_field').each(function(){
-                $(this).wpColorPicker();
-                });
-        });
-        </script>-->
 	 <?php
 }
 
@@ -245,18 +229,18 @@ function udm_service_benifits_display($post){
 					for($i = 0 ; $i<count($bmeta); $i++){
 						?>
 						<tr class="row tr_clone_row">
-							<td class="order ui-sortable-handle" id="<?php echo $x; ?>"><?php echo $x; ?></td>
+							<td class="order ui-sortable-handle" id="<?php echo isset($x) ? $x : ''; ?>"><?php echo isset($x) ? $x : ''; ?></td>
 							<td class="cus_td">  
 								<div class="own_fields own_input_field_text">
 									<label>Benefit Title</label>
 									<div class="own_label">
-										<input type="text" id="benefit_title" class="text " name="benifit[<?php echo $i; ?>][benefit_<?php echo $i; ?>_title]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_title']) ? $bmeta[$i]['benefit_'.$i.'_title'] : ''; ?>" placeholder="">
+										<input type="text" id="benefit_title" class="text " name="benifit[<?php echo esc_attr($i); ?>][benefit_<?php echo esc_attr($i); ?>_title]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_title']) ? $bmeta[$i]['benefit_'.$i.'_title'] : ''; ?>">
 									</div> 
 								</div>
 								<div class="own_fields own_input_field_text">
 									<label>Benefit Text</label>
 									<div class="own_label">
-										<input type="text" id="benifit_text" class="text " name="benifit[<?php echo $i; ?>][benefit_<?php echo $i; ?>_text]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_text']) ? $bmeta[$i]['benefit_'.$i.'_text'] : ''; ?>" placeholder=""> 
+										<input type="text" id="benifit_text" class="text " name="benifit[<?php echo esc_attr($i); ?>][benefit_<?php echo esc_attr($i); ?>_text]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_text']) ? $bmeta[$i]['benefit_'.$i.'_text'] : ''; ?>"> 
 									</div>
 								</div>
 							</td>
@@ -286,13 +270,13 @@ $( function() {
 				+'<div class="own_fields own_input_field_text">'
 					+'<label>Benefit Title</label>'
 					+'<div class="own_label">'
-						+'<input type="text" id="benefit_title" class="text " name="" value="" placeholder="">'
+						+'<input type="text" id="benefit_title" class="text " name="" value="">'
 					+'</div>'
 				+'</div>'
 				+'<div class="own_fields own_input_field_text">'
 					+'<label>Benefit Text</label>'
 					+'<div class="own_label">'
-						+'<input type="text" id="benifit_text" class="text " name="" value="" placeholder="">'
+						+'<input type="text" id="benifit_text" class="text " name="" value="" >'
 					+'</div>'
 				+'</div>'
 			+'</td>'
@@ -353,10 +337,8 @@ add_action( 'save_post', 'save_service_benifit_meta' );
 
 function udm_service_breakdown_display($post){
 	$bkmeta = get_post_meta( $post->ID, 'breakdown', true );
-	//echo '<pre>'; print_r($bkmeta);
 	wp_nonce_field( basename( __FILE__ ), 'udm_service_breakdown_nonce' ); 
- 
-	?>
+?>
 		<div class="inside own-fields">
 			<div class="own_label"><label for="">Single Service Breakdown</label></div>
 			<table id="servicedynamictables" class="widefat mcf-input-table ">
@@ -367,18 +349,18 @@ function udm_service_breakdown_display($post){
 					for($i = 0 ; $i<count($bkmeta); $i++){
 						?>
 					<tr class="row tr_clone_row dynamicrow">
-						<td class="order ui-sortable-handle" id="<?php echo $x; ?>"><?php echo $x; ?></td>
+						<td class="order ui-sortable-handle" id="<?php echo esc_attr($x); ?>"><?php echo esc_attr($x); ?></td>
 						<td class="cus_td">
 							<div class="own_fields own_input_field_text">
 								<label>Description Eyebrow</label>
 								<div class="own_label">
-									<input type="text" id="service_desc_eyebrow" class="text " name="breakdown[<?php echo $i; ?>][service_break_<?php echo $i; ?>_eyebrow]" value="<?php echo $bkmeta[$i]['service_break_'.$i.'_eyebrow']; ?>" placeholder="">
+									<input type="text" id="service_desc_eyebrow" class="text " name="breakdown[<?php echo esc_attr($i); ?>][service_break_<?php echo esc_attr($i); ?>_eyebrow]" value="<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_eyebrow']); ?>" >
 								</div>		
 							</div>
 							<div class="own_fields own_input_field_text">
 								<label>Description Heading</label>
 								<div class="own_label">
-									<input type="text" id="service_desc_heading" class="text " name="breakdown[<?php echo $i; ?>][service_break_<?php echo $i; ?>_heading]" value="<?php echo $bkmeta[$i]['service_break_'.$i.'_heading']; ?>" placeholder="">
+									<input type="text" id="service_desc_heading" class="text " name="breakdown[<?php echo esc_attr($i); ?>][service_break_<?php echo esc_attr($i); ?>_heading]" value="<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_heading']); ?>" >
 								</div>			
 							</div>	
 							<?php
@@ -387,30 +369,30 @@ function udm_service_breakdown_display($post){
 							<div class="own_fields own_input_field_text">
 								<label>Breakdown Text</label>
 								<div class="own_label">
-									<?php wp_editor( htmlspecialchars_decode($desc), 'service_breakdown_text'.$x, $settings = array('textarea_name'=>'breakdown['.$i.'][service_break_'.$i.'_text]','textarea_rows' => 15) ); ?>
+									<?php wp_editor( wp_specialchars_decode($desc), 'service_breakdown_text'.$x, $settings = array('textarea_name'=>'breakdown['.$i.'][service_break_'.$i.'_text]','textarea_rows' => 15) ); ?>
 								</div>			
 							</div>
 							<div class="own_fields own_input_field_text">
 								<label>Button</label>
 								<div class="own_label">
 									<label>Title</label>
-									<input type="text" id="button_title" class=" " name="breakdown[<?php echo $i; ?>][button_<?php echo $i; ?>_title]" value="<?php echo $bkmeta[$i]['button_'.$i.'_title']; ?>" placeholder="">
+									<input type="text" id="button_title" class=" " name="breakdown[<?php echo esc_attr($i); ?>][button_<?php echo esc_attr($i); ?>_title]" value="<?php echo esc_attr($bkmeta[$i]['button_'.$i.'_title']); ?>" >
 								</div>
 								<div class="own_label">
 									<label>Link</label>
-									<input type="text" id="button_link" class="" name="breakdown[<?php echo $i; ?>][button_<?php echo $i; ?>_link]" value="<?php echo $bkmeta[$i]['button_'.$i.'_link']; ?>" placeholder="">
+									<input type="text" id="button_link" class="" name="breakdown[<?php echo esc_attr($i); ?>][button_<?php echo esc_attr($i); ?>_link]" value="<?php echo esc_attr($bkmeta[$i]['button_'.$i.'_link']); ?>" >
 								</div>			
 							</div>
 							<div class="own_fields own_input_field_text">
 								<label>Image</label>
 								<div class="own_label">
-									<input type="hidden"  id="myprefix_image_id" name="breakdown[<?php echo $i; ?>][service_break_<?php echo $i; ?>_image]" value="<?php echo $bkmeta[$i]['service_break_'.$i.'_image']; ?>"  class="regular-text" />
+									<input type="hidden"  id="myprefix_image_id" name="breakdown[<?php echo esc_attr($i); ?>][service_break_<?php echo esc_attr($i); ?>_image]" value="<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_image']); ?>"  class="regular-text" />
 									<div class="has-image">
 										<div class="img_hover">
 											<a class="remove_image" href="#"><i class="fa fa-close"></i></a>
 										</div>
 										<?php $url = wp_get_attachment_image_url( $bkmeta[$i]['service_break_'.$i.'_image']); ?>
-										<img id="myprefix-preview-image" src="<?php echo $url; ?>" alt="">
+										<img id="myprefix-preview-image" src="<?php echo isset($url) ? $url : ''; ?>" alt="">
 									</div>
 									<div class="no-image" <?php if($bkmeta[$i]['service_break_'.$i.'_image'] != ''){ echo 'style="display:none"'; } ?>>
 										<p>No image selected <input type="button" class="button add-image" value="Add Image">
@@ -418,12 +400,6 @@ function udm_service_breakdown_display($post){
 									</div>
 								</div>
 							</div>
-							<!--<div class="own_fields own_input_field_colorpicker">
-								<label>Choose background color:</label>
-								<div class="own_label">
-									<input id="breakdowncolor" class="breakdown_color_fields" type="text" name="breakdown[<?php //echo $i; ?>][service_break_<?php //echo $i; ?>_color]" value="<?php //echo $bkmeta[$i]['service_break_'.$i.'_color']; ?>"/>
-								</div>
-							</div>-->
 						</td>
 						<td class="remove"><a id="" class="ser_tr_clone_remove" href="javascript:;"><i class="fa fa-minus"></i></a></td>
 					</tr>
@@ -434,31 +410,30 @@ function udm_service_breakdown_display($post){
 							<div class="own_fields own_input_field_text">
 								<label>Description Eyebrow</label>
 								<div class="own_label">
-									<input type="text" id="service_desc_eyebrow" class="text " name="" value="" placeholder="">
+									<input type="text" id="service_desc_eyebrow" class="text " name="" value="" >
 								</div>		
 							</div>
 							<div class="own_fields own_input_field_text">
 								<label>Description Heading</label>
 								<div class="own_label">
-									<input type="text" id="service_desc_heading" class="text " name="" value="" placeholder="">
+									<input type="text" id="service_desc_heading" class="text " name="" value="" >
 								</div>			
 							</div>	
 							<div class="own_fields own_input_field_text">
 								<label>Breakdown Text</label>
 								<div class="own_label texteditor">
 									<textarea id="breakdowntex" rows="15"></textarea>
-									<?php //wp_editor( '', 'breakdowntex', $settings = array('textarea_name'=>'','textarea_rows' => 15) ); ?>
 								</div>			
 							</div>
 							<div class="own_fields own_input_field_text">
 								<label>Button</label>
 								<div class="own_label">
 									<label>Title</label>
-									<input type="text" id="button_title" class=" " name="" value="" placeholder="">
+									<input type="text" id="button_title" class=" " name="" value="" >
 								</div>
 								<div class="own_label">
 									<label>Link</label>
-									<input type="text" id="button_link" class="" name="" value="" placeholder="">
+									<input type="text" id="button_link" class="" name="" value="" >
 								</div>			
 							</div>
 							<div class="own_fields own_input_field_text">
@@ -477,12 +452,6 @@ function udm_service_breakdown_display($post){
 									</div>
 								</div>
 							</div>
-							<!--<div class="own_fields own_input_field_colorpicker">
-								<label>Choose background color:</label>
-								<div class="own_label">
-									<input id="breakdowncolors" class="breakdown_color_field" type="text" name="" value=""/>
-								</div>
-							</div>-->
 						</td>
 						<td class="remove"><a id="" class="ser_tr_clone_remove" href="javascript:;"><i class="fa fa-minus"></i></a></td></tr>
 				</tbody>  
@@ -586,9 +555,6 @@ function arrangeSno()
 		$('#servicedynamictables tbody tr.dynamicrow').each(function() {
 		$(this).find(".order").html(i);
 		$(this).find(".order").attr('id',i);
-		//$(this).find(".no-image").hide();
-		//$(this).find(".breakdowncolor").attr("id","service_breakdown_textclo"+i);  
-		//$(this).find(".texteditor #service_breakdown_textclo"+i).wp_editor();
 		$(this).find("#breakdowncolors").wpColorPicker();
 		$(this).find("#myprefix_image_id").attr('name',"breakdown["+x+"][service_break_"+x+"_image]");
 		$(this).find("#button_title").attr('name',"breakdown["+x+"][button_"+x+"_title]");
@@ -669,16 +635,10 @@ function udm_service_video_display($post){
 			<div class="own_fields own_input_field_text">
 				<label>Services Description</label>
 				<div class="own_label">
-					<?php wp_editor( htmlspecialchars_decode($vedesc), 'video_desc_services', $settings = array('textarea_name'=>'service_video[video_desc_services]'
+					<?php wp_editor( wp_specialchars_decode($vedesc), 'video_desc_services', $settings = array('textarea_name'=>'service_video[video_desc_services]'
 					,'textarea_rows' => 15) ); ?>
 				</div>			
 			</div>
-			<!--<div class="own_fields own_input_field_colorpicker">
-				<label>Choose background color:</label>
-				<div class="own_label">
-					<input class="video_color_field" type="text" name="service_video[video_background_color]" value="<?php// echo isset($vmeta['video_background_color']) ? $vmeta['video_background_color'] : '#dd3333'; ?>"/>
-				</div>
-			</div>-->
 		</div>
 <script>
 jQuery(document).ready(function($){
@@ -753,7 +713,7 @@ function udm_service_gallery_display($post){
 				<?php
 					if($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
 						?>
-						<option value="<?php echo $the_query->post->ID; ?>" <?php if($gallery == $the_query->post->ID){ echo 'selected'; } ?>><?php the_title(); ?></option>
+						<option value="<?php echo esc_attr($the_query->post->ID); ?>" <?php if($gallery == $the_query->post->ID){ echo 'selected'; } ?>><?php the_title(); ?></option>
 						<?php
 					endwhile;
 					endif;
@@ -773,12 +733,6 @@ function udm_service_gallery_display($post){
 				<input type="text" name="service_gallery[gallery_heading]" value="<?php echo isset($gmeta['gallery_heading']) ? $gmeta['gallery_heading'] : ''; ?>">
 			</div>
 		</div>
-		<!--<div class="own_fields own_input_field_text">
-			<label>Choose background color</label>
-			<div class="own_label">
-				<input type="text" class="gallery_color_field" name="service_gallery[gallery_backgrount_color]" value="<?php //echo isset($gmeta['gallery_backgrount_color']) ? $gmeta['gallery_backgrount_color'] : '#ffffff'; ?>">
-			</div>
-		</div>-->
 	</div>
 	<script>
         jQuery(document).ready(function($){
@@ -837,15 +791,9 @@ function udm_service_cta_display($post){
 		<div class="own_fields own_input_field_text">
 			<label>CTA Description</label>
 			<div class="own_label">
-				<?php wp_editor( htmlspecialchars_decode($ctaheading), 'cta_description', $settings = array('textarea_name'=>'service_cta[cta_description]','textarea_rows' => 15) ); ?>
+				<?php wp_editor( wp_specialchars_decode($ctaheading), 'cta_description', $settings = array('textarea_name'=>'service_cta[cta_description]','textarea_rows' => 15) ); ?>
 			</div>
 		</div>
-		<!--<div class="own_fields own_input_field_text">
-			<label>Choose background color</label>
-			<div class="own_label">
-				<input type="text" class="cta_color_field" name="service_cta[cta_background_color]" value="<?php //echo isset($cmeta['cta_background_color']) ? $cmeta['cta_background_color'] : '#ee2'; ?>">
-			</div>
-		</div>-->
 		<div class="own_fields own_input_field_text">
 			<label>Choose Button/Form</label>
 			<div class="own_label">
@@ -858,43 +806,8 @@ function udm_service_cta_display($post){
 		</div>
 		<div class="show_button_f" <?php if($choose_btn_form == 'form'){ echo 'style="display:none;"'; } ?>>
 			<div class="own_fields own_input_field_text"><label>Button Text</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_text]" value="<?php echo isset($cmeta['cta_button_text']) ? $cmeta['cta_button_text'] : ''; ?>"></div></div>
-			
-					<div class="own_fields own_input_field_text"><label>Button Link</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_link]" value="<?php echo isset($cmeta['cta_button_link']) ? $cmeta['cta_button_link'] : ''; ?>"></div></div>
-					<?php /*<div class="own_fields own_input_field_text">
-					<label>Button Color</label>
-					<div class="own_label colorchange">
-					<select name="service_cta[cta_button_color]" id="cta_button_text">
-							<option value="primary" <?php if($cmeta['cta_button_color'] == 'primary'){ echo 'selected'; } ?>>Primary</option>
-							<option value="secondary" <?php if($cmeta['cta_button_color'] == 'secondary'){ echo 'selected'; } ?>>Secondary</option>
-							<option value="global_light" <?php if($cmeta['cta_button_color'] == 'global_light'){ echo 'selected'; } ?>>Global Light</option>
-							<option value="global_dark" <?php if($cmeta['cta_button_color'] == 'global_dark'){ echo 'selected'; } ?>>Global Dark</option>
-							<option value="custom" <?php if($cmeta['cta_button_color'] == 'custom'){ echo 'selected'; } ?>>Custom</option>
-						</select>
-						<div class="customcolor" <?php if($cmeta['cta_button_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-							<h3>Button Custom Color: </h3>
-							<input class="udm_color_picker" type="text" name="service_cta[button_custom_color]" value="<?php echo $cmeta['button_custom_color']; ?>" />
-						</div>
-					</div></div>
-					
-					<div class="own_fields own_input_field_text">
-					<label>Button Text Color</label>
-					<div class="own_label colorchange">
-						<select name="service_cta[cta_button_text_color]" id="cta_button_text_color">
-							<option value="primary" <?php if($cmeta['cta_button_text_color'] == 'primary'){ echo 'selected'; } ?>>Primary</option>
-							<option value="secondary" <?php if($cmeta['cta_button_text_color'] == 'secondary'){ echo 'selected'; } ?>>Secondary</option>
-							<option value="global_light" <?php if($cmeta['cta_button_text_color'] == 'global_light'){ echo 'selected'; } ?>>Global Light</option>
-							<option value="global_dark" <?php if($cmeta['cta_button_text_color'] == 'global_dark'){ echo 'selected'; } ?>>Global Dark</option>
-							<option value="custom" <?php if($cmeta['cta_button_text_color'] == 'custom'){ echo 'selected'; } ?>>Custom</option>
-						</select>
-						<div class="customcolor" <?php if($cmeta['cta_button_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-							<h3>Button Text Custom Color: </h3>
-							<input class="udm_color_picker" type="text" name="service_cta[button_text_custom_color]" value="<?php echo $cmeta['button_text_custom_color']; ?>" />
-						</div> 
+			<div class="own_fields own_input_field_text"><label>Button Link</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_link]" value="<?php echo isset($cmeta['cta_button_link']) ? $cmeta['cta_button_link'] : ''; ?>"></div></div>
 		</div>
-		</div> */?>
-					
-				</div>
-					
 		<div class="own_fields own_input_field_text showform"  <?php if($choose_btn_form == ''){ ?> style="display:none;" <?php }else if($choose_btn_form == 'button'){ ?> style="display:none;" <?php }  ?>>
 			<label>Ninja Form</label>
 			<?php global $wpdb;
@@ -909,7 +822,7 @@ function udm_service_cta_display($post){
 					<?php
 						foreach($ninjaform as $list){
 							?>
-							<option value="<?php echo $list->id; ?>" <?php if($choose_ninja_form == $list->id){ echo 'selected'; } ?>><?php echo $list->title; ?></option>
+							<option value="<?php echo esc_attr($list->id); ?>" <?php if($choose_ninja_form == $list->id){ echo 'selected'; } ?>><?php echo esc_attr($list->title); ?></option>
 							<?php
 						}
 					?>
@@ -981,15 +894,6 @@ function udm_related_service_display($post){
 	wp_nonce_field( basename( __FILE__ ), 'udm_related_service_nonce' );
 	 $show_related = isset($rmeta['show_related']) ? $rmeta['show_related'] : ''; ?>
 	<div class="inside own-fields">
-		<!--<div class="own_fields own_input_field_text">
-			<label>Show Related</label>
-			<div class="own_label switch-field">
-				<input type="radio" id="switch_left" name="related[show_related]" value="yes" <?php //if(isset($rmeta['show_related'])){ if($show_related == 'yes'){ echo 'checked'; } }else{ echo 'checked'; } ?>  />
-					<label for="switch_left">Yes</label>
-				<input type="radio" id="switch_right" name="related[show_related]" value="no" <?php //if($show_related == 'no'){ echo 'checked'; } ?> />
-					<label for="switch_right">No</label>
-			</div>
-		</div>-->
 		<div class="own_fields own_input_field_text">
 			<label>Related Eyebrow</label>
 			<div class="own_label">
@@ -1002,25 +906,6 @@ function udm_related_service_display($post){
 				<input type="text" name="related[related_heading]" value="<?php echo isset($rmeta['related_heading']) ? $rmeta['related_heading'] : ''; ?>">
 			</div>
 		</div>
-		<?php //$relate_desc = isset($rmeta['related_description']) ? $rmeta['related_description'] : ''; ?>
-		<!--<div class="own_fields own_input_field_text">
-			<label>Related Description</label>
-			<div class="own_label">
-				<?php// wp_editor( htmlspecialchars_decode($relate_desc), 'related_description', $settings = array('textarea_name'=>'related[related_description]','textarea_row' => 15) ); ?>
-			</div>
-		</div>-->
-		<!--<div class="own_fields own_input_field_text">
-			<label>Choose background color</label>
-			<div class="own_label">
-				<input type="text" class="related_color_field" name="related[related_color_field]" value="<?php //echo isset($rmeta['related_color_field']) ? $rmeta['related_color_field'] : '#FFFFFF'; ?>">
-			</div>
-		</div>-->
-		<!--<div class="own_fields own_input_field_text">
-			<label>Number of Post To Show</label>
-			<div class="own_label">
-				<input type="number" class="no_of_post_show" name="related[no_of_post_show]" value="<?php //echo isset($rmeta['no_of_post_show']) ? $rmeta['no_of_post_show'] : '3'; ?>">
-			</div>
-		</div>-->
 	</div>
 	<script>
 	jQuery(document).ready(function($){

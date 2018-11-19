@@ -1,9 +1,6 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
 $layout = '';
 if(isset($_POST['layout']))
@@ -96,9 +93,5 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 				$('#selected_layout').html("<div class='empty'><p>Select mobile_nav Layout Template to change settings.</p></div>");
 			}
 	   });
-	   
-	  
-	  });
-	  
-	
+});
 </script>

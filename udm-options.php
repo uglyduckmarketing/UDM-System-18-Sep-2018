@@ -1,10 +1,7 @@
 <?php
-
 function theme_settings_page() {
 ?>
-
 <!-- Theme Options Styles -->
-
 <style>
 input, select {
 	margin: 1px;
@@ -90,59 +87,43 @@ ul.tabs li.current {
 	margin-right: 10px;
 }
 </style>
-
 <!-- Theme Options JS -->
-
 <script>
-
-
-
 jQuery(document).ready(function($) {
-
-  <?php if(!empty($_GET['tab'])): ?>
+	<?php if(!empty($_GET['tab'])): ?>
     $('ul.tabs li').removeClass('current');
     $('.tab-content').removeClass('current');
-    $('.tab-link[data-tab="<?php echo $_GET['tab']; ?>"]').addClass('current');
-    $("#<?php echo $_GET['tab']; ?>").addClass('current');
+    $('.tab-link[data-tab="<?php echo isset($_GET['tab']) ? $_GET['tab'] : ''; ?>"]').addClass('current');
+    $("#<?php echo isset($_GET['tab']) ? $_GET['tab'] : ''; ?>").addClass('current');
   <?php else: ?>
 
   <?php endif; ?>
 
 	$('ul.tabs li').click(function() {
-
-
-
 		var tab_id = $(this).attr('data-tab');
-    var id = $(this).data('tab');
-    $('ul.tabs li').removeClass('current');
-    $('.tab-content').removeClass('current');
-    $(this).addClass('current');
-    $("#" + tab_id).addClass('current');
-
-
-
-      //update the URL
-      url = window.location.href,
-      separator = (url.indexOf("?") === -1) ? "?" : "&",
-      param = 'tab';
-      regex = new RegExp('('+param+'=)[^\&]+');
-      matches = url.match('('+param+'=)[^\&]+');
-     if(matches != null){
-       newUrl = url.replace( regex , '$1' + id);
-     }
-     else{
-       newUrl = url + separator + "tab=" + id;
-     }
-     window.history.replaceState(null, null, newUrl);
-
-
+		var id = $(this).data('tab');
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+		$(this).addClass('current');
+		$("#" + tab_id).addClass('current');
+		//update the URL
+		  url = window.location.href,
+		  separator = (url.indexOf("?") === -1) ? "?" : "&",
+		  param = 'tab';
+		  regex = new RegExp('('+param+'=)[^\&]+');
+		  matches = url.match('('+param+'=)[^\&]+');
+		 if(matches != null){
+		   newUrl = url.replace( regex , '$1' + id);
+		 }
+		 else{
+		   newUrl = url + separator + "tab=" + id;
+		 }
+		 window.history.replaceState(null, null, newUrl);
 	});
 	$('.udm_color_picker').wpColorPicker();
 });
 </script>
-
 <!-- Theme Options Page Wrap -->
-
 <div class="wrap udm-opt">
   <h1>Theme Options</h1>
   <ul class="tabs">
@@ -154,14 +135,7 @@ jQuery(document).ready(function($) {
   </ul>
   <form method="post" action="options.php">
       <?php
-      //
       settings_fields("section");
-      //settings_fields("nav-section");
-      //settings_fields("header-section");
-      //settings_fields("footer-section");
-      //settings_fields("posts-section");
-      //settings_fields("contact-page-section");
-
       echo '<div id="tab-1" class="tab-content current">';
       do_settings_sections("theme-options");
       echo '</div>';
@@ -181,24 +155,20 @@ jQuery(document).ready(function($) {
       ?>
   </form>
 </div>
-
 <?php
 }
-
 // Logo Url
 function display_topbar_text() {
 ?>
   <input name="topbar_text" id="topbar_text" value="<?php echo get_option('topbar_text',UDM_TOPBAR_TEXT_DEFAULT); ?>" style="width:100%" />
 <?php
 }
-
 // Header Code
 function display_header_code() {
 ?>
   <textarea name="header_code" id="header_code"/><?php echo get_option('header_code'); ?></textarea>
 <?php
 }
-
 // Footer Code
 function display_footer_code() {
 ?>

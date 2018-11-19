@@ -91,8 +91,8 @@
 				<div class="carousel-item col-md-3<?php if($temp3=="0"){ ?> active<?php } ?>">
                <div class="panel panel-default">
                   <div class="panel-thumbnail">
-                    <a href="<?php echo $src; ?>" class="thumb" href="<?php echo $src; ?>" title="<?php echo $title; ?>" data-desc="<?php echo $description; ?>">
-                      <img class="img-fluid mx-auto d-block" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>">
+                    <a href="<?php echo isset($src) ? $src : ''; ?>" class="thumb" title="<?php echo esc_attr($title); ?>" data-desc="<?php echo esc_attr($description); ?>">
+                      <img class="img-fluid mx-auto d-block" src="<?php echo isset($src) ? $src : ''; ?>" alt="<?php echo esc_attr($alt); ?>">
                     </a>
                   </div>
                 </div>

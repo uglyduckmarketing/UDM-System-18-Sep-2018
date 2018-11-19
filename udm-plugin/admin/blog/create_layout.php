@@ -1,9 +1,7 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
+
 include '../../../../../../wp-load.php'; 
 $layout = '';
 if(isset($_POST['layout']))
@@ -11,9 +9,7 @@ if(isset($_POST['layout']))
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('blog_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
 	
 	<ul class="layout_top_data">
@@ -81,6 +77,4 @@ $data=unserialize(get_option('blog_layout_'.$layout));
 	   
 	  
 	  });
-	  
-	
-</script>
+	 </script>
