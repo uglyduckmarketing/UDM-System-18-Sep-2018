@@ -3,7 +3,6 @@
 	//mobile_nav Layout Start
 	if(isset($_POST['mobile_nav_createlayout_submit']))  //check if "mobile_nav_createlayout_submit" submit button is clicked
 	{
-		
 		$mobile_nav_layout = serialize($_POST);  // Get form fields data
 		if($_POST["mobile_nav_layout_template"]=="1")
 		{
@@ -160,7 +159,7 @@
 	  <?php if($prevlayout!=""){ ?>
 	  jQuery.ajax({
 		  type: 'post',
-		  data:'layout='+'<?php echo $prevlayout; ?>',
+		  data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
 		  url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/mobile-nav/edit_layout.php",
 		  beforeSend: function(){
 			  $(".preloader").show();
@@ -178,11 +177,7 @@
 		  } 	
 		?>
 	  });
-	  
-	
 </script>
-
-
 <div class="defaultdatasection">
 	<h2>Default Colors</h2>
 	<ul class="list">
@@ -209,5 +204,4 @@
 .defaultdatasection .wp-picker-input-wrap{
     display: none;
 }
-
 </style>

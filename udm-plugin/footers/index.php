@@ -67,8 +67,8 @@
 		<div class="row">
 			<div class="col">
 		
-			<h3><?php echo ($data['title_text']!="" ? $data['title_text'] : "UDM Plugin"); ?></h3>
-			<p><?php echo ($data['desc_text']!="" ? $data['desc_text'] : "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."); ?></p>
+			<h3><?php echo esc_attr(($data['title_text']!="" ? $data['title_text'] : "UDM Plugin")); ?></h3>
+			<p><?php echo esc_attr(($data['desc_text']!="" ? $data['desc_text'] : "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.")); ?></p>
 			<ul class="footer_social_icons">
 			<?php
 				if(isset($data['social_icons']) && $data['social_icons']=="yes")

@@ -1,32 +1,25 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('mobile_header_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-
 <ul id="editlayoutsettings" class="header_type_style collapse show basic_hero">
-
 	<li><h3>Hamber: </h3> <span><input type="radio" name="hamber_position" value="left" <?php checked('left',$data['hamber_position']); ?>>Left </span><span><input type="radio" name="hamber_position" value="right" <?php checked('right',$data['hamber_position']); ?>>Right </span></li>
 	<li><h3>Navigation: </h3>
 		<select name="navigation">
 			<?php $menus=wp_get_nav_menus();
 				foreach( $menus as $item ) {
 			?>
-				<option value="<?php echo $item->slug;  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo $item->name;  ?></option>
+				<option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
 			<?php
 				}
 			?>
@@ -43,7 +36,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['hamberger_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Hamberger Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="hamberger_custom_color" value="<?php echo $data['hamberger_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="hamberger_custom_color" value="<?php echo esc_attr($data['hamberger_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -58,12 +51,12 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
 	<li><h3>Logo Position: </h3> <span><input type="radio" name="logo_position" value="center" <?php checked('center',$data['logo_position']); ?>> Center </span><span><input type="radio" name="logo_position" value="opposite" <?php checked('opposite',$data['logo_position']); ?>> Opposite of hamberger</span></li>
-	<li><h3>Logo Url: </h3><input type="text" name="logo_url" id="logo_url" class="meta-image regular-text main-image" value="<?php echo $data['logo_url']; ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
+	<li><h3>Logo Url: </h3><input type="text" name="logo_url" id="logo_url" class="meta-image regular-text main-image" value="<?php echo esc_attr($data['logo_url']); ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
 	<li>
 		<h3>Sticky: </h3>
 		<span class="switch">

@@ -1,9 +1,6 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
 $layout = '';
 if(isset($_POST['layout']))
@@ -11,11 +8,8 @@ if(isset($_POST['layout']))
 	$layout=$_POST['layout']; 
 }
 $data=unserialize(get_option('mobile_header_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
-	
 	<ul class="mobilelayout_data">
 		<li><h4>Enter Layout Name: </h4><input type="text" name="mobile_header_layout_name" value="" required></li>
 	
@@ -25,7 +19,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
         <?php $menus=wp_get_nav_menus();
 			foreach( $menus as $item ) {
         ?>
-            <option value="<?php echo $item->slug;  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo $item->name;  ?></option>
+            <option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
 		<?php
 			}
 		?>
@@ -247,6 +241,4 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 			  });
 	
 	  });
-	  
-	
 </script>

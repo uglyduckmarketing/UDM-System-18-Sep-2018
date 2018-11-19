@@ -1,17 +1,12 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-	include '../../../../../../../wp-load.php'; 
-	
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-
 <ul id="layoutsettings" class="header_type_style collapse show stacked_header">
 	<li>
 		<h3>Logo size</h3>
@@ -40,10 +35,10 @@
 						<option value="custom" selected>Custom</option>
 				</select>
 				<ul class="customcolor">
-						<li>
-							<h3>Logo Background Custom Color: </h3>
-							<input class="udm_color_picker" type="text" name="logo_background_custom_color" value="#fff" />
-						</li>
+					<li>
+						<h3>Logo Background Custom Color: </h3>
+						<input class="udm_color_picker" type="text" name="logo_background_custom_color" value="#fff" />
+					</li>
 				</ul>
 			</li>
 			<li class="imageupload" style="display:none;">
@@ -54,19 +49,19 @@
 		</ul>
 	</li>
 	<li>
-				<h3>Top Bar Style</h3>
-				<select name="top_bar_style" id="top_bar_style">
-					<option value="50_50">50/50</option>
-					<option value="1_3">1/3</option>
-				</select>
-			</li>
-			<li class="topbarwiget">
-			<h2>Top Bar Widget</h2>
-			<ul id="topbar_layouts">
-				<?php
-					include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
-				?>
-			</ul>
+		<h3>Top Bar Style</h3>
+		<select name="top_bar_style" id="top_bar_style">
+			<option value="50_50">50/50</option>
+			<option value="1_3">1/3</option>
+		</select>
+	</li>
+	<li class="topbarwiget">
+		<h2>Top Bar Widget</h2>
+		<ul id="topbar_layouts">
+			<?php
+				include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
+			?>
+		</ul>
 	</li>
 	<li class="bottombarwiget">
 		<h2>Bottom Bar Widget</h2>
@@ -94,7 +89,7 @@
 						<?php $menus=wp_get_nav_menus();
 								foreach( $menus as $item ) {
 							?>
-								<option value="<?php echo $item->slug;  ?>"> <?php echo $item->name;  ?></option>
+								<option value="<?php echo isset($item->slug) ? $item->slug : '';  ?>"> <?php echo isset($item->name) ?$item->name : '';  ?></option>
 							<?php
 								}
 							?>
@@ -155,118 +150,108 @@
 	</li>
 </ul>
 <script>
-	jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
+	$('.udm_color_picker').wpColorPicker();  //Add color picker 
+	$('#newbottombarwidget a').click(function(){
+		var widget = $(this).attr('data-widget');
+		if(widget == '1')
+		{
 			
-		$('.udm_color_picker').wpColorPicker();  //Add color picker 
-			
-			$('#newbottombarwidget a').click(function(){
-				var widget = $(this).attr('data-widget');
-				if(widget == '1')
-				{
-					
-					jQuery.ajax({
-					type: 'post',
-					data:'location=bottombar',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#bottombar').html(result);
-					}
-					});
+			jQuery.ajax({
+			type: 'post',
+			data:'location=bottombar',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				 $(".preloader").hide();
+			   },
+			success: function(result) {
+				$('#bottombar').html(result);
+			}
+			});
 
-				}
-				else if(widget == '2')
-				{
-					jQuery.ajax({
-					type: 'post',
-					data:'location=bottombar',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#bottombar').html(result);
-					}
-					});
-					
-					
-				}
-				else if(widget == '3')
-				{
-					jQuery.ajax({
-					type: 'post',
-					data:'location=bottombar',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#bottombar').html(result);
-					}
-					});
-					
-				}
-				else if(widget == '4')
-				{
-					jQuery.ajax({
-					type: 'post',
-					data:'location=bottombar',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						 $(".preloader").hide();
-					   },
-					success: function(result) {
-						$('#bottombar').html(result);
-					}
-					});
-					
-				}
+		}
+		else if(widget == '2')
+		{
+			jQuery.ajax({
+			type: 'post',
+			data:'location=bottombar',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				 $(".preloader").hide();
+			   },
+			success: function(result) {
+				$('#bottombar').html(result);
+			}
 			});
 			
-		
-	
-	  $('.upload-image').click(function() {
-		
-				var mediaUploader;
-				var myvar = $(this).attr('my-attr');	
-				//e.preventDefault();
-				// If the uploader object has already been created, reopen the dialog
-				  if (mediaUploader) {
-				  mediaUploader.open();
-				  return;
-				}
-	    
-				// Extend the wp.media object
-				mediaUploader = wp.media.frames.file_frame = wp.media({
-				  title: 'Choose Image',
-				  button: {
-				  text: 'Choose Image'
-				}, multiple: false });
-				
-		
-				// When a file is selected, grab the URL and set it as the text field's value
-				mediaUploader.on('select', function() {
-				  attachment = mediaUploader.state().get('selection').first().toJSON();
-				  
-				  $('.'+myvar).val(attachment.url);
-				});
-				// Open the uploader dialog
-				mediaUploader.open();
-			  });
+			
+		}
+		else if(widget == '3')
+		{
+			jQuery.ajax({
+			type: 'post',
+			data:'location=bottombar',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				 $(".preloader").hide();
+			   },
+			success: function(result) {
+				$('#bottombar').html(result);
+			}
+			});
+			
+		}
+		else if(widget == '4')
+		{
+			jQuery.ajax({
+			type: 'post',
+			data:'location=bottombar',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				 $(".preloader").hide();
+			   },
+			success: function(result) {
+				$('#bottombar').html(result);
+			}
+			});
+			
+		}
+	});
+	$('.upload-image').click(function() {
+		var mediaUploader;
+		var myvar = $(this).attr('my-attr');	
+		// If the uploader object has already been created, reopen the dialog
+		  if (mediaUploader) {
+		  mediaUploader.open();
+		  return;
+		}
+		// Extend the wp.media object
+		mediaUploader = wp.media.frames.file_frame = wp.media({
+		  title: 'Choose Image',
+		  button: {
+		  text: 'Choose Image'
+		}, multiple: false });
+		// When a file is selected, grab the URL and set it as the text field's value
+		mediaUploader.on('select', function() {
+		  attachment = mediaUploader.state().get('selection').first().toJSON();
+		  
+		  $('.'+myvar).val(attachment.url);
+		});
+		// Open the uploader dialog
+		mediaUploader.open();
+	});
 		$('#header_topbar').change(function(){
 			if($(this).prop("checked") == true)
 			{
@@ -295,7 +280,7 @@
 			
 			jQuery.ajax({
 					type: 'post',
-					data:'layoutnew='+value+'&layout=<?php echo $layout; ?>',
+					data:'layoutnew='+value+'&layout=<?php echo isset($layout) ? $layout : ''; ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/stacked_topbar_layout.php",
 					beforeSend: function(){
 						 $(".preloader").show();

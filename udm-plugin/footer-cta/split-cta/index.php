@@ -1,6 +1,6 @@
 <?php
-	$layout=get_option('udm_footer_cta_default');
-	$data=unserialize(get_option("footer_cta_layout_".$layout));
+$layout=get_option('udm_footer_cta_default');
+$data=unserialize(get_option("footer_cta_layout_".$layout));
 global $post,$wpdb;
 $cta = get_post_meta($post->ID, 'service_cta', true);
  $layout=get_post_meta( $post->ID, 'udm_service_option', true );
@@ -18,8 +18,8 @@ $datas=unserialize(get_option('service_layout_'.$layout));
                     <div class="fullwidth_content">
 					
 						<?php if(isset($cta) && isset($cta['cta_eyebrow']) && $cta['cta_eyebrow'] != ''){ echo '<span class="eyebrow" style="">'.$cta['cta_eyebrow'].'</span>'; } ?>
-                        <h2><?php if(isset($cta) && isset($cta['cta_heading']) && $cta['cta_heading'] != ''){ echo $cta['cta_heading']; }else if($data['title_text']!=""){ echo $data['title_text']; }else{ ?>An intelligent design platform build for<br>every type of industry.<?php } ?></h2>
-                        <p><?php if(isset($cta) && isset($cta['cta_description']) &&  $cta['cta_description'] != ''){ echo $cta['cta_description']; } else if($data['description_text']!=""){ echo $data['description_text']; }else{ ?>We design and build the tools necessary to compete and win<br>in the digital marketplace.<?php } ?></p>
+                        <h2><?php if(isset($cta) && isset($cta['cta_heading']) && $cta['cta_heading'] != ''){ echo esc_attr($cta['cta_heading']); }else if($data['title_text']!=""){ echo esc_attr($data['title_text']); }else{ ?>An intelligent design platform build for<br>every type of industry.<?php } ?></h2>
+                        <p><?php if(isset($cta) && isset($cta['cta_description']) &&  $cta['cta_description'] != ''){ echo esc_attr($cta['cta_description']); } else if($data['description_text']!=""){ echo esc_attr($data['description_text']); }else{ ?>We design and build the tools necessary to compete and win<br>in the digital marketplace.<?php } ?></p>
                     </div>
                     <?php
 					if(get_post_meta($post->ID, 'service_cta', true) != '' && $cta['cta_button_text'] != '' && $cta['cta_button_link'] != ''){
@@ -64,7 +64,7 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 						if($data['button_text']!=""){ $button = $data['button_text']; }else{ $button = 'Get Started'; }
 					}
 				?>
-                <span class="right_side_bt"><a <?php if(isset($url) && $url!=""){ ?> target="_blank" <?php } ?> class="btn" href="<?php if($url!=""){ echo $url;}else{ ?>#<?php } ?>"><h6><?php echo $button; ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+                <span class="right_side_bt"><a <?php if(isset($url) && $url!=""){ ?> target="_blank" <?php } ?> class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php echo esc_attr($button); ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 				<?php } ?>
                 </div>
             </div>
@@ -108,7 +108,7 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 						}
 					?>	
 						<div class="video_wrapper video_wrapper_full js-videoWrapper">
-							<iframe class="videoIframe js-videoIframe" src="" frameborder="0" allowTransparency="true" allowfullscreen data-src="<?php echo $embedurl; ?>?autoplay=1&modestbranding=1&rel=0&hl=ru&showinfo=0"></iframe>
+							<iframe class="videoIframe js-videoIframe" src="" frameborder="0" allowTransparency="true" allowfullscreen data-src="<?php echo esc_attr($embedurl); ?>?autoplay=1&modestbranding=1&rel=0&hl=ru&showinfo=0"></iframe>
 							<div class="videoPoster js-videoPoster"><button></button></div>
 						</div>
 					<?php
@@ -141,7 +141,7 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 							<script>
 
 							  function initMap() {
-								var myLatLng = {lat: <?php echo $latitude; ?>, lng: <?php echo $longitude; ?>};
+								var myLatLng = {lat: <?php echo esc_attr($latitude); ?>, lng: <?php echo esc_attr($longitude); ?>};
 
 								var map = new google.maps.Map(document.getElementById('map'), {
 								  zoom: 8,
@@ -163,8 +163,6 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 					{
 						 
 					}
-						
-					
 				?>
             </div>
         </div>

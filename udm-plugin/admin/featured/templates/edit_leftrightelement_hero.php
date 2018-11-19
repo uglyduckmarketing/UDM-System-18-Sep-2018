@@ -1,10 +1,7 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
@@ -13,7 +10,6 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
@@ -32,11 +28,11 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Image Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo $data['background_opacity']; ?>" /></li>
+	<li><h3>Background Image Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo esc_attr($data['background_opacity']); ?>" /></li>
 	<li class="colorchange"><h3>Overlay Color: </h3>
 		<select name="overlay_color" id="overlay_color">
 			
@@ -49,7 +45,7 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['overlay_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Overlay Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo $data['overlay_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo esc_attr($data['overlay_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -65,7 +61,7 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['header_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Header Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="header_text_custom_color" value="<?php echo $data['header_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="header_text_custom_color" value="<?php echo esc_attr($data['header_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -82,7 +78,7 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['eyebrow_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Eybrow Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="eyebrow_text_custom_color" value="<?php echo $data['eyebrow_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="eyebrow_text_custom_color" value="<?php echo esc_attr($data['eyebrow_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -99,11 +95,11 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['desc_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Description Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="<?php echo $data['desc_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="<?php echo esc_attr($data['desc_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-	<li><h3>Height: </h3><input type="text" name="height" value="<?php echo $data['height']; ?>" /></li>
+	<li><h3>Height: </h3><input type="text" name="height" value="<?php echo esc_attr($data['height']); ?>" /></li>
 	<li>
 		<h3>Button:</h3>
 		<span class="switch">
@@ -124,7 +120,7 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 			<ul class="customcolor" <?php if($data['button_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Button Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="button_custom_color" value="<?php echo $data['button_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="button_custom_color" value="<?php echo esc_attr($data['button_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
@@ -140,15 +136,14 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 			<ul class="customcolor"  <?php if($data['button_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 				<li>
 					<h3>Button Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo $data['button_text_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo esc_attr($data['button_text_custom_color']); ?>" />
 				</li>
 			</ul>
 		</li>
-		<li><h3>Button Link: </h3><input type="text" name="button_link" value="<?php echo $data['button_link']; ?>" /></li>
-		<li><h3>Button Text: </h3><input type="text" name="button_text" value="<?php echo $data['button_text']; ?>" /></li>
+		<li><h3>Button Link: </h3><input type="text" name="button_link" value="<?php echo esc_attr($data['button_link']); ?>" /></li>
+		<li><h3>Button Text: </h3><input type="text" name="button_text" value="<?php echo esc_attr($data['button_text']); ?>" /></li>
 	</div>
-	
-</ul>
+	</ul>
 <script>
 	jQuery(document).ready(function($) {
 

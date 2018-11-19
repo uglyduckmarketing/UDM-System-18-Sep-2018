@@ -1,8 +1,6 @@
-	<?php 
-	
-		header( "Content-type: text/css; charset: UTF-8" );		
-		
-	?>
+<?php 
+header( "Content-type: text/css; charset: UTF-8" );		
+?>
 	:root {
    	--primary-color: <?php echo (get_option('udm_primary_color')!="" ? get_option('udm_primary_color') : "#4781FF"); ?>; 
     --secondary-color: <?php echo (get_option('udm_secondary_color')!="" ? get_option('udm_secondary_color') : "#3967CC"); ?>; 
@@ -44,56 +42,55 @@
 	}
 	
 	header .btn {
-		background: <?php echo $button; ?>;
-		border-color: <?php echo $button; ?>;
-		color: <?php echo $buttontextcolor; ?>;
+		background: <?php echo isset($button) ? $button : ''; ?>;
+		border-color: <?php echo isset($button) ? $button : ''; ?>;
+		color: <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;
 	}
 	header .btn .fa{
-		border-left:1px solid <?php echo $buttontextcolor; ?>;	
+		border-left:1px solid <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;	
 	}
 	
 
 	.basic_hero .btn {
-		background: <?php echo $button; ?>;
-		border-color: <?php echo $button; ?>;
-		color: <?php echo $buttontextcolor; ?>;
+		background: <?php echo isset($button) ? $button : ''; ?>;
+		border-color: <?php echo isset($button) ? $button : ''; ?>;
+		color: <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;
 	}
 	
 	.basic-hero .btn .fa{
-		border-left:1px solid <?php echo $buttontextcolor; ?>;	
+		border-left:1px solid <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;	
 	}
 	
 	.fullwidth-hero-3 .btn {
-		background: <?php echo $button; ?>;
-		border-color: <?php echo $button; ?>;
-		color: <?php echo $buttontextcolor; ?>;
+		background: <?php echo isset($button) ? $button : ''; ?>;
+		border-color: <?php echo isset($button) ? $button : ''; ?>;
+		color: <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;
 	}
 	
 	.fullwidth-hero-3 .btn .fa{
-		border-left:1px solid <?php echo $buttontextcolor; ?>;	
+		border-left:1px solid <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;	
 	}
 	.splitscreen-hero .btn {
-		background: <?php echo $button; ?>;
-		border-color: <?php echo $button; ?>;
-		color: <?php echo $buttontextcolor; ?>;
+		background: <?php echo isset($button) ? $button : ''; ?>;
+		border-color: <?php echo isset($button) ? $button : ''; ?>;
+		color: <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;
 	}
 	
 	.splitscreen-hero .btn .fa{
-		border-left:1px solid <?php echo $buttontextcolor; ?>;	
+		border-left:1px solid <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;	
 	}
 
 	
 	.wrapper .btn {
-		background: <?php echo $button; ?>;
-		border-color: <?php echo $button; ?>;
-		color: <?php echo $buttontextcolor; ?>;
+		background: <?php echo isset($button) ? $button : ''; ?>;
+		border-color: <?php echo isset($button) ? $button : ''; ?>;
+		color: <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;
 	}
 	
 	.wrapper .btn .fa{
-		border-left:1px solid <?php echo $buttontextcolor; ?>;	
+		border-left:1px solid <?php echo isset($buttontextcolor) ? $buttontextcolor : ''; ?>;	
 	}
 	
 	 .navbar-brand img{
         width:170px;
-    }
-    
+    } 

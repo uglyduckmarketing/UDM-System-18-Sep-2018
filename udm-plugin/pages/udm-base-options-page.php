@@ -1,4 +1,3 @@
-
 <div class="wrap udm-opt">
   <h1>Base Options</h1>
   <form method="post" action="options.php" enctype="multipart/form-data">
@@ -18,12 +17,10 @@
 							?>
 								<option value="<?php echo str_replace("header_layout_","",$layout); ?>" <?php selected(str_replace("header_layout_","",$layout),get_option('udm_header_default')); ?>><?php echo str_replace("_"," ", str_replace("header_layout_","",$layout)); ?></option>
 							<?php	
-								
 								}
 							?>
 						</select>
 					</li>
-					
 					<li><h4>Select Default Submenu: </h4>
 						<select name="udm_submenu_default">
 							<option value="">Default Submenu</option>
@@ -34,7 +31,6 @@
 							?>
 								<option value="<?php echo str_replace("submenu_layout_","",$layout); ?>" <?php selected(str_replace("submenu_layout_","",$layout),get_option('udm_submenu_default')); ?>><?php echo str_replace("_"," ", str_replace("submenu_layout_","",$layout)); ?></option>
 							<?php	
-								
 								}
 							?>
 						</select>
@@ -50,10 +46,8 @@
 								?>
 									<option value="<?php echo str_replace("featured_layout_","",$layout); ?>" <?php selected(str_replace("featured_layout_","",$layout),get_option('udm_hero_default')); ?>><?php echo str_replace("_"," ", str_replace("featured_layout_","",$layout)); ?></option>
 								<?php	
-									
 									}
 								?>
-							
 						</select>
 					</li>
 					<li><h4>Select Default Mobile Nav: </h4>
@@ -70,7 +64,6 @@
 								?>
 						</select>
 					</li>
-					
 					<li><h4>Select Default Mobile Header: </h4>
 						<select name="udm_mobile_header_default">
 								<option value="">Select Layout</option>	
@@ -95,12 +88,10 @@
 								?>
 									<option value="<?php echo str_replace("footer_layout_","",$layout); ?>" <?php selected(str_replace("footer_layout_","",$layout),get_option('udm_footer_default')); ?>><?php echo str_replace("_"," ", str_replace("footer_layout_","",$layout)); ?></option>
 								<?php	
-									
 									}
 								?>
 						</select>
 					</li>
-					
 					<li><h4>Select Default Footer CTA: </h4>
 						<select name="udm_footer_cta_default">
 							<option value="">Select Layout</option>	
@@ -142,7 +133,6 @@
 						<h2 class="header_layout_heading">
 							<a href="javascript:void(0);">Global Settings</a>
 						</h2>
-
 						<ul id="globalsettings" class="globalsettings">
 							<li><h4>Primary Color: </h4><input class="udm_color_picker" type="text" name="udm_primary_color" value="<?php echo get_option('udm_primary_color'); ?>" /></li>
 							<li><h4>Secondary Color: </h4><input class="udm_color_picker" type="text" name="udm_secondary_color" value="<?php echo get_option('udm_secondary_color'); ?>" /></li>
@@ -178,49 +168,38 @@
 									</li>
 								</ul>
 							</li>
-							
 						</ul>
 					</li>
 			    </ul>
             </li>
-			
-		<?php
-      submit_button();
-      ?>
+		<?php submit_button(); ?>
 	  </ul>
   </form>
 </div>
-
 <!-- Theme Options JS -->
 <script>
-
 jQuery(document).ready(function($) {
   	$('.udm_color_picker').wpColorPicker();   
- //	  $('.icp.icp-auto').iconpicker('.icp.icp-auto');
- });
-  
-
+});
 </script>
-<!--<script type="text/javascript" src="<?php //bloginfo('template_directory'); ?>/udm-plugin/js/jquery-2.0.0.min.js"></script>-->
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/udm-plugin/js/jquery.smartWizard.js"></script>
-
+<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/udm-plugin/js/jquery.smartWizard.js"></script>
 <script type="text/javascript">
-   jQuery(document).ready(function(){
-    	//  Wizard 1  	
-        $('#wizard1').smartWizard({
-            transitionEffect:'fade',
-            onFinish:onFinishCallback,
-            onLeaveStep  : leaveAStepCallback,
-        });
-        function leaveAStepCallback(obj, context){
-            // To check and enable finish button if needed
-            if (context.fromStep >= 1) {
-                $('#wizard1').smartWizard('enableFinish', true);
-            }
-            return true;
-        }
-    	 function onFinishCallback(){
+jQuery(document).ready(function(){
+	//  Wizard 1  	
+	$('#wizard1').smartWizard({
+		transitionEffect:'fade',
+		onFinish:onFinishCallback,
+		onLeaveStep  : leaveAStepCallback,
+	});
+	function leaveAStepCallback(obj, context){
+		// To check and enable finish button if needed
+		if (context.fromStep >= 1) {
+			$('#wizard1').smartWizard('enableFinish', true);
+		}
+		return true;
+	}
+	function onFinishCallback(){
 		$('#wizard1').hide();
-      }    
-		});
+	}    
+});
 </script>

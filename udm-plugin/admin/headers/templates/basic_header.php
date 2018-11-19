@@ -20,7 +20,7 @@
 			<?php $menus=wp_get_nav_menus();
 					foreach( $menus as $item ) {
 				?>
-					<option value="<?php echo $item->slug;  ?>"> <?php echo $item->name;  ?></option>
+					<option value="<?php echo esc_attr($item->slug);  ?>"> <?php echo esc_attr($item->name);  ?></option>
 				<?php
 					}
 				?>

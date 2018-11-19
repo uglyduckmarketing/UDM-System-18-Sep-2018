@@ -1,26 +1,20 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-	
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-
 <ul id="layoutsettings" class="header_type_style collapse show transparent_header">
-	
 	<li><h3>Navigation: </h3>
 		<select name="navigation" id="navigation">
 			<option value="">Select Menu</option>
 			<?php $menus=wp_get_nav_menus();
 					foreach( $menus as $item ) {
 				?>
-					<option value="<?php echo $item->slug;  ?>"> <?php echo $item->name;  ?></option>
+					<option value="<?php echo isset($item->slug) ? $item->slug : '';  ?>"> <?php echo isset($item->name) ? $item->name : '';  ?></option>
 				<?php
 					}
 				?>
@@ -77,10 +71,8 @@
 		</ul>
 	</li>
 
-	
 	<li class="colorchange"><h3>Button Text Color: </h3>
 		<select name="button_text_color" id="button_text_color">
-			
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
@@ -96,7 +88,6 @@
 	</li>
 	<li class="colorchange"><h3>Links Color: </h3>
 		<select name="link_color" id="link_color">
-			
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light" selected>Global Light</option>
@@ -116,11 +107,8 @@
 			<label for="top_bar">Hide/Show</label>
 		</span>
 		<ul id="topbardata" style="display:none;">
-			
 			<li class="colorchange"><h3>Links Color: </h3>
-			
 				<select name="topbar_link_color" id="topbar_link_color">
-					
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
 					<option value="global_light" selected>Global Light</option>
@@ -136,7 +124,6 @@
 			</li>
 			<li class="colorchange"><h3>Text Color: </h3>
 				<select name="topbar_link_color" id="topbar_text_color">
-					
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
 					<option value="global_light" selected>Global Light</option>
@@ -191,9 +178,7 @@
 </ul>
 <script>
 	jQuery(document).ready(function($) {
-
 		$('.udm_color_picker').wpColorPicker();  //Add color picker 
-	
 		$('.colorchange select').change(function(){
 			if($(this).val() == "custom")
 			{

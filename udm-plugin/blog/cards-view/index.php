@@ -1,7 +1,7 @@
 <?php
 	$data=unserialize(get_option('blog_layout_'.$layout));	
 ?>   
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/udm-plugin/blog/cards-view/css/cards.css">
+	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/udm-plugin/blog/cards-view/css/cards.css">
     <div class="main-cards-view">
 		<div class="container">
 			<div class="row">
@@ -19,7 +19,7 @@
 					?>
 					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 						<div class="inner_grid_sec">
-						 <span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+						 <span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo esc_attr($title); ?>" alt="<?php echo esc_attr($alt); ?>" /></a></span>
 						 <span class="arrow"><a href="<?php the_permalink(); ?>"><i class="fa fa-arrow-right"></i></a></span>
 							<div class="desc">
 								<div class="date_time"><?php echo get_the_date('F jS, Y'); ?></div>
@@ -35,7 +35,7 @@
 					?>
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<div class="inner_grid_sec">
-							<span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+							<span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo esc_attr($title); ?>" alt="<?php echo esc_attr($alt); ?>" /></a></span>
 							<span class="arrow"><a href="<?php the_permalink(); ?>"><i class="fa fa-arrow-right"></i></a></span>
 							<div class="desc">
 								<div class="date_time"><?php echo get_the_date('F jS, Y'); ?></div>
@@ -50,7 +50,7 @@
 					?>
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<div class="inner_grid_sec">
-							<span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+							<span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo esc_attr($title); ?>" alt="<?php echo esc_attr($alt); ?>" /></a></span>
 							<span class="arrow"><a href="<?php the_permalink(); ?>"><i class="fa fa-arrow-right"></i></a></span>
 							<div class="desc">
 								<div class="date_time"><?php echo get_the_date('F jS, Y'); ?></div>

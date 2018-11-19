@@ -1,9 +1,6 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
 $layout = '';
 if(isset($_POST['layout']))
@@ -11,9 +8,7 @@ if(isset($_POST['layout']))
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('service_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
 	
 	<ul class="layout_top_data">
@@ -451,7 +446,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 					<?php
 						foreach($ninjaform as $list){
 							?>
-							<option value="<?php echo $list->id; ?>"><?php echo $list->title; ?></option>
+							<option value="<?php echo esc_attr($list->id); ?>"><?php echo esc_attr($list->title); ?></option>
 							<?php
 						}
 					?>

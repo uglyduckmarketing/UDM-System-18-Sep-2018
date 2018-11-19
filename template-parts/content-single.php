@@ -40,31 +40,31 @@
 	?>
 	<div class="colored-bg">
 		<?php if ( is_a( $prevPost, 'WP_Post' ) && is_a( $nextPost, 'WP_Post' ) ) : ?>
-		<a href="<?php echo $prevUrl; ?>" class="col-sm-6 blog-nav-block">
-			<div class="blog-nav-image" style="background: url(<?php echo $prevthumbnail[0]; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
+		<a href="<?php echo isset($prevUrl) ? $prevUrl : ''; ?>" class="col-sm-6 blog-nav-block">
+			<div class="blog-nav-image" style="background: url(<?php echo isset($prevthumbnail[0]) ? $prevthumbnail[0] : ''; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
 			<div class="blog-nav-content">
 				<span class="post-status">Previous Article</span>
 				<h3><?php echo get_the_title( $prevPost->ID ); ?></h3>
 			</div>
 		</a>
-		<a href="<?php echo $nextUrl; ?>" class="col-sm-6 blog-nav-block">
-			<div class="blog-nav-image" style="background: url(<?php echo $nextthumbnail[0]; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
+		<a href="<?php echo isset($nextUrl) ? $nextUrl : ''; ?>" class="col-sm-6 blog-nav-block">
+			<div class="blog-nav-image" style="background: url(<?php echo isset($nextthumbnail[0]) ? $nextthumbnail[0] : ''; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
 			<div class="blog-nav-content">
 				<span class="post-status">Next Article</span>
 				<h3><?php echo get_the_title( $nextPost->ID ); ?></h3>
 			</div>
 		</a>
 		<?php elseif ( is_a( $prevPost, 'WP_Post' ) && !is_a( $nextPost, 'WP_Post' ) ) : ?>
-		<a href="<?php echo $prevUrl; ?>" class="col-sm-12 blog-nav-block">
-			<div class="blog-nav-image" style="background: url(<?php echo $prevthumbnail[0]; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
+		<a href="<?php echo isset($prevUrl) ? $prevUrl : ''; ?>" class="col-sm-12 blog-nav-block">
+			<div class="blog-nav-image" style="background: url(<?php echo isset($prevthumbnail[0]) ? $prevthumbnail[0] : ''; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
 			<div class="blog-nav-content">
 				<span class="post-status">Previous Article</span>
 				<h3><?php echo get_the_title( $prevPost->ID ); ?></h3>
 			</div>
 		</a>
 		<?php elseif ( !is_a( $prevPost, 'WP_Post' ) && is_a( $nextPost, 'WP_Post' ) ) : ?>
-		<a href="<?php echo $nextUrl; ?>" class="col-sm-12 blog-nav-block">
-			<div class="blog-nav-image" style="background: url(<?php echo $nextthumbnail[0]; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
+		<a href="<?php echo isset($nextUrl) ? $nextUrl : ''; ?>" class="col-sm-12 blog-nav-block">
+			<div class="blog-nav-image" style="background: url(<?php echo isset($nextthumbnail[0]) ? $nextthumbnail[0] : ''; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
 			<div class="blog-nav-content">
 				<span class="post-status">Next Article</span>
 				<h3><?php echo get_the_title( $nextPost->ID ); ?></h3>

@@ -1,16 +1,12 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-
 <ul id="layoutsettings" class="hero_type_style collapse show fullwidth_hero">
 	<li class="colorchange"><h3>Background Color: </h3>
 		<select name="background_color" id="background_color">
@@ -129,7 +125,7 @@
 			<ul class="customcolor" style="display:none;">
 				<li>
 					<h3>Button Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="<?php echo $data['button_text_custom_color']; ?>" />
+					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="" />
 				</li>
 			</ul>
 		</li>

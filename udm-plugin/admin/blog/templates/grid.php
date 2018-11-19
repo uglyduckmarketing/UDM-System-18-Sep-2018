@@ -1,13 +1,9 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-	
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="blog_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#gridlay">Grid View Layout</a>
 </h2>
@@ -47,7 +43,7 @@
 		<ul class="customcolor" style="display:none;">
 			<li>
 				<h3>Post Heading Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="post_heading_custom_color" value="<?php echo $data['post_heading_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="post_heading_custom_color" value="<?php echo esc_attr($data['post_heading_custom_color']); ?>" />
 			</li>
 		</ul>		
 	</li>

@@ -1,19 +1,14 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-	include '../../../../../../../wp-load.php';
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php';
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('blog_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="blog_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#editcards">Layout Settings</a>
 </h2>
@@ -37,7 +32,7 @@ $data=unserialize(get_option('blog_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['overlay_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Overlay Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo $data['overlay_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo esc_attr($data['overlay_custom_color']); ?>" />
 			</li>
 		</ul>		
 	</li>
@@ -53,7 +48,7 @@ $data=unserialize(get_option('blog_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['post_heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Post Heading Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="post_heading_custom_color" value="<?php echo $data['post_heading_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="post_heading_custom_color" value="<?php echo esc_attr($data['post_heading_custom_color']); ?>" />
 			</li>
 		</ul>		
 	</li>
@@ -68,7 +63,7 @@ $data=unserialize(get_option('blog_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['readmore_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Read More Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="readmore_custom_color" value="<?php echo $data['readmore_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="readmore_custom_color" value="<?php echo esc_attr($data['readmore_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>

@@ -7,12 +7,12 @@
 define('VERSION','1.0');
 add_action( 'admin_head', 'wp_admin_header_scripts' );
 function wp_admin_header_scripts( $hook_suffix ) {
-	wp_enqueue_style( 'udm-bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
-    wp_enqueue_style( 'udm-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' );
+	wp_enqueue_style( 'udm-bootstrap', get_template_directory_uri() . '/udm-plugin/css/bootstrap-min.css' );
+    wp_enqueue_style( 'udm-fontawesome', get_template_directory_uri() . '/udm-plugin/css/font-awesome.css' );
 	wp_enqueue_style( 'udm-ui-admin', get_template_directory_uri() . '/udm-plugin/css/jquery-ui.css' ); 
 	wp_enqueue_style( 'udm-admin', get_template_directory_uri() . '/udm-plugin/css/udm-admin.css' ); 
-	wp_enqueue_script( 'udm-popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
-    wp_enqueue_script( 'udm-bootstrap-js',  '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' );	
+	wp_enqueue_script( 'udm-popper-js', get_template_directory_uri() . '/udm-plugin/js/popper.min.js');
+    wp_enqueue_script( 'udm-bootstrap-js',  get_template_directory_uri() . '/udm-plugin/js/bootstrap.min.js' );	
     wp_enqueue_script( 'udm-ui-js',  get_template_directory_uri() . '/udm-plugin/js/jquery-ui.min.js' );		
 }
 
@@ -409,7 +409,7 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_basic_header_text]">Header Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_basic_header_text]" id="hero_fields[udm_basic_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_basic_header_text'])) {	echo $meta['udm_basic_header_text']; } ?>">
+				<input type="text" name="hero_fields[udm_basic_header_text]" id="hero_fields[udm_basic_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_basic_header_text'])) {	echo esc_attr($meta['udm_basic_header_text']); } ?>">
 			</p>
 		</div>
 		<div id="fulwidth_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Fulwidth_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Fulwidth_Hero') !== false){}else{ ?>  style="display:none;" <?php } ?>>
@@ -430,13 +430,13 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_fullwidth_eyebrow_text]">Eybrow Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_fullwidth_eyebrow_text]" id="hero_fields[udm_fullwidth_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_fullwidth_eyebrow_text'])) {	echo $meta['udm_fullwidth_eyebrow_text']; } ?>">
+				<input type="text" name="hero_fields[udm_fullwidth_eyebrow_text]" id="hero_fields[udm_fullwidth_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_fullwidth_eyebrow_text'])) {	echo esc_attr($meta['udm_fullwidth_eyebrow_text']); } ?>">
 			</p>
 			
 			<p>
 				<label for="hero_fields[udm_fullwidth_header_text]">Header Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_fullwidth_header_text]" id="hero_fields[udm_fullwidth_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_fullwidth_header_text'])) {	echo $meta['udm_fullwidth_header_text']; } ?>">
+				<input type="text" name="hero_fields[udm_fullwidth_header_text]" id="hero_fields[udm_fullwidth_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_fullwidth_header_text'])) {	echo esc_attr($meta['udm_fullwidth_header_text']); } ?>">
 			</p>
 			<p>
 				<label for="hero_fields[udm_fullwidth_description]">Description</label>
@@ -460,14 +460,14 @@ function show_hero_fields_meta_box($post) {
 			<p>
 				<label for="hero_fields[udm_splitscreen_eyebrow_text]">Eybrow Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_splitscreen_eyebrow_text]" id="hero_fields[udm_splitscreen_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_splitscreen_eyebrow_text'])) {	echo $meta['udm_splitscreen_eyebrow_text']; } ?>">
+				<input type="text" name="hero_fields[udm_splitscreen_eyebrow_text]" id="hero_fields[udm_splitscreen_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_splitscreen_eyebrow_text'])) {	echo esc_attr($meta['udm_splitscreen_eyebrow_text']); } ?>">
 			</p>
 			
 			
 			<p>
 				<label for="hero_fields[udm_splitscreen_header_text]">Header Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_splitscreen_header_text]" id="hero_fields[udm_splitscreen_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_splitscreen_header_text'])) {	echo $meta['udm_splitscreen_header_text']; } ?>">
+				<input type="text" name="hero_fields[udm_splitscreen_header_text]" id="hero_fields[udm_splitscreen_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_splitscreen_header_text'])) {	echo esc_attr($meta['udm_splitscreen_header_text']); } ?>">
 			</p>
 			<p>
 				<label for="hero_fields[udm_splitscreen_description]">Description</label>
@@ -488,18 +488,16 @@ function show_hero_fields_meta_box($post) {
 					<label for="hero_fields[udm_leftrightelement_eyebrow_text_show]">Show/Hide</label>
 				</span>
 			</p>
-			
-			
 			<p>
 				<label for="hero_fields[udm_leftrightelement_eyebrow_text]">Eybrow Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_leftrightelement_eyebrow_text]" id="hero_fields[udm_leftrightelement_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leftrightelement_eyebrow_text'])) {	echo $meta['udm_leftrightelement_eyebrow_text']; } ?>">
+				<input type="text" name="hero_fields[udm_leftrightelement_eyebrow_text]" id="hero_fields[udm_leftrightelement_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leftrightelement_eyebrow_text'])) {	echo esc_attr($meta['udm_leftrightelement_eyebrow_text']); } ?>">
 			</p>
 			
 			<p>
 				<label for="hero_fields[udm_leftrightelement_header_text]">Header Text</label>
 				<br>
-				<input type="text" name="hero_fields[udm_leftrightelement_header_text]" id="hero_fields[udm_leftrightelement_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leftrightelement_header_text'])) {	echo $meta['udm_leftrightelement_header_text']; } ?>">
+				<input type="text" name="hero_fields[udm_leftrightelement_header_text]" id="hero_fields[udm_leftrightelement_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leftrightelement_header_text'])) {	echo esc_attr($meta['udm_leftrightelement_header_text']); } ?>">
 			</p>
 			<p>
 				<label for="hero_fields[udm_leftrightelement_description]">Description</label>
@@ -527,96 +525,83 @@ function show_hero_fields_meta_box($post) {
 				<input type="text" name="hero_fields[udm_leftrightelement_video]" id="hero_fields[udm_leftrightelement_video]" class="meta-image regular-text" value="<?php echo isset($meta['udm_leftrightelement_video']) ? $meta['udm_leftrightelement_video'] : ''; ?>">
 			</p>
 		</div>
-		<div id="leadgen_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Leadgen_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Leadgen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
-	
-			
-			<?php 
-				if (is_array($meta) && isset($meta['udm_leadgen_eyebrow_text_show'])) {	$smalltextshow=$meta['udm_leadgen_eyebrow_text_show']; }
+	<div id="leadgen_hero_meta" <?php if(strpos(get_post_meta( $postid, 'udm_specific_hero', true ), 'Leadgen_Hero') !== false){ ?> <?php }else if(get_post_meta( $postid, 'udm_specific_hero', true )=="" && strpos(get_option('udm_hero_default'), 'Leadgen_Hero') !== false){}else{ ?> style="display:none;" <?php } ?>>
+		<?php 
+		if (is_array($meta) && isset($meta['udm_leadgen_eyebrow_text_show'])) {	$smalltextshow=$meta['udm_leadgen_eyebrow_text_show']; }
 			?>
-			<p>
-				<label for="hero_fields[udm_leadgen_eyebrow_text_show]">Eybrow Text Show/Hide</label>
-				<br>
-				<span class="switch">
-					<input type="checkbox" name="hero_fields[udm_leadgen_eyebrow_text_show]" class="switch" id="hero_fields[udm_leadgen_eyebrow_text_show]" value="yes" <?php checked('yes', $smalltextshow); ?>>
-					<label for="hero_fields[udm_leadgen_eyebrow_text_show]">Show/Hide</label>
-				</span>
-			</p>
-			
-			<p>
-				<label for="hero_fields[udm_leadgen_eyebrow_text]">Eybrow Text</label>
-				<br>
-				<input type="text" name="hero_fields[udm_leadgen_eyebrow_text]" id="hero_fields[udm_leadgen_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leadgen_eyebrow_text'])) {	echo $meta['udm_leadgen_eyebrow_text']; } ?>">
-			</p>
-			
-			<p>
-				<label for="hero_fields[udm_leadgen_header_text]">Header Text</label>
-				<br>
-				<input type="text" name="hero_fields[udm_leadgen_header_text]" id="hero_fields[udm_leadgen_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leadgen_header_text'])) {	echo $meta['udm_leadgen_header_text']; } ?>">
-			</p>
-			<p>
-				<label for="hero_fields[udm_leadgen_description]">Description</label>
-				<br>
-				<textarea name="hero_fields[udm_leadgen_description]" id="hero_fields[udm_leadgen_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_leadgen_description']) ? $meta['udm_leadgen_description'] : ''; ?></textarea>
-			</p>
+		<p>
+			<label for="hero_fields[udm_leadgen_eyebrow_text_show]">Eybrow Text Show/Hide</label>
+			<br>
+			<span class="switch">
+				<input type="checkbox" name="hero_fields[udm_leadgen_eyebrow_text_show]" class="switch" id="hero_fields[udm_leadgen_eyebrow_text_show]" value="yes" <?php checked('yes', $smalltextshow); ?>>
+				<label for="hero_fields[udm_leadgen_eyebrow_text_show]">Show/Hide</label>
+			</span>
+		</p>
+		<p>
+			<label for="hero_fields[udm_leadgen_eyebrow_text]">Eybrow Text</label>
+			<br>
+			<input type="text" name="hero_fields[udm_leadgen_eyebrow_text]" id="hero_fields[udm_leadgen_eyebrow_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leadgen_eyebrow_text'])) {	echo esc_attr($meta['udm_leadgen_eyebrow_text']); } ?>">
+		</p>
+		<p>
+			<label for="hero_fields[udm_leadgen_header_text]">Header Text</label>
+			<br>
+			<input type="text" name="hero_fields[udm_leadgen_header_text]" id="hero_fields[udm_leadgen_header_text]" class="regular-text" value="<?php if (is_array($meta) && isset($meta['udm_leadgen_header_text'])) {	echo esc_attr($meta['udm_leadgen_header_text']); } ?>">
+		</p>
+		<p>
+			<label for="hero_fields[udm_leadgen_description]">Description</label>
+			<br>
+			<textarea name="hero_fields[udm_leadgen_description]" id="hero_fields[udm_leadgen_description]" rows="5" cols="30" style="width:500px;"><?php echo isset($meta['udm_leadgen_description']) ? $meta['udm_leadgen_description'] : ''; ?></textarea>
+		</p>
+	</div>
+<script>
+jQuery(document).ready(function ($) {
+	$('.udm_color_picker').wpColorPicker();  //Add color picker 
+	$('.upload-image').click(function() {
+	var mediaUploader;
+	var myvar = $(this).attr('my-attr');	
+	//e.preventDefault();
+	// If the uploader object has already been created, reopen the dialog
+	  if (mediaUploader) {
+	  mediaUploader.open();
+	  return;
+	}
 
-		</div>
-
-  <script>
-    jQuery(document).ready(function ($) {
-			$('.udm_color_picker').wpColorPicker();  //Add color picker 
-	
-	  $('.upload-image').click(function() {
-		
-				var mediaUploader;
-				var myvar = $(this).attr('my-attr');	
-				//e.preventDefault();
-				// If the uploader object has already been created, reopen the dialog
-				  if (mediaUploader) {
-				  mediaUploader.open();
-				  return;
-				}
-	    
-				// Extend the wp.media object
-				mediaUploader = wp.media.frames.file_frame = wp.media({
-				  title: 'Choose Image',
-				  button: {
-				  text: 'Choose Image'
-				}, multiple: false });
-				
-		
-				// When a file is selected, grab the URL and set it as the text field's value
-				mediaUploader.on('select', function() {
-				  attachment = mediaUploader.state().get('selection').first().toJSON();
-				  
-				  $('.'+myvar).val(attachment.url);
-				});
-				// Open the uploader dialog
-				mediaUploader.open();
-			  });
+	// Extend the wp.media object
+	mediaUploader = wp.media.frames.file_frame = wp.media({
+	  title: 'Choose Image',
+	  button: {
+	  text: 'Choose Image'
+	}, multiple: false });
+	// When a file is selected, grab the URL and set it as the text field's value
+	mediaUploader.on('select', function() {
+	  attachment = mediaUploader.state().get('selection').first().toJSON();
+	  
+	  $('.'+myvar).val(attachment.url);
+	});
+		// Open the uploader dialog
+	mediaUploader.open();
+});
 			  
-			  
-			$('#element select').change(function(){
-				if($(this).val() == "video")
-				{
-					$('#videourl').show();
-					$('#imageurl').hide();
-				}
-				else if($(this).val() == "image")
-				{
-					$('#videourl').hide();
-					$('#imageurl').show();
-				}
-				else 
-				{
-					$('#videourl').hide();
-					$('#imageurl').hide();
-				}
-			});
-			
-    });
+	$('#element select').change(function(){
+		if($(this).val() == "video")
+		{
+			$('#videourl').show();
+			$('#imageurl').hide();
+		}
+		else if($(this).val() == "image")
+		{
+			$('#videourl').hide();
+			$('#imageurl').show();
+		}
+		else 
+		{
+			$('#videourl').hide();
+			$('#imageurl').hide();
+		}
+	});
+});
   </script>
-
-  <?php }
+<?php }
 function save_hero_fields_meta( $post_id ) {   
 	// verify nonce
 	if ( isset($_POST['hero_meta_box_nonce']) 
@@ -639,15 +624,15 @@ function save_hero_fields_meta( $post_id ) {
     }
 	
 	$old = get_post_meta( $post_id, 'hero_fields', true );
-		if (isset($_POST['hero_fields'])) { //Fix 3
-			$new = $_POST['hero_fields'];
-			update_post_meta( $post_id, 'hero_fields', $new );
-			if ( $new && $new !== $old ) {
-				//update_post_meta( $post_id, 'hero_fields', $new );
-			} elseif ( '' === $new && $old ) {
-				//delete_post_meta( $post_id, 'hero_fields', $old );
-			}
+	if (isset($_POST['hero_fields'])) { //Fix 3
+		$new = $_POST['hero_fields'];
+		update_post_meta( $post_id, 'hero_fields', $new );
+		if ( $new && $new !== $old ) {
+			//update_post_meta( $post_id, 'hero_fields', $new );
+		} elseif ( '' === $new && $old ) {
+			//delete_post_meta( $post_id, 'hero_fields', $old );
 		}
+	}
 }
 add_action( 'save_post', 'save_hero_fields_meta' );
 
@@ -655,7 +640,6 @@ add_action( 'save_post', 'save_hero_fields_meta' );
 //add_action( 'add_meta_boxes', 'udm_specific_galley' );
 // action on saving post
 add_action( 'save_post', 'udm_specific_galley_save' );
-
 
 // function that creates the new metabox that will show on post
 function udm_specific_galley() {
@@ -692,8 +676,7 @@ function udm_specific_galley_display( $post ) {
 
 // dropdown saving
 function udm_specific_galley_save( $post_id ) {
-
-    // if doing autosave don't do nothing
+	// if doing autosave don't do nothing
   if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
       return;
 
@@ -701,9 +684,7 @@ function udm_specific_galley_save( $post_id ) {
   $udm_specific_galley_nonce = isset($_POST['udm_specific_galley_nonce']) ? $_POST['udm_specific_galley_nonce'] : '';
   if ( !wp_verify_nonce( $udm_specific_galley_nonce, basename( __FILE__ ) ) )
       return;
-
-
-  // Check permissions
+ // Check permissions
   if ( 'page' == $_POST['post_type'] ) 
   {
     if ( !current_user_can( 'edit_page', $post_id ) )
@@ -714,21 +695,16 @@ function udm_specific_galley_save( $post_id ) {
     if ( !current_user_can( 'edit_post', $post_id ) )
         return;
   }
-
-  // save the new value of the dropdown
+// save the new value of the dropdown
   $new_value = $_POST['udm_specific_galley'];
   update_post_meta( $post_id, 'udm_specific_galley', $new_value );
 }  
 
-
-
 //Admin Panel Functions End
    
-
 ################################################################################
 # //Frontend Functions Start
 ################################################################################
-	
 	
 add_action( 'wp_enqueue_scripts', 'theme_custom_style_script', 11 );
 function theme_custom_style_script() {
@@ -756,13 +732,11 @@ function theme_custom_style_script() {
 add_action('wp_ajax_default_css', 'default_css');
 add_action('wp_ajax_nopriv_default_css', 'default_css');
 
-
 add_action('wp_ajax_header_css', 'header_css');
 add_action('wp_ajax_nopriv_header_css', 'header_css');
 
 add_action('wp_ajax_mobile_nav_css', 'mobile_nav_css');
 add_action('wp_ajax_nopriv_mobile_nav_css', 'mobile_nav_css');
-
 
 add_action('wp_ajax_hero_css', 'hero_css');
 add_action('wp_ajax_nopriv_hero_css', 'hero_css');
@@ -776,12 +750,10 @@ add_action('wp_ajax_nopriv_blog_css', 'blog_css');
 add_action('wp_ajax_service_css', 'service_css');
 add_action('wp_ajax_nopriv_service_css', 'service_css');
 
-
 function default_css() {
 		require( get_template_directory().'/style.php' );
 	exit;
 }
-
 
 function header_css() {
 		require( get_template_directory().'/udm-plugin/headers/custom_style.php' );
@@ -816,62 +788,49 @@ add_action('wp_ajax_footer_css', 'footer_css');
 add_action('wp_ajax_nopriv_footer_css', 'footer_css');
 
 function footer_css() {
-		require( get_template_directory().'/udm-plugin/footers/custom_style.php' );
+	require( get_template_directory().'/udm-plugin/footers/custom_style.php' );
 	exit;
 }
-
-
-
 // Enqueue Theme Files
-
-
 function uglyduck_header_scripts() {
-
-			if(get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true )!="")
-			{
-				$mobilenavlayout=get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true );
-			}
-			else if(get_option('udm_mobile_nav_default')!="")
-			{
-				$mobilenavlayout=get_option('udm_mobile_nav_default');
-			}
-			else
-			{
-				$mobilenavlayout="";
-			}
-		if(strpos($mobilenavlayout, 'Slide_In') !== false){
-			//wp_enqueue_script( 'slim-js', 'https://code.jquery.com/jquery-3.2.1.slim.min.js' );
-		}
-
+	if(get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true )!="")
+	{
+		$mobilenavlayout=get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true );
+	}
+	else if(get_option('udm_mobile_nav_default')!="")
+	{
+		$mobilenavlayout=get_option('udm_mobile_nav_default');
+	}
+	else
+	{
+		$mobilenavlayout="";
+	}
 }
 
 function uglyduck_footer_scripts() {
-	
 	wp_enqueue_script( 'ratingyo-jquery-js', get_template_directory_uri() . '/udm-plugin/js/jquery.min.js' );	
 	wp_enqueue_script( 'ratingyo-js', get_template_directory_uri() . '/udm-plugin/js/jquery.rateyo.js');	
-		
-		
-		if(get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true )!="")
-			{
-				$mobilenavlayout=get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true );
-			}
-			else if(get_option('udm_mobile_nav_default')!="")
-			{
-				$mobilenavlayout=get_option('udm_mobile_nav_default');
-			}
-			else
-			{
-				$mobilenavlayout="";
-			}
-		if(strpos($mobilenavlayout, 'Slide_In') !== false){
-			wp_enqueue_script( 'slide-menu-js', get_template_directory_uri() . '/udm-plugin/js/slide-menu.js');
-		}
+	if(get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true )!="")
+	{
+		$mobilenavlayout=get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true );
+	}
+	else if(get_option('udm_mobile_nav_default')!="")
+	{
+		$mobilenavlayout=get_option('udm_mobile_nav_default');
+	}
+	else
+	{
+		$mobilenavlayout="";
+	}
+	if(strpos($mobilenavlayout, 'Slide_In') !== false){
+		wp_enqueue_script( 'slide-menu-js', get_template_directory_uri() . '/udm-plugin/js/slide-menu.js');
+	}
 		
 }
 function uglyduck_scripts() {
 	// CSS
-	wp_enqueue_style( 'base-css','//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"' );
-	wp_enqueue_style( 'font-awesome-css','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"' );
+	wp_enqueue_style( 'base-css',get_template_directory_uri() .'/udm-plugin/css/bootstrap-min.css"' );
+	wp_enqueue_style( 'font-awesome-css',get_template_directory_uri() .'/udm-plugin/css/font-awesome.css' );
 	wp_enqueue_style( 'base-icons','//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"' );
 	wp_enqueue_style( 'proxima-nova', get_template_directory_uri() . '/fonts/proxima-nova/fonts.min.css' );
 	wp_enqueue_style( 'component-css', get_template_directory_uri() . '/css/component.css' );
@@ -880,11 +839,11 @@ function uglyduck_scripts() {
 	wp_enqueue_style( 'rating-css', get_template_directory_uri() . '/udm-plugin/css/jquery.rateyo.min.css' );
 	
 	// JAVASCRIPT
-	 wp_enqueue_script( 'udm-ajax-js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+	 wp_enqueue_script( 'udm-ajax-js', get_template_directory_uri() . '/udm-plugin/js/jquery.min.js');
   
 	wp_enqueue_script( 'uglyduck-js', get_template_directory_uri() . '/js/app.js' );
 	wp_enqueue_script( 'modernizr-js', get_template_directory_uri() . '/js/modernizr.custom.js');
-	wp_enqueue_script( 'bootsrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
+	wp_enqueue_script( 'bootsrap-js', get_template_directory_uri() . '/udm-plugin/js/bootstrap.min.js');
 	 wp_enqueue_script( 'custom-js',  get_template_directory_uri() . '/js/custom.js'  );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -894,8 +853,5 @@ function uglyduck_scripts() {
 add_action( 'wp_enqueue_scripts', 'uglyduck_scripts' );
 add_action( 'wp_footer', 'uglyduck_footer_scripts' );
 add_action( 'wp_head', 'uglyduck_header_scripts' );
-
 //Frontend Functions End
-
-
 ?>

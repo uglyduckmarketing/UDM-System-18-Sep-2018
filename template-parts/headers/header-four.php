@@ -13,7 +13,7 @@ $lightlogoPath = get_theme_mod('solutions_image');
 		</div>
 		<div class="col-md-2 col-sm-10 logo-section">
 			<?php if ($logoPath) { ?>
-				<a id="logo" href="<?php bloginfo("url"); ?>"><img src="<?php echo $logoPath ?>"/></a>
+				<a id="logo" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo isset($logoPath) ? $logoPath : ''; ?>"/></a>
 			<?php } ?>
 		</div>
 		<div class="col-xs-5 additional hidden-sm-down nav-section right-nav">

@@ -1,6 +1,4 @@
-
 <?php
-
 $prevlayout="";
 	if(isset($_POST['mobile_header_createlayout_submit']))  //check if "mobile_header_createlayout_submit" submit button is clicked
 	{
@@ -129,7 +127,7 @@ $prevlayout="";
 	  <?php if($prevlayout!=""){ ?>
 	  jQuery.ajax({
 		  type: 'post',
-		  data:'layout='+'<?php echo $prevlayout; ?>',
+		  data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
 		  url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/mobile-headers/edit_layout.php",
 		  beforeSend: function(){
 			  $(".preloader").show();
@@ -147,10 +145,7 @@ $prevlayout="";
 		  } 	
 		?>
 	  });
-	  
-	
 </script>
-
 <div class="defaultdatasection">
 	<h2>Default Colors</h2>
 	<ul class="list">
@@ -177,5 +172,4 @@ $prevlayout="";
 .defaultdatasection .wp-picker-input-wrap{
     display: none;
 }
-
 </style>

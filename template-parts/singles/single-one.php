@@ -13,7 +13,7 @@ $description = get_post(get_post_thumbnail_id())->post_content; // The Descripti
 			<h1 class="article__intro-title"><?php the_title(); ?></h1>
 			<p class="author-information">By <?php the_author(); ?> - <?php the_time('F jS, Y') ?> in <?php the_category(', ') ?></p>
 			<?php if(has_post_thumbnail()) : ?>
-			<img src="<?php echo $img[0]; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
+			<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" />
 			<?php endif; ?>
 		</div>
 			<?php the_content(); ?>

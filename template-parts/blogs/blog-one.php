@@ -10,7 +10,7 @@ $description = get_post(get_post_thumbnail_id())->post_content;
 <a class="card blog__item" href="<?php the_permalink(); ?>">
 	<div class="blog__item-container">
 		<div class="blog__item-image">
-			<img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" />
+			<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo esc_attr($title); ?>" alt="<?php echo esc_attr($alt); ?>" />
 		</div>
 		<div class="blog__item-content">
 			<h3><?php the_title(); ?></h3>

@@ -1,23 +1,17 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-		include '../../../../../../../wp-load.php'; 
-		
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('footer_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-
 <ul id="editlayoutsettings" class="header_type_style collapse show basic_hero">
 	<li class="imageupload"><h4>Background Type: </h4>
 		<select name="background_type" id="editbackground_type">
@@ -26,7 +20,7 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		</select>
 	</li>
 	<li id="edittype_image" class="imageupload" <?php if($data['background_type']=='image'){ }else{ ?> style="display:none;" <?php } ?>><h4>Image Url: </h4>
-		<input type="text" name="background_image" id="editbackground_image" class="meta-image regular-text main-image" value="<?php echo $data['background_image']; ?>">
+		<input type="text" name="background_image" id="editbackground_image" class="meta-image regular-text main-image" value="<?php echo esc_attr($data['background_image']); ?>">
 		<input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" />
 	</li>
 	<li id="edittype_color" class="colorchange" <?php if($data['background_type']=='color'){ }else{ ?> style="display:none;" <?php } ?>><h3>Background Color: </h3>
@@ -40,11 +34,11 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo $data['background_opacity']; ?>" /></li>
+	<li><h3>Background Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo esc_attr($data['background_opacity']); ?>" /></li>
 	<li class="colorchange"><h3>Overlay Color: </h3>
 		<select name="overlay_color" id="editoverlay_color">
 			
@@ -57,7 +51,7 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['overlay_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Overlay Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo $data['overlay_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="<?php echo esc_attr($data['overlay_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -73,7 +67,7 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['heading_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Heading Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="heading_custom_color" value="<?php echo $data['heading_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="heading_custom_color" value="<?php echo esc_attr($data['heading_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -90,7 +84,7 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo $data['text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo esc_attr($data['text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -106,11 +100,10 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['link_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Link Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="link_custom_color" value="<?php echo $data['link_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="link_custom_color" value="<?php echo esc_attr($data['link_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-		
 	<li>
 		<h3>Social Icons: </h3>
 		<span class="switch">
@@ -118,7 +111,6 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 			<label for="editsocial_icons">Hide/Show </label>
 		</span>
 	</li>
-	
 	<li>
 		<h3>Apps Icons: </h3>
 		<span class="switch">
@@ -128,14 +120,14 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 	</li>
 	<div id="editappsicondata" <?php if(isset($data['apps_icons']) && $data['apps_icons']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
 		<li><h3>Android App Url: </h3>
-			<input type="text" name="android_app_url" value="<?php echo $data['android_app_url']; ?>">
+			<input type="text" name="android_app_url" value="<?php echo esc_attr($data['android_app_url']); ?>">
 		</li>
 		<li><h3>Ios App Url: </h3>
-			<input type="text" name="ios_app_url" value="<?php echo $data['ios_app_url']; ?>">
+			<input type="text" name="ios_app_url" value="<?php echo esc_attr($data['ios_app_url']); ?>">
 		</li>
 	</div>
 	
-	<li><h3>Title Text: </h3><input type="text" name="title_text" value="<?php echo $data['title_text']; ?>" /></li>
+	<li><h3>Title Text: </h3><input type="text" name="title_text" value="<?php echo esc_attr($data['title_text']); ?>" /></li>
 	<li class="colorchange"><h3>Title Text Color: </h3>
 		<select name="title_text_color" id="edittitle_text_color">
 			<option value="primary" <?php selected('primary',$data['title_text_color']); ?>>Primary</option>
@@ -147,12 +139,12 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['title_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Title Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="<?php echo $data['title_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="<?php echo esc_attr($data['title_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
 	
-	<li><h3>Description: </h3><textarea name="desc_text"><?php echo $data['desc_text']; ?></textarea></li>
+	<li><h3>Description: </h3><textarea name="desc_text"><?php echo esc_attr($data['desc_text']); ?></textarea></li>
 	<li class="colorchange"><h3>Description Text Color: </h3>
 		<select name="desc_text_color" id="editdesc_text_color">
 			<option value="primary" <?php selected('primary',$data['desc_text_color']); ?>>Primary</option>
@@ -164,18 +156,15 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['desc_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Description Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="<?php echo $data['desc_text_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="<?php echo esc_attr($data['desc_text_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
-
 </ul>
 <script>
 	jQuery(document).ready(function($) {
-
 		$('.udm_color_picker').wpColorPicker();  //Add color picker 
-	
-	 $('#editapps_icons').change(function(){
+		$('#editapps_icons').change(function(){
 			if($(this).prop("checked") == true)
 			{
 				$('#editappsicondata').show();
@@ -198,8 +187,6 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 				$('#edittype_image').hide();
 			}
 		});
-		
-		
 		$('.colorchange select').change(function(){
 			if($(this).val() == "custom")
 			{

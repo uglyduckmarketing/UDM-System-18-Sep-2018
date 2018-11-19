@@ -1,7 +1,7 @@
 <?php
 	$data=unserialize(get_option('blog_layout_'.$layout));	
 ?>   
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/udm-plugin/blog/grid-view/css/grid.css">
+	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/udm-plugin/blog/grid-view/css/grid.css">
     <div class="main-grid-view">
 		
 				<?php
@@ -21,7 +21,7 @@
 					if($temp==1)
 					{
 					?>
-					<span class="photo_blog_main featuredblog"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+					<span class="photo_blog_main featuredblog"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" /></a></span>
 						
 					<div class="container">
 						<div class="row">
@@ -42,7 +42,7 @@
 						?>
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 							<div class="inner_grid_sec">
-								<span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+								<span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" /></a></span>
 								<div class="desc">
 									<div class="date_time"><?php echo get_the_date('F jS, Y'); ?></div>
 									<h4><?php the_title(); ?></h4>
@@ -57,7 +57,7 @@
 					?>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 						<div class="inner_grid_sec">
-						  <span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo $img[0]; ?>" title="<?php echo $title; ?>" alt="<?php echo $alt; ?>" /></a></span>
+						  <span class="photo_blog_main"><a href="<?php the_permalink(); ?>"><img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" /></a></span>
 							
 							<div class="desc">
 								<div class="date_time"><?php echo get_the_date('F jS, Y'); ?></div>

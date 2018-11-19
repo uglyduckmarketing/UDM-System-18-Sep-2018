@@ -72,11 +72,11 @@
 	?>
 	
 	.webapp{
-		background:<?php echo $wbackground_color; ?>;
+		background:<?php echo esc_attr($wbackground_color); ?>;
 	}
 	
 	.webapp h3{
-		color:<?php echo $wtext_color; ?>;
+		color:<?php echo esc_attr($wtext_color); ?>;
 	}
 	
 	.webapp h4{
@@ -86,10 +86,9 @@
 		color:rgba(255,255,255,0.7);
 	}
 	.mobileheader .webapp .menu-button::before, .webapp .menu-button::after, .webapp .menu-button span{
-		background:<?php echo $whamberger_color; ?>;
+		background:<?php echo esc_attr($whamberger_color); ?>;
 	}
 	<?php
-		
 	if($data['background_color']=="custom")
 	{
 		$background_color=$data['background_custom_color'];
@@ -119,11 +118,11 @@
 	?>
 	
 	.mobileheader .basic{
-		background:<?php echo $background_color; ?>;
+		background:<?php echo esc_attr($background_color); ?>;
 	}
 	
 	.mobileheader .basic .menu-button::before, .menu-button::after, .menu-button span, #mobile-navigation .menu-button::before{
-		background:<?php echo $hamberger_color; ?>;
+		background:<?php echo esc_attr($hamberger_color); ?>;
 	}
 	<?php
 		
@@ -200,23 +199,23 @@
 	
 	.mobile-header-sec .mobile-menu-container
 	{
-		background:<?php echo $background_color; ?>;
-		opacity:<?php echo $background_opacity; ?>;
+		background:<?php echo esc_attr($background_color); ?>;
+		opacity:<?php echo esc_attr($background_opacity); ?>;
 	}
 	
 	.mobile-header-sec #mobile-menu a
 	{
-		color:<?php echo $text_color; ?>;
+		color:<?php echo esc_attr($text_color); ?>;
 	}
 	
 	.mobile-header-sec .mobile-menu-container .sub-menu
 	{
-		background:<?php echo $submenu_background_color; ?>;
+		background:<?php echo esc_attr($submenu_background_color); ?>;
 	}
 	
 	.mobile-header-sec .mobile-menu-container .sub-menu a
 	{
-		color:<?php echo $submenu_text_color; ?>;
+		color:<?php echo esc_attr($submenu_text_color); ?>;
 	}
 	<?php
 		}else if(strpos($layout, 'Basic_Slidedown') !== false){
@@ -277,22 +276,22 @@
 	?>
 		.mobile-header-sec .mobile_menu
 		{
-			background:<?php echo $background_color; ?>;
+			background:<?php echo esc_attr($background_color); ?>;
 		}
 		
 		.mobile-header-sec .mobile_menu li a
 		{
-			color:<?php echo $text_color; ?>;
+			color:<?php echo esc_attr($text_color); ?>;
 		}
 		
 		.mobile-header-sec .mobile_menu .sub-menu
 		{
-			background:<?php echo $submenu_background_color; ?>;
+			background:<?php echo esc_attr($submenu_background_color); ?>;
 		}
 		
 		.mobile-header-sec .mobile_menu .sub-menu a
 		{
-			color:<?php echo $submenu_text_color; ?>;
+			color:<?php echo esc_attr($submenu_text_color); ?>;
 		}
 	<?php
 	
@@ -367,17 +366,17 @@
 	?>
 		.mobile-header-sec #mobile-slide-in
 		{
-			background:<?php echo $container_background_color; ?>;
+			background:<?php echo esc_attr($container_background_color); ?>;
 		}
 		
 		.mobile-header-sec #mobile-slide-in ul.menu
 		{
-			background:<?php echo $background_color; ?>;
+			background:<?php echo esc_attr($background_color); ?>;
 		}
 		
 		.mobile-header-sec #mobile-slide-in li a
 		{
-			color:<?php echo $text_color; ?>;
+			color:<?php echo esc_attr($text_color); ?>;
 		}
 		.mobile-header-sec #mobile-slide-in .sub-menu
 		{
@@ -385,13 +384,12 @@
 		}
 		.mobile-header-sec #mobile-slide-in .sub-menu.active li:first-child
 		{
-			background:<?php echo $submenu_header_color; ?>;
+			background:<?php echo esc_attr($submenu_header_color); ?>;
 		}
 		.mobile-header-sec #mobile-slide-in .sub-menu.active li:first-child a
 		{
-			color:<?php echo $submenu_header_text_color; ?>;
+			color:<?php echo esc_attr($submenu_header_text_color); ?>;
 		}
 	<?php
 		}
-		
 	?>

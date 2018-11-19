@@ -123,41 +123,41 @@
 		
 		?>
 		footer.footer-mailchimp{
-			background:<?php echo $background; ?>;
+			background:<?php echo esc_attr($background); ?>;
 			background-repeat: no-repeat;
 			background-size:cover;
 			
 		}
 		footer.footer-mailchimp:before{
-			background-color:<?php echo $overlay_color; ?>;
-			opacity:<?php echo $background_opacity; ?>;
+			background-color:<?php echo esc_attr($overlay_color); ?>;
+			opacity:<?php echo esc_attr($background_opacity); ?>;
 			position: absolute;
 			content: '';
 			width: 100%;
 		}
 		.footer-mailchimp .footer-bottom h3{
-			color:<?php echo $title_text_color; ?>;
+			color:<?php echo esc_attr($title_text_color); ?>;
 		}
 		.footer-mailchimp .footer-bottom p{
-			color:<?php echo $desc_text_color; ?>;
+			color:<?php echo esc_attr($desc_text_color); ?>;
 		}
 		
 		footer.footer-mailchimp .footer-top h5
 		{
-			color:<?php echo $heading_color; ?>;
+			color:<?php echo esc_attr($heading_color); ?>;
 		}
 		
 		footer.footer-mailchimp .footer-top p
 		{
-			color:<?php echo $text_color; ?>;
+			color:<?php echo esc_attr($text_color); ?>;
 		}
 		
 		footer.footer-mailchimp .footer-top ul li a
 		{
-			color:<?php echo $link_color; ?>;
+			color:<?php echo esc_attr($link_color); ?>;
 		}
 		
 		footer.footer-mailchimp ul.footer_social_icons li a
 		{
-			color:<?php echo $link_color; ?>;
+			color:<?php echo esc_attr($link_color); ?>;
 		}

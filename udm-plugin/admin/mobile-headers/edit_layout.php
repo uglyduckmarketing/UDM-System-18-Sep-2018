@@ -1,20 +1,13 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
-
 }
-
 $data=unserialize(get_option('mobile_header_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
 	<ul class="editmobilelayout_data">
 	<?php 
@@ -26,7 +19,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 			<?php $menus=wp_get_nav_menus();
 				foreach( $menus as $item ) {
 			?>
-				<option value="<?php echo $item->slug;  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo $item->name;  ?></option>
+				<option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
 			<?php
 				}
 			?>
@@ -43,7 +36,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['hamberger_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Hamberger Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="hamberger_custom_color" value="<?php echo $data['hamberger_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="hamberger_custom_color" value="<?php echo esc_attr($data['hamberger_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -58,7 +51,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo $data['background_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -84,7 +77,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['whamberger_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Hamberger Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="whamberger_custom_color" value="<?php echo $data['whamberger_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="whamberger_custom_color" value="<?php echo esc_attr($data['whamberger_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -99,7 +92,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['wbackground_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Background Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="wbackground_custom_color" value="<?php echo $data['wbackground_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="wbackground_custom_color" value="<?php echo esc_attr($data['wbackground_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>
@@ -114,14 +107,14 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor" <?php if($data['wtext_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 			<li>
 				<h3>Text Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="wtext_custom_color" value="<?php echo $data['wtext_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="wtext_custom_color" value="<?php echo esc_attr($data['wtext_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>	
-	<li class="imageupload"><h3>Profile Image: </h3><input type="text" name="profile_image" id="editprofile_image" class="meta-image regular-text main-image" value="<?php echo $data['profile_image']; ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
+	<li class="imageupload"><h3>Profile Image: </h3><input type="text" name="profile_image" id="editprofile_image" class="meta-image regular-text main-image" value="<?php echo esc_attr($data['profile_image']); ?>"><input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" /></li>
 	<li><h3>Profile Image Type: </h3> <span><input type="radio" name="profile_image_type" value="circle" <?php checked('circle',isset($data['profile_image_type']) ? $data['profile_image_type'] : ''); ?>> Circle </span><span><input type="radio" name="profile_image_type" value="square" <?php checked('square',isset($data['profile_image_type']) ? $data['profile_image_type'] : ''); ?>> Square</span></li>
-	<li><h3>Company Name: </h3> <input type="text" name="company_name" value="<?php echo $data['company_name']; ?>"></li>
-	<li><h3>Text Under Company Name: </h3> <input type="text" name="text_under_company_name" value="<?php echo $data['text_under_company_name']; ?>"></li>
+	<li><h3>Company Name: </h3> <input type="text" name="company_name" value="<?php echo esc_attr($data['company_name']); ?>"></li>
+	<li><h3>Text Under Company Name: </h3> <input type="text" name="text_under_company_name" value="<?php echo esc_attr($data['text_under_company_name']); ?>"></li>
 	<li>
 		<h3>Star Rating: </h3>
 		<span class="switch">
@@ -141,12 +134,12 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<ul class="customcolor">
 			<li>
 				<h3>Review Star Custom Color: </h3>
-				<input class="udm_color_picker" type="text" name="review_star_custom_color" value="<?php echo $data['review_star_custom_color']; ?>" />
+				<input class="udm_color_picker" type="text" name="review_star_custom_color" value="<?php echo esc_attr($data['review_star_custom_color']); ?>" />
 			</li>
 		</ul>
 	</li>	
-	<li><h3>Review Score: </h3> <input type="number" name="review_score" value="<?php echo $data['review_score']; ?>" step="0.1" min="0" max="5" ></li>
-	<li><h3>Number of Reviews: </h3> <input type="number" name="number_of_reviews" value="<?php echo $data['number_of_reviews']; ?>"></li>
+	<li><h3>Review Score: </h3> <input type="number" name="review_score" value="<?php echo esc_attr($data['review_score']); ?>" step="0.1" min="0" max="5" ></li>
+	<li><h3>Number of Reviews: </h3> <input type="number" name="number_of_reviews" value="<?php echo esc_attr($data['number_of_reviews']); ?>"></li>
 	</div>
 	<li>
 		<h3>Call Button: </h3>
@@ -173,15 +166,9 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 	</li>
 	
 	</div>
-	
 	</ul>
-	
-	
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="mobile_header_editlayout_submit" class="button button-primary" value="Save Layout"><input type="submit" name="mobile_header_deletelayout_submit" class="button button-primary" value="Delete Layout"></p> </div>
-
 </form>
-
-
 <!-- Theme Options JS -->
 <script>
 	jQuery(document).ready(function($) {
@@ -250,6 +237,4 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 			  });
 	
 	  });
-	  
-	
 </script>

@@ -1,19 +1,14 @@
 <?php
-	define('WP_USE_THEMES', true);
-	
-	/** Loads the WordPress Environment and Template */
-	//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php'); 
-	include '../../../../../../../wp-load.php';
-		
-if(isset($_POST['layout']))
+define('WP_USE_THEMES', true);
+/** Loads the WordPress Environment and Template */
+include '../../../../../../../wp-load.php';
+		if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('header_layout_'.$layout));
-
 ?>
 <!-- Theme Options JS -->
-
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
@@ -33,7 +28,6 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<option value="color" <?php selected("color",$data['logo_background_type']); ?>>Color</option>
 			<option value="image" <?php selected("image",$data['logo_background_type']); ?>>Image</option>
 		</select>
-		 <?php/* if($data['logo_background_type']=="image"){ style="display:none;" } */?>
 		<ul id="logo_back_opt">
 			<li class="colorchange" <?php if($data['logo_background_color']=="image"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>
 				<select name="logo_background_color" id="logo_background_color">
@@ -47,13 +41,13 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				<ul class="customcolor" <?php if($data['logo_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Button Custom Color: </h3>
-						<input class="udm_color_picker" type="text" name="logo_background_custom_color" value="<?php echo $data['logo_background_custom_color']; ?>" />
+						<input class="udm_color_picker" type="text" name="logo_background_custom_color" value="<?php echo esc_attr($data['logo_background_custom_color']); ?>" />
 					</li>
 				</ul>
 			</li>
 			<li class="imageupload" <?php if($data['logo_background_type']=="image"){}else{ ?> style="display:none;" <?php } ?>>
 				<h3>Logo Background Image</h3>
-				<input type="text" name="logo_background_image" class="background-logo" value="<?php echo $data['logo_background_image']; ?>">
+				<input type="text" name="logo_background_image" class="background-logo" value="<?php echo esc_attr($data['logo_background_image']); ?>">
 				<input class="btn upload-image" my-attr="background-logo" type="button" value="Upload Image" />
 			</li>
 		</ul>
@@ -69,7 +63,6 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<li class="topbarwiget">
 				<h2>Top Bar Widget</h2>
 				<ul id="topbar_layouts">
-					
 					<?php
 						if($data['top_bar_style']!="")
 						{
@@ -82,7 +75,6 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
 						}
 					?>
-
 				</ul>
 			</li>
 	<li class="bottombarwiget">
@@ -101,7 +93,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 					<ul class="customcolor" <?php if($data['bottombar_background_color']=="custom"){}else{ ?> style="display:none;"<?php } ?>>
 						<li>
 							<h3>Background Custom Color: </h3>
-							<input class="udm_color_picker" type="text" name="bottombar_background_custom_color" value="<?php echo $data['bottombar_background_custom_color']; ?>" />
+							<input class="udm_color_picker" type="text" name="bottombar_background_custom_color" value="<?php echo esc_attr($data['bottombar_background_custom_color']); ?>" />
 						</li>
 					</ul>
 				</li>
@@ -111,7 +103,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						<?php $menus=wp_get_nav_menus();
 								foreach( $menus as $item ) {
 							?>
-								<option value="<?php echo $item->slug;  ?>" <?php selected($item->slug,$data['navigation']); ?> > <?php echo $item->name;  ?></option>
+								<option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug,$data['navigation']); ?> > <?php echo esc_attr($item->name);  ?></option>
 							<?php
 								}
 							?>
@@ -144,7 +136,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 					<ul class="customcolor" <?php if($data['bottombar_nav_link_color']=="custom"){}else{ ?> style="display:none;"<?php } ?>>
 						<li>
 							<h3>Background Custom Color: </h3>
-							<input class="udm_color_picker" type="text" name="bottombar_nav_link_custom_color" value="<?php echo $data['bottombar_nav_link_custom_color']; ?>" />
+							<input class="udm_color_picker" type="text" name="bottombar_nav_link_custom_color" value="<?php echo esc_attr($data['bottombar_nav_link_custom_color']); ?>" />
 						</li>
 					</ul>
 				</li>
@@ -192,7 +184,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=bottombar&header=<?php echo $_POST['layout']; ?>',
+					data:'location=bottombar&header=<?php echo esc_attr($_POST['layout']); ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/text.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -212,7 +204,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=bottombar&header=<?php echo $_POST['layout']; ?>',
+					data:'location=bottombar&header=<?php echo esc_attr($_POST['layout']); ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/phone.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -232,7 +224,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=bottombar&header=<?php echo $_POST['layout']; ?>',
+					data:'location=bottombar&header=<?php echo esc_attr($_POST['layout']); ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/social.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -251,7 +243,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			?>
 					jQuery.ajax({
 					type: 'post',
-					data:'location=bottombar&header=<?php echo $_POST['layout']; ?>',
+					data:'location=bottombar&header=<?php echo esc_attr($_POST['layout']); ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/widgets/button.php",
 					beforeSend: function(){
 						 $(".preloader").show();
@@ -420,7 +412,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			
 			jQuery.ajax({
 					type: 'post',
-					data:'layoutnew='+value+'&layout=<?php echo $layout; ?>',
+					data:'layoutnew='+value+'&layout=<?php echo esc_attr($layout); ?>',
 					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/stacked_topbar_layout.php",
 					beforeSend: function(){
 						 $(".preloader").show();

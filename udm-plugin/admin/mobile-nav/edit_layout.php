@@ -1,18 +1,13 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('mobile_nav_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
 	<?php 
 		if(get_option('mobile_nav_layout_'.$layout)!="")
@@ -53,7 +48,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		?>
 			jQuery.ajax({
 				type: 'post',
-				data:'layout=<?php echo $layout; ?>',
+				data:'layout=<?php echo esc_attr($layout); ?>',
 				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/mobile-nav/templates/edit_basic_slidedown.php",
 				beforeSend: function(){
 						 $(".preloader").show();
@@ -74,7 +69,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		?>
 			jQuery.ajax({
 				type: 'post',
-				data:'layout=<?php echo $layout; ?>',
+				data:'layout=<?php echo esc_attr($layout); ?>',
 				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/mobile-nav/templates/edit_basic_overlay.php",
 				beforeSend: function(){
 						 $(".preloader").show();
@@ -96,7 +91,7 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 		?>
 			jQuery.ajax({
 				type: 'post',
-				data:'layout=<?php echo $layout; ?>',
+				data:'layout=<?php echo esc_attr($layout); ?>',
 				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/mobile-nav/templates/edit_slidein.php",
 				beforeSend: function(){
 						 $(".preloader").show();

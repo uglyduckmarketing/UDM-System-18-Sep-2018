@@ -108,7 +108,6 @@
 					<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
 				</div>
 			</div>
-		
 		</div>
 </div>
 	<!-- Create featured section End -->
@@ -127,18 +126,15 @@
 					?>
 						<option value="<?php echo str_replace("featured_layout_","",$layout); ?>" <?php selected($prevlayout,str_replace("featured_layout_","",$layout)); ?> <?php if(get_option('udm_hero_default')==str_replace("featured_layout_","",$layout)){ echo ' class="selectedlayout"'; } ?>><?php echo str_replace("_"," ", str_replace("featured_layout_","",$layout)); ?></option>
 					<?php	
-						
 						}
 					?>
 					</select>
-					
 					<div id="editlayout"><div class='empty'><p>Select Featured Layout to change settings.</p></div></div>
 				</div>
 			</div>
-		
 		</div>
 </div>
-	<!-- Edit featureds section End -->
+<!-- Edit featureds section End -->
 <!-- Theme Options JS -->
 <script>
 	jQuery(document).ready(function($) {
@@ -185,7 +181,7 @@
 	  <?php if($prevlayout!=""){ ?>	
 	  jQuery.ajax({	
 	  type: 'post',			
-	  data:'layout='+'<?php echo $prevlayout; ?>',
+	  data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
 	  url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/featured/edit_layout.php",	
 	  beforeSend: function(){		
 	  $(".preloader").show();	
@@ -203,8 +199,6 @@
 				  } 		
 				  ?>
 	  });
-	  
-	
 </script>
 
 <div class="defaultdatasection">
@@ -216,4 +210,3 @@
 		<li><span>Global Dark: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_dark'); ?>" readonly="" /></li>
 	</ul>
 </div>
-

@@ -2,7 +2,6 @@
 $logoPath = get_theme_mod('logo_image');
 $lightlogoPath = get_theme_mod('solutions_image');
 ?>
-
 <nav>
 	<div class="nav-wrapper">
 		<div class="container">
@@ -11,8 +10,8 @@ $lightlogoPath = get_theme_mod('solutions_image');
 					<?php wp_nav_menu( array( 'theme_location' => 'left', 'menu_class' => 'left hide-on-med-and-down' ) ); ?>
 				</div>
 				<div class="col m2 s12 center">
-					<a href="<?php bloginfo('url'); ?>" class="brand-logo">
-						<img src="<?php echo $logoPath ?>"/>
+					<a href="<?php echo esc_url( home_url() ); ?>" class="brand-logo">
+						<img src="<?php echo isset($logoPath) ? $logoPath : '' ?>"/>
 					</a>
 					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				</div>

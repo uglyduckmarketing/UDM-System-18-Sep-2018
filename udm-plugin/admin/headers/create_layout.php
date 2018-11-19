@@ -1,9 +1,6 @@
 <?php
-
 define('WP_USE_THEMES', true);
-
 /** Loads the WordPress Environment and Template */
-//require($_SERVER['DOCUMENT_ROOT'].'/udwebsol/wp-load.php');
 include '../../../../../../wp-load.php'; 
 $layout = '';
 if(isset($_POST['layout']))
@@ -11,9 +8,7 @@ if(isset($_POST['layout']))
 	$layout=$_POST['layout'];
 }
 $data=unserialize(get_option('header_layout_'.$layout));
-
 ?>
-
 <form method="post" action="" enctype="multipart/form-data">
 	
 	<ul class="layout_top_data">
@@ -31,8 +26,6 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="header_createlayout_submit" class="button button-primary" value="Save Layout"></p> </div>
 
 </form>
-
-
 <!-- Theme Options JS -->
 <script>
 	jQuery(document).ready(function($) {
@@ -96,9 +89,5 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				$('#selected_layout').html("<div class='empty'><p>Select header Layout Template to change settings.</p></div>");
 			}
 	   });
-	   
-	  
-	  });
-	  
-	
+ });
 </script>

@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row align-items-center">
             <div class="col col-sm-12 text-center mobile_logo">
-				<a href="<?php bloginfo('url'); ?>"><img class="header--logo" src="<?php echo get_option( 'logo_url' ); ?>"  style="background:<?php if(get_option('udm_logo_bg_color')==''){ echo 'transparent'; }else{ echo get_option('udm_logo_bg_color'); } ?>;" /></a>
+				<a href="<?php echo esc_url( home_url() ); ?>"><img class="header--logo" src="<?php echo get_option( 'logo_url' ); ?>"  style="background:<?php if(get_option('udm_logo_bg_color')==''){ echo 'transparent'; }else{ echo get_option('udm_logo_bg_color'); } ?>;" /></a>
 			</div>
         </div>
         <div class="row menu_bar_custom yellow_bg">

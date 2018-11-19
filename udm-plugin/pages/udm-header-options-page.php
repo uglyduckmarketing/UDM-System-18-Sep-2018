@@ -159,28 +159,25 @@
 	  
 	  <?php if($prevlayout!=""){ ?>	
 	  jQuery.ajax({
-					type: 'post',
-					data:'layout='+'<?php echo $prevlayout; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/edit_layout.php",
-					beforeSend: function(){
-						 $(".preloader").show();
-					   },
-					   complete: function(){
-						setTimeout(function() {
-								$(".preloader").hide()
-							}, 3000);
-					   },
-					success: function(result) {
-						$('#editlayout').html(result);
-					}
-			});
+			type: 'post',
+			data:'layout='+'<?php echo isset($prevlayout) ? $prevlayout : ''; ?>',
+			url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/edit_layout.php",
+			beforeSend: function(){
+				 $(".preloader").show();
+			   },
+			   complete: function(){
+				setTimeout(function() {
+						$(".preloader").hide()
+					}, 3000);
+			   },
+			success: function(result) {
+				$('#editlayout').html(result);
+			}
+	  });
 	   <?php 
 		} 
 	  ?>
-	  
-	  });
-	  
-	
+});
 </script>
 
 <div class="defaultdatasection">
@@ -209,5 +206,4 @@
 .defaultdatasection .wp-picker-input-wrap{
     display: none;
 }
-
 </style>

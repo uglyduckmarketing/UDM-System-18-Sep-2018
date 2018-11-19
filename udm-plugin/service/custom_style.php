@@ -24,7 +24,7 @@
 	}
 	else if($data['desc_eyebrow_color'] != "")
 	{
-		echo $desc_eyebrow_color="var(--".$data['desc_eyebrow_color']."-color)";
+		 $desc_eyebrow_color="var(--".$data['desc_eyebrow_color']."-color)";
 	}
 	else
 	{
@@ -314,12 +314,12 @@
 	
 	.single-service .fullwidth-hero-3
 	{
-		background:<?php echo $desc_background_color; ?>
+		background:<?php echo esc_attr($desc_background_color); ?>
 	}
 	
 	.single-service .desc_section
 	{
-		background:<?php echo $desc_background_color; ?>
+		background:<?php echo esc_attr($desc_background_color); ?>
 	}
 	
 	.single-service .fullwidth-hero-3 .col span {
@@ -327,7 +327,7 @@
 	letter-spacing: 2px;
 	font-weight: 600;
 	font-size: .85rem;
-	color: <?php echo $desc_eyebrow_color; ?>;
+	color: <?php echo esc_attr($desc_eyebrow_color); ?>;
 	margin-bottom: 1.5rem;
 	display: block;
 	animation-name: fadeUp;
@@ -339,7 +339,7 @@
 
 	.single-service .fullwidth-hero-3 .col h2 {
 	<!--opacity: 0;-->
-	color:  <?php echo $desc_heading_color; ?>;
+	color:  <?php echo esc_attr($desc_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
 	animation-name: fadeUp;
@@ -351,7 +351,7 @@
 
 .single-service .service_desc h2 {
 <!--opacity: 0;-->
-	color:  <?php echo $desc_heading_color; ?>;
+	color:  <?php echo esc_attr($desc_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
 	animation-name: fadeUp;
@@ -363,7 +363,7 @@
 	
 	.single-service .fullwidth-hero-3 .col p {
 	<!--opacity: 0;-->
-	color: <?php echo $services_description_color; ?>;
+	color: <?php echo esc_attr($services_description_color); ?>;
 	font-size: 1.25rem;
 	font-weight: 300;
 	margin-top: .75rem;
@@ -378,7 +378,7 @@
 
 	.single-service .service_desc .intro {
 	opacity: 0;
-	color: <?php echo $services_description_color; ?>;
+	color: <?php echo esc_attr($services_description_color); ?>;
 	font-size: 1.25rem;
 	font-weight: 300;
 	margin-top: .75rem;
@@ -396,13 +396,13 @@
 	border-left: 3px solid var(--primary-color);
 	padding-left: 15px;
 	margin-bottom: 40px;
-	 color:<?php echo $benefit_text_color; ?>; 
+	 color:<?php echo esc_attr($benefit_text_color); ?>; 
 }
 
 	.single-service .padded-top h3 {
 	font-weight: 700;
 	font-size: 1.45rem;
-	 color:<?php echo $benefit_title_color; ?>; 
+	 color:<?php echo esc_attr($benefit_title_color); ?>; 
 }
 
  .single-service .service_breakdown .eyebrow {
@@ -410,7 +410,7 @@
 	font-size: 24px;
 	line-height: 1.14286;
 	letter-spacing: .007em;
-	color: <?php echo $breakdown_eyebrow_color; ?>;
+	color: <?php echo esc_attr($breakdown_eyebrow_color); ?>;
 	margin-bottom: 1.5rem;
 	display: block;
 }
@@ -420,7 +420,7 @@
 	font-size: 24px;
 	line-height: 1.14286;
 	letter-spacing: .007em;
-	color: <?php echo $desc_eyebrow_color; ?>;
+	color: <?php echo esc_attr($desc_eyebrow_color); ?>;
 	margin-bottom: 1.5rem;
 	display: block;
 }
@@ -430,7 +430,7 @@
 	line-height: 1.1625;
 	font-weight: 700;
 	letter-spacing: -.009em;
-	 color: <?php echo $breakdown_heading_color; ?>; 
+	 color: <?php echo esc_attr($breakdown_heading_color); ?>; 
 }
 
  .single-service .service_breakdown .desc {
@@ -438,14 +438,14 @@
 	font-weight: 400;
 	letter-spacing: .011em;
 	line-height: 1.38105;
-	color: <?php echo $breakdown_text_color; ?>;
+	color: <?php echo esc_attr($breakdown_text_color); ?>;
 } 
 .single-service .service_breakdown .alignleftrow, .single-service .service_breakdown .alignrightrow{
-	background-color: <?php echo $breakdown_back_color; ?>;
+	background-color: <?php echo esc_attr($breakdown_back_color); ?>;
 }
 
 /*.single-service .service_breakdown .alignleftrow img, .single-service .service_breakdown .alignrightrow img{
-	background-color: <?php echo $breakdown_back_color; ?>;
+	background-color: <?php echo esc_attr($breakdown_back_color); ?>;
 }*/
 
 .single-service .service_video .eyebrow{
@@ -453,13 +453,13 @@
 	font-size: 24px;
 	line-height: 1.14286;
 	letter-spacing: .007em;
-	color: <?php echo $video_eyebrow_color; ?>;
+	color: <?php echo esc_attr($video_eyebrow_color); ?>;
 	margin-bottom: 1.5rem;
 	display: block;
 }
 .single-service .service_video h2 {
 	opacity: 0;
-	color:  <?php echo $video_heading_color; ?>;
+	color:  <?php echo esc_attr($video_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
 	animation-name: fadeUp;
@@ -470,11 +470,11 @@
 }
 
 .single-service .service_video .video_desc {
-	color: <?php echo $video_serv_desc_color; ?>;
+	color: <?php echo esc_attr($video_serv_desc_color); ?>;
 }
 
 .single-service .service_video{
-	background-color: <?php echo $video_background_color; ?>;
+	background-color: <?php echo esc_attr($video_background_color); ?>;
 }	
 
 .single-service .service_gallery .eyebrow{
@@ -482,14 +482,14 @@
 	font-size: 24px;
 	line-height: 1.14286;
 	letter-spacing: .007em;
-	color: <?php echo $gallery_eyebrow_color; ?>;
+	color: <?php echo esc_attr($gallery_eyebrow_color); ?>;
 	margin-bottom: 1.5rem;
 	display: block;
 }
 
 .single-service .service_gallery h2 {
 	opacity: 0;
-	color:  <?php echo $gallery_heading_color; ?>;
+	color:  <?php echo esc_attr($gallery_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
 	animation-name: fadeUp;
@@ -500,7 +500,7 @@
 }
 
 .single-service .service_gallery{
-	background-color: <?php echo $gallery_background_color; ?>;
+	background-color: <?php echo esc_attr($gallery_background_color); ?>;
 }	
 
 .single-service .service_related .eyebrow{
@@ -508,13 +508,13 @@
 	font-size: 24px;
 	line-height: 1.14286;
 	letter-spacing: .007em;
-	color: <?php echo $related_eyebrow_color; ?>;
+	color: <?php echo esc_attr($related_eyebrow_color); ?>;
 	margin-bottom: 1.5rem;
 	display: block;
 }	
 .single-service .service_related h2 {
 	opacity: 0;
-	color:  <?php echo $related_heading_color; ?>;
+	color:  <?php echo esc_attr($related_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
 	animation-name: fadeUp;
@@ -525,9 +525,9 @@
 }
 
 .single-service .service_related{
-	background-color: <?php echo $related_background_color; ?>;
+	background-color: <?php echo esc_attr($related_background_color); ?>;
 }	
 .service_breakdown .p1-both:after{
-	background-color: <?php echo $breakdown_overlay_color; ?>;
-	opacity: <?php echo $breakdown_overlay_opacity; ?>;
+	background-color: <?php echo esc_attr($breakdown_overlay_color); ?>;
+	opacity: <?php echo esc_attr($breakdown_overlay_opacity); ?>;
 }
