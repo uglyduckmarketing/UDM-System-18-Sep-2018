@@ -32,14 +32,6 @@ get_header(); ?>
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
 <div id="map" style="height: 450px; width: 100%; margin-bottom: -45px;"></div>
 <style>.call-to-action { display: none; }</style>
 <script>
@@ -69,5 +61,5 @@ get_header(); ?>
 	 });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-F9kVe8CubZ7PgEvUZ7alsjiU1aC9g84&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_option('udm_google_map_key'); ?>&callback=initMap" async defer></script>
 <?php get_footer(); ?>

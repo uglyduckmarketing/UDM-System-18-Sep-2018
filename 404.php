@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying 404 pages (not found).
- * @package uglyduck
+ * @package udmbase
  */
 get_header(); ?>
 <main class="wrapper" role="main" style="padding-top: 150px; padding-bottom: 80px;">

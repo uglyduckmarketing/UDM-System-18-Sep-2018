@@ -1,8 +1,8 @@
 <?php
 /**
- * uglyduck Theme Customizer.
+ * udmbase Theme Customizer.
  *
- * @package uglyduck
+ * @package udmbase
  */
 
  /**
@@ -16,45 +16,47 @@ function udbase_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	//Image Settings
 		$wp_customize->add_section('udbase_logo', array(
-		'title' => __('Logo Options', 'udbase_logo'), 
+		'title' => __('Logo Options', 'udmbase'), 
 		'description' => 'Modify the theme logo'
 		));
 		$wp_customize->add_setting('logo_image',array(
-		'default' => '', 
+		'default' => '',
+		'sanitize_callback' => 'esc_attr',		
 		));
 		$wp_customize->add_control( new WP_Customize_Upload_Control($wp_customize, 'logo_image',array(
-		'label' => __('Change Logo', 'udbase'), 
+		'label' => __('Change Logo', 'udmbase'), 
 		'section' => 'udbase_logo',
 		'settings' => 'logo_image'
 		) ));
 		$wp_customize->add_section('udbase_lightlogo', array(
-		'title' => __('Light Logo Options', 'udbase_lightlogo'), 
+		'title' => __('Light Logo Options', 'udmbase'), 
 		'description' => 'Modify the light logo'
 		));
 		$wp_customize->add_setting('solutions_image',array(
 		'default' => '', 
+		'sanitize_callback' => 'esc_attr',
 		));
 		$wp_customize->add_control( new WP_Customize_Upload_Control($wp_customize, 'solutions_image',array(
-		'label' => __('Change Light Logo', 'udbase'), 
+		'label' => __('Change Light Logo', 'udmbase'), 
 		'section' => 'udbase_lightlogo',
 		'settings' => 'solutions_image'
 		) ));
 }
 add_action( 'customize_register', 'udbase_customize_register' );
 	function udbase_customizer_register($wp_customize) {
-		$wp_customize->add_section('udbase_contact', array('title' => __('Contact Settings', 'udbase_contact'), 'description' => 'Modify the contact settings'));
-		$wp_customize->add_setting('udm_phone_number',array('default' => 'Phone Number', 'label' => 'Phone Number',));
-		$wp_customize->add_setting('udm_email_address',array('default' => 'Email Address', 'label' => 'Email Address',));
-		$wp_customize->add_setting('udm_street',array('default' => 'Address', 'label' => 'Address', ));
-		$wp_customize->add_setting('udm_city',array('default' => 'City','label' => 'City',  ));
-		$wp_customize->add_setting('udm_state',array('default' => 'State','label' => 'State',  ));
-		$wp_customize->add_setting('udm_zip',array('default' => 'Zip Code', 'label' => 'Zip Code', ));
-		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_phone_number',array('type' => 'tel','pattern' => '[0-9]','label' => __('Edit Phone Number', 'udbase'), 'description' => __('Enter phone number without spaces or additional characters (eg: 6611234567). ', 'udbase'),'section' => 'udbase_contact','settings' => 'udm_phone_number') ));
-		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_email_address',array('type' => 'email','label' => __('Edit Email Address', 'udbase'), 'section' => 'udbase_contact','settings' => 'udm_email_address') ));
-		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_street',array('label' => __('Edit Address', 'udbase'), 'section' => 'udbase_contact','settings' => 'udm_street') ));
-		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_city',array('label' => __('Edit City', 'udbase'), 'section' => 'udbase_contact','settings' => 'udm_city') ));
-		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_state',array('label' => __('Edit State', 'udbase'), 'section' => 'udbase_contact','settings' => 'udm_state') ));
-		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_zip',array('label' => __('Edit Zip Code', 'udbase'), 'section' => 'udbase_contact','settings' => 'udm_zip') ));
+		$wp_customize->add_section('udbase_contact', array('title' => __('Contact Settings', 'udmbase'), 'description' => 'Modify the contact settings'));
+		$wp_customize->add_setting('udm_phone_number',array('default' => 'Phone Number', 'label' => 'Phone Number','sanitize_callback' => 'esc_attr'));
+		$wp_customize->add_setting('udm_email_address',array('default' => 'Email Address', 'label' => 'Email Address','sanitize_callback' => 'esc_attr',));
+		$wp_customize->add_setting('udm_street',array('default' => 'Address', 'label' => 'Address','sanitize_callback' => 'esc_attr', ));
+		$wp_customize->add_setting('udm_city',array('default' => 'City','label' => 'City','sanitize_callback' => 'esc_attr',  ));
+		$wp_customize->add_setting('udm_state',array('default' => 'State','label' => 'State','sanitize_callback' => 'esc_attr',  ));
+		$wp_customize->add_setting('udm_zip',array('default' => 'Zip Code', 'label' => 'Zip Code','sanitize_callback' => 'esc_attr', ));
+		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_phone_number',array('type' => 'tel','pattern' => '[0-9]','label' => __('Edit Phone Number', 'udmbase'), 'description' => __('Enter phone number without spaces or additional characters (eg: 6611234567). ', 'udmbase'),'section' => 'udbase_contact','settings' => 'udm_phone_number') ));
+		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_email_address',array('type' => 'email','label' => __('Edit Email Address', 'udmbase'), 'section' => 'udbase_contact','settings' => 'udm_email_address') ));
+		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_street',array('label' => __('Edit Address', 'udmbase'), 'section' => 'udbase_contact','settings' => 'udm_street') ));
+		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_city',array('label' => __('Edit City', 'udmbase'), 'section' => 'udbase_contact','settings' => 'udm_city') ));
+		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_state',array('label' => __('Edit State', 'udmbase'), 'section' => 'udbase_contact','settings' => 'udm_state') ));
+		$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'udm_zip',array('label' => __('Edit Zip Code', 'udmbase'), 'section' => 'udbase_contact','settings' => 'udm_zip') ));
 	}
 	add_action('customize_register', 'udbase_customizer_register');
 	function location_shortcode() {

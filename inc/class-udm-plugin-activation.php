@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 	class UDM_Plugin_Activation {
-		const UDMPA_VERSION = '2.6.1';
+		const UDMBASE_VERSION = '2.6.1';
 		
 		const WP_REPO_REGEX = '|^http[s]?://wordpress\.org/(?:extend/)?plugins/|';
 		
@@ -30,9 +30,9 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		
 		protected $has_forced_deactivation = false;
 		
-		public $id = 'udmpa';
+		public $id = 'udmbase';
 		
-		protected $menu = 'udmpa-install-plugins';
+		protected $menu = 'udmbase-install-plugins';
 		
 		public $parent_slug = 'themes.php';
 		
@@ -59,7 +59,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		public function __construct() {
 			
 			$this->wp_version = $GLOBALS['wp_version'];
-			do_action_ref_array( 'udmpa_init', array( $this ) );
+			do_action_ref_array( 'udmbase_init', array( $this ) );
 			
 			add_action( 'init', array( $this, 'load_textdomain' ), 5 );
 			add_filter( 'load_textdomain_mofile', array( $this, 'overload_textdomain_mofile' ), 10, 2 );
@@ -76,89 +76,89 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		
 		public function init() {
 			
-			if ( true !== apply_filters( 'udmpa_load', ( is_admin() && ! defined( 'DOING_AJAX' ) ) ) ) {
+			if ( true !== apply_filters( 'udmbase_load', ( is_admin() && ! defined( 'DOING_AJAX' ) ) ) ) {
 				return;
 			}
 			// Load class strings.
 			$this->strings = array(
-				'page_title'                      => __( 'Install Required Plugins', 'udmpa' ),
-				'menu_title'                      => __( 'Install Plugins', 'udmpa' ),
+				'page_title'                      => __( 'Install Required Plugins', 'udmbase' ),
+				'menu_title'                      => __( 'Install Plugins', 'udmbase' ),
 				
-				'installing'                      => __( 'Installing Plugin: %s', 'udmpa' ),
+				'installing'                      => __( 'Installing Plugin: %s', 'udmbase' ),
 				
-				'updating'                        => __( 'Updating Plugin: %s', 'udmpa' ),
-				'oops'                            => __( 'Something went wrong with the plugin API.', 'udmpa' ),
+				'updating'                        => __( 'Updating Plugin: %s', 'udmbase' ),
+				'oops'                            => __( 'Something went wrong with the plugin API.', 'udmbase' ),
 				
 				'notice_can_install_required'     => _n_noop(
 					'This theme requires the following plugin: %1$s.',
 					'This theme requires the following plugins: %1$s.',
-					'udmpa'
+					'udmbase'
 				),
 				
 				'notice_can_install_recommended'  => _n_noop(
 					'This theme recommends the following plugin: %1$s.',
 					'This theme recommends the following plugins: %1$s.',
-					'udmpa'
+					'udmbase'
 				),
 				
 				'notice_ask_to_update'            => _n_noop(
 					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-					'udmpa'
+					'udmbase'
 				),
 				
 				'notice_ask_to_update_maybe'      => _n_noop(
 					'There is an update available for: %1$s.',
 					'There are updates available for the following plugins: %1$s.',
-					'udmpa'
+					'udmbase'
 				),
 				
 				'notice_can_activate_required'    => _n_noop(
 					'The following required plugin is currently inactive: %1$s.',
 					'The following required plugins are currently inactive: %1$s.',
-					'udmpa'
+					'udmbase'
 				),
 				
 				'notice_can_activate_recommended' => _n_noop(
 					'The following recommended plugin is currently inactive: %1$s.',
 					'The following recommended plugins are currently inactive: %1$s.',
-					'udmpa'
+					'udmbase'
 				),
 				'install_link'                    => _n_noop(
 					'Begin installing plugin',
 					'Begin installing plugins',
-					'udmpa'
+					'udmbase'
 				),
 				'update_link'                     => _n_noop(
 					'Begin updating plugin',
 					'Begin updating plugins',
-					'udmpa'
+					'udmbase'
 				),
 				'activate_link'                   => _n_noop(
 					'Begin activating plugin',
 					'Begin activating plugins',
-					'udmpa'
+					'udmbase'
 				),
-				'return'                          => __( 'Return to Required Plugins Installer', 'udmpa' ),
-				'dashboard'                       => __( 'Return to the Dashboard', 'udmpa' ),
-				'plugin_activated'                => __( 'Plugin activated successfully.', 'udmpa' ),
-				'activated_successfully'          => __( 'The following plugin was activated successfully:', 'udmpa' ),
+				'return'                          => __( 'Return to Required Plugins Installer', 'udmbase' ),
+				'dashboard'                       => __( 'Return to the Dashboard', 'udmbase' ),
+				'plugin_activated'                => __( 'Plugin activated successfully.', 'udmbase' ),
+				'activated_successfully'          => __( 'The following plugin was activated successfully:', 'udmbase' ),
 				
-				'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'udmpa' ),
+				'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'udmbase' ),
 				
-				'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'udmpa' ),
+				'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'udmbase' ),
 				
-				'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'udmpa' ),
-				'dismiss'                         => __( 'Dismiss this notice', 'udmpa' ),
-				'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'udmpa' ),
-				'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'udmpa' ),
+				'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'udmbase' ),
+				'dismiss'                         => __( 'Dismiss this notice', 'udmbase' ),
+				'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'udmbase' ),
+				'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'udmbase' ),
 			);
-			do_action( 'udmpa_register' );
+			do_action( 'udmbase_register' );
 			if ( empty( $this->plugins ) || ! is_array( $this->plugins ) ) {
 				return;
 			}
 			// Set up the menu and notices if we still have outstanding actions.
-			if ( true !== $this->is_udmpa_complete() ) {
+			if ( true !== $this->is_udmbase_complete() ) {
 				// Sort the plugins.
 				array_multisort( $this->sort_order, SORT_ASC, $this->plugins );
 				add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -191,28 +191,28 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function load_textdomain() {
-			if ( is_textdomain_loaded( 'udmpa' ) ) {
+			if ( is_textdomain_loaded( 'udmbase' ) ) {
 				return;
 			}
 			if ( false !== strpos( __FILE__, WP_PLUGIN_DIR ) || false !== strpos( __FILE__, WPMU_PLUGIN_DIR ) ) {
 				// Plugin, we'll need to adjust the file name.
 				add_action( 'load_textdomain_mofile', array( $this, 'correct_plugin_mofile' ), 10, 2 );
-				load_theme_textdomain( 'udmpa', dirname( __FILE__ ) . '/languages' );
+				load_theme_textdomain( 'udmbase', dirname( __FILE__ ) . '/languages' );
 				remove_action( 'load_textdomain_mofile', array( $this, 'correct_plugin_mofile' ), 10 );
 			} else {
-				load_theme_textdomain( 'udmpa', dirname( __FILE__ ) . '/languages' );
+				load_theme_textdomain( 'udmbase', dirname( __FILE__ ) . '/languages' );
 			}
 		}
 		public function correct_plugin_mofile( $mofile, $domain ) {
-			if ( 'udmpa' !== $domain ) {
+			if ( 'udmbase' !== $domain ) {
 				return $mofile;
 			}
-			return preg_replace( '`/([a-z]{2}_[A-Z]{2}.mo)$`', '/udmpa-$1', $mofile );
+			return preg_replace( '`/([a-z]{2}_[A-Z]{2}.mo)$`', '/udmbase-$1', $mofile );
 		}
 		
 		public function overload_textdomain_mofile( $mofile, $domain ) {
 		
-			if ( 'udmpa' !== $domain || false === strpos( $mofile, WP_LANG_DIR ) || @is_readable( $mofile ) ) {
+			if ( 'udmbase' !== $domain || false === strpos( $mofile, WP_LANG_DIR ) || @is_readable( $mofile ) ) {
 				return $mofile;
 			}
 			
@@ -251,15 +251,15 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		public function filter_plugin_action_links_update( $actions ) {
 			$actions['update'] = sprintf(
 				'<a href="%1$s" title="%2$s" class="edit">%3$s</a>',
-				esc_url( $this->get_udmpa_status_url( 'update' ) ),
-				esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'udmpa' ),
-				esc_html__( 'Update Required', 'udmpa' )
+				esc_url( $this->get_udmbase_status_url( 'update' ) ),
+				esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'udmbase' ),
+				esc_html__( 'Update Required', 'udmbase' )
 			);
 			return $actions;
 		}
 		
 		public function admin_init() {
-			if ( ! $this->is_udmpa_page() ) {
+			if ( ! $this->is_udmbase_page() ) {
 				return;
 			}
 			if ( isset( $_REQUEST['tab'] ) && 'plugin-information' === $_REQUEST['tab'] ) {
@@ -275,7 +275,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function thickbox() {
-			if ( ! get_user_meta( get_current_user_id(), 'udmpa_dismissed_notice_' . $this->id, true ) ) {
+			if ( ! get_user_meta( get_current_user_id(), 'udmbase_dismissed_notice_' . $this->id, true ) ) {
 				add_thickbox();
 			}
 		}
@@ -286,7 +286,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 				return;
 			}
 			$args = apply_filters(
-				'udmpa_admin_menu_args',
+				'udmbase_admin_menu_args',
 				array(
 					'parent_slug' => $this->parent_slug,                     
 					'page_title'  => $this->strings['page_title'],           
@@ -299,8 +299,8 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 			$this->add_admin_menu( $args );
 		}
 		protected function add_admin_menu( array $args ) {
-			if ( has_filter( 'udmpa_admin_menu_use_add_theme_page' ) ) {
-				_deprecated_function( 'The "udmpa_admin_menu_use_add_theme_page" filter', '2.5.0', esc_html__( 'Set the parent_slug config variable instead.', 'udmpa' ) );
+			if ( has_filter( 'udmbase_admin_menu_use_add_theme_page' ) ) {
+				_deprecated_function( 'The "udmbase_admin_menu_use_add_theme_page" filter', '2.5.0', esc_html__( 'Set the parent_slug config variable instead.', 'udmbase' ) );
 			}
 			if ( 'themes.php' === $this->parent_slug ) {
 				$this->page_hook = call_user_func( 'add_theme_page', $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
@@ -310,14 +310,14 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function install_plugins_page() {
-			$plugin_table = new UDMPA_List_Table();
+			$plugin_table = new UDMBASE_List_Table();
 			// Return early if processing a plugin installation action.
-			if ( ( ( 'udmpa-bulk-install' === $plugin_table->current_action() || 'udmpa-bulk-update' === $plugin_table->current_action() ) && $plugin_table->process_bulk_actions() ) || $this->do_plugin_install() ) {
+			if ( ( ( 'udmbase-bulk-install' === $plugin_table->current_action() || 'udmbase-bulk-update' === $plugin_table->current_action() ) && $plugin_table->process_bulk_actions() ) || $this->do_plugin_install() ) {
 				return;
 			}
 			wp_clean_plugins_cache( false );
 			?>
-			<div class="udmpa wrap">
+			<div class="udmbase wrap">
 				<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 				<?php $plugin_table->prepare_items(); ?>
 
@@ -328,8 +328,8 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 				?>
 				<?php $plugin_table->views(); ?>
 
-				<form id="udmpa-plugins" action="" method="post">
-					<input type="hidden" name="udmpa-page" value="<?php echo esc_attr( $this->menu ); ?>" />
+				<form id="udmbase-plugins" action="" method="post">
+					<input type="hidden" name="udmbase-page" value="<?php echo esc_attr( $this->menu ); ?>" />
 					<input type="hidden" name="plugin_status" value="<?php echo esc_attr( $plugin_table->view_context ); ?>" />
 					<?php $plugin_table->display(); ?>
 				</form>
@@ -347,22 +347,22 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 				return false;
 			}
 		
-			if ( ( isset( $_GET['udmpa-install'] ) && 'install-plugin' === $_GET['udmpa-install'] ) || ( isset( $_GET['udmpa-update'] ) && 'update-plugin' === $_GET['udmpa-update'] ) ) {
+			if ( ( isset( $_GET['udmbase-install'] ) && 'install-plugin' === $_GET['udmbase-install'] ) || ( isset( $_GET['udmbase-update'] ) && 'update-plugin' === $_GET['udmbase-update'] ) ) {
 				$install_type = 'install';
-				if ( isset( $_GET['udmpa-update'] ) && 'update-plugin' === $_GET['udmpa-update'] ) {
+				if ( isset( $_GET['udmbase-update'] ) && 'update-plugin' === $_GET['udmbase-update'] ) {
 					$install_type = 'update';
 				}
-				check_admin_referer( 'udmpa-' . $install_type, 'udmpa-nonce' );
+				check_admin_referer( 'udmbase-' . $install_type, 'udmbase-nonce' );
 				$url = wp_nonce_url(
 					add_query_arg(
 						array(
 							'plugin'                 => urlencode( $slug ),
-							'udmpa-' . $install_type => $install_type . '-plugin',
+							'udmbase-' . $install_type => $install_type . '-plugin',
 						),
-						$this->get_udmpa_url()
+						$this->get_udmbase_url()
 					),
-					'udmpa-' . $install_type,
-					'udmpa-nonce'
+					'udmbase-' . $install_type,
+					'udmbase-nonce'
 				);
 				$method = '';
 				$creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, array() );
@@ -430,18 +430,18 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 						return true; 
 					}
 				}
-				$this->show_udmpa_version();
+				$this->show_udmbase_version();
 				
-				if ( $this->is_udmpa_complete() ) {
+				if ( $this->is_udmbase_complete() ) {
 					echo '<p>', sprintf( esc_html( $this->strings['complete'] ), '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html( $this->strings['dashboard'] ) . '</a>' ), '</p>';
 					echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 				} else {
-					echo '<p><a href="', esc_url( $this->get_udmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
+					echo '<p><a href="', esc_url( $this->get_udmbase_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
 				}
 				return true;
-			} elseif ( isset( $this->plugins[ $slug ]['file_path'], $_GET['udmpa-activate'] ) && 'activate-plugin' === $_GET['udmpa-activate'] ) {
+			} elseif ( isset( $this->plugins[ $slug ]['file_path'], $_GET['udmbase-activate'] ) && 'activate-plugin' === $_GET['udmbase-activate'] ) {
 				
-				check_admin_referer( 'udmpa-activate', 'udmpa-nonce' );
+				check_admin_referer( 'udmbase-activate', 'udmbase-nonce' );
 				if ( false === $this->activate_single_plugin( $this->plugins[ $slug ]['file_path'], $slug ) ) {
 					return true; 
 				}
@@ -472,7 +472,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function maybe_adjust_source_dir( $source, $remote_source, $upgrader ) {
-			if ( ! $this->is_udmpa_page() || ! is_object( $GLOBALS['wp_filesystem'] ) ) {
+			if ( ! $this->is_udmbase_page() || ! is_object( $GLOBALS['wp_filesystem'] ) ) {
 				return $source;
 			}
 			$source_files = array_keys( $GLOBALS['wp_filesystem']->dirlist( $remote_source ) );
@@ -502,7 +502,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 					} else {
 						return new WP_Error(
 							'rename_failed',
-							esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'udmpa' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'udmpa' ),
+							esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'udmbase' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'udmbase' ),
 							array(
 								'found'    => $subdir_name,
 								'expected' => $desired_slug,
@@ -512,7 +512,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 				} elseif ( empty( $subdir_name ) ) {
 					return new WP_Error(
 						'packaged_wrong',
-						esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'udmpa' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'udmpa' ),
+						esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'udmbase' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'udmbase' ),
 						array(
 							'found'    => $subdir_name,
 							'expected' => $desired_slug,
@@ -528,7 +528,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 				$activate = activate_plugin( $file_path );
 				if ( is_wp_error( $activate ) ) {
 					echo '<div id="message" class="error"><p>', wp_kses_post( $activate->get_error_message() ), '</p></div>',
-						'<p><a href="', esc_url( $this->get_udmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
+						'<p><a href="', esc_url( $this->get_udmbase_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
 					return false; 
 				} else {
 					if ( ! $automatic ) {
@@ -566,7 +566,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 
 		public function notices() {
 
-			if ( ( $this->is_udmpa_page() || $this->is_core_update_page() ) || get_user_meta( get_current_user_id(), 'udmpa_dismissed_notice_' . $this->id, true ) || ! current_user_can( apply_filters( 'udmpa_show_admin_notice_capability', 'publish_posts' ) ) ) {
+			if ( ( $this->is_udmbase_page() || $this->is_core_update_page() ) || get_user_meta( get_current_user_id(), 'udmbase_dismissed_notice_' . $this->id, true ) || ! current_user_can( apply_filters( 'udmbase_show_admin_notice_capability', 'publish_posts' ) ) ) {
 				return;
 			}
 			// Store for the plugin slugs by message type.
@@ -644,13 +644,13 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 						}
 						unset( $plugin_slug );
 						$count          = count( $plugin_group );
-						$linked_plugins = array_map( array( 'UDMPA_Utils', 'wrap_in_em' ), $linked_plugins );
+						$linked_plugins = array_map( array( 'UDMBASE_Utils', 'wrap_in_em' ), $linked_plugins );
 						$last_plugin    = array_pop( $linked_plugins ); // Pop off last name to prep for readability.
-						$imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'udmpa' ) . ' ' . $last_plugin );
+						$imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'udmbase' ) . ' ' . $last_plugin );
 						$rendered .= sprintf(
 							$line_template,
 							sprintf(
-								translate_nooped_plural( $this->strings[ $type ], $count, 'udmpa' ),
+								translate_nooped_plural( $this->strings[ $type ], $count, 'udmbase' ),
 								$imploded,
 								$count
 							)
@@ -659,7 +659,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 					unset( $type, $plugin_group, $linked_plugins, $count, $last_plugin, $imploded );
 					$rendered .= $this->create_user_action_links_for_notice( $install_link_count, $update_link_count, $activate_link_count, $line_template );
 				}
-				add_settings_error( 'udmpa', 'udmpa', $rendered, $this->get_admin_notice_class() );
+				add_settings_error( 'udmbase', 'udmbase', $rendered, $this->get_admin_notice_class() );
 			}
 
 			if ( 'options-general' !== $GLOBALS['current_screen']->parent_base ) {
@@ -672,37 +672,37 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 				'install'  => '',
 				'update'   => '',
 				'activate' => '',
-				'dismiss'  => $this->dismissable ? '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'udmpa-dismiss', 'dismiss_admin_notices' ), 'udmpa-dismiss-' . get_current_user_id() ) ) . '" class="dismiss-notice" target="_parent">' . esc_html( $this->strings['dismiss'] ) . '</a>' : '',
+				'dismiss'  => $this->dismissable ? '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'udmbase-dismiss', 'dismiss_admin_notices' ), 'udmbase-dismiss-' . get_current_user_id() ) ) . '" class="dismiss-notice" target="_parent">' . esc_html( $this->strings['dismiss'] ) . '</a>' : '',
 			);
 			$link_template = '<a href="%2$s">%1$s</a>';
 			if ( current_user_can( 'install_plugins' ) ) {
 				if ( $install_count > 0 ) {
 					$action_links['install'] = sprintf(
 						$link_template,
-						translate_nooped_plural( $this->strings['install_link'], $install_count, 'udmpa' ),
-						esc_url( $this->get_udmpa_status_url( 'install' ) )
+						translate_nooped_plural( $this->strings['install_link'], $install_count, 'udmbase' ),
+						esc_url( $this->get_udmbase_status_url( 'install' ) )
 					);
 				}
 				if ( $update_count > 0 ) {
 					$action_links['update'] = sprintf(
 						$link_template,
-						translate_nooped_plural( $this->strings['update_link'], $update_count, 'udmpa' ),
-						esc_url( $this->get_udmpa_status_url( 'update' ) )
+						translate_nooped_plural( $this->strings['update_link'], $update_count, 'udmbase' ),
+						esc_url( $this->get_udmbase_status_url( 'update' ) )
 					);
 				}
 			}
 			if ( current_user_can( 'activate_plugins' ) && $activate_count > 0 ) {
 				$action_links['activate'] = sprintf(
 					$link_template,
-					translate_nooped_plural( $this->strings['activate_link'], $activate_count, 'udmpa' ),
-					esc_url( $this->get_udmpa_status_url( 'activate' ) )
+					translate_nooped_plural( $this->strings['activate_link'], $activate_count, 'udmbase' ),
+					esc_url( $this->get_udmbase_status_url( 'activate' ) )
 				);
 			}
-			$action_links = apply_filters( 'udmpa_notice_action_links', $action_links );
+			$action_links = apply_filters( 'udmbase_notice_action_links', $action_links );
 			$action_links = array_filter( (array) $action_links );
 			if ( ! empty( $action_links ) ) {
 				$action_links = sprintf( $line_template, implode( ' | ', $action_links ) );
-				return apply_filters( 'udmpa_notice_rendered_action_links', $action_links );
+				return apply_filters( 'udmbase_notice_rendered_action_links', $action_links );
 			} else {
 				return '';
 			}
@@ -723,9 +723,9 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 
 		protected function display_settings_errors() {
 			global $wp_settings_errors;
-			settings_errors( 'udmpa' );
+			settings_errors( 'udmbase' );
 			foreach ( (array) $wp_settings_errors as $key => $details ) {
-				if ( 'udmpa' === $details['setting'] ) {
+				if ( 'udmbase' === $details['setting'] ) {
 					unset( $wp_settings_errors[ $key ] );
 					break;
 				}
@@ -733,8 +733,8 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function dismiss() {
-			if ( isset( $_GET['udmpa-dismiss'] ) && check_admin_referer( 'udmpa-dismiss-' . get_current_user_id() ) ) {
-				update_user_meta( get_current_user_id(), 'udmpa_dismissed_notice_' . $this->id, 1 );
+			if ( isset( $_GET['udmbase-dismiss'] ) && check_admin_referer( 'udmbase-dismiss-' . get_current_user_id() ) ) {
+				update_user_meta( get_current_user_id(), 'udmbase_dismissed_notice_' . $this->id, 1 );
 			}
 		}
 
@@ -763,9 +763,9 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		
 			$plugin['version']            = (string) $plugin['version'];
 			$plugin['source']             = empty( $plugin['source'] ) ? 'repo' : $plugin['source'];
-			$plugin['required']           = UDMPA_Utils::validate_bool( $plugin['required'] );
-			$plugin['force_activation']   = UDMPA_Utils::validate_bool( $plugin['force_activation'] );
-			$plugin['force_deactivation'] = UDMPA_Utils::validate_bool( $plugin['force_deactivation'] );
+			$plugin['required']           = UDMBASE_Utils::validate_bool( $plugin['required'] );
+			$plugin['force_activation']   = UDMBASE_Utils::validate_bool( $plugin['force_activation'] );
+			$plugin['force_deactivation'] = UDMBASE_Utils::validate_bool( $plugin['force_deactivation'] );
 			// Enrich the received data.
 			$plugin['file_path']   = $this->_get_plugin_basename_from_slug( $plugin['slug'] );
 			$plugin['source_type'] = $this->get_plugin_source_type( $plugin['source'] );
@@ -796,7 +796,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 			$raw_key = $key;
 			$key     = preg_replace( '`[^A-Za-z0-9_-]`', '', $key );
 			
-			return apply_filters( 'udmpa_sanitize_key', $key, $raw_key );
+			return apply_filters( 'udmbase_sanitize_key', $key, $raw_key );
 		}
 		
 		public function config( $config ) {
@@ -825,7 +825,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function actions( $install_actions ) {
-			if ( $this->is_udmpa_page() ) {
+			if ( $this->is_udmbase_page() ) {
 				return false;
 			}
 			return $install_actions;
@@ -941,7 +941,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 			return $link;
 		}
 		
-		protected function is_udmpa_page() {
+		protected function is_udmbase_page() {
 			return isset( $_GET['page'] ) && $this->menu === $_GET['page'];
 		}
 		
@@ -961,7 +961,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 			return false;
 		}
 		
-		public function get_udmpa_url() {
+		public function get_udmbase_url() {
 			static $url;
 			if ( ! isset( $url ) ) {
 				$parent = $this->parent_slug;
@@ -978,16 +978,16 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 			return $url;
 		}
 		
-		public function get_udmpa_status_url( $status ) {
+		public function get_udmbase_status_url( $status ) {
 			return add_query_arg(
 				array(
 					'plugin_status' => urlencode( $status ),
 				),
-				$this->get_udmpa_url()
+				$this->get_udmbase_url()
 			);
 		}
 		
-		public function is_udmpa_complete() {
+		public function is_udmbase_complete() {
 			$complete = true;
 			foreach ( $this->plugins as $slug => $plugin ) {
 				if ( ! $this->is_plugin_active( $slug ) || false !== $this->does_plugin_have_update( $slug ) ) {
@@ -1085,7 +1085,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		}
 		
 		public function update_dismiss() {
-			delete_metadata( 'user', null, 'udmpa_dismissed_notice_' . $this->id, null, true );
+			delete_metadata( 'user', null, 'udmbase_dismissed_notice_' . $this->id, null, true );
 		}
 
 		public function force_activation() {
@@ -1115,24 +1115,24 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 			}
 		}
 		
-		public function show_udmpa_version() {
+		public function show_udmbase_version() {
 			echo '<p style="float: right; padding: 0em 1.5em 0.5em 0;"><strong><small>',
 				esc_html(
 					sprintf(
-						__( 'UDMPA v%s', 'udmpa' ),
-						self::UDMPA_VERSION
+						__( 'UDMBASE v%s', 'udmbase' ),
+						self::UDMBASE_VERSION
 					)
 				),
 				'</small></strong></p>';
 		}
 		
 		public function admin_css() {
-			if ( ! $this->is_udmpa_page() ) {
+			if ( ! $this->is_udmbase_page() ) {
 				return;
 			}
 			echo '
 			<style>
-			#udmpa-plugins .udmpa-type-required > th {
+			#udmbase-plugins .udmbase-type-required > th {
 				border-left: 3px solid #dc3232;
 			}
 			</style>';
@@ -1151,7 +1151,7 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		 * @since 2.5.0
 		 */
 		function load_udm_plugin_activation() {
-			$GLOBALS['udmpa'] = UDM_Plugin_Activation::get_instance();
+			$GLOBALS['udmbase'] = UDM_Plugin_Activation::get_instance();
 		}
 	}
 	if ( did_action( 'plugins_loaded' ) ) {
@@ -1160,16 +1160,16 @@ if ( ! class_exists( 'UDM_Plugin_Activation' ) ) {
 		add_action( 'plugins_loaded', 'load_udm_plugin_activation' );
 	}
 }
-if ( ! function_exists( 'udmpa' ) ) {
+if ( ! function_exists( 'udmbase' ) ) {
 	
-	function udmpa( $plugins, $config = array() ) {
-		$instance = call_user_func( array( get_class( $GLOBALS['udmpa'] ), 'get_instance' ) );
+	function udmbase( $plugins, $config = array() ) {
+		$instance = call_user_func( array( get_class( $GLOBALS['udmbase'] ), 'get_instance' ) );
 		foreach ( $plugins as $plugin ) {
 			call_user_func( array( $instance, 'register' ), $plugin );
 		}
 		if ( ! empty( $config ) && is_array( $config ) ) {
 			if ( isset( $config['notices'] ) ) {
-				_deprecated_argument( __FUNCTION__, '2.2.0', 'The `notices` config parameter was renamed to `has_notices` in UDMPA 2.2.0. Please adjust your configuration.' );
+				_deprecated_argument( __FUNCTION__, '2.2.0', 'The `notices` config parameter was renamed to `has_notices` in UDMBASE 2.2.0. Please adjust your configuration.' );
 				if ( ! isset( $config['has_notices'] ) ) {
 					$config['has_notices'] = $config['notices'];
 				}
@@ -1188,10 +1188,10 @@ if ( ! function_exists( 'udmpa' ) ) {
 if ( ! class_exists( 'WP_List_Table' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
-if ( ! class_exists( 'UDMPA_List_Table' ) ) {
-	class UDMPA_List_Table extends WP_List_Table {
+if ( ! class_exists( 'UDMBASE_List_Table' ) ) {
+	class UDMBASE_List_Table extends WP_List_Table {
 		
-		protected $udmpa;
+		protected $udmbase;
 		
 		public $view_context = 'all';
 		
@@ -1202,7 +1202,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 			'activate' => 0,
 		);
 		public function __construct() {
-			$this->udmpa = call_user_func( array( get_class( $GLOBALS['udmpa'] ), 'get_instance' ) );
+			$this->udmbase = call_user_func( array( get_class( $GLOBALS['udmbase'] ), 'get_instance' ) );
 			parent::__construct(
 				array(
 					'singular' => 'plugin',
@@ -1213,7 +1213,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 			if ( isset( $_REQUEST['plugin_status'] ) && in_array( $_REQUEST['plugin_status'], array( 'install', 'update', 'activate' ), true ) ) {
 				$this->view_context = sanitize_key( $_REQUEST['plugin_status'] );
 			}
-			add_filter( 'udmpa_table_data_items', array( $this, 'sort_table_items' ) );
+			add_filter( 'udmbase_table_data_items', array( $this, 'sort_table_items' ) );
 		}
 		
 		public function get_table_classes() {
@@ -1222,8 +1222,8 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		
 		protected function _gather_plugin_data() {
 			
-			$this->udmpa->admin_init();
-			$this->udmpa->thickbox();
+			$this->udmbase->admin_init();
+			$this->udmbase->thickbox();
 			$plugins = $this->categorize_plugins_to_views();
 		
 			$this->set_view_totals( $plugins );
@@ -1237,20 +1237,20 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 			foreach ( $plugins[ $this->view_context ] as $slug => $plugin ) {
 				$table_data[ $i ]['sanitized_plugin']  = $plugin['name'];
 				$table_data[ $i ]['slug']              = $slug;
-				$table_data[ $i ]['plugin']            = '<strong>' . $this->udmpa->get_info_link( $slug ) . '</strong>';
+				$table_data[ $i ]['plugin']            = '<strong>' . $this->udmbase->get_info_link( $slug ) . '</strong>';
 				$table_data[ $i ]['source']            = $this->get_plugin_source_type_text( $plugin['source_type'] );
 				$table_data[ $i ]['type']              = $this->get_plugin_advise_type_text( $plugin['required'] );
 				$table_data[ $i ]['status']            = $this->get_plugin_status_text( $slug );
-				$table_data[ $i ]['installed_version'] = $this->udmpa->get_installed_version( $slug );
+				$table_data[ $i ]['installed_version'] = $this->udmbase->get_installed_version( $slug );
 				$table_data[ $i ]['minimum_version']   = $plugin['version'];
-				$table_data[ $i ]['available_version'] = $this->udmpa->does_plugin_have_update( $slug );
+				$table_data[ $i ]['available_version'] = $this->udmbase->does_plugin_have_update( $slug );
 				// Prep the upgrade notice info.
-				$upgrade_notice = $this->udmpa->get_upgrade_notice( $slug );
+				$upgrade_notice = $this->udmbase->get_upgrade_notice( $slug );
 				if ( ! empty( $upgrade_notice ) ) {
 					$table_data[ $i ]['upgrade_notice'] = $upgrade_notice;
-					add_action( "udmpa_after_plugin_row_{$slug}", array( $this, 'wp_plugin_update_row' ), 10, 2 );
+					add_action( "udmbase_after_plugin_row_{$slug}", array( $this, 'wp_plugin_update_row' ), 10, 2 );
 				}
-				$table_data[ $i ] = apply_filters( 'udmpa_table_data_item', $table_data[ $i ], $plugin );
+				$table_data[ $i ] = apply_filters( 'udmbase_table_data_item', $table_data[ $i ], $plugin );
 				$i++;
 			}
 			return $table_data;
@@ -1263,18 +1263,18 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				'update'   => array(),
 				'activate' => array(),
 			);
-			foreach ( $this->udmpa->plugins as $slug => $plugin ) {
-				if ( $this->udmpa->is_plugin_active( $slug ) && false === $this->udmpa->does_plugin_have_update( $slug ) ) {
+			foreach ( $this->udmbase->plugins as $slug => $plugin ) {
+				if ( $this->udmbase->is_plugin_active( $slug ) && false === $this->udmbase->does_plugin_have_update( $slug ) ) {
 					continue;
 				} else {
 					$plugins['all'][ $slug ] = $plugin;
-					if ( ! $this->udmpa->is_plugin_installed( $slug ) ) {
+					if ( ! $this->udmbase->is_plugin_installed( $slug ) ) {
 						$plugins['install'][ $slug ] = $plugin;
 					} else {
-						if ( false !== $this->udmpa->does_plugin_have_update( $slug ) ) {
+						if ( false !== $this->udmbase->does_plugin_have_update( $slug ) ) {
 							$plugins['update'][ $slug ] = $plugin;
 						}
-						if ( $this->udmpa->can_plugin_activate( $slug ) ) {
+						if ( $this->udmbase->can_plugin_activate( $slug ) ) {
 							$plugins['activate'][ $slug ] = $plugin;
 						}
 					}
@@ -1291,49 +1291,49 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		
 		protected function get_plugin_advise_type_text( $required ) {
 			if ( true === $required ) {
-				return __( 'Required', 'udmpa' );
+				return __( 'Required', 'udmbase' );
 			}
-			return __( 'Recommended', 'udmpa' );
+			return __( 'Recommended', 'udmbase' );
 		}
 		
 		protected function get_plugin_source_type_text( $type ) {
 			$string = '';
 			switch ( $type ) {
 				case 'repo':
-					$string = __( 'WordPress Repository', 'udmpa' );
+					$string = __( 'WordPress Repository', 'udmbase' );
 					break;
 				case 'external':
-					$string = __( 'External Source', 'udmpa' );
+					$string = __( 'External Source', 'udmbase' );
 					break;
 				case 'bundled':
-					$string = __( 'Pre-Packaged', 'udmpa' );
+					$string = __( 'Pre-Packaged', 'udmbase' );
 					break;
 			}
 			return $string;
 		}
 		
 		protected function get_plugin_status_text( $slug ) {
-			if ( ! $this->udmpa->is_plugin_installed( $slug ) ) {
-				return __( 'Not Installed', 'udmpa' );
+			if ( ! $this->udmbase->is_plugin_installed( $slug ) ) {
+				return __( 'Not Installed', 'udmbase' );
 			}
-			if ( ! $this->udmpa->is_plugin_active( $slug ) ) {
-				$install_status = __( 'Installed But Not Activated', 'udmpa' );
+			if ( ! $this->udmbase->is_plugin_active( $slug ) ) {
+				$install_status = __( 'Installed But Not Activated', 'udmbase' );
 			} else {
-				$install_status = __( 'Active', 'udmpa' );
+				$install_status = __( 'Active', 'udmbase' );
 			}
 			$update_status = '';
-			if ( $this->udmpa->does_plugin_require_update( $slug ) && false === $this->udmpa->does_plugin_have_update( $slug ) ) {
-				$update_status = __( 'Required Update not Available', 'udmpa' );
-			} elseif ( $this->udmpa->does_plugin_require_update( $slug ) ) {
-				$update_status = __( 'Requires Update', 'udmpa' );
-			} elseif ( false !== $this->udmpa->does_plugin_have_update( $slug ) ) {
-				$update_status = __( 'Update recommended', 'udmpa' );
+			if ( $this->udmbase->does_plugin_require_update( $slug ) && false === $this->udmbase->does_plugin_have_update( $slug ) ) {
+				$update_status = __( 'Required Update not Available', 'udmbase' );
+			} elseif ( $this->udmbase->does_plugin_require_update( $slug ) ) {
+				$update_status = __( 'Requires Update', 'udmbase' );
+			} elseif ( false !== $this->udmbase->does_plugin_have_update( $slug ) ) {
+				$update_status = __( 'Update recommended', 'udmbase' );
 			}
 			if ( '' === $update_status ) {
 				return $install_status;
 			}
 			return sprintf(
-				_x( '%1$s, %2$s', 'Install/Update Status', 'udmpa' ),
+				_x( '%1$s, %2$s', 'Install/Update Status', 'udmbase' ),
 				$install_status,
 				$update_status
 			);
@@ -1358,16 +1358,16 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				}
 				switch ( $type ) {
 					case 'all':
-						$text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'udmpa' );
+						$text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'udmbase' );
 						break;
 					case 'install':
-						$text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'udmpa' );
+						$text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'udmbase' );
 						break;
 					case 'update':
-						$text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'udmpa' );
+						$text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'udmbase' );
 						break;
 					case 'activate':
-						$text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'udmpa' );
+						$text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'udmbase' );
 						break;
 					default:
 						$text = '';
@@ -1376,7 +1376,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				if ( ! empty( $text ) ) {
 					$status_links[ $type ] = sprintf(
 						'<a href="%s"%s>%s</a>',
-						esc_url( $this->udmpa->get_udmpa_status_url( $type ) ),
+						esc_url( $this->udmbase->get_udmbase_status_url( $type ) ),
 						( $type === $this->view_context ) ? ' class="current"' : '',
 						sprintf( $text, number_format_i18n( $count ) )
 					);
@@ -1408,21 +1408,21 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		
 		public function column_version( $item ) {
 			$output = array();
-			if ( $this->udmpa->is_plugin_installed( $item['slug'] ) ) {
-				$installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'udmpa' );
+			if ( $this->udmbase->is_plugin_installed( $item['slug'] ) ) {
+				$installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'udmbase' );
 				$color = '';
-				if ( ! empty( $item['minimum_version'] ) && $this->udmpa->does_plugin_require_update( $item['slug'] ) ) {
+				if ( ! empty( $item['minimum_version'] ) && $this->udmbase->does_plugin_require_update( $item['slug'] ) ) {
 					$color = ' color: #ff0000; font-weight: bold;';
 				}
 				$output[] = sprintf(
-					'<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __( 'Installed version:', 'udmpa' ) . '</p>',
+					'<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __( 'Installed version:', 'udmbase' ) . '</p>',
 					$color,
 					$installed
 				);
 			}
 			if ( ! empty( $item['minimum_version'] ) ) {
 				$output[] = sprintf(
-					'<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . __( 'Minimum required version:', 'udmpa' ) . '</p>',
+					'<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . __( 'Minimum required version:', 'udmbase' ) . '</p>',
 					$item['minimum_version']
 				);
 			}
@@ -1432,7 +1432,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 					$color = ' color: #71C671; font-weight: bold;';
 				}
 				$output[] = sprintf(
-					'<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __( 'Available version:', 'udmpa' ) . '</p>',
+					'<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __( 'Available version:', 'udmbase' ) . '</p>',
 					$color,
 					$item['available_version']
 				);
@@ -1445,7 +1445,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		}
 		
 		public function no_items() {
-			echo esc_html__( 'No plugins to install, update or activate.', 'udmpa' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html( $this->udmpa->strings['dashboard'] ) . '</a>';
+			echo esc_html__( 'No plugins to install, update or activate.', 'udmbase' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html( $this->udmbase->strings['dashboard'] ) . '</a>';
 			echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 		}
 		/**
@@ -1458,15 +1458,15 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		public function get_columns() {
 			$columns = array(
 				'cb'     => '<input type="checkbox" />',
-				'plugin' => __( 'Plugin', 'udmpa' ),
-				'source' => __( 'Source', 'udmpa' ),
-				'type'   => __( 'Type', 'udmpa' ),
+				'plugin' => __( 'Plugin', 'udmbase' ),
+				'source' => __( 'Source', 'udmbase' ),
+				'type'   => __( 'Type', 'udmbase' ),
 			);
 			if ( 'all' === $this->view_context || 'update' === $this->view_context ) {
-				$columns['version'] = __( 'Version', 'udmpa' );
-				$columns['status']  = __( 'Status', 'udmpa' );
+				$columns['version'] = __( 'Version', 'udmbase' );
+				$columns['status']  = __( 'Status', 'udmbase' );
 			}
-			return apply_filters( 'udmpa_table_columns', $columns );
+			return apply_filters( 'udmbase_table_columns', $columns );
 		}
 		protected function get_default_primary_column_name() {
 			return 'plugin';
@@ -1482,14 +1482,14 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		protected function get_row_actions( $item ) {
 			$actions      = array();
 			$action_links = array();
-			if ( ! $this->udmpa->is_plugin_installed( $item['slug'] ) ) {
-				$actions['install'] = __( 'Install %2$s', 'udmpa' );
+			if ( ! $this->udmbase->is_plugin_installed( $item['slug'] ) ) {
+				$actions['install'] = __( 'Install %2$s', 'udmbase' );
 			} else {
-				if ( false !== $this->udmpa->does_plugin_have_update( $item['slug'] ) && $this->udmpa->can_plugin_update( $item['slug'] ) ) {
-					$actions['update'] = __( 'Update %2$s', 'udmpa' );
+				if ( false !== $this->udmbase->does_plugin_have_update( $item['slug'] ) && $this->udmbase->can_plugin_update( $item['slug'] ) ) {
+					$actions['update'] = __( 'Update %2$s', 'udmbase' );
 				}
-				if ( $this->udmpa->can_plugin_activate( $item['slug'] ) ) {
-					$actions['activate'] = __( 'Activate %2$s', 'udmpa' );
+				if ( $this->udmbase->can_plugin_activate( $item['slug'] ) ) {
+					$actions['activate'] = __( 'Activate %2$s', 'udmbase' );
 				}
 			}
 			// Create the actual links.
@@ -1498,12 +1498,12 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 					add_query_arg(
 						array(
 							'plugin'           => urlencode( $item['slug'] ),
-							'udmpa-' . $action => $action . '-plugin',
+							'udmbase-' . $action => $action . '-plugin',
 						),
-						$this->udmpa->get_udmpa_url()
+						$this->udmbase->get_udmbase_url()
 					),
-					'udmpa-' . $action,
-					'udmpa-nonce'
+					'udmbase-' . $action,
+					'udmbase-nonce'
 				);
 				$action_links[ $action ] = sprintf(
 					'<a href="%1$s">' . esc_html( $text ) . '</a>', 
@@ -1512,15 +1512,15 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				);
 			}
 			$prefix = ( defined( 'WP_NETWORK_ADMIN' ) && WP_NETWORK_ADMIN ) ? 'network_admin_' : '';
-			return apply_filters( "udmpa_{$prefix}plugin_action_links", array_filter( $action_links ), $item['slug'], $item, $this->view_context );
+			return apply_filters( "udmbase_{$prefix}plugin_action_links", array_filter( $action_links ), $item['slug'], $item, $this->view_context );
 		}
 		
 		public function single_row( $item ) {
-			echo '<tr class="' . esc_attr( 'udmpa-type-' . strtolower( $item['type'] ) ) . '">';
+			echo '<tr class="' . esc_attr( 'udmbase-type-' . strtolower( $item['type'] ) ) . '">';
 			$this->single_row_columns( $item );
 			echo '</tr>';
 			
-			do_action( "udmpa_after_plugin_row_{$item['slug']}", $item['slug'], $item, $this->view_context );
+			do_action( "udmbase_after_plugin_row_{$item['slug']}", $item['slug'], $item, $this->view_context );
 		}
 		
 		public function wp_plugin_update_row( $slug, $item ) {
@@ -1531,7 +1531,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				<tr class="plugin-update-tr">
 					<td colspan="', absint( $this->get_column_count() ), '" class="plugin-update colspanchange">
 						<div class="update-message">',
-							esc_html__( 'Upgrade message from the plugin author:', 'udmpa' ),
+							esc_html__( 'Upgrade message from the plugin author:', 'udmbase' ),
 							' <strong>', wp_kses_data( $item['upgrade_notice'] ), '</strong>
 						</div>
 					</td>
@@ -1540,7 +1540,7 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 		
 		public function extra_tablenav( $which ) {
 			if ( 'bottom' === $which ) {
-				$this->udmpa->show_udmpa_version();
+				$this->udmbase->show_udmbase_version();
 			}
 		}
 		
@@ -1548,34 +1548,34 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 			$actions = array();
 			if ( 'update' !== $this->view_context && 'activate' !== $this->view_context ) {
 				if ( current_user_can( 'install_plugins' ) ) {
-					$actions['udmpa-bulk-install'] = __( 'Install', 'udmpa' );
+					$actions['udmbase-bulk-install'] = __( 'Install', 'udmbase' );
 				}
 			}
 			if ( 'install' !== $this->view_context ) {
 				if ( current_user_can( 'update_plugins' ) ) {
-					$actions['udmpa-bulk-update'] = __( 'Update', 'udmpa' );
+					$actions['udmbase-bulk-update'] = __( 'Update', 'udmbase' );
 				}
 				if ( current_user_can( 'activate_plugins' ) ) {
-					$actions['udmpa-bulk-activate'] = __( 'Activate', 'udmpa' );
+					$actions['udmbase-bulk-activate'] = __( 'Activate', 'udmbase' );
 				}
 			}
 			return $actions;
 		}
 			
 		public function process_bulk_actions() {
-			if ( 'udmpa-bulk-install' === $this->current_action() || 'udmpa-bulk-update' === $this->current_action() ) {
+			if ( 'udmbase-bulk-install' === $this->current_action() || 'udmbase-bulk-update' === $this->current_action() ) {
 				check_admin_referer( 'bulk-' . $this->_args['plural'] );
 				$install_type = 'install';
-				if ( 'udmpa-bulk-update' === $this->current_action() ) {
+				if ( 'udmbase-bulk-update' === $this->current_action() ) {
 					$install_type = 'update';
 				}
 				$plugins_to_install = array();
 				// Did user actually select any plugins to install/update ?
 				if ( empty( $_POST['plugin'] ) ) {
 					if ( 'install' === $install_type ) {
-						$message = __( 'No plugins were selected to be installed. No action taken.', 'udmpa' );
+						$message = __( 'No plugins were selected to be installed. No action taken.', 'udmbase' );
 					} else {
-						$message = __( 'No plugins were selected to be updated. No action taken.', 'udmpa' );
+						$message = __( 'No plugins were selected to be updated. No action taken.', 'udmbase' );
 					}
 					echo '<div id="message" class="error"><p>', esc_html( $message ), '</p></div>';
 					return false;
@@ -1588,35 +1588,35 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				}
 				// Sanitize the received input.
 				$plugins_to_install = array_map( 'urldecode', $plugins_to_install );
-				$plugins_to_install = array_map( array( $this->udmpa, 'sanitize_key' ), $plugins_to_install );
+				$plugins_to_install = array_map( array( $this->udmbase, 'sanitize_key' ), $plugins_to_install );
 				// Validate the received input.
 				foreach ( $plugins_to_install as $key => $slug ) {
-					if ( ! isset( $this->udmpa->plugins[ $slug ] ) ) {
+					if ( ! isset( $this->udmbase->plugins[ $slug ] ) ) {
 						unset( $plugins_to_install[ $key ] );
 						continue;
 					}
 					
-					if ( 'install' === $install_type && true === $this->udmpa->is_plugin_installed( $slug ) ) {
+					if ( 'install' === $install_type && true === $this->udmbase->is_plugin_installed( $slug ) ) {
 						unset( $plugins_to_install[ $key ] );
 					}
 					
-					if ( 'update' === $install_type && false === $this->udmpa->is_plugin_updatetable( $slug ) ) {
+					if ( 'update' === $install_type && false === $this->udmbase->is_plugin_updatetable( $slug ) ) {
 						unset( $plugins_to_install[ $key ] );
 					}
 				}
 			
 				if ( empty( $plugins_to_install ) ) {
 					if ( 'install' === $install_type ) {
-						$message = __( 'No plugins are available to be installed at this time.', 'udmpa' );
+						$message = __( 'No plugins are available to be installed at this time.', 'udmbase' );
 					} else {
-						$message = __( 'No plugins are available to be updated at this time.', 'udmpa' );
+						$message = __( 'No plugins are available to be updated at this time.', 'udmbase' );
 					}
 					echo '<div id="message" class="error"><p>', esc_html( $message ), '</p></div>';
 					return false;
 				}
 				
 				$url = wp_nonce_url(
-					$this->udmpa->get_udmpa_url(),
+					$this->udmbase->get_udmbase_url(),
 					'bulk-' . $this->_args['plural']
 				);
 				
@@ -1639,8 +1639,8 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				$file_paths = array(); // Needed for upgrades.
 				$to_inject  = array(); 
 				foreach ( $plugins_to_install as $slug ) {
-					$name   = $this->udmpa->plugins[ $slug ]['name'];
-					$source = $this->udmpa->get_download_url( $slug );
+					$name   = $this->udmbase->plugins[ $slug ]['name'];
+					$source = $this->udmbase->get_download_url( $slug );
 					if ( ! empty( $name ) && ! empty( $source ) ) {
 						$names[] = $name;
 						switch ( $install_type ) {
@@ -1648,8 +1648,8 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 								$sources[] = $source;
 								break;
 							case 'update':
-								$file_paths[]                 = $this->udmpa->plugins[ $slug ]['file_path'];
-								$to_inject[ $slug ]           = $this->udmpa->plugins[ $slug ];
+								$file_paths[]                 = $this->udmbase->plugins[ $slug ]['file_path'];
+								$to_inject[ $slug ]           = $this->udmbase->plugins[ $slug ];
 								$to_inject[ $slug ]['source'] = $source;
 								break;
 						}
@@ -1657,10 +1657,10 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 				}
 				unset( $slug, $name, $source );
 	
-				$installer = new UDMPA_Bulk_Installer(
-					new UDMPA_Bulk_Installer_Skin(
+				$installer = new UDMBASE_Bulk_Installer(
+					new UDMBASE_Bulk_Installer_Skin(
 						array(
-							'url'          => esc_url_raw( $this->udmpa->get_udmpa_url() ),
+							'url'          => esc_url_raw( $this->udmbase->get_udmbase_url() ),
 							'nonce'        => 'bulk-' . $this->_args['plural'],
 							'names'        => $names,
 							'install_type' => $install_type,
@@ -1668,49 +1668,49 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 					)
 				);
 				// Wrap the install process with the appropriate HTML.
-				echo '<div class="udmpa">',
+				echo '<div class="udmbase">',
 					'<h2 style="font-size: 23px; font-weight: 400; line-height: 29px; margin: 0; padding: 9px 15px 4px 0;">', esc_html( get_admin_page_title() ), '</h2>
 					<div class="update-php" style="width: 100%; height: 98%; min-height: 850px; padding-top: 1px;">';
 				// Process the bulk installation submissions.
-				add_filter( 'upgrader_source_selection', array( $this->udmpa, 'maybe_adjust_source_dir' ), 1, 3 );
-				if ( 'udmpa-bulk-update' === $this->current_action() ) {
+				add_filter( 'upgrader_source_selection', array( $this->udmbase, 'maybe_adjust_source_dir' ), 1, 3 );
+				if ( 'udmbase-bulk-update' === $this->current_action() ) {
 					// Inject our info into the update transient.
-					$this->udmpa->inject_update_info( $to_inject );
+					$this->udmbase->inject_update_info( $to_inject );
 					$installer->bulk_upgrade( $file_paths );
 				} else {
 					$installer->bulk_install( $sources );
 				}
-				remove_filter( 'upgrader_source_selection', array( $this->udmpa, 'maybe_adjust_source_dir' ), 1 );
+				remove_filter( 'upgrader_source_selection', array( $this->udmbase, 'maybe_adjust_source_dir' ), 1 );
 				echo '</div></div>';
 				return true;
 			}
 			// Bulk activation process.
-			if ( 'udmpa-bulk-activate' === $this->current_action() ) {
+			if ( 'udmbase-bulk-activate' === $this->current_action() ) {
 				check_admin_referer( 'bulk-' . $this->_args['plural'] );
 				// Did user actually select any plugins to activate ?
 				if ( empty( $_POST['plugin'] ) ) {
-					echo '<div id="message" class="error"><p>', esc_html__( 'No plugins were selected to be activated. No action taken.', 'udmpa' ), '</p></div>';
+					echo '<div id="message" class="error"><p>', esc_html__( 'No plugins were selected to be activated. No action taken.', 'udmbase' ), '</p></div>';
 					return false;
 				}
 				// Grab plugin data from $_POST.
 				$plugins = array();
 				if ( isset( $_POST['plugin'] ) ) {
 					$plugins = array_map( 'urldecode', (array) $_POST['plugin'] );
-					$plugins = array_map( array( $this->udmpa, 'sanitize_key' ), $plugins );
+					$plugins = array_map( array( $this->udmbase, 'sanitize_key' ), $plugins );
 				}
 				$plugins_to_activate = array();
 				$plugin_names        = array();
 			
 				foreach ( $plugins as $slug ) {
-					if ( $this->udmpa->can_plugin_activate( $slug ) ) {
-						$plugins_to_activate[] = $this->udmpa->plugins[ $slug ]['file_path'];
-						$plugin_names[]        = $this->udmpa->plugins[ $slug ]['name'];
+					if ( $this->udmbase->can_plugin_activate( $slug ) ) {
+						$plugins_to_activate[] = $this->udmbase->plugins[ $slug ]['file_path'];
+						$plugin_names[]        = $this->udmbase->plugins[ $slug ]['name'];
 					}
 				}
 				unset( $slug );
 	
 				if ( empty( $plugins_to_activate ) ) {
-					echo '<div id="message" class="error"><p>', esc_html__( 'No plugins are available to be activated at this time.', 'udmpa' ), '</p></div>';
+					echo '<div id="message" class="error"><p>', esc_html__( 'No plugins are available to be activated at this time.', 'udmbase' ), '</p></div>';
 					return false;
 				}
 				$activate = activate_plugins( $plugins_to_activate );
@@ -1718,12 +1718,12 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 					echo '<div id="message" class="error"><p>', wp_kses_post( $activate->get_error_message() ), '</p></div>';
 				} else {
 					$count        = count( $plugin_names ); 
-					$plugin_names = array_map( array( 'UDMPA_Utils', 'wrap_in_strong' ), $plugin_names );
+					$plugin_names = array_map( array( 'UDMBASE_Utils', 'wrap_in_strong' ), $plugin_names );
 					$last_plugin  = array_pop( $plugin_names ); 
-					$imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'udmpa' ) . ' ' . $last_plugin );
+					$imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'udmbase' ) . ' ' . $last_plugin );
 					printf( // WPCS: xss ok.
 						'<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
-						esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'udmpa' ) ),
+						esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'udmbase' ) ),
 						$imploded
 					);
 					// Update recently activated plugins option.
@@ -1747,22 +1747,22 @@ if ( ! class_exists( 'UDMPA_List_Table' ) ) {
 			$sortable              = array(); 
 			$primary               = $this->get_primary_column_name(); 
 			$this->_column_headers = array( $columns, $hidden, $sortable, $primary ); 
-			if ( 'udmpa-bulk-activate' === $this->current_action() ) {
+			if ( 'udmbase-bulk-activate' === $this->current_action() ) {
 				$this->process_bulk_actions();
 			}
 			
-			$this->items = apply_filters( 'udmpa_table_data_items', $this->_gather_plugin_data() );
+			$this->items = apply_filters( 'udmbase_table_data_items', $this->_gather_plugin_data() );
 		}
 		
 		protected function _get_plugin_data_from_name( $name, $data = 'slug' ) {
-			_deprecated_function( __FUNCTION__, 'UDMPA 2.5.0', 'UDM_Plugin_Activation::_get_plugin_data_from_name()' );
-			return $this->udmpa->_get_plugin_data_from_name( $name, $data );
+			_deprecated_function( __FUNCTION__, 'UDMBASE 2.5.0', 'UDM_Plugin_Activation::_get_plugin_data_from_name()' );
+			return $this->udmbase->_get_plugin_data_from_name( $name, $data );
 		}
 	}
 }
 if ( ! class_exists( 'UDM_Bulk_Installer' ) ) {
 	
-	class TGM_Bulk_Installer {
+	class UDM_Bulk_Installer {
 	}
 }
 if ( ! class_exists( 'UDM_Bulk_Installer_Skin' ) ) {
@@ -1771,54 +1771,54 @@ if ( ! class_exists( 'UDM_Bulk_Installer_Skin' ) ) {
 	}
 }
 
-add_action( 'admin_init', 'udmpa_load_bulk_installer' );
-if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
+add_action( 'admin_init', 'udmbase_load_bulk_installer' );
+if ( ! function_exists( 'udmbase_load_bulk_installer' ) ) {
 	
-	function udmpa_load_bulk_installer() {
+	function udmbase_load_bulk_installer() {
 		
-		if ( ! isset( $GLOBALS['udmpa'] ) ) {
+		if ( ! isset( $GLOBALS['udmbase'] ) ) {
 			return;
 		}
 	
-		$udmpa_instance = call_user_func( array( get_class( $GLOBALS['udmpa'] ), 'get_instance' ) );
-		if ( isset( $_GET['page'] ) && $udmpa_instance->menu === $_GET['page'] ) {
+		$udmbase_instance = call_user_func( array( get_class( $GLOBALS['udmbase'] ), 'get_instance' ) );
+		if ( isset( $_GET['page'] ) && $udmbase_instance->menu === $_GET['page'] ) {
 			if ( ! class_exists( 'Plugin_Upgrader', false ) ) {
 				require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 			}
-			if ( ! class_exists( 'UDMPA_Bulk_Installer' ) ) {
+			if ( ! class_exists( 'UDMBASE_Bulk_Installer' ) ) {
 				
-				class UDMPA_Bulk_Installer extends Plugin_Upgrader {
+				class UDMBASE_Bulk_Installer extends Plugin_Upgrader {
 					
 					public $result;
 					
 					public $bulk = false;
 					
-					protected $UDMPA;
+					protected $UDMBASE;
 					
 					protected $clear_destination = false;
 					
 					public function __construct( $skin = null ) {
 						
-						$this->udmpa = call_user_func( array( get_class( $GLOBALS['udmpa'] ), 'get_instance' ) );
+						$this->udmbase = call_user_func( array( get_class( $GLOBALS['udmbase'] ), 'get_instance' ) );
 						parent::__construct( $skin );
 						if ( isset( $this->skin->options['install_type'] ) && 'update' === $this->skin->options['install_type'] ) {
 							$this->clear_destination = true;
 						}
-						if ( $this->udmpa->is_automatic ) {
+						if ( $this->udmbase->is_automatic ) {
 							$this->activate_strings();
 						}
-						add_action( 'upgrader_process_complete', array( $this->udmpa, 'populate_file_path' ) );
+						add_action( 'upgrader_process_complete', array( $this->udmbase, 'populate_file_path' ) );
 					}
 					
 					public function activate_strings() {
-						$this->strings['activation_failed']  = __( 'Plugin activation failed.', 'udmpa' );
-						$this->strings['activation_success'] = __( 'Plugin activated successfully.', 'udmpa' );
+						$this->strings['activation_failed']  = __( 'Plugin activation failed.', 'udmbase' );
+						$this->strings['activation_success'] = __( 'Plugin activated successfully.', 'udmbase' );
 					}
 					
 					public function run( $options ) {
 						$result = parent::run( $options );
 						
-						if ( $this->udmpa->is_automatic ) {
+						if ( $this->udmbase->is_automatic ) {
 							if ( 'update' === $this->skin->options['install_type'] ) {
 								$this->upgrade_strings();
 							} else {
@@ -1907,7 +1907,7 @@ if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
 					
 					public function auto_activate( $bool ) {
 						
-						if ( $this->UDMPA->is_automatic ) {
+						if ( $this->UDMBASE->is_automatic ) {
 							
 							wp_clean_plugins_cache();
 						
@@ -1929,9 +1929,9 @@ if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
 					}
 				}
 			}
-			if ( ! class_exists( 'UDMPA_Bulk_Installer_Skin' ) ) {
+			if ( ! class_exists( 'UDMBASE_Bulk_Installer_Skin' ) ) {
 				
-				class UDMPA_Bulk_Installer_Skin extends Bulk_Upgrader_Skin {
+				class UDMBASE_Bulk_Installer_Skin extends Bulk_Upgrader_Skin {
 					
 					public $plugin_info = array();
 					
@@ -1939,11 +1939,11 @@ if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
 					
 					public $i = 0;
 					
-					protected $udmpa;
+					protected $udmbase;
 					
 					public function __construct( $args = array() ) {
 						
-						$this->udmpa = call_user_func( array( get_class( $GLOBALS['udmpa'] ), 'get_instance' ) );
+						$this->udmbase = call_user_func( array( get_class( $GLOBALS['udmbase'] ), 'get_instance' ) );
 						
 						$defaults = array(
 							'url'          => '',
@@ -1962,32 +1962,32 @@ if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
 						if ( 'update' === $this->options['install_type'] ) {
 							parent::add_strings();
 							
-							$this->upgrader->strings['skin_before_update_header'] = __( 'Updating Plugin %1$s (%2$d/%3$d)', 'udmpa' );
+							$this->upgrader->strings['skin_before_update_header'] = __( 'Updating Plugin %1$s (%2$d/%3$d)', 'udmbase' );
 						} else {
 							
-							$this->upgrader->strings['skin_update_failed_error'] = __( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'udmpa' );
+							$this->upgrader->strings['skin_update_failed_error'] = __( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'udmbase' );
 							
-							$this->upgrader->strings['skin_update_failed'] = __( 'The installation of %1$s failed.', 'udmpa' );
-							if ( $this->udmpa->is_automatic ) {
+							$this->upgrader->strings['skin_update_failed'] = __( 'The installation of %1$s failed.', 'udmbase' );
+							if ( $this->udmbase->is_automatic ) {
 								// Automatic activation strings.
-								$this->upgrader->strings['skin_upgrade_start'] = __( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'udmpa' );
+								$this->upgrader->strings['skin_upgrade_start'] = __( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'udmbase' );
 								/* translators: 1: plugin name. */
-								$this->upgrader->strings['skin_update_successful'] = __( '%1$s installed and activated successfully.', 'udmpa' );
-								$this->upgrader->strings['skin_upgrade_end']       = __( 'All installations and activations have been completed.', 'udmpa' );
+								$this->upgrader->strings['skin_update_successful'] = __( '%1$s installed and activated successfully.', 'udmbase' );
+								$this->upgrader->strings['skin_upgrade_end']       = __( 'All installations and activations have been completed.', 'udmbase' );
 							
-								$this->upgrader->strings['skin_before_update_header'] = __( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'udmpa' );
+								$this->upgrader->strings['skin_before_update_header'] = __( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'udmbase' );
 							} else {
 								// Default installation strings.
-								$this->upgrader->strings['skin_upgrade_start'] = __( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'udmpa' );
+								$this->upgrader->strings['skin_upgrade_start'] = __( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'udmbase' );
 								/* translators: 1: plugin name. */
-								$this->upgrader->strings['skin_update_successful'] = __( '%1$s installed successfully.', 'udmpa' );
-								$this->upgrader->strings['skin_upgrade_end']       = __( 'All installations have been completed.', 'udmpa' );
+								$this->upgrader->strings['skin_update_successful'] = __( '%1$s installed successfully.', 'udmbase' );
+								$this->upgrader->strings['skin_upgrade_end']       = __( 'All installations have been completed.', 'udmbase' );
 								
-								$this->upgrader->strings['skin_before_update_header'] = __( 'Installing Plugin %1$s (%2$d/%3$d)', 'udmpa' );
+								$this->upgrader->strings['skin_before_update_header'] = __( 'Installing Plugin %1$s (%2$d/%3$d)', 'udmbase' );
 							}
 							
-							if ( version_compare( $this->udmpa->wp_version, '4.8', '<' ) ) {
-								$this->upgrader->strings['skin_update_successful'] .= ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__( 'Show Details', 'udmpa' ) . '</span><span class="hidden">' . esc_html__( 'Hide Details', 'udmpa' ) . '</span>.</a>';
+							if ( version_compare( $this->udmbase->wp_version, '4.8', '<' ) ) {
+								$this->upgrader->strings['skin_update_successful'] .= ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__( 'Show Details', 'udmbase' ) . '</span><span class="hidden">' . esc_html__( 'Hide Details', 'udmbase' ) . '</span>.</a>';
 							}
 						}
 					}
@@ -2012,33 +2012,33 @@ if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
 						parent::bulk_footer();
 						
 						wp_clean_plugins_cache();
-						$this->udmpa->show_udmpa_version();
+						$this->udmbase->show_udmbase_version();
 						
 						$update_actions = array();
-						if ( $this->udmpa->is_udmpa_complete() ) {
+						if ( $this->udmbase->is_udmbase_complete() ) {
 							
 							echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 							$update_actions['dashboard'] = sprintf(
-								esc_html( $this->udmpa->strings['complete'] ),
-								'<a href="' . esc_url( self_admin_url() ) . '">' . esc_html( $this->udmpa->strings['dashboard'] ) . '</a>'
+								esc_html( $this->udmbase->strings['complete'] ),
+								'<a href="' . esc_url( self_admin_url() ) . '">' . esc_html( $this->udmbase->strings['dashboard'] ) . '</a>'
 							);
 						} else {
-							$update_actions['udmpa_page'] = '<a href="' . esc_url( $this->udmpa->get_udmpa_url() ) . '" target="_parent">' . esc_html( $this->udmpa->strings['return'] ) . '</a>';
+							$update_actions['udmbase_page'] = '<a href="' . esc_url( $this->udmbase->get_udmbase_url() ) . '" target="_parent">' . esc_html( $this->udmbase->strings['return'] ) . '</a>';
 						}
 						
-						$update_actions = apply_filters( 'udmpa_update_bulk_plugins_complete_actions', $update_actions, $this->plugin_info );
+						$update_actions = apply_filters( 'udmbase_update_bulk_plugins_complete_actions', $update_actions, $this->plugin_info );
 						if ( ! empty( $update_actions ) ) {
 							$this->feedback( implode( ' | ', (array) $update_actions ) );
 						}
 					}
 					
 					public function before_flush_output() {
-						_deprecated_function( __FUNCTION__, 'UDMPA 2.5.0', 'Bulk_Upgrader_Skin::flush_output()' );
+						_deprecated_function( __FUNCTION__, 'UDMBASE 2.5.0', 'Bulk_Upgrader_Skin::flush_output()' );
 						$this->flush_output();
 					}
 					
 					public function after_flush_output() {
-						_deprecated_function( __FUNCTION__, 'UDMPA 2.5.0', 'Bulk_Upgrader_Skin::flush_output()' );
+						_deprecated_function( __FUNCTION__, 'UDMBASE 2.5.0', 'Bulk_Upgrader_Skin::flush_output()' );
 						$this->flush_output();
 						$this->i++;
 					}
@@ -2047,9 +2047,9 @@ if ( ! function_exists( 'udmpa_load_bulk_installer' ) ) {
 		}
 	}
 }
-if ( ! class_exists( 'UDMPA_Utils' ) ) {
+if ( ! class_exists( 'UDMBASE_Utils' ) ) {
 	
-	class UDMPA_Utils {
+	class UDMBASE_Utils {
 		
 		public static $has_filters;
 		

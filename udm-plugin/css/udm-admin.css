@@ -110,13 +110,6 @@ p.submit .button {
 
 /* Whitelabel
 ------------------------------ */
-
-#wp-admin-bar-site-name-default, #wpadminbar #wp-admin-bar-my-account.with-avatar>a img {
-	display: none !important;
-}
-#wp-admin-bar-wp-logo {
-	display: none;
-}
 #contextual-help-link-wrap, #screen-options-link-wrap, #screen-meta {
 	border: none;
 	border-top: none;

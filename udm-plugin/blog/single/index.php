@@ -6,8 +6,11 @@ $title = get_post(get_post_thumbnail_id())->post_title; //The Title
 $caption = get_post(get_post_thumbnail_id())->post_excerpt; //The Caption
 $description = get_post(get_post_thumbnail_id())->post_content; // The Description
 ?>
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-<section class="container">
+<?php if (have_posts()) : while (have_posts()) : the_post(); 
+
+$format = get_post_format() ? : 'standard';
+?>
+<section <?php post_class('container'); ?>>
 	<div class="col-md-12 article-main">
 		<div class="article__intro">
 			<h1 class="article__intro-title"><?php the_title(); ?></h1>
@@ -35,7 +38,20 @@ $description = get_post(get_post_thumbnail_id())->post_content; // The Descripti
 			<?php endif; ?>
 		</div>
 			<?php the_content(); ?>
-			
+			<?php
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+			wp_link_pages(
+				array(
+					'before'      => '<div class="page-links">' . __( 'Pages:', 'udmbase' ),
+					'after'       => '</div>',
+					'link_before' => '<span class="page-number">',
+					'link_after'  => '</span>',
+				)
+			); 
+			?>
+			<p ><?php the_tags(); ?></p>
 		<?php endwhile; endif; ?>
 	</div>
 </section>

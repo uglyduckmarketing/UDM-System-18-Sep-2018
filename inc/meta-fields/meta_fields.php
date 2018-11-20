@@ -10,12 +10,12 @@ function load_media() {
 } 
 function add_category_image ( $taxonomy ) { ?>
 	<div class="form-field term-group">
-     <label for="category-image-id"><?php _e('Featured Image', 'hero-theme'); ?></label>
+     <label for="category-image-id"><?php _e('Featured Image', 'udmbase'); ?></label>
      <input type="hidden" id="category-image-id" name="category-image-id" class="custom_media_url" value="">
      <div id="category-image-wrapper"></div>
      <p>
-       <input type="button" class="button button-secondary ct_tax_media_button" id="ct_tax_media_button" name="ct_tax_media_button" value="<?php _e( 'Add Image', 'hero-theme' ); ?>" />
-       <input type="button" class="button button-secondary ct_tax_media_remove" id="ct_tax_media_remove" name="ct_tax_media_remove" value="<?php _e( 'Remove Image', 'hero-theme' ); ?>" />
+       <input type="button" class="button button-secondary ct_tax_media_button" id="ct_tax_media_button" name="ct_tax_media_button" value="<?php _e( 'Add Image', 'udmbase' ); ?>" />
+       <input type="button" class="button button-secondary ct_tax_media_remove" id="ct_tax_media_remove" name="ct_tax_media_remove" value="<?php _e( 'Remove Image', 'udmbase' ); ?>" />
     </p>
    </div>
 <?php
@@ -65,7 +65,7 @@ function save_category_image ( $term_id, $tt_id ) {
 function update_category_image ( $term, $taxonomy ) { ?>
    <tr class="form-field term-group-wrap">
      <th scope="row">
-       <label for="category-image-id"><?php _e( 'Featured Image', 'hero-theme' ); ?></label>
+       <label for="category-image-id"><?php _e( 'Featured Image', 'udmbase' ); ?></label>
      </th>
      <td>
        <?php $image_id = get_term_meta ( $term -> term_id, 'category-image-id', true ); ?>
@@ -76,8 +76,8 @@ function update_category_image ( $term, $taxonomy ) { ?>
          <?php } ?>
        </div>
        <p>
-         <input type="button" class="button button-secondary ct_tax_media_button" id="ct_tax_media_button" name="ct_tax_media_button" value="<?php _e( 'Add Image', 'hero-theme' ); ?>" />
-         <input type="button" class="button button-secondary ct_tax_media_remove" id="ct_tax_media_remove" name="ct_tax_media_remove" value="<?php _e( 'Remove Image', 'hero-theme' ); ?>" />
+         <input type="button" class="button button-secondary ct_tax_media_button" id="ct_tax_media_button" name="ct_tax_media_button" value="<?php _e( 'Add Image', 'udmbase' ); ?>" />
+         <input type="button" class="button button-secondary ct_tax_media_remove" id="ct_tax_media_remove" name="ct_tax_media_remove" value="<?php _e( 'Remove Image', 'udmbase' ); ?>" />
        </p>
      </td>
    </tr>
@@ -94,7 +94,7 @@ function updated_category_image ( $term_id, $tt_id ) {
 function udm_related_service_meta(){
 	add_meta_box( 
         'udm_related_service_sec',  
-        __( 'Related Services', 'udm' ), 
+        __( 'Related Services', 'udmbase' ), 
         'udm_related_service_display', 'service', 'normal', 'high' 
     );
 }
@@ -102,7 +102,7 @@ function udm_related_service_meta(){
 function udm_benifit_service_meta(){
 	add_meta_box( 
         'udm_service_benifits',  
-        __( 'Service Benifits', 'udm' ), 
+        __( 'Service Benifits', 'udmbase' ), 
         'udm_service_benifits_display', 'service', 'normal', 'low'
     );
 }
@@ -110,7 +110,7 @@ function udm_benifit_service_meta(){
 function udm_breakdown_service_meta(){
 	add_meta_box( 
         'udm_service_breakdown',  
-        __( 'Services Breakdown', 'udm' ), 
+        __( 'Services Breakdown', 'udmbase' ), 
         'udm_service_breakdown_display', 'service', 'normal', 'low' 
     );
 }
@@ -118,7 +118,7 @@ function udm_breakdown_service_meta(){
 function udm_cta_service_meta(){
 	add_meta_box( 
         'udm_service_cta',  
-        __( 'Services CTA', 'udm' ), 
+        __( 'Services CTA', 'udmbase' ), 
         'udm_service_cta_display', 'service', 'normal', 'low' 
     );
 }
@@ -126,7 +126,7 @@ function udm_cta_service_meta(){
 function udm_service_service_meta(){
 	add_meta_box( 
         'udm_service_description',  
-        __( 'Service Description', 'udm' ), 
+        __( 'Service Description', 'udmbase' ), 
         'udm_service_description_display', 'service', 'normal', 'low' 
     );
 }
@@ -134,21 +134,21 @@ function udm_service_service_meta(){
 function udm_gallery_service_meta(){
 	add_meta_box( 
         'udm_service_gallery',  
-        __( 'Gallery', 'udm' ), 
+        __( 'Gallery', 'udmbase' ), 
         'udm_service_gallery_display', 'service', 'normal', 'low' 
     );
 }
 function udm_video_service_meta() { 
 	add_meta_box( 
         'udm_service_video',  
-        __( 'Service Video', 'udm' ), 
+        __( 'Service Video', 'udmbase' ), 
         'udm_service_video_display', 'service' , 'normal', 'low'
     );	
 }
 function udm_service_options() {
     add_meta_box( 
         'udm_service_options',  // unique id
-        __( 'Service Option', 'udm' ),  // metabox title
+        __( 'Service Option', 'udmbase' ),  // metabox title
         'udm_service_options_display', 'service', 'normal', 'low'   // callback to show the dropdown
     
     );
@@ -392,7 +392,7 @@ function udm_service_breakdown_display($post){
 											<a class="remove_image" href="#"><i class="fa fa-close"></i></a>
 										</div>
 										<?php $url = wp_get_attachment_image_url( $bkmeta[$i]['service_break_'.$i.'_image']); ?>
-										<img id="myprefix-preview-image" src="<?php echo isset($url) ? $url : ''; ?>" alt="">
+										<img id="myprefix-preview-image" src="<?php echo isset($url) ? $url : ''; ?>" >
 									</div>
 									<div class="no-image" <?php if($bkmeta[$i]['service_break_'.$i.'_image'] != ''){ echo 'style="display:none"'; } ?>>
 										<p>No image selected <input type="button" class="button add-image" value="Add Image">
@@ -444,7 +444,7 @@ function udm_service_breakdown_display($post){
 										<div class="img_hover">
 											<a class="remove_image" href="#"><i class="fa fa-close"></i></a>
 										</div>
-										<img id="myprefix-preview-image" src="" alt="">
+										<img id="myprefix-preview-image" src="" >
 									</div>
 									<div class="no-image">
 										<p>No image selected <input type="button" class="button add-image" value="Add Image">
