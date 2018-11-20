@@ -119,6 +119,7 @@ function udm_footer_cta_options_page_func(){
  
  register_setting("section", "udm_header_default");
  register_setting("section", "udm_submenu_default");
+ register_setting("section", "udm_google_map_key");
  register_setting("section", "udm_footer_default");
  register_setting("section", "udm_hero_default");
  register_setting("section", "udm_mobile_nav_default");
@@ -165,7 +166,7 @@ add_action( 'save_post', 'udm_specific_header_save' );
 function udm_specific_header() {
     add_meta_box( 
         'udm_specific_header',  // unique id
-        __( 'Select header', 'udm' ),  // metabox title
+        __( 'Select header', 'udmbase' ),  // metabox title
         'udm_specific_header_display'  // callback to show the dropdown
     
     );
@@ -237,7 +238,7 @@ add_action( 'save_post', 'udm_specific_hero_save' );
 function udm_specific_hero() {
     add_meta_box( 
         'udm_specific_hero',  // unique id
-        __( 'Select hero', 'udm' ),  // metabox title
+        __( 'Select hero', 'udmbase' ),  // metabox title
         'udm_specific_hero_display'  // callback to show the dropdown
    
     );
@@ -627,79 +628,9 @@ function save_hero_fields_meta( $post_id ) {
 	if (isset($_POST['hero_fields'])) { //Fix 3
 		$new = $_POST['hero_fields'];
 		update_post_meta( $post_id, 'hero_fields', $new );
-		if ( $new && $new !== $old ) {
-			//update_post_meta( $post_id, 'hero_fields', $new );
-		} elseif ( '' === $new && $old ) {
-			//delete_post_meta( $post_id, 'hero_fields', $old );
-		}
 	}
 }
-add_action( 'save_post', 'save_hero_fields_meta' );
-
-// action to add meta boxes
-//add_action( 'add_meta_boxes', 'udm_specific_galley' );
-// action on saving post
-add_action( 'save_post', 'udm_specific_galley_save' );
-
-// function that creates the new metabox that will show on post
-function udm_specific_galley() {
-    add_meta_box( 
-        'udm_specific_galley',  // unique id
-        __( 'Select Galley', 'udm' ),  // metabox title
-        'udm_specific_galley_display'  // callback to show the dropdown
-      
-    );
-}
-
-// Dropdown display
-function udm_specific_galley_display( $post ) {
-
-  // Use nonce for verification
-  wp_nonce_field( basename( __FILE__ ), 'udm_specific_galley_nonce' );
-
-  // get current value
-  $dropdown_value = get_post_meta( get_the_ID(), 'udm_specific_galley', true );
-  ?> 
-    <select name="udm_specific_galley" id="udm_specific_galley">
-		<option value="">Default Gallery</option>
-		<?php  
-			query_posts('post_type=gallery&posts_per_page=-1');
-			while(have_posts()):the_post();
-		?>
-			<option value="<?php echo get_the_id(); ?>" <?php selected(get_the_id(),$dropdown_value); ?>><?php the_title(); ?></option>
-		<?php	
-			endwhile; wp_reset_query();
-		?>
-	</select>
-  <?php
-}
-
-// dropdown saving
-function udm_specific_galley_save( $post_id ) {
-	// if doing autosave don't do nothing
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-      return;
-
-  // verify nonce
-  $udm_specific_galley_nonce = isset($_POST['udm_specific_galley_nonce']) ? $_POST['udm_specific_galley_nonce'] : '';
-  if ( !wp_verify_nonce( $udm_specific_galley_nonce, basename( __FILE__ ) ) )
-      return;
- // Check permissions
-  if ( 'page' == $_POST['post_type'] ) 
-  {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-        return;
-  }
-  else
-  {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-// save the new value of the dropdown
-  $new_value = $_POST['udm_specific_galley'];
-  update_post_meta( $post_id, 'udm_specific_galley', $new_value );
-}  
-
+ 
 //Admin Panel Functions End
    
 ################################################################################
@@ -792,7 +723,7 @@ function footer_css() {
 	exit;
 }
 // Enqueue Theme Files
-function uglyduck_header_scripts() {
+function udmbase_header_scripts() {
 	if(get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true )!="")
 	{
 		$mobilenavlayout=get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true );
@@ -807,7 +738,7 @@ function uglyduck_header_scripts() {
 	}
 }
 
-function uglyduck_footer_scripts() {
+function udmbase_footer_scripts() {
 	wp_enqueue_script( 'ratingyo-jquery-js', get_template_directory_uri() . '/udm-plugin/js/jquery.min.js' );	
 	wp_enqueue_script( 'ratingyo-js', get_template_directory_uri() . '/udm-plugin/js/jquery.rateyo.js');	
 	if(get_post_meta( get_the_ID(), 'udm_specific_mobile_nav', true )!="")
@@ -827,7 +758,7 @@ function uglyduck_footer_scripts() {
 	}
 		
 }
-function uglyduck_scripts() {
+function udmbase_scripts() {
 	// CSS
 	wp_enqueue_style( 'base-css',get_template_directory_uri() .'/udm-plugin/css/bootstrap-min.css"' );
 	wp_enqueue_style( 'font-awesome-css',get_template_directory_uri() .'/udm-plugin/css/font-awesome.css' );
@@ -850,8 +781,8 @@ function uglyduck_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'uglyduck_scripts' );
-add_action( 'wp_footer', 'uglyduck_footer_scripts' );
-add_action( 'wp_head', 'uglyduck_header_scripts' );
+add_action( 'wp_enqueue_scripts', 'udmbase_scripts' );
+add_action( 'wp_footer', 'udmbase_footer_scripts' );
+add_action( 'wp_head', 'udmbase_header_scripts' );
 //Frontend Functions End
 ?>

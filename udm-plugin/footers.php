@@ -68,16 +68,7 @@
 		{
 		?>
 		(function ($) {   //Slide In navigation script 
-            /*$(document).ready(function () {
-
-                var menuLeft = $('#mobile-slide-in').slideMenu({
-                    position: 'left',
-                    submenuLinkAfter: ' ',
-                    backLinkBefore: ' '
-                });
-
-
-            });*/
+           
         })(jQuery);
 		
 			$('#mobile-slide-in').attr('style',"");	
@@ -112,7 +103,7 @@ function videoPlay(wrapper) {
 	iframe.attr('src',src);
 }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.magnific-popup.min.js"></script>
 <script>
 (function ($) { 
 jQuery(document).ready(function() {

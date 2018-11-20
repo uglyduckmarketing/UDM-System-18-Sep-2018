@@ -1,8 +1,6 @@
 <?php
 /* Template Name: Contact Page Two */
 get_header(); ?>
-
-
 <div class="container" style="height: 100%; max-width: 100%; width: 100%; padding: 0px;">
 	<div class="col-sm-6" style="height: 100%; padding: 65px; padding-top: 100px; padding-bottom: 180px;">
 		<h1>Get In Touch.</h1><hr />
@@ -67,7 +65,7 @@ get_header(); ?>
 	 });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-F9kVe8CubZ7PgEvUZ7alsjiU1aC9g84&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_option('udm_google_map_key'); ?>&callback=initMap" async defer></script>
 <script>
 	jQuery(document).ready(function($) {
 		$('.slide-trigger, .close-btn').click(function() {

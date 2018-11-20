@@ -70,9 +70,9 @@
  $temp++; endwhile;
 						
 					the_posts_pagination( array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous page', 'uglyduck' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'uglyduck' ) . '</span>',
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'uglyduck' ) . ' </span>',
+					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous page', 'udmbase' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'udmbase' ) . '</span>',
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'udmbase' ) . ' </span>',
 				));
 					
 					endif;  ?>

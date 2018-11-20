@@ -1,8 +1,15 @@
 /*
-Theme Name: UDM Base
+Theme Name: UDMBase
+Theme URI: https://heroistic-group.com/udmbase
 Author: Heroistic - Group
 Author URI: https://heroistic-group.com/
 Version: 1.2.4
+Description: UDM Base is a modernized take on an ever-popular WordPress layout — the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Version: 1.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Text Domain: udmbase
 */
 
 
@@ -14,7 +21,20 @@ Image upload on 'Stacked Header' does nothing.
 Right Widget on stacked header placement doesn't work without a left widget
 
 /*
+/*Caption */
+.wp-caption {
+	margin-bottom: 1.75em;
+	max-width: 100%;
+}
 
+.wp-caption .wp-caption-text {
+	color: #686868;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	font-style: italic;
+	line-height: 1.6153846154;
+	padding-top: 0.5384615385em;
+}
 
 /* Basic Styles
 ------------------------------ */
@@ -2452,7 +2472,15 @@ header{
 	top:5px;
 }
 
-
+.gallery-caption {
+	color: #686868;
+	display: block;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	font-style: italic;
+	line-height: 1.6153846154;
+	padding-top: 0.5384615385em;
+}
 
 /********responsive***********/
 
@@ -3776,3 +3804,5 @@ align-items:center;
 .padded_col .service_box-content span::before {content: '';width: 35px;height: 2px;background: var(--primary-color);display: block;margin: 1.25rem 0;margin-top: 0;}
 .padded_col a:hover {box-shadow: 10px 0 50px 0 rgba(0,0,0,.15); transform: translateY(-10px);}
 .padded_col{padding: 0 1.25rem; margin-bottom: 2.25rem;}
+.bypostauthor > article .fn:after {content: "\f304";left: 3px;position: relative;top: 5px;}
+.aligncenter {clear: both;display: block;margin: 0 auto 1.75em;}

