@@ -173,7 +173,7 @@
 ?>
 
 header .basic_header_default{
-	background:<?php echo esc_attr($background); ?>;
+	background:<?php echo isset($background) ? $background : ''; ?>;
 }
 .basic_header_default a.navbar-brand img
 {
@@ -205,7 +205,7 @@ header .top_basic_header p{
 }
 
 header ul.sub-menu{
-	background:<?php echo esc_attr($subbackground); ?>;
+	background:<?php echo isset($subbackground) ? $subbackground : ''; ?>;
 }
 
 header ul.sub-menu li a{
@@ -386,7 +386,7 @@ header ul.sub-menu li a:hover{
 
 
 header .stacked_header .logo_stacked{
-	background:<?php echo esc_attr($logo_background); ?>;
+	background:<?php echo isset($logo_background) ? $logo_background : ''; ?>;
 }
 
 header .stacked_header .logo_stacked img{
@@ -419,7 +419,7 @@ header .stacked_header .bottom_stacked_header .navbar ul li a {
 }
 
 header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu{
-	background:<?php echo esc_attr($subbackground); ?>;
+	background:<?php echo isset($subbackground) ? $subbackground : ''; ?>;
 }
 
 header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a{
@@ -609,7 +609,7 @@ header .main_transparent_box a{
 }
 
 header .main_transparent_box .top_basic_header{
-	background:<?php echo esc_attr($topbar_background); ?>;
+	background:<?php echo isset($topbar_background) ? $topbar_background : ''; ?>;
 }
 header .main_transparent_box .top_basic_header a{
 	color:<?php echo esc_attr($topbar_link_color); ?>;
@@ -624,7 +624,7 @@ header .main_transparent_box .top_basic_header p{
 }
 
 header .main_transparent_box  ul.sub-menu{
-	background:<?php echo esc_attr($subbackground); ?>;
+	background:<?php echo isset($subbackground) ? $subbackground : ''; ?>;
 }
 
 header .main_transparent_box  ul.sub-menu li a{
@@ -715,7 +715,7 @@ header .top_basic_header p{
 }
 
 header ul.sub-menu{
-	background:<?php echo esc_attr($subbackground); ?>;
+	background:<?php echo isset($subbackground) ? $subbackground : ''; ?>;
 }
 
 header ul.sub-menu li a{

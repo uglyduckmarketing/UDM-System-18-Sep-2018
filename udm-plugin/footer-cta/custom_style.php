@@ -225,7 +225,7 @@
 		
 		?>
 		.get_in_touch_fullwidth{
-			background:<?php echo esc_attr($background); ?>;
+			background:<?php echo isset($background) ? $background : ''; ?>;
 			background-repeat: no-repeat;
 			background-size:cover;
 			height:<?php echo esc_attr($height); ?>
@@ -479,7 +479,7 @@
 	}
 		?>
 		.get_in_splitscreen.back .p1-left{
-			background:<?php echo esc_attr($background); ?>;
+			background:<?php echo isset($background) ? $background : ''; ?>;
 		}
 		
 		.col.col-lg-6.p1-both.align-self-stretch.element{

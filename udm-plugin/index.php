@@ -380,8 +380,8 @@ function add_hero_fields_meta_box() {
 }
 add_action( 'add_meta_boxes', 'add_hero_fields_meta_box' );
 function show_hero_fields_meta_box($post) {
-   // global $post;  
-    $postid = isset($_GET['post']) ? $_GET['post'] : '';
+  $postid = isset($_GET['post']) ? $_GET['post'] : '';
+ 
 		if(is_home() || is_archive())
 		{
 			$pid = get_option( 'page_for_posts' );
@@ -603,6 +603,8 @@ jQuery(document).ready(function ($) {
 });
   </script>
 <?php }
+
+add_action( 'save_post', 'save_hero_fields_meta' );
 function save_hero_fields_meta( $post_id ) {   
 	// verify nonce
 	if ( isset($_POST['hero_meta_box_nonce']) 
@@ -625,10 +627,10 @@ function save_hero_fields_meta( $post_id ) {
     }
 	
 	$old = get_post_meta( $post_id, 'hero_fields', true );
-	if (isset($_POST['hero_fields'])) { //Fix 3
-		$new = $_POST['hero_fields'];
+	 //Fix 3
+		 $new = $_POST['hero_fields']; 
 		update_post_meta( $post_id, 'hero_fields', $new );
-	}
+	
 }
  
 //Admin Panel Functions End

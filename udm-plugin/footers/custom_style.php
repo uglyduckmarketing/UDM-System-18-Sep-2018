@@ -123,7 +123,7 @@
 		
 		?>
 		footer.footer-mailchimp{
-			background:<?php echo esc_attr($background); ?>;
+			background:<?php echo isset($background) ? $background : ''; ?>;
 			background-repeat: no-repeat;
 			background-size:cover;
 			
