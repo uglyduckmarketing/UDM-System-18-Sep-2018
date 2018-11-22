@@ -117,7 +117,7 @@
 ?>
 
 .basic_hero{
-	background:<?php echo esc_attr($background); ?>;
+	background:<?php echo isset($background) ? $background : ''; ?>;
 	background-repeat: no-repeat;
     background-size:cover;
 }
@@ -267,7 +267,7 @@
 ?>
 
 .fullwidth-hero-3{
-	background:<?php echo esc_attr($background); ?>;
+	background:<?php echo isset($background) ? $background : ''; ?>;
 	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
@@ -448,7 +448,7 @@
 
 .splitscreen-hero{
 	
-	background:<?php echo esc_attr($background); ?>;
+	background:<?php echo isset($background) ? $background : ''; ?>;
 	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
@@ -640,7 +640,7 @@
 ?>
 
 .fullwidth-hero-3.leadgen-hero.left-right_hero{
-	background:<?php echo esc_attr($background); ?>;
+	background:<?php echo isset($background) ? $background : ''; ?>;
 	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
@@ -795,7 +795,7 @@
 ?>
 
 .fullwidth-hero-3.leadgen-hero{
-	background:<?php echo esc_attr($background); ?>;
+	background:<?php echo isset($background) ? $background : ''; ?>;
 	height:<?php echo esc_attr($height); ?>;
 	background-repeat: no-repeat;
     background-size:cover;
