@@ -91,6 +91,15 @@ function updated_category_image ( $term_id, $tt_id ) {
      update_term_meta ( $term_id, 'category-image-id', '' );
    }
  }
+add_action( 'add_meta_boxes', 'udm_all_gallery_meta',1 );
+function udm_all_gallery_meta(){
+	add_meta_box( 
+        'udm_all_gallery',  
+        __( 'Galleries', 'udmbase' ), 
+        'udm_all_gallery_display', 'gallery', 'normal', 'low' 
+    );
+}
+
 function udm_related_service_meta(){
 	add_meta_box( 
         'udm_related_service_sec',  
@@ -1015,4 +1024,122 @@ function change_defualt_color(){
 		die;
 	}
 }
+add_action( 'save_post', 'save_all_gallery_meta' );
+function udm_all_gallery_display($post){
+	$my_gallery_data = get_post_meta( $post->ID, 'my_gallery_data', true );
+	$unserlizegallery = unserialize($my_gallery_data);
+	wp_nonce_field( basename( __FILE__ ), 'udm_all_gallery_nonce' ); 
+	?>
+	<div class="inside own-fields">
+		<div class="own_label"><label for="">Gallery List</label></div>
+		<input type="hidden" name="" id="myprefix_image_id" value="" class="regular-text" />
+		<div class="my-gallery_box">
+		<?php if($my_gallery_data != '' && count($unserlizegallery) > 0){ ?>
+		<div class="saved_images">
+		<?php 
+			for($i = 0; $i < count($unserlizegallery); $i++){
+				$url = wp_get_attachment_image_url( $unserlizegallery[$i]);
+		?>
+			<div class="gallery_box">
+				<input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="<?php echo $unserlizegallery[$i]; ?>" class="regular-text" />
+				<div class="has-image">
+					<div class="img_hover">
+						<a class="remove_image" href="#"><i class="fa fa-close"></i></a>
+					</div>
+					<img id="myprefix-preview-image" src="<?php echo $url; ?>" >
+				</div>
+			</div>
+		<?php } ?>
+		</div>
+	<?php } ?>
+	<div class="dynamic_images"></div>
+	</div>
+	</div>
+	<div class="my-gallery_footer">	
+	<ul class="hl clearfix repeater-footer addrow-btn">
+		<li class="right">
+			<a href="#" oid="" tid="tabs-" class="button add-image">Add Gallery</a>
+		</li>
+	</ul>
+	</div>	 
+<script>
+$( function() {
+	jQuery('body').delegate('.remove_image','click', function(e) {
+		e.preventDefault();
+		var hasimage = $(this).closest('.gallery_box');
+		hasimage.remove();
+	});
+	jQuery('body').delegate('.add-image','click', function(e) {
+		e.preventDefault();
+		 var image_frame;
+		 if(image_frame){
+			 image_frame.open();
+		 }
+		 // Define image_frame as wp.media object
+		image_frame = wp.media({
+			title: 'Select Media',
+			multiple : true,
+			library : {
+				type : 'image',
+			}
+		});
+		image_frame.on('select',function() {
+			var selection =  image_frame.state().get('selection');
+			var my_index = 0;
+			selection.each(function(attachment) {
+				attachment = attachment.toJSON();
+				if(attachment.sizes.hasOwnProperty('thumbnail')){
+					var imageattach = attachment.sizes.thumbnail.url;
+				}else if(attachment.sizes.hasOwnProperty('medium')){
+					var imageattach = attachment.sizes.medium.url;
+				}else{
+					var imageattach = attachment.sizes.full.url;
+				}
+				$('.dynamic_images').append('<div class="gallery_box"><input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="'+attachment.id+'" class="regular-text" /><div class="has-image"><div class="img_hover"><a class="remove_image" href="#"><i class="fa fa-close"></i></a></div><img id="myprefix-preview-image" src="'+imageattach+'" ></div></div>');
+				my_index++; 
+			});
+		});
+		image_frame.on('open',function() {
+			var selection =  image_frame.state().get('selection');
+			ids = jQuery('input#myprefix_image_id').val().split(',');
+			ids.forEach(function(id) {
+				attachment = wp.media.attachment(id);
+				attachment.fetch();
+				selection.add( attachment ? [ attachment ] : [] );
+			});
+		});
+		image_frame.open();
+	});
+});
+</script>
+	<?php
+}
+
+function save_all_gallery_meta( $post_id ) { 
+	if ( isset($_POST['udm_all_gallery_nonce']) 
+	&& !wp_verify_nonce( $_POST['udm_all_gallery_nonce'], basename(__FILE__) ) ) {
+		return $post_id; 
+	}
+	// check autosave
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return $post_id;
+	}
+	// check permissions
+	if (isset($_POST['post_type'])) { //Fix 2
+        if ( 'page' === $_POST['post_type'] ) {
+            if ( !current_user_can( 'edit_page', $post_id ) ) {
+                return $post_id;
+            } elseif ( !current_user_can( 'edit_post', $post_id ) ) {
+                return $post_id;
+            }  
+        }
+    }
+	if (isset($_POST['mygallery_image_id'])) { //Fix 3
+		$new = serialize($_POST['mygallery_image_id']);
+		update_post_meta( $post_id, 'my_gallery_data', $new );
+	}else{
+		delete_post_meta( $post_id, 'my_gallery_data');
+	}
+}
+add_action( 'save_post', 'save_all_gallery_meta' );
 ?>
