@@ -7,8 +7,8 @@
 		?><div class="col-md-3 border-right padded-top benefit" >
 			<?php if(count($bmeta) > 0){ for($i = 0 ; $i<count($bmeta); $i++){ ?>
 				<div class="left-benefit">
-					<h3><?php echo esc_attr($bmeta[$i]['benefit_'.$i.'_title']); ?></h3>
-					<?php echo esc_attr($bmeta[$i]['benefit_'.$i.'_text']); ?><br>
+					<h3><?php if(isset($bmeta[$i]['benefit_'.$i.'_title'])) { echo esc_attr($bmeta[$i]['benefit_'.$i.'_title']); } ?></h3>
+					<?php if(isset($bmeta[$i]['benefit_'.$i.'_text'])) { echo esc_attr($bmeta[$i]['benefit_'.$i.'_text']); } ?><br>
 				</div>
 			<?php } } ?>
     		</div> 
