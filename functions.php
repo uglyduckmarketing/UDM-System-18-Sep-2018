@@ -360,7 +360,7 @@ function service_post_type() {
 		'label'                 => __( 'Service', 'udmbase' ),
 		'description'           => __( 'Service', 'udmbase' ),
 		'labels'                => $labels,
-		'supports' =>array( 'title', 'thumbnail','custom-fields' ),
+		'supports' =>array( 'title', 'thumbnail' ),
 		'taxonomies' => array(),
 		'hierarchical'          => false,
 		'public'                => true,

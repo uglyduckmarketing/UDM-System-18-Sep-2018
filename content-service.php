@@ -5,12 +5,12 @@
 			//if(isset($bmeta)){
 				$columnclass = "col-md-9"; 
 		?><div class="col-md-3 border-right padded-top benefit" >
-			<?php for($i = 0 ; $i<count($bmeta); $i++){ ?>
+			<?php if(count($bmeta) > 0){ for($i = 0 ; $i<count($bmeta); $i++){ ?>
 				<div class="left-benefit">
 					<h3><?php echo esc_attr($bmeta[$i]['benefit_'.$i.'_title']); ?></h3>
 					<?php echo esc_attr($bmeta[$i]['benefit_'.$i.'_text']); ?><br>
 				</div>
-			<?php } ?>
+			<?php } } ?>
     		</div> 
 			<?php //}else{ $columnclass = "col-md-12"; } ?>
 			<?php $sdmeta = get_post_meta(get_the_ID(),'service_desc', true); ?>

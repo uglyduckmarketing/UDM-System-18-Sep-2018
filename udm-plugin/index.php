@@ -628,7 +628,7 @@ function save_hero_fields_meta( $post_id ) {
 	
 	$old = get_post_meta( $post_id, 'hero_fields', true );
 	 //Fix 3
-		 $new = $_POST['hero_fields']; 
+		$new = isset($_POST['hero_fields']) ? $_POST['hero_fields'] : ''; 
 		update_post_meta( $post_id, 'hero_fields', $new );
 	
 }

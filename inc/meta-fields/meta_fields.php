@@ -523,7 +523,14 @@ jQuery('body').delegate('.remove_image','click', function(e) {
 							  if(my_index == 0){
 								  
 								  hasiimage.show();
-								  myimage.attr('src',attachment.sizes.full.url);
+								  if(attachment.sizes.hasOwnProperty('thumbnail')){
+									var imageattach = attachment.sizes.thumbnail.url;
+								}else if(attachment.sizes.hasOwnProperty('medium')){
+									var imageattach = attachment.sizes.medium.url;
+								}else{
+									var imageattach = attachment.sizes.full.url;
+								}
+								  myimage.attr('src',imageattach);
 								hasimage.val(attachment.id);
 							  }else{
 									var htmls = $('.tr_row').html();
