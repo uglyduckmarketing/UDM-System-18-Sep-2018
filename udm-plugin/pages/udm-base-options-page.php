@@ -131,7 +131,7 @@
 					</li>
 					<li>
 						<h4>Google Map API Key</h4>
-						<input style="width:68%" type="text" name="udm_google_map_key" value="<?php echo get_option('udm_google_map_key'); ?>">
+						<input type="text" name="udm_google_map_key" value="<?php echo get_option('udm_google_map_key'); ?>">
 					</li>
 					<li>
 						<h2 class="header_layout_heading">

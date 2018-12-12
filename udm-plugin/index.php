@@ -7,7 +7,7 @@
 define('VERSION','1.0');
 add_action( 'admin_head', 'wp_admin_header_scripts' );
 function wp_admin_header_scripts( $hook_suffix ) {
-	wp_enqueue_style( 'udm-bootstrap', get_template_directory_uri() . '/udm-plugin/css/bootstrap-min.css' );
+	//wp_enqueue_style( 'udm-bootstrap', get_template_directory_uri() . '/udm-plugin/css/bootstrap-min.css' );
     wp_enqueue_style( 'udm-fontawesome', get_template_directory_uri() . '/udm-plugin/css/font-awesome.css' );
 	wp_enqueue_style( 'udm-ui-admin', get_template_directory_uri() . '/udm-plugin/css/jquery-ui.css' ); 
 	wp_enqueue_style( 'udm-admin', get_template_directory_uri() . '/udm-plugin/css/udm-admin.css' ); 

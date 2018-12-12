@@ -312,10 +312,10 @@
 	}
 	?>
 	
-	.single-service .fullwidth-hero-3
+	/*.single-service .fullwidth-hero-3
 	{
 		background:<?php echo esc_attr($desc_background_color); ?>
-	}
+	}*/
 	
 	.single-service .desc_section
 	{
