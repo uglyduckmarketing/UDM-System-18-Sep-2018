@@ -133,7 +133,7 @@ if(count(array_filter($gmeta)) != 0){
 	<div class="container">	
 		<div class="row masonry mrtop_60">
 			<?php
-				$gallerylist = get_post_meta($gallery,'gallery', true); 
+				$gallerylist = unserialize(get_post_meta($gallery,'my_gallery_data', true)); 
 				foreach( $gallerylist as $image ):
 				 $attachment = get_post($image);
 				$src = $attachment->guid;
