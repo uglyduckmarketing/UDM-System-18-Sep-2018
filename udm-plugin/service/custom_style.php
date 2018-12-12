@@ -488,7 +488,7 @@
 }
 
 .single-service .service_gallery h2 {
-	opacity: 0;
+	opacity: 1;
 	color:  <?php echo esc_attr($gallery_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;

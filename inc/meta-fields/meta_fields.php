@@ -1033,14 +1033,15 @@ function udm_all_gallery_display($post){
 	<div class="inside own-fields">
 		<div class="own_label"><label for="">Gallery List</label></div>
 		<input type="hidden" name="" id="myprefix_image_id" value="" class="regular-text" />
-		<div class="my-gallery_box">
-		<?php if($my_gallery_data != '' && count($unserlizegallery) > 0){ ?>
-		<div class="saved_images">
+		<div class="my-gallery_box" >
+		
+		<div class="saved_images" id="sortable">
 		<?php 
+		if($my_gallery_data != '' && count($unserlizegallery) > 0){ 
 			for($i = 0; $i < count($unserlizegallery); $i++){
 				$url = wp_get_attachment_image_url( $unserlizegallery[$i]);
 		?>
-			<div class="gallery_box">
+			<div class="gallery_box" data-post-id="<?php echo $i; ?>" >
 				<input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="<?php echo $unserlizegallery[$i]; ?>" class="regular-text" />
 				<div class="has-image">
 					<div class="img_hover">
@@ -1050,10 +1051,10 @@ function udm_all_gallery_display($post){
 				</div>
 			</div>
 		<?php } ?>
+		<?php } ?>
+			<div class="dynamic_images"></div>
 		</div>
-	<?php } ?>
-	<div class="dynamic_images"></div>
-	</div>
+		</div>
 	</div>
 	<div class="my-gallery_footer">	
 	<ul class="hl clearfix repeater-footer addrow-btn">
@@ -1086,6 +1087,7 @@ $( function() {
 		image_frame.on('select',function() {
 			var selection =  image_frame.state().get('selection');
 			var my_index = 0;
+			var numItems = $('.gallery_box').length + 1;
 			selection.each(function(attachment) {
 				attachment = attachment.toJSON();
 				if(attachment.sizes.hasOwnProperty('thumbnail')){
@@ -1095,8 +1097,9 @@ $( function() {
 				}else{
 					var imageattach = attachment.sizes.full.url;
 				}
-				$('.dynamic_images').append('<div class="gallery_box"><input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="'+attachment.id+'" class="regular-text" /><div class="has-image"><div class="img_hover"><a class="remove_image" href="#"><i class="fa fa-close"></i></a></div><img id="myprefix-preview-image" src="'+imageattach+'" ></div></div>');
+				$('<div class="gallery_box" data-post-id="'+numItems+'"><input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="'+attachment.id+'" class="regular-text" /><div class="has-image"><div class="img_hover"><a class="remove_image" href="#"><i class="fa fa-close"></i></a></div><img id="myprefix-preview-image" src="'+imageattach+'" ></div></div>').insertBefore('.dynamic_images');
 				my_index++; 
+				numItems++;
 			});
 		});
 		image_frame.on('open',function() {
@@ -1110,6 +1113,17 @@ $( function() {
 		});
 		image_frame.open();
 	});
+	
+	  $('#sortable').sortable({
+        update: function(event, ui) {
+			$('#sortable').children().each(function(i) {
+                var id = $(this).attr('data-post-id')
+                    ,order = $(this).index() + 1;
+                
+            });
+
+        }
+    }); 
 });
 </script>
 	<?php
