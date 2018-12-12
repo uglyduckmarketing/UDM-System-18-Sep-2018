@@ -133,6 +133,7 @@ if(count(array_filter($gmeta)) != 0){
 	<div class="container">	
 		<div class="row masonry mrtop_60">
 			<?php
+			if(get_post_meta($gallery,'my_gallery_data', true) != '' ){
 				$gallerylist = unserialize(get_post_meta($gallery,'my_gallery_data', true)); 
 				foreach( $gallerylist as $image ):
 				 $attachment = get_post($image);
@@ -144,7 +145,7 @@ if(count(array_filter($gmeta)) != 0){
 			<figure class="masonry-brick" href="<?php echo esc_attr($src); ?>" data-desc="<?php echo esc_attr($description); ?>">
 				<img class="masonry-img" src="<?php echo esc_attr($src); ?>" alt="<?php echo esc_attr($alt); ?>" title="<?php echo esc_attr($title); ?>">
 			</figure>
-			<?php endforeach; ?>
+<?php endforeach; } ?>
 		</div>
 	</div>
 </section>

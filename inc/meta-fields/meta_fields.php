@@ -715,7 +715,8 @@ function udm_service_gallery_display($post){
 	wp_nonce_field( basename( __FILE__ ), 'udm_service_gallery_nonce' );
 	$args = array(
     'post_type'=> 'gallery',
-    'order'    => 'ASC'
+    'order'    => 'ASC',
+	'posts_per_page' => -1
     );              
 	$the_query = new WP_Query( $args );
 	$gallery = isset($gmeta['gallery_name']) ? $gmeta['gallery_name'] : '';
