@@ -1,7 +1,7 @@
 <ul id="gallery" class="gallery grid-gallery">
 	<?php 
 		foreach( $gallery as $image ):
-		$attachment = get_post($image['ID']);
+		$attachment = get_post($image);
 		
 		$alt=get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
 		$caption=$attachment->post_excerpt;

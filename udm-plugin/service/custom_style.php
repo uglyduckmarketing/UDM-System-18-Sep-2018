@@ -323,7 +323,7 @@
 	}
 	
 	.single-service .fullwidth-hero-3 .col span {
-	opacity: 0;
+	opacity: 1;
 	letter-spacing: 2px;
 	font-weight: 600;
 	font-size: .85rem;
@@ -377,7 +377,7 @@
 }
 
 	.single-service .service_desc .intro {
-	opacity: 0;
+	opacity: 1;
 	color: <?php echo esc_attr($services_description_color); ?>;
 	font-size: 1.25rem;
 	font-weight: 300;
@@ -458,7 +458,7 @@
 	display: block;
 }
 .single-service .service_video h2 {
-	opacity: 0;
+	opacity: 1;
 	color:  <?php echo esc_attr($video_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
@@ -513,7 +513,7 @@
 	display: block;
 }	
 .single-service .service_related h2 {
-	opacity: 0;
+	opacity: 1;
 	color:  <?php echo esc_attr($related_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
