@@ -38,8 +38,10 @@
 				$title=$attachment->post_title;
 
 			?>
+			<figure class="masonry-brick" href="<?php echo esc_attr($src); ?>" data-desc="<?php echo esc_attr($description); ?>">
 				<a href="<?php echo isset($src) ? $src : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" data-desc="<?php echo isset($description) ? $description : ''; ?>">
 					<img class="img-fluid" src="<?php echo isset($src) ? $src : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>">
 				</a>
+			</figure>
 			<?php endforeach; ?>
 	</div>

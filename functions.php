@@ -278,7 +278,7 @@ function gallery_post_type() {
 		'label'                 => __( 'Gallery', 'udmbase' ),
 		'description'           => __( 'Gallery', 'udmbase' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title' ),
+		'supports'              => array( 'title','thumbnail' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

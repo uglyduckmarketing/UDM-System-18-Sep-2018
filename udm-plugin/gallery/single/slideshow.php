@@ -1,3 +1,10 @@
+<style>
+.carousel-inner > .carousel-item >img{
+  min-height : 300px;
+  max-height : 300px;
+  width : 100%;
+}
+</style>
 <div id="slideshowslider" class="carousel slide" data-ride="carousel">
 <!-- Indicators -->
   <ul class="carousel-indicators">
@@ -21,7 +28,7 @@
   <?php 
 				$temp2="0";
 				foreach( $gallery as $image ):
-				$attachment = get_post($image['ID']);
+				$attachment = get_post($image);
 				
 				$alt=get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
 				$caption=$attachment->post_excerpt;

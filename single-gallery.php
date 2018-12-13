@@ -7,7 +7,7 @@
 			<?php
 			while(have_posts()):the_post();
 			
-			$gallery=get_field('gallery');
+			$gallery=unserialize(get_post_meta($gallery,'my_gallery_data', true)); 
 			if( $gallery ): ?>
 			<?php
 				include get_template_directory() . '/udm-plugin/single-gallery.php';
