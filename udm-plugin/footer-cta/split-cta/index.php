@@ -159,10 +159,7 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 							</script>
 						<?php
 					} 
-					else
-					{
-						 
-					}
+					else{ }
 				?>
             </div>
         </div>
