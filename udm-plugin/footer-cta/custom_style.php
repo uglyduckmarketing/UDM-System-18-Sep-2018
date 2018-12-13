@@ -10,7 +10,6 @@
 
 <?php
 	$layout=get_option('udm_footer_cta_default');
-	
 	if(strpos($layout, 'Fullwidth_CTA') !== false){
 		$data=unserialize(get_option('footer_cta_layout_'.$layout));
 		$cta = get_post_meta($_GET['id'], 'service_cta', true);
@@ -543,6 +542,4 @@
 			margin-bottom: 1.5rem;
 			display: block;
 		}
-		<?php	
-	}
-?>
+<?php } ?>

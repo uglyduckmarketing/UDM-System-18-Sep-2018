@@ -1,7 +1,6 @@
 <?php
 	$data=unserialize(get_option('service_layout_'.$mobilelayout));
 ?>
-
 <!-- Service Description -->
 			<section style="background-color: #f9f9f9!important;">
 			<div class="container">
@@ -13,7 +12,7 @@
 						</div>
     									</div>
 					<div class="col-md-9 padded breakdown">
-													<span class="eyebrow">Who We Are</span>
+						<span class="eyebrow">Who We Are</span>
 																			<h2 class="heading">This is the heading for a description.</h2>
 												<div class="intro">
 							<p>Vivamus bibendum nulla eget purus mattis placerat. Praesent molestie pellentesque ipsum, quis faucibus dolor maximus in. Sed suscipit odio euismod sagittis eleifend. Nunc vulputate nisl vitae sem gravida, id congue tortor sagittis. In tempus erat vel odio pellentesque volutpat. Aenean pretium turpis ut mauris ornare, non consequat velit finibus. Aenean justo libero, dapibus dapibus justo eu, rutrum cursus urna. Morbi fringilla dignissim enim, sit amet fringilla lectus. Curabitur lectus risus, sagittis non congue vel, convallis facilisis quam. Proin ut ipsum enim. Aenean porttitor neque sed quam rutrum, non posuere quam feugiat.</p>

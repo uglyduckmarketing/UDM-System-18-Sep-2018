@@ -101,7 +101,7 @@ if($vmeta['vimeo_id'] != '' || $vmeta['youtube_link'] != ''){
 			<div class="col-md-10 offset-md-1 text-center">
 				<div class="embed-responsive embed-responsive-16by9 mrtop_60">
 					<?php if(isset($vmeta['youtube_link']) && $vmeta['youtube_link'] != ''){ ?>
-						<iframe class="embed-responsive-item" src="<?php echo esc_attr($vmeta['youtube_link']); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo esc_attr($vmeta['youtube_link']); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
 					<?php }else if(isset($vmeta['vimeo_id']) && $vmeta['vimeo_id'] != ''){ ?>
 						<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo esc_attr($vmeta['vimeo_id']); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
 					<?php }						

@@ -624,9 +624,10 @@ function udm_service_video_display($post){
 	?>
 		<div class="inside own-fields">
 			<div class="own_fields own_input_field_text">
-				<label>Youtube Link</label>
+				<label>Youtube ID</label>
 				<div class="own_label">
 					<input type="text" <?php if(isset($vmeta['vimeo_id']) && $vmeta['vimeo_id'] != ''){ echo 'disabled'; } ?> id="youtubelink" name="service_video[youtube_link]" value="<?php echo isset($vmeta['youtube_link']) ? $vmeta['youtube_link'] : ''; ?>">
+					<span>(Please enter youtube id eg: bFCcOJ-5NKE)</span>
 				</div>			
 			</div>
 			<div class="own_fields own_input_field_text">
