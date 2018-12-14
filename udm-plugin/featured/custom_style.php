@@ -123,7 +123,7 @@
 }
 .basic_hero::before{
 	background:<?php echo esc_attr($overlay_color); ?>;
-	opacity:<?php echo esc_attr($background_opacity); ?>
+	opacity:<?php echo esc_attr($background_opacity); ?>;
 }
 
 .basic_hero .basic_hero_inner h4{

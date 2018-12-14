@@ -322,7 +322,7 @@
 		background:<?php echo esc_attr($desc_background_color); ?>
 	}
 	
-	.single-service .fullwidth-hero-3 .col span {
+	/*.single-service .fullwidth-hero-3 .col span {
 	opacity: 1;
 	letter-spacing: 2px;
 	font-weight: 600;
@@ -346,7 +346,7 @@
 	animation-fill-mode: forwards;
 	animation-delay: 500ms;
 	animation-timing-function: ease-in-out;
-}	
+}*/	
 
 .single-service .service_desc h2 {
 	color:  <?php echo esc_attr($desc_heading_color); ?>;
@@ -359,7 +359,7 @@
 	animation-timing-function: ease-in-out;
 }	
 	
-	.single-service .fullwidth-hero-3 .col p {
+	/*.single-service .fullwidth-hero-3 .col p {
 	color: <?php echo esc_attr($services_description_color); ?>;
 	font-size: 1.25rem;
 	font-weight: 300;
@@ -371,7 +371,7 @@
 	animation-fill-mode: forwards;
 	animation-delay: 600ms;
 	animation-timing-function: ease-in-out;
-}
+}*/
 
 	.single-service .service_desc .intro {
 	opacity: 1;

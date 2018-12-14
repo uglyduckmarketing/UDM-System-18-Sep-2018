@@ -26,7 +26,7 @@
 					}
 				
 				?>
-				<span class="right_side_bt"><a class="btn" href="<?php if($url!=""){ echo echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']);}else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+				<span class="right_side_bt"><a class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']);}else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 				<?php 
 				}
 				?>
