@@ -338,7 +338,6 @@
 }
 
 	.single-service .fullwidth-hero-3 .col h2 {
-	<!--opacity: 0;-->
 	color:  <?php echo esc_attr($desc_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
@@ -350,7 +349,6 @@
 }	
 
 .single-service .service_desc h2 {
-<!--opacity: 0;-->
 	color:  <?php echo esc_attr($desc_heading_color); ?>;
 	font-size: 3.5rem;
 	font-weight: 600;
@@ -362,7 +360,6 @@
 }	
 	
 	.single-service .fullwidth-hero-3 .col p {
-	<!--opacity: 0;-->
 	color: <?php echo esc_attr($services_description_color); ?>;
 	font-size: 1.25rem;
 	font-weight: 300;
