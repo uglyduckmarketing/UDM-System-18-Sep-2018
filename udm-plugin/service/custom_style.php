@@ -8,13 +8,14 @@
     --global_dark-color: <?php echo (get_option('udm_global_dark')!="" ? get_option('udm_global_dark') : "#252525"); ?>; 
 }
 <?php
+	
 	if(get_post_meta( $_GET['id'], 'udm_service_option', true )!="")
 	{
 		$layout=get_post_meta( $_GET['id'], 'udm_service_option', true );
 	}
 	else
 	{
-		$layout='';
+		$layout=get_option('udm_service_default');
 	}
 	$data=unserialize(get_option('service_layout_'.$layout));
 

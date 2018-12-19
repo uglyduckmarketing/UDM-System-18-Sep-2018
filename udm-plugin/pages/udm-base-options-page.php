@@ -120,6 +120,21 @@
 								?>
 						</select>
 					</li>
+					<li><h4>Select Default Service: </h4>
+						<select name="udm_service_default">
+							<option value="">Default Service</option>
+							<?php  
+							
+								global $wpdb;
+								$layouts=$wpdb->get_col( "SELECT option_name FROM ".$wpdb->prefix."options WHERE option_name LIKE 'service_layout_%'");
+								foreach($layouts as $layout){
+							?>
+								<option value="<?php echo str_replace("service_layout_","",$layout); ?>" <?php selected(str_replace("service_layout_","",$layout),get_option('udm_service_default')); ?>><?php echo str_replace("_"," ", str_replace("service_layout_","",$layout)); ?></option>
+							<?php	
+								}
+							?>
+						</select>
+					</li>
 					<li><h4>Select Default Gallery Layout: </h4>
 						<select name="udm_gallery_layout_default">
 							<option value="">Select Layout</option>

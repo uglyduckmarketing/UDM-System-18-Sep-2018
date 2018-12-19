@@ -119,6 +119,7 @@ function udm_footer_cta_options_page_func(){
  
  register_setting("section", "udm_header_default");
  register_setting("section", "udm_submenu_default");
+ register_setting("section", "udm_service_default");
  register_setting("section", "udm_google_map_key");
  register_setting("section", "udm_footer_default");
  register_setting("section", "udm_hero_default");
