@@ -5,7 +5,7 @@
 
 //Admin Scripts
 define('VERSION','1.0');
-add_action( 'admin_head', 'wp_admin_header_scripts' );
+add_action( 'admin_head', 'wp_admin_header_scripts' ); 
 function wp_admin_header_scripts( $hook_suffix ) {
 	//wp_enqueue_style( 'udm-bootstrap', get_template_directory_uri() . '/udm-plugin/css/bootstrap-min.css' );
     wp_enqueue_style( 'udm-fontawesome', get_template_directory_uri() . '/udm-plugin/css/font-awesome.css' );
@@ -48,6 +48,7 @@ add_action("admin_menu", "add_theme_menu_item");
 
 // Dashboard Page
 function udm_dashboard_page_func(){
+	
   include(dirname(__FILE__) .'/pages/udm-dashboard-page.php');
 }
 
@@ -57,7 +58,7 @@ function udm_base_options_page_func(){
 }
 
 // Header Options Page
-function udm_header_options_page_func(){
+function udm_header_options_page_func(){	
   include(dirname(__FILE__) .'/pages/udm-header-options-page.php');
 }
 

@@ -265,8 +265,9 @@ function udm_service_benifits_display($post){
 			</table>
 			<ul class="hl clearfix repeater-footer addrow-btn">
 				<li class="right">
-					<a href="#" oid="" tid="tabs-" class="tr_clone_add own-button ">Add Benifit</a>
+					<a href="#" oid="" tid="tabs-" class="tr_clone_add own-button button button-primary button-large ">Add Benifit</a>
 				</li>
+				<div class="clearfix"></div>	
 			</ul>
 	</div>
 <script>
@@ -467,8 +468,9 @@ function udm_service_breakdown_display($post){
 			</table>
 			<ul class="hl clearfix repeater-footer addrow-btn">
 				<li class="right">
-					<a href="#" oid="" tid="tabs-" class="tr_clone_service own-button ">Add Row</a>
+					<a href="#" oid="" tid="tabs-" class="tr_clone_service own-button button button-primary button-large">Add Row</a>
 				</li>
+				<div class="clearfix"></div>
 			</ul>
 	</div>
 <script>
@@ -1061,9 +1063,10 @@ function udm_all_gallery_display($post){
 	<div class="my-gallery_footer">	
 	<ul class="hl clearfix repeater-footer addrow-btn">
 		<li class="right">
-			<a href="#" oid="" tid="tabs-" class="button add-image">Add Gallery</a>
+			<a href="#" oid="" tid="tabs-" class="button add-image button button-primary button-large">Add Gallery</a>
 		</li>
-	</ul>
+		<div class="clearfix"></div>
+	</ul> 
 	</div>	 
 <script>
 $( function() {
