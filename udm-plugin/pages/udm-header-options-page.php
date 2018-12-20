@@ -23,9 +23,10 @@
 			echo "<h6 style='color: red; padding: 20px 0 10px 5px;'>You can't add same name layout. Please add different layout name.</h6>"; 
 		}
 	}
+	
+	
 	if(isset($_POST['header_editlayout_submit']))  //check if "header_createlayout_submit" submit button is clicked
 	{
-		
 		$header_layout = serialize($_POST);  // Get form fields data
 			if($_POST["header_layout_template"]=="1")
 		{
