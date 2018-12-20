@@ -82,7 +82,7 @@ width: 100%;height: 100%;z-index: 999;display:none;}
 /* #title-wrap #title-prompt-text {
 	font-size: 1.1em;
 	padding: 9px 8px;
-} */ 
+}  
 #publishing-action .button {
 	background: #4687E4;
 	border: 1px solid #4687E4;
@@ -100,7 +100,7 @@ width: 100%;height: 100%;z-index: 999;display:none;}
 .wrap .wp-heading-inline+.page-title-action:hover {
 	background: #4687E4;
 	color: #fff;
-}
+}*/
 #slider_options-slider-options input, #slider_options-slider-options textarea {
 	width: 100% !important;
 }
@@ -337,7 +337,7 @@ ul.tabs li.current {
 /* Inputs
 ------------------------------ */
 
-input[type="text"], input[type="password"], input[type="checkbox"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="radio"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[type="search"], select, textarea {
+/*input[type="text"], input[type="password"], input[type="checkbox"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="radio"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[type="search"], select, textarea {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	background-color: #fff;
@@ -347,9 +347,9 @@ input[type="text"], input[type="password"], input[type="checkbox"], input[type="
 	-webkit-transition: 50ms border-color ease-in-out;
 	transition: 50ms border-color ease-in-out;
 	border-radius: 2px;
-}
+}*/
 .own-fields input[type="text"], .own-fields select{width: 100%;padding: 3px 5px;resize: none;margin: 0;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;font-size: 14px;line-height: 1.4;}
-.own-fields .own_fields{padding: 15px 12px;}
+/* .own-fields .own_fields{padding: 15px 12px;} */
 /*input[type="text"]:focus, input[type="password"]:focus, input[type="checkbox"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="radio"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, input[type="search"]:focus, select:focus, textarea:focus {
 	border: 1px solid #A0A5AA;
 	-webkit-box-shadow: none;
@@ -565,9 +565,9 @@ border:1px solid #ddd !important;
 }
 
 
-.wp-core-ui .button.button-small {
+/*.wp-core-ui .button.button-small {
     height:40px;
-}
+}*/
 
 #udm_call_phone_txt{
     margin-bottom:8px;
@@ -825,9 +825,9 @@ span.wp-color-result-text{
 	color:#fff!important;
 }
     
-.dropdown-menu.show{
+/* .dropdown-menu.show{
 	top:-12px !important;
-}
+} */
     
 .arrow-down {
 width: 0;
@@ -1154,6 +1154,10 @@ display:flex;
 .create_new_header_button .custom_design_dropdown{
     padding-right:15px;
 }
+.custom_design_dropdown .dropdown-menu{position: absolute;top: -140px!important;left: 0px;z-index: 1000;display: none;float: left;min-width: 10rem;padding: 0.5rem 0px;margin: 0.125rem 0px 0px;font-size: 1rem;color: rgb(33, 37, 41);text-align: left;list-style: none;background-clip: padding-box;border: 1px solid rgba(0, 0, 0, 0.15);border-radius: 0.25rem;width: auto;transform:none!important;will-change: initial!important;}
+.custom_design_dropdown{position:relative;}
+.custom_design_dropdown .dropdown-menu.show{display:block;}
+.custom_design_dropdown .dropdown-menu.show a.dropdown-item{display:block;text-decoration:none;}
 .header_type_style input[type="number"], #nav_settings input[type="number"]{
     padding:5px;
     width:150px;
@@ -1907,10 +1911,10 @@ select#editright_side_widget{
 #poststuff .postbox-container table.mcf-input-table tr td.remove a i{color: #999;border:1px solid #BBB;background-color: transparent;transition: none;border-radius: 50%;padding: 3px 2px 2px;line-height: 11px;font-size: 13px;}  
 #poststuff .postbox-container table.mcf-input-table tr td.remove a:hover, #poststuff .postbox-container table.mcf-input-table tr td.remove a:focus{outline:none;}
 #poststuff .postbox-container table.mcf-input-table tr td.remove a:hover i{color:#fff;border:1px solid #ff0000;background-color:#ff0000;} 
-#poststuff .postbox-container .addrow-btn{margin: 10px 0px;}
+#poststuff .postbox-container .addrow-btn{margin: 10px 0px 0px;}
 #poststuff .postbox-container .addrow-btn li{float: right;}
-#poststuff .postbox-container .addrow-btn li a{font-size: 16px;line-height: 40px;height: 44px;background-color: #4c8cde;border: none;color: #fff;display: inline-block;padding: 2px 15px;box-shadow: 1px 2px 3px #c3bcbc;transition: all .3s ease;border-radius: 3px;} 
-#poststuff .postbox-container .addrow-btn li a:hover{text-decoration:none;}
+/*#poststuff .postbox-container .addrow-btn li a{font-size: 16px;line-height: 40px;height: 44px;background-color: #4c8cde;border: none;color: #fff;display: inline-block;padding: 2px 15px;box-shadow: 1px 2px 3px #c3bcbc;transition: all .3s ease;border-radius: 3px;} 
+#poststuff .postbox-container .addrow-btn li a:hover{text-decoration:none;}*/
 .own_input_field_text .switch-field input:checked + label{background-color: #4c8cde;color:#fff;} 
 #poststuff .own-fields .colorchange select, #poststuff .own-fields .colorchange input,  #poststuff .own-fields textarea{width:100%!important;}
 #poststuff .own_fields.own_input_field_text .has-image{position:relative;display: inline-block;}
@@ -1924,3 +1928,4 @@ select#editright_side_widget{
 .my-gallery_box {width: 100%;height: 360px;overflow-x: auto;}
 .my-gallery_box .has-image .img_hover a{position: absolute;top: 3px;right: 4px;border-color: transparent; background: #23282D;color: #eee;height: 26px;width: 26px;display: inline-block;border-radius: 50%;padding: 3px 4px;text-align: center;}
 .my-gallery_box .has-image{position: relative;}
+.clearfix{clear:both;display:block;float:none;}
