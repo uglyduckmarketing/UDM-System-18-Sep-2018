@@ -58,6 +58,18 @@ include '../../../../../../../wp-load.php';
 	<li class="topbarwiget">
 		<h2>Top Bar Widget</h2>
 		<ul id="topbar_layouts">
+			<li><h3>Navigation: </h3>
+				<select name="navigation_top" id="navigation">
+					<option value="">Select Menu</option>
+					<?php $menus=wp_get_nav_menus();
+						foreach( $menus as $item ) {
+					?>
+					<option value="<?php echo esc_attr($item->slug);  ?>"> <?php echo esc_attr($item->name);  ?></option>
+					<?php
+						}
+					?>
+				</select>
+			</li>
 			<?php
 				include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
 			?>

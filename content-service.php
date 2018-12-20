@@ -162,7 +162,7 @@ else
 }
 $data=unserialize(get_option('service_layout_'.$layout));
 $show_related = isset($data['show_related']) ? $data['show_related'] : 'yes';
-if($data['show_related'] == 'yes'){ 
+if($show_related == 'yes'){ 
 	$related_number = isset($data['related_show_post']) ? $data['related_show_post'] : 3;
 ?>
 <section class="service_related" >

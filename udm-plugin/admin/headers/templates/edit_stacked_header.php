@@ -63,6 +63,18 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<li class="topbarwiget">
 				<h2>Top Bar Widget</h2>
 				<ul id="topbar_layouts">
+					<li><h3>Navigation: </h3>
+						<select name="navigation_top" id="navigation">
+							<option value="">Select Menu</option>
+							<?php $menus=wp_get_nav_menus();
+								foreach( $menus as $item ) {
+							?>
+							<option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation_top'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
+							<?php
+								}
+							?>
+						</select>
+					</li>
 					<?php
 						if($data['top_bar_style']!="")
 						{
