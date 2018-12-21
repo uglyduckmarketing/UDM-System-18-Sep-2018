@@ -162,7 +162,7 @@ function udm_service_options() {
     
     );
 }
-add_action( 'add_meta_boxes', 'udm_related_service_meta',1 );
+//add_action( 'add_meta_boxes', 'udm_related_service_meta',1 );
 add_action( 'add_meta_boxes', 'udm_benifit_service_meta',2 );
 add_action( 'add_meta_boxes', 'udm_breakdown_service_meta',3 );
 add_action( 'add_meta_boxes', 'udm_cta_service_meta',4 );
@@ -796,24 +796,14 @@ function udm_service_cta_display($post){
 	?>
 	<div class="inside own-fields">
 		<div class="own_fields own_input_field_text">
-			<label>CTA Eyebrow</label>
-			<div class="own_label">
-				<input type="text" name="service_cta[cta_eyebrow]" value="<?php echo isset($cmeta['cta_eyebrow']) ? $cmeta['cta_eyebrow'] : ''; ?>">
-			</div>
+			<label for="service_cta[cta_show]">CTA Section Hide</label>
+			<br>
+			<span class="switch">
+					<input type="checkbox" name="service_cta[cta_show]" class="switch" id="service_cta[cta_show]" value="yes" <?php checked('yes', isset($cmeta['cta_show']) ? $cmeta['cta_show'] : ''); ?>>
+					<label for="service_cta[cta_show]">Show/Hide</label>
+				</span>
 		</div>
-		<div class="own_fields own_input_field_text">
-			<label>CTA Heading</label>
-			<div class="own_label">
-				<input type="text" name="service_cta[cta_heading]" value="<?php echo isset($cmeta['cta_heading']) ? $cmeta['cta_heading'] : ''; ?>">
-			</div>
-		</div>
-		<?php $ctaheading = isset($cmeta['cta_description']) ? $cmeta['cta_description'] : ''; ?>
-		<div class="own_fields own_input_field_text">
-			<label>CTA Description</label>
-			<div class="own_label">
-				<?php wp_editor( wp_specialchars_decode($ctaheading), 'cta_description', $settings = array('textarea_name'=>'service_cta[cta_description]','textarea_rows' => 15) ); ?>
-			</div>
-		</div>
+		<?php /*
 		<div class="own_fields own_input_field_text">
 			<label>Choose Button/Form</label>
 			<div class="own_label">
@@ -849,7 +839,7 @@ function udm_service_cta_display($post){
 				</select>
 			</div>
 				<?php }else{ echo '<div class="own_label"> Ninja Form Plugin Required</div>'; } ?>
-		</div>
+		</div> */ ?>
 	</div>
 	<script>
 	jQuery(document).ready(function($){
