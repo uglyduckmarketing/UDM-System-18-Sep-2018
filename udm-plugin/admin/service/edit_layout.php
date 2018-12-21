@@ -325,6 +325,19 @@ $data=unserialize(get_option('service_layout_'.$layout));
 		</h2>
 
 	<ul id="servicectasettings" class="hero_type_style collapse show basic_hero">
+		<li>
+			<h3>Eyebrow Text: </h3>
+			<input type="text" name="cta_eyebrow" value="<?php echo isset($data['cta_eyebrow']) ? $data['cta_eyebrow'] : ''; ?>">
+		</li>
+		<li>
+			<h3>Heading Text: </h3>
+			<input type="text" name="cta_heading" value="<?php echo isset($data['cta_heading']) ? $data['cta_heading'] : ''; ?>">
+		</li>
+		<?php $ctaheading = isset($data['cta_description']) ? $data['cta_description'] : ''; ?>
+		<li>
+			<h3>Description: </h3>
+			<textarea rows="5" style="width: 74%;" name="cta_description"><?php echo $ctaheading; ?></textarea>
+		</li>
 		<li class="colorchange"><h3>CTA Eyebrow: </h3>
 			<select name="cta_eyebrow_color" id="cta_eyebrow_color">
 				<option value="primary" <?php selected('primary',$data['cta_eyebrow_color']); ?>>Primary</option>
@@ -457,6 +470,24 @@ $data=unserialize(get_option('service_layout_'.$layout));
 		</h2>
 		<ul id="relatedsettings" class="hero_type_style collapse show basic_hero">
 			<li>
+				<h3>Eybrow Text:</h3>
+				<div class="own_fields own_input_field_text">
+					<input type="text" id="" name="related_eybrow_text" value="<?php  echo isset($data['related_eybrow_text']) ? $data['related_eybrow_text'] : '';  ?>" />
+				</div>
+			</li>
+			<li>
+				<h3>Header Text:</h3>
+				<div class="own_fields own_input_field_text">
+					<input type="text" id="" name="related_header_text" value="<?php  echo isset($data['related_header_text']) ? $data['related_header_text'] : '';  ?>" />
+				</div>
+			</li>
+			<li>
+				<h3>Description:</h3>
+				<div class="own_fields own_input_field_text">
+					<textarea rows="5" style="width: 74%;" name="related_description"><?php  echo isset($data['related_description']) ? $data['related_description'] : '';  ?></textarea>
+				</div>
+			</li>
+			<li>
 			<?php  $show_related = isset($data['show_related']) ? $data['show_related'] : '';  ?>
 				<h3>Show Related: </h3>
 				<div class="own_fields own_input_field_text">
@@ -467,7 +498,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				<input type="radio" id="switch_right" name="show_related" value="no" <?php if($show_related == 'no'){ echo 'checked'; } ?> />
 					<label for="switch_right">No</label>
 				</div>
-		</div>
+				</div>
 			</li>
 			<li class="colorchange"><h3>Related Eyebrow: </h3>
 				<select name="related_eyebrow_color" id="related_eyebrow_color">

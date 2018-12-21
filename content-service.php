@@ -170,8 +170,8 @@ if($show_related == 'yes'){
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<?php 
-					echo isset($rmeta['related_eyebrow']) ? '<span class="eyebrow" style="">'.$rmeta['related_eyebrow'].'</span>' : '';
-					echo isset($rmeta['related_heading']) ? '<h2 class="heading" style="">'.$rmeta['related_heading'].'</h2>' : ''; 
+					echo isset($data['related_eybrow_text']) ? '<span class="eyebrow" style="">'.$data['related_eybrow_text'].'</span>' : '';
+					echo isset($data['related_header_text']) ? '<h2 class="heading" style="">'.$data['related_header_text'].'</h2>' : ''; 
 				?>
 				<div class="row mrtop_60"> 
 				<?php 
@@ -206,6 +206,9 @@ if($show_related == 'yes'){
 					</div> 
 <?php endwhile; endif; wp_reset_postdata(); } ?>
 			</div>
+			<?php 
+					echo isset($data['related_description']) ? '<div class="related_desc"><p>'.nl2br($data['related_description']).'</p></div>' : ''; 
+					?>
 			</div>
 		</div>
 	</div>

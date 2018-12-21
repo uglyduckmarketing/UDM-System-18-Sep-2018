@@ -10,31 +10,31 @@ $datas=unserialize(get_option('service_layout_'.$layout));
 <section class="get_in_splitscreen back">
     <div class="container-fluid">
         <div class="row">
-            <div class="col col-lg-6 p1-left align-self-stretch <?php if($cta['choose_btn_form'] == 'form'){ echo "form_text"; } else if($data['element_type']=="form"){ echo "form_text"; }else if($data['element_type']=="image"){ echo "mobbackimage"; } ?>">
+            <div class="col col-lg-6 p1-left align-self-stretch <?php if($datas['cta_choose_button_form'] == 'form'){ echo "form_text"; } else if($data['element_type']=="form"){ echo "form_text"; }else if($data['element_type']=="image"){ echo "mobbackimage"; } ?>">
                 <div class="main_content_box">
-				<?php if(isset($cta['choose_btn_form']) && $cta['choose_btn_form'] == 'form'){ 
-					echo do_shortcode('[ninja_form id='.$cta['choose_ninja_form'].']');
+				<?php if(isset($datas['cta_choose_button_form']) && $datas['cta_choose_button_form'] == 'form'){ 
+					echo do_shortcode('[ninja_form id='.$datas['cta_choose_ninja_form'].']');
 				}else {?>
                     <div class="fullwidth_content">
 					
-						<?php if(isset($cta) && isset($cta['cta_eyebrow']) && $cta['cta_eyebrow'] != ''){ echo '<span class="eyebrow" style="">'.$cta['cta_eyebrow'].'</span>'; } ?>
-                        <h2><?php if(isset($cta) && isset($cta['cta_heading']) && $cta['cta_heading'] != ''){ echo esc_attr($cta['cta_heading']); }else if($data['title_text']!=""){ echo esc_attr($data['title_text']); }else{ ?>An intelligent design platform build for<br>every type of industry.<?php } ?></h2>
-                        <p><?php if(isset($cta) && isset($cta['cta_description']) &&  $cta['cta_description'] != ''){ echo esc_attr($cta['cta_description']); } else if($data['description_text']!=""){ echo esc_attr($data['description_text']); }else{ ?>We design and build the tools necessary to compete and win<br>in the digital marketplace.<?php } ?></p>
+						<?php if(isset($datas) && isset($datas['cta_eyebrow']) && $datas['cta_eyebrow'] != ''){ echo '<span class="eyebrow" style="">'.$datas['cta_eyebrow'].'</span>'; } ?>
+                        <h2><?php if(isset($datas) && isset($datas['cta_heading']) && $datas['cta_heading'] != ''){ echo esc_attr($datas['cta_heading']); }else if($data['title_text']!=""){ echo esc_attr($data['title_text']); }else{ ?>An intelligent design platform build for<br>every type of industry.<?php } ?></h2>
+                        <p><?php if(isset($datas) && isset($datas['cta_description']) &&  $datas['cta_description'] != ''){ echo esc_attr($datas['cta_description']); } else if($data['description_text']!=""){ echo esc_attr($data['description_text']); }else{ ?>We design and build the tools necessary to compete and win<br>in the digital marketplace.<?php } ?></p>
                     </div>
                     <?php
-					if(get_post_meta($post->ID, 'service_cta', true) != '' && $cta['cta_button_text'] != '' && $cta['cta_button_link'] != ''){
-						$cta = get_post_meta($post->ID, 'service_cta', true);
-						if($cta['cta_button_link'] != ''){
-							$scheme = parse_url( $cta['cta_button_link'], PHP_URL_SCHEME);
+					if($datas['cta_button_text'] != '' && $datas['cta_button_link'] != ''){
+					
+						if($datas['cta_button_link'] != ''){
+							$scheme = parse_url( $datas['cta_button_link'], PHP_URL_SCHEME);
 							if( !in_array( $scheme, array( 'http', 'https'))){
-								$url="http://".$cta['cta_button_link'];
+								$url="http://".$datas['cta_button_link'];
 							}
 							else
 							{
-								$url=$cta['cta_button_link'];
+								$url=$datas['cta_button_link'];
 							}
 						}
-						if($cta['cta_button_text'] != ''){ $button = $cta['cta_button_text']; }else if($data['button_text']!=""){ $button = $data['button_text']; }else{ $button = 'Get Started'; }
+						if($datas['cta_button_text'] != ''){ $button = $datas['cta_button_text']; }else if($data['button_text']!=""){ $button = $data['button_text']; }else{ $button = 'Get Started'; }
 					}
 					else if(get_post_meta($post->ID, 'udm_service_option', true )!="" && $datas['cta_button_link'] != '' && $datas['cta_button_text'] != '')
 					{

@@ -332,6 +332,19 @@ $data=unserialize(get_option('service_layout_'.$layout));
 		</h2>
 
 	<ul id="servicectasettings" class="hero_type_style collapse show basic_hero">
+		<li>
+			<h3>Eyebrow Text: </h3>
+			<input type="text" name="cta_eyebrow" value="">
+		</li>
+		<li>
+			<h3>Heading Text: </h3>
+			<input type="text" name="cta_heading" value="">
+		</li>
+	
+		<li>
+			<h3>Description: </h3>
+			<textarea rows="5" style="width: 74%;" name="related_description"></textarea>
+		</li>
 		<li class="colorchange"><h3>CTA Eyebrow: </h3>
 			<select name="cta_eyebrow_color" id="cta_eyebrow_color">
 				<option value="primary">Primary</option>
@@ -458,6 +471,24 @@ $data=unserialize(get_option('service_layout_'.$layout));
 			<a href="javascript:void(0);" data-toggle="collapse" data-target="#relatedsettings">Related Services</a>
 		</h2>
 		<ul id="relatedsettings" class="hero_type_style collapse show basic_hero">
+			<li>
+				<h3>Eybrow Text:</h3>
+				<div class="own_fields own_input_field_text">
+					<input type="text" id="" name="related_eybrow_text" value="" />
+				</div>
+			</li>
+			<li>
+				<h3>Header Text:</h3>
+				<div class="own_fields own_input_field_text">
+					<input type="text" id="" name="related_header_text" value="" />
+				</div>
+			</li>
+			<li>
+				<h3>Description:</h3>
+				<div class="own_fields own_input_field_text">
+					<textarea rows="5" style="width: 74%;" name="related_description"></textarea>
+				</div>
+			</li>
 			<li>
 				<h3>Show Related: </h3>
 				<span class="switch">
