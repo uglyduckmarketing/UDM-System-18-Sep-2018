@@ -370,7 +370,8 @@ function udm_service_breakdown_display($post){
 							<div class="own_fields own_input_field_text">
 								<label>Description Heading</label>
 								<div class="own_label">
-									<input type="text" id="service_desc_heading" class="text " name="breakdown[<?php echo esc_attr($i); ?>][service_break_<?php echo esc_attr($i); ?>_heading]" value="<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_heading']); ?>" >
+									<input type="text" id="service_desc_heading<?php echo $x; ?>" class="text descrip_head" name="breakdown[<?php echo esc_attr($i); ?>][service_break_<?php echo esc_attr($i); ?>_heading]" value="<?php echo esc_attr($bkmeta[$i]['service_break_'.$i.'_heading']); ?>" >
+									<span id="service_desc_heading<?php echo $x; ?>"></span>
 								</div>			
 							</div>	
 							<?php
@@ -378,8 +379,9 @@ function udm_service_breakdown_display($post){
 							?>
 							<div class="own_fields own_input_field_text">
 								<label>Breakdown Text</label>
-								<div class="own_label">
-									<?php wp_editor( wp_specialchars_decode($desc), 'service_breakdown_text'.$x, $settings = array('textarea_name'=>'breakdown['.$i.'][service_break_'.$i.'_text]','textarea_rows' => 15) ); ?>
+								<div class="own_label breakdowneditior">
+									<?php wp_editor( wp_specialchars_decode($desc), 'service_breakdown_text'.$x, $settings = array('textarea_name'=>'breakdown['.$i.'][service_break_'.$i.'_text]','textarea_rows' => 15,'maxlength'=>"50") ); ?>
+									<span id="service_breakdown_text<?php echo $x; ?>"></span>
 								</div>			
 							</div>
 							<div class="own_fields own_input_field_text">
@@ -426,13 +428,15 @@ function udm_service_breakdown_display($post){
 							<div class="own_fields own_input_field_text">
 								<label>Description Heading</label>
 								<div class="own_label">
-									<input type="text" id="service_desc_heading" class="text " name="" value="" >
+									<input type="text" id="service_desc_heading" class="text breakheding" name="" value="" >
+									<span class="deshe"></span>
 								</div>			
 							</div>	
 							<div class="own_fields own_input_field_text">
 								<label>Breakdown Text</label>
 								<div class="own_label texteditor">
-									<textarea id="breakdowntex" rows="15"></textarea>
+									<textarea id="breakdowntex" class="breakdowntexte" rows="15"></textarea>
+									<span class="brshe"></span>
 								</div>			
 							</div>
 							<div class="own_fields own_input_field_text">
@@ -475,6 +479,64 @@ function udm_service_breakdown_display($post){
 	</div>
 <script>
 $( function() {
+	var minLength = 70;
+	var maxLength = 70;
+	var minLength1 = 5;
+	var maxLength1 = 15;
+	$('.descrip_head').on('keydown keyup change', function(){
+        var char = $(this).val();
+        var ids = $(this).attr('id');
+        var charLength = $(this).val().length;
+        if(charLength < minLength1){
+            $('span#'+ids).text('Length is short, minimum '+minLength1+' required.');
+        }else if(charLength > maxLength1){
+            $('span#'+ids).text('Length is not valid, maximum '+maxLength1+' allowed.');
+            $(this).val(char.substring(0, maxLength1));
+        }else{
+            $('span#'+ids).text('Length is valid');
+        }
+    });
+	$('.breakdowneditior .wp-editor-area').on('keydown keyup change', function(){
+        var char = $(this).val();
+        var ids = $(this).attr('id');
+        var charLength = $(this).val().length;
+        if(charLength < minLength){
+            $('span#'+ids).text('Length is short, minimum '+minLength+' required.');
+        }else if(charLength > maxLength){
+            $('span#'+ids).text('Length is not valid, maximum '+maxLength+' allowed.');
+            $(this).val(char.substring(0, maxLength));
+        }else{
+            $('span#'+ids).text('Length is valid');
+        }
+    });
+	$(document).delegate('.breakheding','keydown keyup change', function(){
+        var char = $(this).val();
+        var ids = $(this).attr('dataid');
+        var charLength = $(this).val().length;
+        if(charLength < minLength1){
+            $('span#'+ids).text('Length is short, minimum '+minLength1+' required.');
+        }else if(charLength > maxLength1){
+            $('span#'+ids).text('Length is not valid, maximum '+maxLength1+' allowed.');
+            $(this).val(char.substring(0, maxLength1));
+        }else{
+            $('span#'+ids).text('Length is valid');
+        }
+    });
+	
+	$(document).delegate('.breakdowntexte','keydown keyup change', function(){
+        var char = $(this).val();
+        var ids = $(this).attr('dataid');
+        var charLength = $(this).val().length;
+        if(charLength < minLength){
+            $('span#'+ids).text('Length is short, minimum '+minLength+' required.');
+        }else if(charLength > maxLength){
+            $('span#'+ids).text('Length is not valid, maximum '+maxLength+' allowed.');
+            $(this).val(char.substring(0, maxLength));
+        }else{
+            $('span#'+ids).text('Length is valid');
+        }
+    });
+	
 	$('.breakdown_color_fields').each(function(){
 		$(this).wpColorPicker();
 	});
@@ -578,6 +640,10 @@ function arrangeSno()
 		$(this).find("#button_title").attr('name',"breakdown["+x+"][button_"+x+"_title]");
 		$(this).find("#button_link").attr('name',"breakdown["+x+"][button_"+x+"_link]");
 		$(this).find("#breakdowntex").attr('name',"breakdown["+x+"][service_break_"+x+"_text]");
+		$(this).find("#breakdowntex").attr('dataid',"servicetext"+x);
+		$(this).find("#service_desc_heading").attr('dataid',"servicehead"+x);
+		$(this).find(".brshe").attr('id',"servicetext"+x);
+		$(this).find(".deshe").attr('id',"servicehead"+x);
 		$(this).find("#service_desc_heading").attr('name',"breakdown["+x+"][service_break_"+x+"_heading]");
 		$(this).find("#service_desc_eyebrow").attr('name',"breakdown["+x+"][service_break_"+x+"_eyebrow]");
 		$(this).find("#breakdowncolors").attr('name',"breakdown["+x+"][service_break_"+x+"_color]");
@@ -892,6 +958,7 @@ function save_service_cta_meta( $post_id ) {
             }  
         }
     }
+	delete_post_meta( $post_id, 'service_cta');
 	if (isset($_POST['service_cta'])) { //Fix 3
 			$new = $_POST['service_cta'];
 				update_post_meta( $post_id, 'service_cta', $new );

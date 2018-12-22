@@ -1,10 +1,15 @@
 <?php
-$layout=get_option('udm_footer_cta_default');
-$data=unserialize(get_option("footer_cta_layout_".$layout));
 global $post,$wpdb;
-$cta = get_post_meta($post->ID, 'service_cta', true);
- $layout=get_post_meta( $post->ID, 'udm_service_option', true );
-$datas=unserialize(get_option('service_layout_'.$layout));
+ $layout1=get_post_meta( $post->ID, 'udm_service_option', true );
+	$layout=get_option('udm_footer_cta_default');
+	$data = unserialize(get_option("footer_cta_layout_".$layout));
+ if($layout1 == ''){
+	 $layout=get_option('udm_service_default');
+	 $datas=unserialize(get_option('service_layout_'.$layout));
+ }else{
+	 $datas=unserialize(get_option('service_layout_'.$layout1));
+ }
+
 ?>
 <!--get_in_splitscreen--->
 <section class="get_in_splitscreen back">
