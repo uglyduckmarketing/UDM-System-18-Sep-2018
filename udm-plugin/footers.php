@@ -2,13 +2,35 @@
 
 		if(strpos(get_option('udm_footer_cta_default'), 'Fullwidth_CTA_') !== false){
 			$layout=get_option('udm_footer_cta_default');
-			include get_template_directory() . '/udm-plugin/footer-cta/fullwidth-cta/index.php';
+				global $post,$wpdb;
+			$posttype = get_post_type();
+			$cta = get_post_meta($post->ID, 'service_cta', true);
+			if($posttype == 'service'){
+				if(isset($cta) && $cta['cta_show'] == 'yes' ){
+						include get_template_directory() . '/udm-plugin/footer-cta/fullwidth-cta/index.php';
+				}else{
+				
+				}
+			}else{
+				include get_template_directory() . '/udm-plugin/footer-cta/fullwidth-cta/index.php';
+			}
+			
 		}
 		else if(strpos(get_option('udm_footer_cta_default'), 'Split_CTA_') !== false)
 		{
 			$layout=get_option('udm_footer_cta_default');
-			include get_template_directory() . '/udm-plugin/footer-cta/split-cta/index.php';
-			
+			global $post,$wpdb;
+			$posttype = get_post_type();
+			$cta = get_post_meta($post->ID, 'service_cta', true);
+			if($posttype == 'service'){
+				if(isset($cta) && $cta['cta_show'] == 'yes' ){
+						include get_template_directory() . '/udm-plugin/footer-cta/split-cta/index.php';
+				}else{
+				
+				}
+			}else{
+				include get_template_directory() . '/udm-plugin/footer-cta/split-cta/index.php';
+			}
 		}
 		
 	get_template_part( 'udm-plugin/footers/index');

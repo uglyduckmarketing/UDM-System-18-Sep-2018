@@ -101,6 +101,95 @@
 				$button_text_color="var(--global_dark-color)";
 			}
 			$height="650px";
+		}else if(get_post_meta( $_GET['id'], 'udm_service_option', true ) == "")
+		{
+			 $layout=get_option('udm_service_default');
+			$datamy=unserialize(get_option('service_layout_'.$layout));	
+			
+			if($datamy['background_type']=="image")
+			{
+				$background="url('".$datamy['background_image']."')";
+			}
+			else
+			{
+				if($datamy['cta_background_color']=="custom")
+				{
+					$background=$datamy['cta_background_custom_color'];
+				}
+				else if($datamy['cta_background_color']!="")
+				{
+					$background="var(--".$datamy['cta_background_color']."-color)";
+				}
+				else
+				{
+					$background="var(--global_dark-color)";
+				} 
+			}
+			
+			if($datamy['cta_eyebrow_color']=="custom")
+			{
+				$cta_eyebrow_color=$datamy['cta_eyebrow_custom_color'];
+			}
+			else if($datamy['cta_eyebrow_color']!="")
+			{
+				$cta_eyebrow_color="var(--".$datamy['cta_eyebrow_color']."-color)";
+			}
+			else
+			{
+				$cta_eyebrow_color="var(--global_dark-color)";
+			} 
+			if($datamy['cta_heading_color']=="custom")
+			{
+				$title_text_color=$datamy['cta_heading_custom_color'];
+			}
+			else if($datamy['cta_heading_color']!="")
+			{
+				$title_text_color="var(--".$datamy['cta_heading_color']."-color)";
+			}
+			else
+			{
+				$title_text_color="var(--global_dark-color)";
+			} 
+			
+			if($datamy['cta_description_color']=="custom")
+			{
+				$desc_text_color=$datamy['cta_description_custom_color'];
+			}
+			else if($datamy['cta_description_color']!="")
+			{
+				$desc_text_color="var(--".$datamy['cta_description_color']."-color)";
+			}
+			else
+			{
+				$desc_text_color="var(--global_dark-color)";
+			}
+			
+			if($datamy['cta_button_color']=="custom")
+			{
+				$button_color=$datamy['cta_button_custom_color'];
+			}
+			else if($datamy['cta_button_color']!="")
+			{
+				$button_color="var(--".$datamy['cta_button_color']."-color)";
+			}
+			else
+			{
+				$button_color="var(--global_dark-color)";
+			}
+			
+			if($datamy['cta_button_text_color']=="custom")
+			{
+				$button_text_color=$datamy['cta_button_text_custom_color'];
+			}
+			else if($datamy['cta_button_text_color']!="")
+			{
+				$button_text_color="var(--".$datamy['cta_button_text_color']."-color)";
+			}
+			else
+			{
+				$button_text_color="var(--global_dark-color)";
+			}
+			$height="650px";
 		}
 		else
 		{
@@ -333,7 +422,89 @@
 			{
 				$button_text_color="var(--global_dark-color)";
 			}
-		}else{
+		}
+		else if(get_post_meta( $_GET['id'], 'udm_service_option', true ) =="")
+		{
+			$layout=get_option('udm_service_default');
+			$data=unserialize(get_option('service_layout_'.$layout));
+			if($data['cta_background_color']=="custom")
+			{
+				$background=$data['cta_background_custom_color'];
+			}
+			else if($data['cta_background_color']!="")
+			{
+				$background="var(--".$data['cta_background_color']."-color)";
+			}
+			else
+			{
+				$background="var(--global_dark-color)";
+			} 
+			
+			if($data['cta_eyebrow_color']=="custom")
+			{
+				$cta_eyebrow_color=$data['cta_eyebrow_custom_color'];
+			}
+			else if($data['cta_eyebrow_color']!="")
+			{
+				$cta_eyebrow_color="var(--".$data['cta_eyebrow_color']."-color)";
+			}
+			else
+			{
+				$cta_eyebrow_color="var(--global_dark-color)";
+			} 
+			if($data['cta_heading_color']=="custom")
+			{
+				$title_text_color=$data['cta_heading_custom_color'];
+			}
+			else if($data['cta_heading_color']!="")
+			{
+				$title_text_color="var(--".$data['cta_heading_color']."-color)";
+			}
+			else
+			{
+				$title_text_color="var(--global_dark-color)";
+			} 
+			
+			if($data['cta_description_color']=="custom")
+			{
+				$desc_text_color=$data['cta_description_custom_color'];
+			}
+			else if($data['cta_description_color']!="")
+			{
+				$desc_text_color="var(--".$data['cta_description_color']."-color)";
+			}
+			else
+			{
+				$desc_text_color="var(--global_dark-color)";
+			}
+			
+			if($data['cta_button_color']=="custom")
+			{
+				$button_color=$data['cta_button_custom_color'];
+			}
+			else if($data['cta_button_color']!="")
+			{
+				$button_color="var(--".$data['cta_button_color']."-color)";
+			}
+			else
+			{
+				$button_color="var(--global_dark-color)";
+			}
+			
+			if($data['cta_button_text_color']=="custom")
+			{
+				$button_text_color=$data['cta_button_text_custom_color'];
+			}
+			else if($data['cta_button_text_color']!="")
+			{
+				$button_text_color="var(--".$data['cta_button_text_color']."-color)";
+			}
+			else
+			{
+				$button_text_color="var(--global_dark-color)";
+			}
+		}
+		else{
 		$data=unserialize(get_option('footer_cta_layout_'.$layout));
 		$cta = get_post_meta($_GET['id'], 'service_cta', true);
 		

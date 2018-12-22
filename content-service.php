@@ -158,7 +158,7 @@ if(get_post_meta( get_the_ID(), 'udm_service_option', true )!="")
 }
 else
 {
-	$layout='';
+	 $layout=get_option('udm_service_default');
 }
 $data=unserialize(get_option('service_layout_'.$layout));
 $show_related = isset($data['show_related']) ? $data['show_related'] : 'yes';
