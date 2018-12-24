@@ -16,6 +16,10 @@
 		{
 			$headername="Transparent_Header_".str_replace(" ","_",$_POST["header_layout_name"]);  //header layout number to save 
 		}
+		else if($_POST["header_layout_template"]=="4")
+		{
+			$headername="New_Two_Header_".str_replace(" ","_",$_POST["header_layout_name"]);  //header layout number to save 
+		}
 		
 		if(get_option('header_layout_'.$headername) === FALSE){ //check header layout exist in options or not
 			add_option('header_layout_'.$headername,  $header_layout ); //Insert header layout in options
@@ -43,6 +47,11 @@
 			$headername="Transparent_Header_".str_replace(" ","_",$_POST["header_layout_name"]);  //header layout number to save 
 			$prevlayout=$headername;
 		}
+		else if($_POST["header_layout_template"]=="4")
+		{
+			$headername="New_Two_Header_".str_replace(" ","_",$_POST["header_layout_name"]);
+			$prevlayout=$headername;			//header layout number to save 
+		}
 		
 		if(get_option('header_layout_'.$headername) === FALSE){ //check header layout exist in options or not
 			add_option('header_layout_'.$headername,  $header_layout ); //Insert header layout in options
@@ -65,6 +74,10 @@
 		else if($_POST["header_layout_template"]=="3")
 		{
 			$headername="Transparent_Header_".str_replace(" ","_",$_POST["header_layout_name"]);  //header layout number to save 
+		}
+		else if($_POST["header_layout_template"]=="4")
+		{
+			$headername="New_Two_Header_".str_replace(" ","_",$_POST["header_layout_name"]);  //header layout number to save 
 		}
 		delete_option( 'header_layout_'.$headername );
 	}

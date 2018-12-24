@@ -2,10 +2,10 @@
 $data=unserialize(get_option('header_layout_'.$layout));
 ?>
 <!--top-header_basic-->
-<header>
+<header class="bordered">
 <?php if($data['top_bar']=="yes"){ ?>
 	<section class="top_basic_header top_basic_show">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<ul class="top_heade_left">
 					<?php 
@@ -165,37 +165,51 @@ $data=unserialize(get_option('header_layout_'.$layout));
 <?php } ?>
 	<!--basic-header-default-->    <!--bg-light-->
 	<section class="basic_header_default">
-		<nav class="navbar navbar-expand-md  navbar-light">
-			<a class="navbar-brand" href="<?php echo esc_url( home_url() ) ; ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-				<?php
-					$menu=isset($data['navigation']) ? $data['navigation'] : '';
-					if($menu!="")
-					{
-						wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
-					}
-					else
-					{
-						wp_nav_menu(array('menu_class' => 'navbar-nav'));
-					}
-					if(isset($data['header_button_link']) && $data['header_button_link'] != ''){
-						$scheme = parse_url( $data['header_button_link'], PHP_URL_SCHEME);
-						if( !in_array( $scheme, array( 'http', 'https'))){
-							$url="http://".$data['header_button_link'];
+		<div class="container">
+			<nav class="navbar navbar-expand-md  navbar-light">
+				<a class="navbar-brand" href="<?php echo esc_url( home_url() ) ; ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse " id="collapsibleNavbar">
+					<?php
+					echo '<duv class="basic_header_nav">';
+						$menu=isset($data['navigation']) ? $data['navigation'] : '';
+						if($menu!="")
+						{
+							wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
 						}
 						else
 						{
-							$url=isset($data['header_button_link']) ? $data['header_button_link'] : '';
+							wp_nav_menu(array('menu_class' => 'navbar-nav'));
 						}
-					}
-				 if(isset($data['header_button']) && $data['header_button']=="yes"){ ?>
-					<span class="right_side_bt"><a <?php if(isset($data['header_button_link']) && $data['header_button_link']!=""){ ?> target="_blank" <?php } ?> href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['header_button_text']) && $data['header_button_text']!=""){ echo esc_attr($data['header_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span>
-				<?php } ?>
-			  </div>  
-		</nav>
+					echo '</div>';
+						if(isset($data['header_button_link']) && $data['header_button_link'] != ''){
+							$scheme = parse_url( $data['header_button_link'], PHP_URL_SCHEME);
+							if( !in_array( $scheme, array( 'http', 'https'))){
+								$url="http://".$data['header_button_link'];
+							}
+							else
+							{
+								$url=isset($data['header_button_link']) ? $data['header_button_link'] : '';
+							}
+						}
+					 if(isset($data['header_button']) && $data['header_button']=="yes"){ ?>
+						<span class="right_side_bt"><a <?php if(isset($data['header_button_link']) && $data['header_button_link']!=""){ ?> target="_blank" <?php } ?> href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['header_button_text']) && $data['header_button_text']!=""){ echo esc_attr($data['header_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span>
+					<?php }
+						
+						if(isset($data['right_header']) && $data['right_header']=="yes"){
+							?>
+							<div class="right_side_header">
+								<small class="right_side_text"><?php if(isset($data['right_header_text']) && $data['right_header_text'] != ''){ echo esc_attr($data['right_header_text']); }else{ echo 'Call For An Estimate'; } ?></small>  
+								<span class="right_side_phone"><?php if(isset($data['right_header_phone']) && $data['right_header_phone'] != ''){ echo esc_attr($data['right_header_phone']); }else{ echo get_option('udm_phone_number'); } ?></span>
+							</div>
+							<?php 
+						}
+					?>
+				  </div>  
+			</nav>
+		 </div>				
 	</section>
 </header>
 <!--end-->

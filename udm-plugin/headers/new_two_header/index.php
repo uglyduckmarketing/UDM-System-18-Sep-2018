@@ -346,29 +346,30 @@
 						</div>
 					</section>
 					<!--stacked_header-->    
-					<section class="bottom_stacked_header">
-						<nav class="navbar navbar-expand-md navbar-light">
-							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							  </button>
-							  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-								 <?php
-									 $menu=isset($data['navigation_top']) ? $data['navigation_top'] : '';
-									if($menu!="")
-									{
-										wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
-									}
-									else
-									{
-										wp_nav_menu(array('menu_class' => 'navbar-nav'));
-									}
-								?>
 					
-							</div>  
-						</nav>
-					</section>
 				</div>
 			</div>
+			<section class="bottom_stacked_header">
+				<nav class="navbar navbar-expand-md navbar-light">
+					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon"></span>
+					  </button>
+					  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+						 <?php
+							 $menu=isset($data['navigation']) ? $data['navigation'] : '';
+							if($menu!="")
+							{
+								wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
+							}
+							else
+							{
+								wp_nav_menu(array('menu_class' => 'navbar-nav'));
+							}
+						?>
+			
+					</div>  
+				</nav>
+			</section>
 		</div>
 	</div>
 <!--end-->

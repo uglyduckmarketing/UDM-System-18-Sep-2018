@@ -41,6 +41,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			?>
 		</select>
 	</li>
+	
 	<li class="colorchange"><h3>Button Color: </h3>
 		<select name="button_color" id="button_color">
 			
@@ -185,6 +186,56 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			</li>
 		</ul>
 	</li>
+	<li>
+	<h3>Right Header: </h3>
+	<span class="switch">
+		<input  type="checkbox" name="right_header" class="switch" id="right_header" value="yes" <?php checked('yes',$data['right_header']); ?>>
+		<label for="right_header">Hide/Show</label>
+	</span>
+	<ul id="show_header_right" <?php if($data['right_header']=="yes"){}else{ ?> style="display:none;" <?php } ?>>
+			<li>
+				<h3>Right Header: </h3>
+				<input type="text" name="right_header_text" value="<?php echo esc_attr($data['right_header_text']); ?>">
+			</li>
+			<li class="colorchange">
+				<h3>Right Header Color: </h3>
+			<select name="right_header_color" id="button_color">
+				<option value="primary" <?php selected('primary',$data['right_header_color']); ?>>Primary</option>
+				<option value="secondary" <?php selected('secondary',$data['right_header_color']); ?>>Secondary</option>
+				<option value="global_light" <?php selected('global_light',$data['right_header_color']); ?>>Global Light</option>
+				<option value="global_dark" <?php selected('global_dark',$data['right_header_color']); ?>>Global Dark</option>
+				<option value="custom" <?php selected('custom',$data['right_header_color']); ?>>Custom</option>
+			</select>
+			<ul class="customcolor" <?php if($data['right_header_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+				<li>
+					<h3>Right Header Custom Color: </h3>
+					<input class="udm_color_picker" type="text" name="right_header_custom_color" value="<?php echo esc_attr($data['right_header_custom_color']); ?>" />
+				</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Right Header Phone: </h3>
+			<input type="text" name="right_header_phone" value="<?php echo esc_attr($data['right_header_phone']); ?>">
+		</li>
+		<li class="colorchange">
+			<h3>Right Header Phone Color: </h3>
+			<select name="right_header_phone_color" id="button_color">
+				<option value="primary" <?php selected('primary',$data['right_header_phone_color']); ?>>Primary</option>
+				<option value="secondary" <?php selected('secondary',$data['right_header_phone_color']); ?>>Secondary</option>
+				<option value="global_light" <?php selected('global_light',$data['right_header_phone_color']); ?>>Global Light</option>
+				<option value="global_dark" <?php selected('global_dark',$data['right_header_phone_color']); ?>>Global Dark</option>
+				<option value="custom" <?php selected('custom',$data['right_header_phone_color']); ?>>Custom</option>
+			</select>
+			<ul class="customcolor" <?php if($data['right_header_phone_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+				<li>
+					<h3>Right Header Custom Color: </h3>
+					<input class="udm_color_picker" type="text" name="right_header_phone_custom_color" value="<?php echo esc_attr($data['right_header_phone_custom_color']); ?>" />
+				</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+
 	<li id="bottombutton_data" <?php if($data['top_bar']!="yes"){}else{  ?> style="display:none;" <?php } ?>><h3>Bottom Button Hide: </h3>
 		<span class="switch">
 			<input type="checkbox" name="bottom_button_hide" class="switch" id="bottom_button_hide" value="yes" <?php checked('yes',$data['bottom_button_hide']); ?> >
@@ -244,10 +295,24 @@ jQuery(document).ready(function($) {
 		if($(this).prop('checked')==true)
 		{
 			$('#show_button_text').show();
+			$('#show_header_right').hide();
+			$('#right_header').prop('checked',false);
 		}
 		else
 		{
 			$('#show_button_text').hide();
+		}
+	});
+	$('#right_header').change(function(){
+		if($(this).prop('checked')==true)
+		{
+			$('#header_button').prop('checked',false);
+			$('#show_header_right').show();
+			$('#show_button_text').hide();
+		}
+		else
+		{
+			$('#show_header_right').hide();
 		}
 	});
 });																		

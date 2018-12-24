@@ -187,6 +187,56 @@
 					</li>
 				</ul>
 			</li>
+			
+		<li>
+	<h3>Right Header: </h3>
+	<span class="switch">
+		<input  type="checkbox" name="right_header" class="switch" id="right_header" value="yes">
+		<label for="right_header">Hide/Show</label>
+	</span>
+	<ul id="show_header_right" style="display:none;">
+			<li>
+				<h3>Right Header: </h3>
+				<input type="text" name="right_header_text" value="">
+			</li>
+			<li class="colorchange">
+				<h3>Right Header Color: </h3>
+			<select name="right_header_color" id="button_color">
+				<option value="primary" >Primary</option>
+				<option value="secondary" >Secondary</option>
+				<option value="global_light" >Global Light</option>
+				<option value="global_dark" >Global Dark</option>
+				<option value="custom" >Custom</option>
+			</select>
+			<ul class="customcolor"  style="display:none;" >
+				<li>
+					<h3>Right Header Custom Color: </h3>
+					<input class="udm_color_picker" type="text" name="right_header_custom_color" value="" />
+				</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Right Header Phone: </h3>
+			<input type="text" name="right_header_phone" value="">
+		</li>
+		<li class="colorchange">
+			<h3>Right Header Phone Color: </h3>
+			<select name="right_header_phone_color" id="button_color">
+				<option value="primary" >Primary</option>
+				<option value="secondary" >Secondary</option>
+				<option value="global_light" >Global Light</option>
+				<option value="global_dark" >Global Dark</option>
+				<option value="custom" >Custom</option>
+			</select>
+			<ul class="customcolor" style="display:none;" >
+				<li>
+					<h3>Right Header Custom Color: </h3>
+					<input class="udm_color_picker" type="text" name="right_header_phone_custom_color" value="" />
+				</li>
+			</ul>
+		</li>
+	</ul>
+</li>
 	<li id="bottombutton_data"><h3>Bottom Button Hide: </h3>
 			<span class="switch">
 				<input type="checkbox" name="bottom_button_hide" class="switch" id="bottom_button_hide" value="yes" >
@@ -254,5 +304,18 @@
 				$('#show_button_text').hide();
 			}
 		});
+		
+			$('#right_header').change(function(){
+		if($(this).prop('checked')==true)
+		{
+			$('#header_button').prop('checked',false);
+			$('#show_header_right').show();
+			$('#show_button_text').hide();
+		}
+		else
+		{
+			$('#show_header_right').hide();
+		}
+	});
 	  });																		
 </script>

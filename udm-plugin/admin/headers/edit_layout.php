@@ -27,6 +27,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				<option value="1">Basic Header</option>
 				<option value="2">Stacked Header</option>
 				<option value="3">Transparent Header</option>
+				<option value="4">New Two Header</option>
 			</select>
 		</li>
 	</ul>
@@ -95,6 +96,28 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				type: 'post',
 				data:'layout=<?php echo esc_attr($layout); ?>',
 				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/edit_transparent_header.php",
+				beforeSend: function(){
+						 $(".preloader").show();
+					   },
+					   complete: function(){
+						 $(".preloader").hide();
+					   },
+				success: function(result) {
+				$('#editselected_layout').html(result);
+				}
+			});
+		<?php
+			}
+		?>
+		
+		<?php
+			if($data['header_layout_template']=="4")
+			{
+		?>
+			jQuery.ajax({
+				type: 'post',
+				data:'layout=<?php echo esc_attr($layout); ?>',
+				url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/edit_new_two_header.php",
 				beforeSend: function(){
 						 $(".preloader").show();
 					   },
