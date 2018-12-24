@@ -7,7 +7,7 @@ include '../../../../../../../wp-load.php';
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-<ul id="layoutsettings" class="header_type_style collapse show stacked_header">
+<ul id="layoutsettings" class="header_type_style collapse show new_two_header">
 	<li>
 		<h3>Logo size</h3>
 		<select name="logo_size">
@@ -58,20 +58,9 @@ include '../../../../../../../wp-load.php';
 	<li class="topbarwiget">
 		<h2>Top Bar Widget</h2>
 		<ul id="topbar_layouts">
-			<li><h3>Navigation: </h3>
-				<select name="navigation_top" id="navigation">
-					<option value="">Select Menu</option>
-					<?php $menus=wp_get_nav_menus();
-						foreach( $menus as $item ) {
-					?>
-					<option value="<?php echo esc_attr($item->slug);  ?>"> <?php echo esc_attr($item->name);  ?></option>
-					<?php
-						}
-					?>
-				</select>
-			</li>
+		
 			<?php
-				include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
+				include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
 			?>
 		</ul>
 	</li>
@@ -139,25 +128,6 @@ include '../../../../../../../wp-load.php';
 				</li>
 			</ul>
 		</div>
-		<!--<div class="innerwidget">
-			<div id="bottombar" class="headwidget">
-				<div class="empty">
-					<p>Click the "Add widget" button below to start creating your layout.</p>
-				</div>
-			</div>
-			<div class="create_bottombar_widget_button">
-				<div class="dropup custom_design_dropdown">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Add widget</button>
-					<div class="dropdown-menu" id="newbottombarwidget">
-						<a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text</a>
-						<a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone</a>
-						<a class="dropdown-item" href="javascript:void(0);" data-widget="3">Social</a>
-						<a class="dropdown-item" href="javascript:void(0);" data-widget="4">Button</a>
-						<div class="arrow-down"></div>
-					</div>
-				</div>
-			</div>
-		</div>-->
 		
 	</li>
 </ul>
@@ -293,7 +263,7 @@ jQuery(document).ready(function($) {
 			jQuery.ajax({
 					type: 'post',
 					data:'layoutnew='+value+'&layout=<?php echo isset($layout) ? $layout : ''; ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/stacked_topbar_layout.php",
+					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/new_topbar_layout.php",
 					beforeSend: function(){
 						 $(".preloader").show();
 					   },

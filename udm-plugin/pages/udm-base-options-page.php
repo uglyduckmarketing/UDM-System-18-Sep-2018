@@ -220,5 +220,15 @@ jQuery(document).ready(function(){
 	function onFinishCallback(){
 		$('#wizard1').hide();
 	}    
+	$('.colorchange select').change(function(){
+			if($(this).val() == "custom")
+			{
+				$(this).parent().find('.customcolor').show();
+			}
+			else
+			{
+				$(this).parent().find('.customcolor').hide();
+			}
+		});
 });
 </script>

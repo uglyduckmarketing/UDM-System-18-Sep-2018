@@ -1739,8 +1739,8 @@ select#editright_side_widget{
 }
 
 .hero_type_style li {
-    float: left;
-    width:100%;
+   /*  float: left;
+    width:100%; */
 	margin-top: 6px;
 	margin-bottom: 5px;
 	border: 1px solid #e4e4e4;
@@ -1764,7 +1764,7 @@ select#editright_side_widget{
 
 .uploaded_button p.submit{
     padding-right:0;
-    float:left;
+   /*  float:left; */
     width:100%;
 }
 
@@ -1800,19 +1800,19 @@ select#editright_side_widget{
 
 
 .defaultdatasection h2{
-    float: left;
+   /*  float: left; 
+	width:100%;*/
 	background-color: #4c8cde !important;
 	color: #fff;
 	padding: 10px 15px !important;
 	margin-bottom: 30px;
 	font-weight: 600;
-    font-size:15px;
-    width:100%;
+    font-size:15px;    
 }
 
 .defaultdatasection .list{
-    float:left;
-    width:100%;
+   /*  float:left;
+    width:100%; */
     border: 1px solid #e4e4e4;
     margin-bottom:0;
     padding:10px 15px;
@@ -1929,3 +1929,4 @@ select#editright_side_widget{
 .my-gallery_box .has-image .img_hover a{position: absolute;top: 3px;right: 4px;border-color: transparent; background: #23282D;color: #eee;height: 26px;width: 26px;display: inline-block;border-radius: 50%;padding: 3px 4px;text-align: center;}
 .my-gallery_box .has-image{position: relative;}
 .clearfix{clear:both;display:block;float:none;}
+.featured_layouts{clear:both;}

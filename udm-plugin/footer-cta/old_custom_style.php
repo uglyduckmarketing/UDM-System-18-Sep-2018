@@ -9,7 +9,6 @@
 }
 
 <?php
-$post_type = get_post_type( $_GET['id'] );
 	$layout=get_option('udm_footer_cta_default');
 	if(strpos($layout, 'Fullwidth_CTA') !== false){
 		$data=unserialize(get_option('footer_cta_layout_'.$layout));
@@ -102,7 +101,7 @@ $post_type = get_post_type( $_GET['id'] );
 				$button_text_color="var(--global_dark-color)";
 			}
 			$height="650px";
-		}else if($post_type == 'service' && get_option('udm_service_default') != '') 
+		}else if(get_post_meta( $_GET['id'], 'udm_service_option', true ) == "")
 		{
 			 $layout=get_option('udm_service_default');
 			$datamy=unserialize(get_option('service_layout_'.$layout));	
@@ -424,7 +423,7 @@ $post_type = get_post_type( $_GET['id'] );
 				$button_text_color="var(--global_dark-color)";
 			}
 		}
-		else if($post_type == 'service' && get_option('udm_service_default') != '')
+		else if(get_post_meta( $_GET['id'], 'udm_service_option', true ) =="")
 		{
 			$layout=get_option('udm_service_default');
 			$data=unserialize(get_option('service_layout_'.$layout));
@@ -506,7 +505,6 @@ $post_type = get_post_type( $_GET['id'] );
 			}
 		}
 		else{
-			
 		$data=unserialize(get_option('footer_cta_layout_'.$layout));
 		$cta = get_post_meta($_GET['id'], 'service_cta', true);
 		

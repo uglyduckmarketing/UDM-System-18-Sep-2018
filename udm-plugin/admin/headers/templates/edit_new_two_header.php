@@ -63,28 +63,17 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<li class="topbarwiget">
 				<h2>Top Bar Widget</h2>
 				<ul id="topbar_layouts">
-					<li><h3>Navigation: </h3>
-						<select name="navigation_top" id="navigation">
-							<option value="">Select Menu</option>
-							<?php $menus=wp_get_nav_menus();
-								foreach( $menus as $item ) {
-							?>
-							<option value="<?php echo esc_attr($item->slug);  ?>" <?php selected($item->slug, $data['navigation_top'] ); ?>> <?php echo esc_attr($item->name);  ?></option>
-							<?php
-								}
-							?>
-						</select>
-					</li>
+					
 					<?php
 						if($data['top_bar_style']!="")
 						{
 							$layoutnew=$data['top_bar_style'];
-							include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
+							include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
 						}
 						else
 						{
 							$layoutnew="50_50";
-							include get_template_directory() . "/udm-plugin/admin/headers/templates/stacked_topbar_layout.php";
+							include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
 						}
 					?>
 				</ul>
@@ -425,7 +414,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			jQuery.ajax({
 					type: 'post',
 					data:'layoutnew='+value+'&layout=<?php echo esc_attr($layout); ?>',
-					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/stacked_topbar_layout.php",
+					url: "<?php echo get_template_directory_uri(); ?>/udm-plugin/admin/headers/templates/new_topbar_layout.php",
 					beforeSend: function(){
 						 $(".preloader").show();
 					   },
