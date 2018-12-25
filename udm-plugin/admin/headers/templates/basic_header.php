@@ -40,7 +40,9 @@
 			?>
 		</select>
 	</li>
-	
+	<h2 class="header_layout_heading">
+		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Layout Button</a>
+	</h2>
 	<li class="colorchange"><h3>Button Color: </h3>
 		<select name="button_color" id="button_color">
 			
@@ -73,6 +75,9 @@
 			</li>
 		</ul>
 	</li>
+	<h2 class="header_layout_heading">
+		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Background Setting</a>
+	</h2>
 	<li class="colorchange"><h3>Background Color: </h3>
 		<select name="background_color" id="background_color">
 			
@@ -89,6 +94,9 @@
 			</li>
 		</ul>
 	</li>
+	<h2 class="header_layout_heading">
+		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Link Setting</a>
+	</h2>
 	<li class="colorchange"><h3>Link Color: </h3>
 		<select name="link_color" id="link_color">
 			
@@ -105,6 +113,9 @@
 			</li>
 		</ul>
 	</li>
+	<h2 class="header_layout_heading">
+		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Top Bar Setting</a>
+	</h2>
 	<li><h3>Top Bar: </h3>
 		<span class="switch">
 			<input type="checkbox" name="top_bar" class="switch" id="top_bar" value="yes">
@@ -159,7 +170,9 @@
 					</li>
 				</ul>
 			</li>
-			
+			<h2 class="header_layout_heading">
+				<a href="javascript:void(0);" data-toggle="collapse" data-target="">Top Bar Widget</a>
+			</h2>
 			<li>
 				<ul id="topbar_layouts">
 					<?php
@@ -168,8 +181,10 @@
 				</ul>
 			</li>
 		</ul>
-		
 	</li>
+	<h2 class="header_layout_heading">
+		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Right Header Setting</a>
+	</h2>
 	<li>
 				<h3>Header Button: </h3>
 				<span class="switch">
@@ -187,7 +202,6 @@
 					</li>
 				</ul>
 			</li>
-			
 		<li>
 	<h3>Right Header: </h3>
 	<span class="switch">
