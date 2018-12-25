@@ -7,7 +7,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<section class="top_basic_header top_basic_show">
 		<div class="container">
 			<div class="row">				
-				<div class="col-md-6 top_heade_left">
+				<div class="col-md-6 top_heade_left padd_0">
 					<?php 
 						if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
 						{ 
@@ -95,10 +95,10 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						?>
 							<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['lefttopbar_button_text']) &&   $data['lefttopbar_button_text']!=""){ echo esc_attr($data['lefttopbar_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 					<?php 
-						}
+						} 
 					?>					
 				</div> 
-				<div class="col-md-6">
+				<div class="col-md-6 padd_0">
 					<ul class="top_heade_right">
 					<?php 
 						if(isset($data['righttopbartext']) && $data['righttopbartext'] == 'yes')
@@ -183,7 +183,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<!--basic-header-default-->    <!--bg-light-->
 	<section class="basic_header_default">
 		<div class="container">
-			<nav class="navbar navbar-expand-md  navbar-light">
+			<div class="row">
+			<nav class="navbar navbar-expand-md navbar-light wd100">
 				<a class="navbar-brand" href="<?php echo esc_url( home_url() ) ; ?>"><img src="<?php  if(get_option('udm_company_logo') != ''){ echo get_option('udm_company_logo'); }else{ echo get_template_directory_uri().'/images/login_logo.png'; } ?>"></a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 					<span class="navbar-toggler-icon"></span>
@@ -225,7 +226,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						}
 					?>
 				  </div>  
-			</nav>
+				</nav>
+			</div>				
 		 </div>				
 	</section>
 </header>
