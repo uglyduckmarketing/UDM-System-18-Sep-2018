@@ -4,12 +4,12 @@
 <header>
  <!--top-header_basic-->
 	<div class="stacked_header common_header">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3 p-no logo_stacked logo_common">
+		<div class="container-fluid"> 
+			<div class="row align-items-center">
+				<div class="col-md-3 p-no logo_stacked logo_common col-lg-auto">
 				 <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>/"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
 				</div>
-				<div class="col-md-9 p-no">
+				<div class="col-md-9 p-no col-full">
 				   <section class="top_stacked_header top_basic_show <?php if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
 						<div class="container-fluid">
 							<div class="row align-items-center justify-content-end">
