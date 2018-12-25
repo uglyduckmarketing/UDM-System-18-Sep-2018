@@ -6,25 +6,38 @@ $data=unserialize(get_option('header_layout_'.$layout));
 <?php if($data['top_bar']=="yes"){ ?>
 	<section class="top_basic_header top_basic_show">
 		<div class="container">
-			<div class="row">
-				<ul class="top_heade_left">
+			<div class="row">				
+				<div class="col-md-6 top_heade_left">
 					<?php 
 						if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
-						{
-					?>
-						<li><p><?php echo isset($data['lefttopbar_text']) ? $data['lefttopbar_text'] : ''; ?></p></li>
-					<?php 
-						}
-						else if(isset($data['lefttopbarphone']) &&  $data['lefttopbarphone'] == 'yes')
-						{
-					?>
-						<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></a></li>
-						<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a></li>
-					<?php 
-						}
-						else if(isset($data['lefttopbarsocial']) && $data['lefttopbarsocial'] == 'yes')
 						{ 
 					?>
+						<p><?php echo isset($data['lefttopbar_text']) ? $data['lefttopbar_text'] : ''; ?></p>
+					<?php 
+						} 
+						else if(isset($data['lefttopbarphone']) &&  $data['lefttopbarphone'] == 'yes')
+						{
+							if(isset($data['lefttopbar_phone_left_text']) && $data['lefttopbar_phone_left_text']!="")
+							{
+								 ?> 
+								 <strong class="padr_10" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></strong>
+								 <?php
+							}
+							if(isset($data['lefttopbar_phone_overright']) && $data['lefttopbar_phone_overright']=="yes")
+							{
+								?>
+								<a class="" href="tel:<?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?>"><?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?></a>
+								<?php
+							}else{
+								?>
+								<a class="" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a>
+								<?php
+							}					
+						}
+						
+						else if(isset($data['lefttopbarsocial']) && $data['lefttopbarsocial'] == 'yes')
+						{ 
+					?><ul>
 						<?php
 						if(isset($data['lefttopbar_social_icon_style']) && $data['lefttopbar_social_icon_style']=='square')
 						{
@@ -66,6 +79,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo esc_attr($type); } ; ?>"></i></a></li>
 						<?php
 							}
+							?></ul>
+							<?php
 						}
 						else if(isset($data['lefttopbarbutton']) &&  $data['lefttopbarbutton'] == 'yes')
 						{
@@ -81,9 +96,10 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['lefttopbar_button_text']) &&   $data['lefttopbar_button_text']!=""){ echo esc_attr($data['lefttopbar_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 					<?php 
 						}
-					?>
-				</ul>
-				<ul class="top_heade_right">
+					?>					
+				</div> 
+				<div class="col-md-6">
+					<ul class="top_heade_right">
 					<?php 
 						if(isset($data['righttopbartext']) && $data['righttopbartext'] == 'yes')
 						{
@@ -158,7 +174,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 					<?php 
 						}
 					?>
-				</ul>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -167,7 +184,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<section class="basic_header_default">
 		<div class="container">
 			<nav class="navbar navbar-expand-md  navbar-light">
-				<a class="navbar-brand" href="<?php echo esc_url( home_url() ) ; ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
+				<a class="navbar-brand" href="<?php echo esc_url( home_url() ) ; ?>"><img src="<?php  if(get_option('udm_company_logo') != ''){ echo get_option('udm_company_logo'); }else{ echo get_template_directory_uri().'/images/login_logo.png'; } ?>"></a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 					<span class="navbar-toggler-icon"></span>
 				  </button>

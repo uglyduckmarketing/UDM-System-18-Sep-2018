@@ -19,7 +19,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				<option value="1">Basic Header</option>
 				<option value="2">Stacked Header</option>
 				<option value="3">Transparent Header</option>
-				<option value="4">New Two Header</option>
+				<option value="4">New Header</option>
 			</select>
 		</li>
 	</ul>

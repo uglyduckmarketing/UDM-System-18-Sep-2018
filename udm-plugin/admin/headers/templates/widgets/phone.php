@@ -11,9 +11,9 @@ $location=$_POST['location'];
 <div id="phoneno">
 	<input type="hidden" name="<?php echo isset($location) ? $location : ''; ?>phone" value="yes">
 	<ul class="phonenowidget">
-		<li><h5>Text and Company Phone Number (Shows Automatically) <span>Another Number (Optional)</span></h5><input type="text" name="<?php echo isset($location) ? $location : ''; ?>_phone_left_text" value="<?php echo esc_attr($phonedata[$location.'_phone_left_text']); ?>" /></li>
+		<li><h5>Text/Contact Number(This pulls up from base options)</span></h5><input type="text" name="<?php echo isset($location) ? $location : ''; ?>_phone_left_text" value="<?php echo esc_attr($phonedata[$location.'_phone_left_text']); ?>" /></li>
 	
-		<li><h5>Phone Overright: </h5><span class="switch">
+		<li><h5>Phone Override: </h5><span class="switch">
 			<input type="checkbox" name="<?php echo isset($location) ? $location : ''; ?>_phone_overright" class="switch" id="<?php echo isset($location) ? $location : ''; ?>_phone_overright" value="yes" <?php checked("yes",isset($phonedata[$location.'_phone_overright']) ? $phonedata[$location.'_phone_overright'] : ''); ?>>
 			<label for="<?php echo esc_attr($location); ?>_phone_overright">No / Yes</label>
 		</span></li>

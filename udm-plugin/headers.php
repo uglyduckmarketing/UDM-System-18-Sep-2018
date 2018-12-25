@@ -81,9 +81,9 @@
 	</section>
 	<?php	
 		}
-		else if(strpos($headerlayout, 'New_Two_Header') !== false){
+		else if(strpos($headerlayout, 'New_Header') !== false){
 			$layout=$headerlayout;
-			include get_template_directory() . '/udm-plugin/headers/new_two_header/index.php';
+			include get_template_directory() . '/udm-plugin/headers/new_header/index.php';
 				
 		?>
 	<section class="mobile-header-sec basic_headersec">

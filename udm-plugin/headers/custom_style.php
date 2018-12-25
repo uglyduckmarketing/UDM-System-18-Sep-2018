@@ -464,7 +464,7 @@ header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hov
 
 <?php
 	}
-	else if(strpos($layout, 'New_Two_Header') !== false){
+	else if(strpos($layout, 'New_Header') !== false){
 	$data=unserialize(get_option('header_layout_'.$layout));
 	
 	if($data['logo_size']=="large")

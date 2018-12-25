@@ -22,10 +22,10 @@ Right Widget on stacked header placement doesn't work without a left widget
 
 /*
 /*Caption */
-@font-face{font-family:"Barlow";
+@font-face{font-family:'Barlow';
 	src:url('fonts/Barlow.otf') format("truetype");
 	font-style:normal;font-weight:normal;} 
-body{font-family:"Barlow"!important;} 
+body{font-family:'Barlow'!important;} 
 .wp-caption {
 	margin-bottom: 1.75em;
 	max-width: 100%;
@@ -197,10 +197,11 @@ nav .menu-item-has-children a::after {
   height: auto;
  /*  padding: 0 3rem; */
   border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: .32rem 0;
 }
 .top_heade_right li a .fa {
-  font-size: 13px;
-  padding: 1rem 8px;
+  font-size: 12px;
+  padding: 0 .35rem;
 	transition: all .3s ease;
   /* color: rgba(0,0,0,.4); */
 }
@@ -3828,4 +3829,11 @@ nav.navbar{padding:0px;}
 .top_heade_left li{font-size:14px;}
 .col-md-auto{-webkit-box-flex: 0;-ms-flex: 0 0 auto;flex: 0 0 auto;
 width: auto;max-width: none;} 
-.border_left_rgt{border-left: 1px solid rgba(0,0,0,.075);border-right: 1px solid rgba(0,0,0,.075);}
+.border_left_rgt{border-left: 1px solid rgba(0,0,0,.075);border-right: 1px solid rgba(0,0,0,.075);} 
+header ul.navbar-nav li a:hover{color:#21cb5a;} 
+header ul.navbar-nav li a::before{background-color:#21cb5a;}
+header .top_heade_right li a:hover{color:#21cb5a;} 
+.padr_10{padding-right:10px;} 
+.top_heade_left{font-weight:400;font-size:.9rem;color: #eaeaea;}
+.top_heade_left a.font_bolder, a.font_bolder{font-weight:bolder;}
+.top_heade_right{float:right;}
