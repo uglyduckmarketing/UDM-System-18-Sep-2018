@@ -22,10 +22,13 @@ Right Widget on stacked header placement doesn't work without a left widget
 
 /*
 /*Caption */
-@font-face{font-family:'Barlow';
+/* @font-face{font-family:'Barlow';
 	src:url('fonts/Barlow.otf') format("truetype");
-	font-style:normal;font-weight:normal;} 
-body{font-family:'Barlow'!important;} 
+	font-style:normal;font-weight:normal;} */ 
+html, body {
+  font-family: 'Barlow', sans-serif!important;
+}
+/* body{font-family:'Barlow'!important;}  */
 .wp-caption {
 	margin-bottom: 1.75em;
 	max-width: 100%;
