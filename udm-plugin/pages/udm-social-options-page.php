@@ -15,7 +15,7 @@
 				    <li><h4>Pinterest Link </h4><input type="text" name="udm_pinterest_link" value="<?php echo get_option('udm_pinterest_link'); ?>" /></li>
                 </ul>
             </li>
-		</ul> 
+		</ul>  
 	<?php
       submit_button();
     ?>
