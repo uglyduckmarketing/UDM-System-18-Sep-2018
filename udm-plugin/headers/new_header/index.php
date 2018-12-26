@@ -1,17 +1,17 @@
 <?php
 	$data=unserialize(get_option('header_layout_'.$layout));
 ?>
-<header>
- <!--top-header_basic-->
-	<div class="stacked_header common_header">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3 p-no logo_stacked logo_common">
-				 <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>/"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
-				</div>
-				<div class="col-md-9 p-no">
-				   <section class="top_stacked_header top_basic_show <?php if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
-						<div class="container-fluid">
+<header class="shadowed main_header">
+ <!--top-header_basic--> 
+	<div class="newtwo_header common_header">
+		<div class="new_headertop"> 
+			<div class="container">  
+				<div class="row align-items-center">
+					<div class="logo_stacked logo_common col-lg-auto">
+					 <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>/"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
+					</div>
+					<div class="col d-none d-lg-block">
+					   <section class="top_new2_header top_basic_show <?php if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
 							<div class="row align-items-center justify-content-end">
 								<?php 
 									if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
@@ -27,27 +27,25 @@
 									else if(isset($data['lefttopbarphone']) && $data['lefttopbarphone'] == 'yes')
 									{
 								?>
-								<div class="col-md-auto">
-								 <ul class="top_heade_left top_header_left_show lefttopphone">
+								<div class="col-md-auto top_heade_left top_header_left_show lefttopphone common_phonecall">
 									<?php 
 										if(isset($data['lefttopbar_phone_left_text']) && $data['lefttopbar_phone_left_text']!="")
 										{
 									?>
-									<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></a></li>
+									<small><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></small>
 									<?php
-										}										
+										}
 										if(isset($data['lefttopbar_phone_overright']) && $data['lefttopbar_phone_overright']=="yes")
-										{
+										{ 
 									?>
-									<li><a class="contact_stacked contact_common_style" href="tel:<?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?>"><?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?></span>
 									<?php
 										}else{
 									?>
-									<li><a class="contact_stacked contact_common_style" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo get_option('udm_phone_number'); ?></span>
 									<?php
 									}
 									?>
-									</ul>
 								</div>
 								<?php 
 									}
@@ -68,34 +66,34 @@
 									}
 										if(get_option('udm_facebook_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
-									<?php
-										}	
-										if(get_option('udm_googleplus_link')!=""){
-									?>
-										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="ion-social-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
-										if(get_option('udm_linkedin_link')!="")
-										{
+										if(get_option('udm_twitter_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="ion-social-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_instagram_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="ion-social-instagram"></i></a></li>
+									<?php 
+										}	
+										if(get_option('udm_googleplus_link')!=""){
+									?>
+										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="ion-social-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
-										if(get_option('udm_twitter_link')!=""){
+										if(get_option('udm_linkedin_link')!="")
+										{
 									?>
-										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="ion-social-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_pinterest_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="ion-social-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
 									<?php
 										}
 									?>
@@ -138,27 +136,25 @@
 									else if(isset($data['middletopbarphone']) && $data['middletopbarphone'] == 'yes')
 									{
 								?> 
-								<div class="col-md-auto">
-								<ul class="top_heade_left top_header_left_show middletopphone">
+								<div class="col-md-auto top_heade_left top_header_left_show middletopphone">
 								 <?php 
 										if(isset($data['middletopbar_phone_left_text']) && $data['middletopbar_phone_left_text']!="")
 										{
 									?>
-									<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['middletopbar_phone_left_text']) ? $data['middletopbar_phone_left_text'] : ''; ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo isset($data['middletopbar_phone_left_text']) ? $data['middletopbar_phone_left_text'] : ''; ?></span>
 									<?php 
 										}
 										if(isset($data['middletopbar_phone_overright']) && $data['middletopbar_phone_overright']=="yes")
 										{
 									?>
-									<li><a class="contact_stacked contact_common_style" href="tel:<?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?>"><?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?></span>
 									<?php
 										}else{
 									?>
-									<li><a class="contact_stacked contact_common_style" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo get_option('udm_phone_number'); ?></span>
 									<?php
 									}
-									?>
-								</ul>
+									?> 
 								</div>
 								<?php 
 									}
@@ -179,34 +175,34 @@
 									}
 										if(get_option('udm_facebook_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
-									<?php
-										}	
-										if(get_option('udm_googleplus_link')!=""){
-									?>
-										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="ion-social-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
-										if(get_option('udm_linkedin_link')!="")
-										{
+										if(get_option('udm_twitter_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="ion-social-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_instagram_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="ion-social-instagram"></i></a></li>
+									<?php
+										}	
+										if(get_option('udm_googleplus_link')!=""){
+									?>
+										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="ion-social-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
-										if(get_option('udm_twitter_link')!=""){
+										if(get_option('udm_linkedin_link')!="")
+										{
 									?>
-										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="ion-social-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_pinterest_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="ion-social-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
 									<?php
 										}
 										?>
@@ -248,27 +244,25 @@
 									else if(isset($data['righttopbarphone']) && $data['righttopbarphone'] == 'yes')
 									{
 								?> 
-								<div class="col-md-auto">
-								<ul class="top_heade_left top_header_left_show righttopphone">
+								<div class="col-md-auto top_heade_left top_header_left_show righttopphone">
 								 <?php 
 										if(isset($data['righttopbar_phone_left_text']) && $data['righttopbar_phone_left_text']!="")
 										{
 									?>
-									<li><a href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo esc_attr($data['righttopbar_phone_left_text']); ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo esc_attr($data['righttopbar_phone_left_text']); ?></span>
 									<?php 
 										}
 										if(isset($data['righttopbar_phone_overright']) && $data['righttopbar_phone_overright']=="yes")
 										{
 									?>
-									<li><a class="contact_stacked contact_common_style" href="tel:<?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?>"><?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?></span>
 									<?php
 										}else{
 									?>
-									<li><a class="contact_stacked contact_common_style" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo get_option('udm_phone_number'); ?></a></li>
+									<span class="contact_stacked contact_common_style"><?php echo get_option('udm_phone_number'); ?></span>
 									<?php
 									}
 									?>
-									</ul>
 								</div>
 								<?php 
 									}
@@ -288,34 +282,34 @@
 									}
 										if(get_option('udm_facebook_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
-									<?php
-										}	
-										if(get_option('udm_googleplus_link')!=""){
-									?>
-										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="ion-social-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
-										if(get_option('udm_linkedin_link')!="")
-										{
+										if(get_option('udm_twitter_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="ion-social-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_instagram_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="ion-social-instagram"></i></a></li>
 									<?php
-										}
-										if(get_option('udm_twitter_link')!=""){
+										}	
+										if(get_option('udm_googleplus_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="ion-social-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
 									<?php
 										}
+										if(get_option('udm_linkedin_link')!="")
+										{
+									?>
+										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="ion-social-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+									<?php
+										}			
 										if(get_option('udm_pinterest_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="ion-social-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
 									<?php
 										}
 										?>
@@ -342,34 +336,38 @@
 								<?php 
 									}
 								?>
-							</div>
-						</div>
-					</section>
-					<!--stacked_header-->    
-					
+								</div>
+						</section> 
+						<!--stacked_header-->    
+					</div> 
+				</div>
+			</div> 
+		</div>
+		<div class="new_headerbtm">
+			<div class="container-fluid">
+				<div class="bottom_stacked_header">
+					<div class="col d-none d-lg-block">
+						<nav class="navbar navbar-expand-md navbar-light">
+							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+								<span class="navbar-toggler-icon"></span>
+							  </button>
+							  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+								 <?php
+									 $menu=isset($data['navigation_top']) ? $data['navigation_top'] : '';
+									if($menu!="")
+									{
+										wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
+									}
+									else
+									{
+										wp_nav_menu(array('menu_class' => 'navbar-nav'));
+									}
+								?>					
+							</div>  
+						</nav>
+					</div>
 				</div>
 			</div>
-			<section class="bottom_stacked_header">
-				<nav class="navbar navbar-expand-md navbar-light">
-					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-						<span class="navbar-toggler-icon"></span>
-					  </button>
-					  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-						 <?php
-							 $menu=isset($data['navigation']) ? $data['navigation'] : '';
-							if($menu!="")
-							{
-								wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
-							}
-							else
-							{
-								wp_nav_menu(array('menu_class' => 'navbar-nav'));
-							}
-						?>
-			
-					</div>  
-				</nav>
-			</section>
 		</div>
 	</div>
 <!--end-->

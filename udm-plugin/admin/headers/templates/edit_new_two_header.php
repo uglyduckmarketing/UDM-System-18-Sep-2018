@@ -27,9 +27,9 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		<select name="logo_background_type" id="logo_background_type">
 			<option value="color" <?php selected("color",$data['logo_background_type']); ?>>Color</option>
 			<option value="image" <?php selected("image",$data['logo_background_type']); ?>>Image</option>
-		</select>
-		<ul id="logo_back_opt">
-			<li class="colorchange" <?php if($data['logo_background_color']=="image"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>
+		</select> 
+		<ul id="logo_back_opt"> 
+			<li class="colorchange" <?php if($data['logo_background_type']=="color"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>
 				<select name="logo_background_color" id="logo_background_color">
 					
 					<option value="primary" <?php selected('primary',$data['logo_background_color']); ?>>Primary</option>

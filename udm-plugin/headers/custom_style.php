@@ -427,19 +427,19 @@ header .stacked_header .logo_stacked img{
 	max-width:<?php echo esc_attr($logo_size); ?>px;
 }
 
-header .lefttopsocial li a .fa{
+header .lefttopsocial li a i{
 	color:<?php echo esc_attr($lefttopbar_social_icon_color); ?>;
 }
 
-header .middletopsocial li a .fa{
+header .middletopsocial li a i{
 	color:<?php echo esc_attr($middletopbar_social_icon_color); ?>;
 }
 
-header .righttopsocial li a .fa{
+header .righttopsocial li a i{
 	color:<?php echo esc_attr($righttopbar_social_icon_color); ?>;
 }
 
-header .bottomsocial li a .fa{
+header .bottomsocial li a i{
 	color:<?php echo esc_attr($bottombar_social_icon_color); ?>;
 }
 
@@ -632,11 +632,11 @@ header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hov
 ?>
 
 
-header .stacked_header .logo_stacked{
+header .newtwo_header .logo_stacked{
 	background:<?php echo isset($logo_background) ? $logo_background : ''; ?>;
 }
 
-header .stacked_header .logo_stacked img{
+header .newtwo_header .logo_stacked img{
 	width:<?php echo esc_attr($logo_size); ?>px;
 	max-width:<?php echo esc_attr($logo_size); ?>px;
 }
@@ -645,34 +645,34 @@ header .lefttopsocial li a .fa{
 	color:<?php echo esc_attr($lefttopbar_social_icon_color); ?>;
 }
 
-header .middletopsocial li a .fa{
+header .middletopsocial li a i{
 	color:<?php echo esc_attr($middletopbar_social_icon_color); ?>;
 }
 
-header .righttopsocial li a .fa{
+header .righttopsocial li a i{
 	color:<?php echo esc_attr($righttopbar_social_icon_color); ?>;
 }
 
-header .bottomsocial li a .fa{
+header .bottomsocial li a i{
 	color:<?php echo esc_attr($bottombar_social_icon_color); ?>;
 }
 
-header .stacked_header .bottom_stacked_header .navbar {
+header .newtwo_header .bottom_stacked_header .navbar {
    background: <?php echo esc_attr($bottombar_background_color); ?>;
 }
 
-header .stacked_header .bottom_stacked_header .navbar ul li a {
+header .newtwo_header .bottom_stacked_header .navbar ul li a {
     color: <?php echo esc_attr($bottombar_nav_link_color); ?>;
 }
 
-header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu{
+header .newtwo_header .bottom_stacked_header .navbar ul li ul.sub-menu{
 	background:<?php echo isset($subbackground) ? $subbackground : ''; ?>;
 }
 
-header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a{
+header .newtwo_header .bottom_stacked_header .navbar ul li ul.sub-menu li a{
 	color:<?php echo esc_attr($subtext_color); ?>;
 }
-header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hover{
+header .newtwo_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hover{
 	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
 

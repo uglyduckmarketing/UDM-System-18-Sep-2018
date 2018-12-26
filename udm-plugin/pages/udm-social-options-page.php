@@ -8,14 +8,14 @@
             <li>
                 <ul class="inner">
                     <li><h4>Facebook Link </h4><input type="text" name="udm_facebook_link" value="<?php if(get_option('udm_facebook_link')){ echo get_option('udm_facebook_link'); }else{ ?>https://www.facebook.com/heroistic/<?php } ?>" /></li>
+					<li><h4>Twitter Link </h4><input type="text" name="udm_twitter_link" value="<?php echo get_option('udm_twitter_link'); ?>" /></li>
+					<li><h4>Instagram Link </h4><input type="text" name="udm_instagram_link" value="<?php echo get_option('udm_instagram_link'); ?>" /></li>
                     <li><h4>Google Plus Link </h4><input type="text" name="udm_googleplus_link" value="<?php echo get_option('udm_googleplus_link'); ?>" /></li>
                     <li><h4>Linked In Link </h4><input type="text" name="udm_linkedin_link" value="<?php echo get_option('udm_linkedin_link'); ?>" /></li>
-                    <li><h4>Instagram Link </h4><input type="text" name="udm_instagram_link" value="<?php echo get_option('udm_instagram_link'); ?>" /></li>
-                    <li><h4>Twitter Link </h4><input type="text" name="udm_twitter_link" value="<?php echo get_option('udm_twitter_link'); ?>" /></li>
 				    <li><h4>Pinterest Link </h4><input type="text" name="udm_pinterest_link" value="<?php echo get_option('udm_pinterest_link'); ?>" /></li>
                 </ul>
             </li>
-		</ul>
+		</ul> 
 	<?php
       submit_button();
     ?>
