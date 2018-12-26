@@ -29,15 +29,14 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<option value="image" <?php selected("image",$data['logo_background_type']); ?>>Image</option>
 		</select>
 		<ul id="logo_back_opt">
-			<li class="colorchange" <?php if($data['logo_background_color']=="image"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>
-				<select name="logo_background_color" id="logo_background_color">
-					
+			<li class="colorchange" <?php if($data['logo_background_type']=="color"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>  
+				<select name="logo_background_color" id="logo_background_color">					
 					<option value="primary" <?php selected('primary',$data['logo_background_color']); ?>>Primary</option>
 					<option value="secondary" <?php selected('secondary',$data['logo_background_color']); ?>>Secondary</option>
 					<option value="global_light" <?php selected('global_light',$data['logo_background_color']); ?>>Global Light</option>
 					<option value="global_dark" <?php selected('global_dark',$data['logo_background_color']); ?>>Global Dark</option>
 					<option value="custom" <?php selected('custom',$data['logo_background_color']); ?>>Custom</option>
-				</select>
+				</select> 
 				<ul class="customcolor" <?php if($data['logo_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
 					<li>
 						<h3>Button Custom Color: </h3>
