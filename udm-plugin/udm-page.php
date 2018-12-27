@@ -15,10 +15,16 @@ if ( $post && preg_match( '/vc_row/', $post->post_content ) ) {
 	</main>
 <?php
 }
-else{
-	while(have_posts()):the_post();
-		the_content();
-	endwhile; wp_reset_query
-}
+	else{
+		?>
+	<div class="container"> 
+	<?php
+		while(have_posts()):the_post();
+			the_content();
+		endwhile; wp_reset_query();
+		?>
+	</div> 
+	<?php
+	}
 get_footer();
 ?>
