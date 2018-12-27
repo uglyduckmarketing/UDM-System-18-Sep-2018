@@ -345,7 +345,7 @@
 							  </button>
 							  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 								 <?php
-									 $menu=isset($data['navigation_top']) ? $data['navigation_top'] : '';
+									 $menu=isset($data['navigation']) ? $data['navigation'] : '';
 									if($menu!="")
 									{
 										wp_nav_menu(array('menu' => $menu, 'menu_class' => 'navbar-nav'));
