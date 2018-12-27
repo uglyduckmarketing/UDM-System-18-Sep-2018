@@ -3828,6 +3828,8 @@ header .common_header{background-color: #FFFFFF;width: 100%;   top: 0;left: 0;z-
 header .stacked_header .bottom_stacked_header .navbar{border-top: 1px solid rgba(0,0,0,.05);}
 header .newtwo_header .logo_common{padding:0px;}
 header .newtwo_header .menu-about-container{display: block;width:100%;}
+.newheader_collapse>div{display:block;width: 100%;}
+ 
 
 @media(min-width:992px){
 	.col-lg-auto{-webkit-box-flex: 0;-ms-flex: 0 0 auto;flex: 0 0 auto;width: auto;max-width: none;}

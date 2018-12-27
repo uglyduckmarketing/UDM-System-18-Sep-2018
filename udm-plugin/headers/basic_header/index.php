@@ -193,7 +193,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				  </button> 
 				  <div class="collapse navbar-collapse padlr15" id="collapsibleNavbar"> 
 					<?php
-					echo '<duv class="basic_header_nav">';
+					echo '<div class="basic_header_nav">';
 						$menu=isset($data['navigation']) ? $data['navigation'] : '';
 						if($menu!="")
 						{

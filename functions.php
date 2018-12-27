@@ -384,33 +384,6 @@ function gallery_post_type() {
 }
 add_action( 'init', 'gallery_post_type', 0 );
 
-// udm_gallery
-function udm_gallery($atts, $content = null) { 
-	$gallery=get_field('gallery', $atts['id']);
-	if( $gallery ): 
-		if($atts['layout']=="masonry")
-		{
-			include get_template_directory() . '/udm-plugin/gallery/single/masonry.php';
-
-		}
-		else if($atts['layout']=="slideshow")
-		{
-			include get_template_directory() . '/udm-plugin/gallery/single/slideshow.php';
-
-		}
-		else if($atts['layout']=="grid")
-		{
-			include get_template_directory() . '/udm-plugin/gallery/single/grid.php';
-
-		}
-		else if($atts['layout']=="carousel")
-		{
-			include get_template_directory() . '/udm-plugin/gallery/single/carousel.php';
-
-		}
-	endif;
-} 
-add_shortcode('udm_gallery', 'udm_gallery');
 
 // Service Post Type
 function service_post_type() {
