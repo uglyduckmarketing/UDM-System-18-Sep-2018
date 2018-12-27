@@ -11,9 +11,14 @@ if($_POST['layoutnew'])
 	$layoutnew=$_POST['layoutnew'];
 }
 $topdata=unserialize(get_option('header_layout_'.$layout));
+
 ?>
     <li>
         <h3>Left Top Bar Widget</h3>
+			<span class="switch" id="left_top_bar_show" style="display:none">
+				<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['left_top_bar_show']) ? $topdata['left_top_bar_show'] : ''); ?> id="left_top_bar_show_label" name="left_top_bar_show" >
+				<label for="left_top_bar_show_label">Yes / No</label>
+			</span>
         <div id="lefttopbar" class="headwidget">
           <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -37,6 +42,10 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 	?>
 	 <li>
         <h3>Middle Top Bar Widget</h3>
+		<span class="switch" id="middle_top_bar_show" style="display:none">
+				<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['middle_top_bar_show']) ? $topdata['middle_top_bar_show'] : ''); ?>  id="middle_top_bar_show_label" name="middle_top_bar_show" >
+				<label for="middle_top_bar_show_label">Yes / No</label>
+		</span>
         <div id="middletopbar" class="headwidget">
           <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -60,6 +69,10 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 	?>
 	<li>
         <h3>Right Top Bar Widget</h3>
+		<span class="switch" id="right_top_bar_show" style="display:none">
+				<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['right_top_bar_show']) ? $topdata['right_top_bar_show'] : ''); ?>  id="right_top_bar_show_label" name="right_top_bar_show" >
+				<label for="right_top_bar_show_label">Yes / No</label>
+		</span>
         <div id="righttopbar" class="headwidget">
             <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -97,6 +110,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#lefttopbar').html(result);
+						$('#left_top_bar_show').show();
 					}
 					});
 					
@@ -117,6 +131,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#lefttopbar').html(result);
+						$('#left_top_bar_show').show();
 					}
 					});
 
@@ -138,6 +153,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#lefttopbar').html(result);
+						$('#left_top_bar_show').show();
 					}
 					});
 					
@@ -159,6 +175,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#lefttopbar').html(result);
+						$('#left_top_bar_show').show();
 					}
 					});
 					
@@ -181,6 +198,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#middletopbar').html(result);
+						$('#middle_top_bar_show').show();
 					}
 					});
 					
@@ -201,6 +219,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#middletopbar').html(result);
+						$('#middle_top_bar_show').show();
 					}
 					});
 
@@ -222,6 +241,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#middletopbar').html(result);
+						$('#middle_top_bar_show').show();
 					}
 					});
 					
@@ -243,6 +263,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#middletopbar').html(result);
+						$('#middle_top_bar_show').show();
 					}
 					});
 					
@@ -264,6 +285,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#righttopbar').html(result);
+						$('#right_top_bar_show').show();
 					}
 					});
 					
@@ -284,6 +306,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#righttopbar').html(result);
+						$('#right_top_bar_show').show();
 					}
 					});
 
@@ -304,7 +327,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#righttopbar').html(result);
-					
+						$('#right_top_bar_show').show();
 					}
 					});
 			<?php		
@@ -324,7 +347,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 					   },
 					success: function(result) {
 						$('#righttopbar').html(result);
-					
+						$('#right_top_bar_show').show();
 					}
 					});
 			<?php	
@@ -348,6 +371,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#lefttopbar').html(result);
+							$('#left_top_bar_show').show();
+							$('#left_top_bar_show_label').prop('checked',true);
 						}
 						});
 					
@@ -366,6 +391,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#lefttopbar').html(result);
+							$('#left_top_bar_show').show();
+							$('#left_top_bar_show_label').prop('checked',true);
 						}
 						});
 					
@@ -384,7 +411,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#lefttopbar').html(result);
-							
+							$('#left_top_bar_show').show();
+							$('#left_top_bar_show_label').prop('checked',true);
 						}
 						});
 				}
@@ -402,7 +430,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#lefttopbar').html(result);
-						
+							$('#left_top_bar_show').show();
+							$('#left_top_bar_show_label').prop('checked',true);
 						}
 						});
 				}
@@ -427,6 +456,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#middletopbar').html(result);
+							$('#middle_top_bar_show').show();
+							$('#middle_top_bar_show_label').prop('checked',true);
 						}
 						});
 					
@@ -446,6 +477,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#middletopbar').html(result);
+							$('#middle_top_bar_show').show();
+							$('#middle_top_bar_show_label').prop('checked',true);
 						}
 						});
 					
@@ -464,7 +497,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#middletopbar').html(result);
-							
+							$('#middle_top_bar_show').show();
+							$('#middle_top_bar_show_label').prop('checked',true);
 						}
 						});
 				}
@@ -482,7 +516,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#middletopbar').html(result);
-						
+							$('#middle_top_bar_show').show();
+							$('#middle_top_bar_show_label').prop('checked',true);
 						}
 						});
 				}
@@ -508,6 +543,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#righttopbar').html(result);
+							$('#right_top_bar_show').show();
+							$('#right_top_bar_show_label').prop('checked',true);
 						}
 						});
 					
@@ -526,6 +563,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#righttopbar').html(result);
+							$('#right_top_bar_show').show();
+							$('#right_top_bar_show_label').prop('checked',true);
 						}
 						});
 					
@@ -544,7 +583,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#righttopbar').html(result);
-
+							$('#right_top_bar_show').show();
+							$('#right_top_bar_show_label').prop('checked',true);
 						}
 						});
 
@@ -563,6 +603,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 						   },
 						success: function(result) {
 							$('#righttopbar').html(result);
+							$('#right_top_bar_show').show();
+							$('#right_top_bar_show_label').prop('checked',true);
 						}
 						});
 
