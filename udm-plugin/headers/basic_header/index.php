@@ -9,6 +9,8 @@ $data=unserialize(get_option('header_layout_'.$layout));
 			<div class="row">				
 				<div class="col-md-6 top_heade_left padd_0">
 					<?php 
+					if(isset($data['left_top_bar_show']) && $data['left_top_bar_show'] == 'yes')
+						{ 
 						if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
 						{ 
 					?>
@@ -96,11 +98,15 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['lefttopbar_button_text']) &&   $data['lefttopbar_button_text']!=""){ echo esc_attr($data['lefttopbar_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
 					<?php 
 						} 
+					}
 					?>					
 				</div> 
 				<div class="col-md-6">
+				<?php if(isset($data['right_top_bar_show']) && $data['right_top_bar_show'] == 'yes')
+						{  ?>
 					<ul class="top_heade_right">
 					<?php 
+					
 						if(isset($data['righttopbartext']) && $data['righttopbartext'] == 'yes')
 						{
 					?>
@@ -175,6 +181,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						}
 					?>
 					</ul>
+				<?php } ?>
 				</div>
 			</div>
 		</div>

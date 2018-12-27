@@ -13,6 +13,7 @@
 				   <section class="top_stacked_header top_basic_show <?php if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
 							<div class="row row_border align-items-center justify-content-end">
 								<?php 
+								if(isset($data['left_top_bar_show']) && $data['left_top_bar_show'] == 'yes'){
 									if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
 									{
 								?>
@@ -117,11 +118,12 @@
 										</ul>
 								</div>
 								<?php 
+										}
 									}
-								
 								if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){
 							?>
 						   <?php 
+							if(isset($data['middle_top_bar_show']) && $data['middle_top_bar_show'] == 'yes'){
 									if(isset($data['middletopbartext']) && $data['middletopbartext'] == 'yes')
 									{
 								?>
@@ -227,9 +229,11 @@
 								</div>
 								<?php 
 									}
+								}
 								} ?>
 							
 								<?php 
+								if(isset($data['right_top_bar_show']) && $data['right_top_bar_show'] == 'yes'){
 									if(isset($data['righttopbartext']) && $data['righttopbartext'] == 'yes')
 									{
 								?>
@@ -334,6 +338,7 @@
 										</ul>
 								</div>
 								<?php 
+									}
 									}
 								?>
 							</div>
