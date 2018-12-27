@@ -20,7 +20,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							if(isset($data['lefttopbar_phone_left_text']) && $data['lefttopbar_phone_left_text']!="")
 							{
 								 ?> 
-								 <strong class="padr_10" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></strong>
+								 <strong class="" href="tel:<?php echo get_option('udm_phone_number'); ?>"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></strong>
 								 <?php
 							}
 							if(isset($data['lefttopbar_phone_overright']) && $data['lefttopbar_phone_overright']=="yes")
@@ -191,7 +191,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 					<span class="navbar-toggler-icon"></span>
 				  </button> 
-				  <div class="collapse navbar-collapse padlr15" id="collapsibleNavbar"> 
+				  <div class="collapse navbar-collapse padr0l_15" id="collapsibleNavbar"> 
 					<?php
 					echo '<div class="basic_header_nav">';
 						$menu=isset($data['navigation']) ? $data['navigation'] : '';
