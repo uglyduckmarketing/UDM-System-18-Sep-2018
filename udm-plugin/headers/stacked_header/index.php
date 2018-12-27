@@ -11,12 +11,12 @@
 				</div>
 				<div class="col d-none d-lg-block">
 				   <section class="top_stacked_header top_basic_show <?php if(isset($data['top_bar_style']) && $data['top_bar_style']=="1_3"){ echo "one_third"; }else{ echo "fifty_fifty"; } ?>" >
-							<div class="row align-items-center justify-content-end">
+							<div class="row row_border align-items-center justify-content-end">
 								<?php 
 									if(isset($data['lefttopbartext']) && $data['lefttopbartext'] == 'yes')
 									{
 								?>
-								<div class="col-md-auto">
+								<div class="col-md-auto ">
 								<ul class="top_header_get_bt top_header_get_bt_show lefttoptext"> 
 									<li><p><?php echo isset($data['lefttopbar_text']) ? $data['lefttopbar_text'] : ''; ?></p></li>
 									</ul>
@@ -26,7 +26,7 @@
 									else if(isset($data['lefttopbarphone']) && $data['lefttopbarphone'] == 'yes')
 									{
 								?>
-								<div class="col-md-auto top_heade_left top_header_left_show lefttopphone common_phonecall">
+								<div class="col-md-auto top_heade_left top_header_left_show lefttopphone common_phonecall ">
 									<?php 
 										if(isset($data['lefttopbar_phone_left_text']) && $data['lefttopbar_phone_left_text']!="")
 										{
@@ -37,11 +37,11 @@
 										if(isset($data['lefttopbar_phone_overright']) && $data['lefttopbar_phone_overright']=="yes")
 										{ 
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?></span>
+									<span class="contact_stacked contact_common_style <?php echo isset($data['lefttopbar_phone_number']) ? '' : 'remove_border'; ?>"><?php echo isset($data['lefttopbar_phone_number']) ? $data['lefttopbar_phone_number'] : ''; ?></span>
 									<?php
 										}else{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo get_option('udm_phone_number'); ?></span>
+									<span class="contact_stacked contact_common_style "><?php echo get_option('udm_phone_number'); ?></span>
 									<?php
 									}
 									?>
@@ -135,22 +135,22 @@
 									else if(isset($data['middletopbarphone']) && $data['middletopbarphone'] == 'yes')
 									{
 								?> 
-								<div class="col-md-auto top_heade_left top_header_left_show middletopphone">
+								<div class="col-md-auto top_heade_left top_header_left_show middletopphone common_phonecall">
 								 <?php 
 										if(isset($data['middletopbar_phone_left_text']) && $data['middletopbar_phone_left_text']!="")
 										{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo isset($data['middletopbar_phone_left_text']) ? $data['middletopbar_phone_left_text'] : ''; ?></span>
+									<small><?php echo isset($data['middletopbar_phone_left_text']) ? $data['middletopbar_phone_left_text'] : ''; ?></small>
 									<?php 
 										}
 										if(isset($data['middletopbar_phone_overright']) && $data['middletopbar_phone_overright']=="yes")
 										{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?></span>
+									<span class=""><?php echo isset($data['middletopbar_phone_number']) ? $data['middletopbar_phone_number'] : ''; ?></span>
 									<?php
 										}else{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo get_option('udm_phone_number'); ?></span>
+									<span class=""><?php echo get_option('udm_phone_number'); ?></span>
 									<?php
 									}
 									?>
@@ -243,22 +243,23 @@
 									else if(isset($data['righttopbarphone']) && $data['righttopbarphone'] == 'yes')
 									{
 								?> 
-								<div class="col-md-auto top_heade_left top_header_left_show righttopphone">
+								<div class="col-md-auto top_heade_left top_header_left_show righttopphone common_phonecall">
 								 <?php 
 										if(isset($data['righttopbar_phone_left_text']) && $data['righttopbar_phone_left_text']!="")
 										{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo esc_attr($data['righttopbar_phone_left_text']); ?></span>
+										<small><?php echo isset($data['righttopbar_phone_left_text']) ? $data['righttopbar_phone_left_text'] : ''; ?></small>
+									
 									<?php 
 										}
 										if(isset($data['righttopbar_phone_overright']) && $data['righttopbar_phone_overright']=="yes")
 										{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?></span>
+									<span class=""><?php echo isset($data['righttopbar_phone_number']) ? $data['righttopbar_phone_number'] : ''; ?></span>
 									<?php
 										}else{
 									?>
-									<span class="contact_stacked contact_common_style"><?php echo get_option('udm_phone_number'); ?></span>
+									<span class=""><?php echo get_option('udm_phone_number'); ?></span>
 									<?php
 									}
 									?>

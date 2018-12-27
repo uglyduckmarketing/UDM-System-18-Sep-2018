@@ -91,7 +91,7 @@ header .basic_header_default li a::before {
 	height: 2px;
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: -1px;
 	transition: all .3s ease;
 }
 header .basic_header_default li:hover a::before {
@@ -3791,7 +3791,7 @@ header .basic_header .common_phonecall{text-align: center;margin-top: -6px;}
 .common_phonecall li span, .common_phonecall li span a{color:#101010;}  
 .common_phonecall li span, .common_phonecall span{font-weight: 600;padding: 0 1rem;font-size: 1.1rem;}
 .common_phonecall li small a{font-weight: 500;color:#21cb5a;}
-.common_phonecall small{font-weight: 500;padding: 0 1rem;color:#21cb5a;display:block;}  
+.common_phonecall small{font-weight: 500;padding: 0 1rem;color:#21cb5a;display:block;text-align:center;}  
 header.main_header .container{max-width: 92.5%;}
 header .stacked_header .container{max-width: 100%;}
 nav.navbar{padding:0px;} 
@@ -3801,7 +3801,7 @@ nav.navbar{padding:0px;}
 .basic_header_nav ul{padding: 0;margin: 0;padding-left: 1.25rem;}
 .top_basic_header .top_heade_left li{font-size:14px;}
 .col-md-auto{-webkit-box-flex: 0;-ms-flex: 0 0 auto;flex: 0 0 auto;width: auto;max-width: none;} 
-.border_left_rgt{border-left: 1px solid rgba(0,0,0,.075);border-right: 1px solid rgba(0,0,0,.075);} 
+/* .border_left_rgt{border-left: 1px solid rgba(0,0,0,.075);border-right: 1px solid rgba(0,0,0,.075);}  */
 header ul.navbar-nav li a:hover{color:#21cb5a;} 
 header ul.navbar-nav li a::before{background-color:#21cb5a;}
 header .top_basic_header .top_heade_right li a{padding: 0 .35rem;}
@@ -3833,7 +3833,8 @@ header .stacked_header .bottom_stacked_header .navbar{border-top: 1px solid rgba
 header .newtwo_header .logo_common{padding:0px;}
 header .newtwo_header .menu-about-container{display: block;width:100%;}
 .newheader_collapse>div{display:block;width: 100%;}
- 
+.row_border>div{border-right: 1px solid rgba(0,0,0,.075);}
+.row_border>div:last-child{border-right: 0px solid rgba(0,0,0,.075);}
 
 @media(min-width:992px){
 	.col-lg-auto{-webkit-box-flex: 0;-ms-flex: 0 0 auto;flex: 0 0 auto;width: auto;max-width: none;}
