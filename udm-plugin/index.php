@@ -7,10 +7,8 @@
 define('VERSION','1.0');
 add_action( 'admin_head', 'wp_admin_header_scripts' ); 
 function wp_admin_header_scripts( $hook_suffix ) {
-	//wp_enqueue_style( 'udm-bootstrap', get_template_directory_uri() . '/udm-plugin/css/bootstrap-min.css' );
     wp_enqueue_style( 'udm-fontawesome', get_template_directory_uri() . '/udm-plugin/css/font-awesome.css' );
 	wp_enqueue_style( 'udm-ui-admin', get_template_directory_uri() . '/udm-plugin/css/jquery-ui.css' ); 
-	wp_enqueue_style( 'udm-admin', get_template_directory_uri() . '/udm-plugin/css/udm-admin.css' ); 
 	wp_enqueue_script( 'udm-popper-js', get_template_directory_uri() . '/udm-plugin/js/popper.min.js');
     wp_enqueue_script( 'udm-bootstrap-js',  get_template_directory_uri() . '/udm-plugin/js/bootstrap.min.js' );	
     wp_enqueue_script( 'udm-ui-js',  get_template_directory_uri() . '/udm-plugin/js/jquery-ui.min.js' );		
@@ -28,23 +26,30 @@ function wp_enqueue_color_picker( $hook_suffix ) {
 
 // Add menus to admin side navigation
 function add_theme_menu_item(){
-	
-	add_menu_page('UDM Options', 'UDM Options', 'manage_options', 'udm-options-panel', 'udm_base_options_page_func', null, 99);
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Base Options', 'manage_options', 'udm-options-panel', 'udm_base_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Company Info','manage_options', 'udm-companyinfo-panel','udm_companyinfo_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Social Settings','manage_options', 'udm-social-panel','udm_social_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Header Options','manage_options', 'udm-header-panel','udm_header_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Submenu Options','manage_options', 'udm-submenu-panel','udm_submenu_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'M Header Options','manage_options', 'udm-mobile-header-panel','udm_mobile_header_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Services Options','manage_options', 'udm-service-panel','udm_service_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'M Nav Options','manage_options', 'udm-mobile-nav-panel','udm_mobile_nav_options_page_func'); 
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Hero Options','manage_options', 'udm-hero-panel','udm_hero_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Footer Options','manage_options', 'udm-footer-panel','udm_footer_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Footer CTA Options','manage_options', 'udm-footer-cta-panel','udm_footer_cta_options_page_func');
-	add_submenu_page('udm-options-panel', 'UDM Options', 'Blog Options','manage_options', 'udm-blog-panel','udm_blog_options_page_func');
+	$menu = array();
+	$menu[] = add_menu_page('UDM Options', 'UDM Options', 'manage_options', 'udm-options-panel', 'udm_base_options_page_func', null, 99);
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Base Options', 'manage_options', 'udm-options-panel', 'udm_base_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Company Info','manage_options', 'udm-companyinfo-panel','udm_companyinfo_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Social Settings','manage_options', 'udm-social-panel','udm_social_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Header Options','manage_options', 'udm-header-panel','udm_header_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Submenu Options','manage_options', 'udm-submenu-panel','udm_submenu_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'M Header Options','manage_options', 'udm-mobile-header-panel','udm_mobile_header_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Services Options','manage_options', 'udm-service-panel','udm_service_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'M Nav Options','manage_options', 'udm-mobile-nav-panel','udm_mobile_nav_options_page_func'); 
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Hero Options','manage_options', 'udm-hero-panel','udm_hero_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Footer Options','manage_options', 'udm-footer-panel','udm_footer_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Footer CTA Options','manage_options', 'udm-footer-cta-panel','udm_footer_cta_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Blog Options','manage_options', 'udm-blog-panel','udm_blog_options_page_func');
+	for($i =0; $i< count($menu); $i++){
+		add_action( 'load-' . $menu[$i], 'udm_theme_style' );
+	}
 }
 add_action("admin_menu", "add_theme_menu_item");
 
+// Load CSS for theme option 28-12-2018
+function udm_theme_style(){
+	wp_enqueue_style( 'udm-admin', get_template_directory_uri() . '/udm-plugin/css/udm-admin.css' ); 
+}
 
 // Dashboard Page
 function udm_dashboard_page_func(){
