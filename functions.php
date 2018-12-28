@@ -17,6 +17,8 @@ add_action( 'wp_enqueue_scripts', 'udm_load_css_and_js' );
 function dummy_header_data(){
 	if(get_option('header_layout_Basic_Header_default') == ''){
 		$data = array();
+		$data['header_layout_template'] = "default";
+		$data['header_layout_name'] = "1";
 		$data['top_bar'] = "yes";
 		$data['right_header'] = "yes";
 		$data['right_header_text'] = "Call For An Estimate";
