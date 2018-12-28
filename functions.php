@@ -16,83 +16,84 @@ add_action( 'wp_enqueue_scripts', 'udm_load_css_and_js' );
 
 function dummy_header_data(){
 	if(get_option('header_layout_Basic_Header_default') == ''){
-	
-	$data = array();
-	$data['top_bar'] = "yes";
-	$data['right_header'] = "yes";
-	$data['right_header_text'] = "Call For An Estimate";
-	$data['right_header_phone'] = "+91-7009292384";
-	$data['lefttopbarphone'] = "yes";
-	$data['lefttopbar_phone_overright'] = "yes";
-	$data['righttopbarsocial'] = "yes";
-	$data['righttopbar_social_icon_style'] = "default";
-	$data['lefttopbar_phone_number'] = "+91-7009292384";
-	
-	$data['lefttopbar_phone_left_text'] = "Call Today For A Free Estimate";
-	update_option('udm_facebook_link','#');
-	update_option('udm_twitter_link','#');
-	update_option('udm_instagram_link','#');
-	
-	$menu_name = 'Dummy Menu';
-	$menu_exists = wp_get_nav_menu_object( $menu_name );
+		$data = array();
+		$data['top_bar'] = "yes";
+		$data['right_header'] = "yes";
+		$data['right_header_text'] = "Call For An Estimate";
+		$data['right_header_phone'] = "+91-7009292384";
+		$data['lefttopbarphone'] = "yes";
+		$data['left_top_bar_show'] = "yes";
+		$data['right_top_bar_show'] = "yes";
+		$data['lefttopbar_phone_overright'] = "yes";
+		$data['righttopbarsocial'] = "yes";
+		$data['righttopbar_social_icon_style'] = "default";
+		$data['lefttopbar_phone_number'] = "+91-7009292384";
+		
+		$data['lefttopbar_phone_left_text'] = "Call Today For A Free Estimate";
+		update_option('udm_facebook_link','#');
+		update_option('udm_twitter_link','#');
+		update_option('udm_instagram_link','#');
+		
+		$menu_name = 'Dummy Menu';
+		$menu_exists = wp_get_nav_menu_object( $menu_name );
 
-	// If it doesn't exist, let's create it.
-	if( !$menu_exists){
-	$menu_id = wp_create_nav_menu($menu_name);
+		// If it doesn't exist, let's create it.
+		if( !$menu_exists){
+		$menu_id = wp_create_nav_menu($menu_name);
 
-	// Set up default menu items
-	wp_update_nav_menu_item($menu_id, 0, array(
-	'menu-item-title' =>  __('Home'),
-	'menu-item-classes' => 'home',
-	'menu-item-url' => home_url( '/' ), 
-	'menu-item-status' => 'publish'));
+		// Set up default menu items
+		wp_update_nav_menu_item($menu_id, 0, array(
+		'menu-item-title' =>  __('Home'),
+		'menu-item-classes' => 'home',
+		'menu-item-url' => home_url( '/' ), 
+		'menu-item-status' => 'publish'));
 
-	wp_update_nav_menu_item($menu_id, 0, array(
-	'menu-item-title' =>  __('About'),
-	'menu-item-url' => home_url( '/' ), 
-	'menu-item-status' => 'publish'));
-	
-	wp_update_nav_menu_item($menu_id, 0, array(
-	'menu-item-title' =>  __('Services'),
-	'menu-item-url' => home_url( '/' ), 
-	'menu-item-status' => 'publish'));
-	
-	wp_update_nav_menu_item($menu_id, 0, array(
-	'menu-item-title' =>  __('Products'),
-	'menu-item-url' => home_url( '/' ), 
-	'menu-item-status' => 'publish'));
-	
-	wp_update_nav_menu_item($menu_id, 0, array(
-	'menu-item-title' =>  __('Design'),
-	'menu-item-url' => home_url( '/' ), 
-	'menu-item-status' => 'publish'));
-	
-	wp_update_nav_menu_item($menu_id, 0, array(
-	'menu-item-title' =>  __('Contact'),
-	'menu-item-url' => home_url( '/' ), 
-	'menu-item-status' => 'publish'));
-	}
-	$data['navigation'] = "dummy-menu";
-	$data['background_color'] = "custom";
-	$data['link_color'] = "custom";
-	$data['topbar_background_color'] = "custom";
-	$data['topbar_link_color'] = "custom";
-	$data['topbar_text_color'] = "custom";
-	$data['righttopbar_social_icon_color'] = "custom";
-	$data['right_header_color'] = "custom";
-	$data['right_header_phone_color'] = "custom";
-	$data['background_custom_color'] = "#ffffff";
-	$data['link_custom_color'] = "#101010";
-	$data['topbar_background_custom_color'] = "#000000";
-	$data['topbar_link_custom_color'] = "#ffffff";
-	$data['topbar_text_custom_color'] = "#ffffff";
-	$data['righttopbar_social_icon_custom_color'] = "#ffffff";
-	$data['right_header_custom_color'] = "#21cb5a";
-	$data['right_header_phone_custom_color'] = "#101010";
-	$header_layout = serialize($data);
-	$headername="Basic_Header_".str_replace(" ","_","default");
-	update_option('header_layout_'.$headername, $header_layout );
-	update_option('udm_header_default',$headername);
+		wp_update_nav_menu_item($menu_id, 0, array(
+		'menu-item-title' =>  __('About'),
+		'menu-item-url' => home_url( '/' ), 
+		'menu-item-status' => 'publish'));
+		
+		wp_update_nav_menu_item($menu_id, 0, array(
+		'menu-item-title' =>  __('Services'),
+		'menu-item-url' => home_url( '/' ), 
+		'menu-item-status' => 'publish'));
+		
+		wp_update_nav_menu_item($menu_id, 0, array(
+		'menu-item-title' =>  __('Products'),
+		'menu-item-url' => home_url( '/' ), 
+		'menu-item-status' => 'publish'));
+		
+		wp_update_nav_menu_item($menu_id, 0, array(
+		'menu-item-title' =>  __('Design'),
+		'menu-item-url' => home_url( '/' ), 
+		'menu-item-status' => 'publish'));
+		
+		wp_update_nav_menu_item($menu_id, 0, array(
+		'menu-item-title' =>  __('Contact'),
+		'menu-item-url' => home_url( '/' ), 
+		'menu-item-status' => 'publish'));
+		}
+		$data['navigation'] = "dummy-menu";
+		$data['background_color'] = "custom";
+		$data['link_color'] = "custom";
+		$data['topbar_background_color'] = "custom";
+		$data['topbar_link_color'] = "custom";
+		$data['topbar_text_color'] = "custom";
+		$data['righttopbar_social_icon_color'] = "custom";
+		$data['right_header_color'] = "custom";
+		$data['right_header_phone_color'] = "custom";
+		$data['background_custom_color'] = "#ffffff";
+		$data['link_custom_color'] = "#101010";
+		$data['topbar_background_custom_color'] = "#000000";
+		$data['topbar_link_custom_color'] = "#ffffff";
+		$data['topbar_text_custom_color'] = "#ffffff";
+		$data['righttopbar_social_icon_custom_color'] = "#ffffff";
+		$data['right_header_custom_color'] = "#21cb5a";
+		$data['right_header_phone_custom_color'] = "#101010";
+		$header_layout = serialize($data);
+		$headername="Basic_Header_".str_replace(" ","_","default");
+		update_option('header_layout_'.$headername, $header_layout );
+		update_option('udm_header_default',$headername);
 	}
 }
 
