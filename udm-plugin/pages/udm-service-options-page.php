@@ -106,22 +106,27 @@
 	</div>
 </div>	
 	<!-- Create service section Start -->
-<div class="wrap udm-opt service_layouts">
+<div class="wrap udm-opt service_layouts custom_layout clearfix">
 	<h1>Service Options</h1>
 		<div class="container">
 			<div class="row newsection">
 				<div class="col-md-12">
-					<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
-				</div>
+					<div id="newlayout">
+						<div class='empty'>
+							<p>Click the "Create New Layout" button below to start creating your layout.</p>
+						</div>
+						<a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a>
+					</div> 
+				</div> 
 			</div>
 		</div>
 </div>
 	<!-- Create service section End -->
 	<!-- Edit service section Start -->
-<div class="wrap udm-opt service_layouts">
+<div class="wrap udm-opt service_layouts custom_layout clearfix">
 	<h1>Edit Layouts</h1>
 	<div class="container">
-		<div class="row editsection">
+		<div class="row editsection common_setting"> 
 			<div class="col-md-12">
 				<select name="editsavedlayout" id="editsavedlayout">
 					<option value="">Default Layout <?php if(get_option('udm_service_default')!=""){ echo "( ".str_replace("_"," ", get_option('udm_service_default')).")"; } ?></option>	
@@ -219,15 +224,17 @@ jQuery(document).ready(function($) {
 	<?php } ?>
 });
 </script>
-<div class="defaultdatasection">
+<div class="defaultdatasection custom_color_picker">
 	<h2>Default Colors</h2>
 	<ul class="list">
 		<li><span>Primary: </span> <input id="udm_primary_color" class="udm_color_picker1" type="text" value="<?php echo get_option('udm_primary_color'); ?>"  /></li>
 		<li><span>Secondary: </span> <input id="udm_secondary_color" class="udm_color_picker1" type="text" value="<?php echo get_option('udm_secondary_color'); ?>"  /></li>
 		<li><span>Global Light: </span>  <input id="udm_global_light" class="udm_color_picker1" type="text" value="<?php echo get_option('udm_global_light'); ?>"  /></li>
 		<li><span>Global Dark: </span>  <input id="udm_global_dark" class="udm_color_picker1" type="text" value="<?php echo get_option('udm_global_dark'); ?>"  /></li>
+		<div class="clearfix"></div>
 	</ul>
-	<div class="defaultbutton">
+	<div class="clearfix"></div>
+	<div class="defaultbutton submit">
 		<button type="button" class="button button-primary" id="savedeafultcolor">Save</button>
 	</div>
 </div>

@@ -87,20 +87,24 @@
 	</div>
 </div>	
 	<!-- Create headers section Start -->
-<div class="wrap udm-opt header_layouts">
+<div class="wrap udm-opt header_layouts custom_layout clearfix">
 	<h1>Header Options</h1>
-		<div class="container">
-			<div class="row newsection">
-				<div class="col-md-12">
-					<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
+	<div class="container">
+		<div class="row newsection">
+			<div class="col-md-12">   
+				<div id="newlayout">
+					<div class='empty'>
+						<p>Click the "Create New Layout" button below to start creating your layout.</p>
+					</div>
+					<a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a>
 				</div>
 			</div>
-
 		</div>
+	</div>
 </div>
 	<!-- Create headers section End -->
 	<!-- Edit headers section Start -->
-<div class="wrap udm-opt header_layouts">
+<div class="wrap udm-opt header_layouts custom_layout clearfix">
 	<h1>Edit Layouts</h1>
 		<div class="container">
 			<div class="row editsection">
@@ -113,17 +117,16 @@
 							foreach($layouts as $layout){
 						?>
 							<option value="<?php echo str_replace("header_layout_","",$layout); ?>" <?php selected($prevlayout,str_replace("header_layout_","",$layout)); ?>  <?php if(get_option('udm_header_default')==str_replace("header_layout_","",$layout)){ echo ' class="selectedlayout"'; } ?>><?php echo str_replace("_"," ", str_replace("header_layout_","",$layout)); ?></option>
-						<?php	
-							
+						<?php								
 							}
 						?>
-					</select>
-					
-					<div id="editlayout"><div class='empty'><p>Select Header Layout to change settings.</p></div></div>
-					
+					</select>					
+					<div id="editlayout">
+						<div class='empty'><p>Select Header Layout to change settings.</p>
+						</div>
+					</div>					
 				</div>
 			</div>
-
 		</div>
 </div>
 	<!-- Edit headers section End -->
@@ -194,14 +197,16 @@
 });
 </script>
 
-<div class="defaultdatasection">
+<div class="defaultdatasection custom_color_picker">
 	<h2>Default Colors</h2>
 	<ul class="list">
 		<li><span>Primary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_primary_color'); ?>" readonly="" /></li>
 		<li><span>Secondary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_secondary_color'); ?>" readonly="" /></li>
 		<li><span>Global Light: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_light'); ?>" readonly="" /></li>
 		<li><span>Global Dark: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_dark'); ?>" readonly="" /></li>
+		<div class="clearfix"></div>
 	</ul>
+	<div class="clearfix"></div>
 </div>
 
 <style>

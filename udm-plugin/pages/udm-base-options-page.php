@@ -1,10 +1,10 @@
-<div class="wrap udm-opt">
+<div class="wrap udm-opt custom_layout clearfix">
   <h1>Base Options</h1>
   <form method="post" action="options.php" enctype="multipart/form-data">
     <?php
 		settings_fields("section");
 	?>
-		<ul class="base-setings" aria-multiselectable="true">
+		<ul class="base-setings common_setting" aria-multiselectable="true">
             <li>
                 <ul class="inner">
 					<li><h4>Select Default Header: </h4>
@@ -34,8 +34,7 @@
 								}
 							?>
 						</select>
-					</li>
-					
+					</li>					
 					<li><h4>Select Default Hero Layout: </h4>
 						<select name="udm_hero_default">
 								<option value="">Select Layout</option>	
@@ -151,8 +150,8 @@
 					<li>
 						<h2 class="header_layout_heading">
 							<a href="javascript:void(0);">Global Settings</a>
-						</h2>
-						<ul id="globalsettings" class="globalsettings">
+						</h2> 
+						<ul id="globalsettings" class="globalsettings customcolor">
 							<li><h4>Primary Color: </h4><input class="udm_color_picker" type="text" name="udm_primary_color" value="<?php echo get_option('udm_primary_color'); ?>" /></li>
 							<li><h4>Secondary Color: </h4><input class="udm_color_picker" type="text" name="udm_secondary_color" value="<?php echo get_option('udm_secondary_color'); ?>" /></li>
 							<li><h4>Global Light Color: </h4><input class="udm_color_picker" type="text" name="udm_global_light" value="<?php echo get_option('udm_global_light'); ?>" /></li>
@@ -187,12 +186,13 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
+						</ul> 
 					</li>
+					<div class="clearfix"></div>
 			    </ul>
-            </li>
-		<?php submit_button(); ?>
+            </li>		
 	  </ul>
+	  <?php submit_button(); ?> 
   </form>
 </div>
 <!-- Theme Options JS -->

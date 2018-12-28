@@ -175,24 +175,26 @@ function udm_service_description_display( $post ) {
 	$meta = get_post_meta( $post->ID, 'service_desc', true );
 	 wp_nonce_field( basename( __FILE__ ), 'udm_service_description_nonce' );
 	 ?>
-		<div class="inside own-fields">
-			<div class="own_fields own_input_field_text">
-				<label>Description Eyebrow</label>
-				<div class="own_label">
-					<input type="text" name="service_desc[description_eyebrow]" id="description_eyebrow" value="<?php echo isset($meta['description_eyebrow']) ? $meta['description_eyebrow'] : '' ?>">
+		<div class="mcf_metabox">
+			<div class="inside own-fields">
+				<div class="own_fields own_input_field_text">
+					<label>Description Eyebrow</label>
+					<div class="own_label">
+						<input type="text" name="service_desc[description_eyebrow]" id="description_eyebrow" value="<?php echo isset($meta['description_eyebrow']) ? $meta['description_eyebrow'] : '' ?>">
+					</div>
 				</div>
-			</div>
-			<div class="own_fields own_input_field_text">
-				<label>Description Heading</label>
-				<div class="own_label">
-					<input type="text" name="service_desc[description_heading]" id="description_heading" value="<?php echo isset($meta['description_heading']) ? $meta['description_heading'] : '' ?>">
+				<div class="own_fields own_input_field_text">
+					<label>Description Heading</label>
+					<div class="own_label">
+						<input type="text" name="service_desc[description_heading]" id="description_heading" value="<?php echo isset($meta['description_heading']) ? $meta['description_heading'] : '' ?>">
+					</div>
 				</div>
-			</div>
-			<?php $service_description = isset($meta['service_description']) ? $meta['service_description'] : ''; ?>
-			<div class="own_fields own_input_field_textarea">
-				<label>Services Description</label>
-				<div class="own_label">
-					<?php wp_editor( wp_specialchars_decode($service_description), 'service_description', $settings = array('textarea_name'=>'service_desc[service_description]','textarea_rows' => 15) ); ?>
+				<?php $service_description = isset($meta['service_description']) ? $meta['service_description'] : ''; ?>
+				<div class="own_fields own_input_field_textarea">
+					<label>Services Description</label>
+					<div class="own_label">
+						<?php wp_editor( wp_specialchars_decode($service_description), 'service_description', $settings = array('textarea_name'=>'service_desc[service_description]','textarea_rows' => 15) ); ?>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -229,46 +231,48 @@ function udm_service_benifits_display($post){
 	$bmeta = get_post_meta( $post->ID, 'benifit', true ); 
 	wp_nonce_field( basename( __FILE__ ), 'udm_service_benifits_nonce' );
 	?> 
-	<div class="inside own-fields">
-		<div class="own_label"><label for="">Benefit List</label></div>
-			<table id="dynamictables" class="widefat mcf-input-table ">
-				<tbody>
-					<?php
-					$x = 1;
-					for($i = 0 ; $i<count($bmeta); $i++){
-						?>
-						<tr class="row tr_clone_row">
-							<td class="order ui-sortable-handle" id="<?php echo isset($x) ? $x : ''; ?>"><?php echo isset($x) ? $x : ''; ?></td>
-							<td class="cus_td">  
-								<div class="own_fields own_input_field_text">
-									<label>Benefit Title</label>
-									<div class="own_label">
-										<input type="text" id="benefit_title" class="text " name="benifit[<?php echo esc_attr($i); ?>][benefit_<?php echo esc_attr($i); ?>_title]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_title']) ? $bmeta[$i]['benefit_'.$i.'_title'] : ''; ?>">
-									</div> 
-								</div>
-								<div class="own_fields own_input_field_text">
-									<label>Benefit Text</label>
-									<div class="own_label">
-										<input type="text" id="benifit_text" class="text " name="benifit[<?php echo esc_attr($i); ?>][benefit_<?php echo esc_attr($i); ?>_text]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_text']) ? $bmeta[$i]['benefit_'.$i.'_text'] : ''; ?>"> 
-									</div>
-								</div>
-							</td>
-							<td class="remove">
-								<a pid="" sid="" class="tr_clone_remove" href="javascript:;"><i class="fa fa-minus"></i></a>
-							</td>
-						</tr>
+	<div class="mcf_metabox">
+		<div class="inside own-fields">
+			<div class="own_label"><label for="">Benefit List</label></div>
+				<table id="dynamictables" class="widefat mcf-input-table ">
+					<tbody>
 						<?php
-						$x++;
-					}
-					?>
-				</tbody>
-			</table>
-			<ul class="hl clearfix repeater-footer addrow-btn">
-				<li class="right">
-					<a href="#" oid="" tid="tabs-" class="tr_clone_add own-button button button-primary button-large ">Add Benifit</a>
-				</li>
-				<div class="clearfix"></div>	
-			</ul>
+						$x = 1;
+						for($i = 0 ; $i<count($bmeta); $i++){
+							?>
+							<tr class="row tr_clone_row">
+								<td class="order ui-sortable-handle" id="<?php echo isset($x) ? $x : ''; ?>"><?php echo isset($x) ? $x : ''; ?></td>
+								<td class="cus_td">  
+									<div class="own_fields own_input_field_text">
+										<label>Benefit Title</label>
+										<div class="own_label">
+											<input type="text" id="benefit_title" class="text " name="benifit[<?php echo esc_attr($i); ?>][benefit_<?php echo esc_attr($i); ?>_title]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_title']) ? $bmeta[$i]['benefit_'.$i.'_title'] : ''; ?>">
+										</div> 
+									</div>
+									<div class="own_fields own_input_field_text">
+										<label>Benefit Text</label>
+										<div class="own_label">
+											<input type="text" id="benifit_text" class="text " name="benifit[<?php echo esc_attr($i); ?>][benefit_<?php echo esc_attr($i); ?>_text]" value="<?php echo isset($bmeta[$i]['benefit_'.$i.'_text']) ? $bmeta[$i]['benefit_'.$i.'_text'] : ''; ?>"> 
+										</div>
+									</div>
+								</td>
+								<td class="remove">
+									<a pid="" sid="" class="tr_clone_remove" href="javascript:;"><i class="fa fa-minus"></i></a>
+								</td>
+							</tr>
+							<?php
+							$x++;
+						}
+						?>
+					</tbody>
+				</table>
+				<ul class="hl clearfix repeater-footer addrow-btn">
+					<li class="right">
+						<a href="#" oid="" tid="tabs-" class="tr_clone_add own-button button button-primary button-large ">Add Benifit</a>
+					</li>
+					<div class="clearfix"></div>	
+				</ul>
+		</div>
 	</div>
 <script>
 $( function() {
@@ -349,6 +353,7 @@ function udm_service_breakdown_display($post){
 	$bkmeta = get_post_meta( $post->ID, 'breakdown', true );
 	wp_nonce_field( basename( __FILE__ ), 'udm_service_breakdown_nonce' ); 
 ?>
+	<div class="mcf_metabox">
 		<div class="inside own-fields">
 			<div class="own_label"><label for="">Single Service Breakdown</label></div>
 			<table id="servicedynamictables" class="widefat mcf-input-table ">
@@ -476,6 +481,7 @@ function udm_service_breakdown_display($post){
 				</li>
 				<div class="clearfix"></div>
 			</ul>
+		</div>
 	</div>
 <script>
 $( function() {
@@ -690,6 +696,7 @@ function udm_service_video_display($post){
 	$vmeta = get_post_meta( $post->ID, 'service_video', true );
 	wp_nonce_field( basename( __FILE__ ), 'udm_service_video_nonce' );
 	?>
+	<div class="mcf_metabox">
 		<div class="inside own-fields">
 			<div class="own_fields own_input_field_text">
 				<label>Youtube ID</label>
@@ -725,6 +732,7 @@ function udm_service_video_display($post){
 				</div>			
 			</div>
 		</div>
+	</div>
 <script>
 jQuery(document).ready(function($){
 	$('.video_color_field').each(function(){
@@ -790,33 +798,35 @@ function udm_service_gallery_display($post){
 	$the_query = new WP_Query( $args );
 	$gallery = isset($gmeta['gallery_name']) ? $gmeta['gallery_name'] : '';
 	?>
-	<div class="inside own-fields">
-		<div class="own_fields own_input_field_select">
-			<label>Gallery</label>
-			<div class="own_label">
-			<select class="" id="gallery_name" name="service_gallery[gallery_name]">
-				<option value="">Select</option>
-				<?php
-					if($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
-						?>
-						<option value="<?php echo esc_attr($the_query->post->ID); ?>" <?php if($gallery == $the_query->post->ID){ echo 'selected'; } ?>><?php the_title(); ?></option>
-						<?php
-					endwhile;
-					endif;
-				?>
-			</select>
-		</div>
-		</div>
-		<div class="own_fields own_input_field_text">
-			<label>Gallery Eyebrow</label>
-			<div class="own_label">
-				<input type="text" name="service_gallery[gallery_eyebrow]" value="<?php echo isset($gmeta['gallery_eyebrow']) ? $gmeta['gallery_eyebrow'] : ''; ?>">
+	<div class="mcf_metabox">
+		<div class="inside own-fields">
+			<div class="own_fields own_input_field_select">
+				<label>Gallery</label>
+				<div class="own_label">
+				<select class="" id="gallery_name" name="service_gallery[gallery_name]">
+					<option value="">Select</option>
+					<?php
+						if($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+							?>
+							<option value="<?php echo esc_attr($the_query->post->ID); ?>" <?php if($gallery == $the_query->post->ID){ echo 'selected'; } ?>><?php the_title(); ?></option>
+							<?php
+						endwhile;
+						endif;
+					?>
+				</select>
 			</div>
-		</div>
-		<div class="own_fields own_input_field_text">
-			<label>Gallery Heading</label>
-			<div class="own_label">
-				<input type="text" name="service_gallery[gallery_heading]" value="<?php echo isset($gmeta['gallery_heading']) ? $gmeta['gallery_heading'] : ''; ?>">
+			</div>
+			<div class="own_fields own_input_field_text">
+				<label>Gallery Eyebrow</label>
+				<div class="own_label">
+					<input type="text" name="service_gallery[gallery_eyebrow]" value="<?php echo isset($gmeta['gallery_eyebrow']) ? $gmeta['gallery_eyebrow'] : ''; ?>">
+				</div>
+			</div>
+			<div class="own_fields own_input_field_text">
+				<label>Gallery Heading</label>
+				<div class="own_label">
+					<input type="text" name="service_gallery[gallery_heading]" value="<?php echo isset($gmeta['gallery_heading']) ? $gmeta['gallery_heading'] : ''; ?>">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -860,52 +870,54 @@ function udm_service_cta_display($post){
 	$cmeta = get_post_meta( $post->ID, 'service_cta', true );
 	wp_nonce_field( basename( __FILE__ ), 'udm_service_cta_nonce' );
 	?>
-	<div class="inside own-fields">
-		<div class="own_fields own_input_field_text">
-			<label for="service_cta[cta_show]">CTA Section Hide</label>
-			<br>
-			<span class="switch">
-					<input type="checkbox" name="service_cta[cta_show]" class="switch" id="service_cta[cta_show]" value="yes" <?php checked('yes', isset($cmeta['cta_show']) ? $cmeta['cta_show'] : ''); ?>>
-					<label for="service_cta[cta_show]">Show/Hide</label>
-				</span>
-		</div>
-		<?php /*
-		<div class="own_fields own_input_field_text">
-			<label>Choose Button/Form</label>
-			<div class="own_label">
-			<?php $choose_btn_form = isset($cmeta['choose_btn_form']) ? $cmeta['choose_btn_form'] : ''; ?>
-			<select id="choose_button_form" name="service_cta[choose_btn_form]">
-				<option value="button" <?php if($choose_btn_form == 'button'){ echo 'selected'; } ?>>Button</option>
-				<option value="form" <?php if($choose_btn_form == 'form'){ echo 'selected'; } ?>>Form</option>
-			</select>
+	<div class="mcf_metabox">
+		<div class="inside own-fields">
+			<div class="own_fields own_input_field_text">
+				<label for="service_cta[cta_show]">CTA Section Hide</label>
+				<br>
+				<span class="switch">
+						<input type="checkbox" name="service_cta[cta_show]" class="switch" id="service_cta[cta_show]" value="yes" <?php checked('yes', isset($cmeta['cta_show']) ? $cmeta['cta_show'] : ''); ?>>
+						<label for="service_cta[cta_show]">Show/Hide</label>
+					</span>
 			</div>
-		</div>
-		<div class="show_button_f" <?php if($choose_btn_form == 'form'){ echo 'style="display:none;"'; } ?>>
-			<div class="own_fields own_input_field_text"><label>Button Text</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_text]" value="<?php echo isset($cmeta['cta_button_text']) ? $cmeta['cta_button_text'] : ''; ?>"></div></div>
-			<div class="own_fields own_input_field_text"><label>Button Link</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_link]" value="<?php echo isset($cmeta['cta_button_link']) ? $cmeta['cta_button_link'] : ''; ?>"></div></div>
-		</div>
-		<div class="own_fields own_input_field_text showform"  <?php if($choose_btn_form == ''){ ?> style="display:none;" <?php }else if($choose_btn_form == 'button'){ ?> style="display:none;" <?php }  ?>>
-			<label>Ninja Form</label>
-			<?php global $wpdb;
-			$tblname = $wpdb->prefix.'nf3_forms';
-			if($wpdb->get_var("SHOW TABLES LIKE '$tblname'") == $tblname) {
-				$ninjaform = $wpdb->get_results("select * from $tblname order by created_at DESC");
-			?>
-			<div class="own_label">
-			<?php $choose_ninja_form = isset($cmeta['choose_ninja_form']) ? $cmeta['choose_ninja_form'] : ''; ?>
-				<select id="" name="service_cta[choose_ninja_form]">
-					<option value="">Select</option>
-					<?php
-						foreach($ninjaform as $list){
-							?>
-							<option value="<?php echo esc_attr($list->id); ?>" <?php if($choose_ninja_form == $list->id){ echo 'selected'; } ?>><?php echo esc_attr($list->title); ?></option>
-							<?php
-						}
-					?>
+			<?php /*
+			<div class="own_fields own_input_field_text">
+				<label>Choose Button/Form</label>
+				<div class="own_label">
+				<?php $choose_btn_form = isset($cmeta['choose_btn_form']) ? $cmeta['choose_btn_form'] : ''; ?>
+				<select id="choose_button_form" name="service_cta[choose_btn_form]">
+					<option value="button" <?php if($choose_btn_form == 'button'){ echo 'selected'; } ?>>Button</option>
+					<option value="form" <?php if($choose_btn_form == 'form'){ echo 'selected'; } ?>>Form</option>
 				</select>
+				</div>
 			</div>
-				<?php }else{ echo '<div class="own_label"> Ninja Form Plugin Required</div>'; } ?>
-		</div> */ ?>
+			<div class="show_button_f" <?php if($choose_btn_form == 'form'){ echo 'style="display:none;"'; } ?>>
+				<div class="own_fields own_input_field_text"><label>Button Text</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_text]" value="<?php echo isset($cmeta['cta_button_text']) ? $cmeta['cta_button_text'] : ''; ?>"></div></div>
+				<div class="own_fields own_input_field_text"><label>Button Link</label><div class="own_label"><input type="text" class="" name="service_cta[cta_button_link]" value="<?php echo isset($cmeta['cta_button_link']) ? $cmeta['cta_button_link'] : ''; ?>"></div></div>
+			</div>
+			<div class="own_fields own_input_field_text showform"  <?php if($choose_btn_form == ''){ ?> style="display:none;" <?php }else if($choose_btn_form == 'button'){ ?> style="display:none;" <?php }  ?>>
+				<label>Ninja Form</label>
+				<?php global $wpdb;
+				$tblname = $wpdb->prefix.'nf3_forms';
+				if($wpdb->get_var("SHOW TABLES LIKE '$tblname'") == $tblname) {
+					$ninjaform = $wpdb->get_results("select * from $tblname order by created_at DESC");
+				?>
+				<div class="own_label">
+				<?php $choose_ninja_form = isset($cmeta['choose_ninja_form']) ? $cmeta['choose_ninja_form'] : ''; ?>
+					<select id="" name="service_cta[choose_ninja_form]">
+						<option value="">Select</option>
+						<?php
+							foreach($ninjaform as $list){
+								?>
+								<option value="<?php echo esc_attr($list->id); ?>" <?php if($choose_ninja_form == $list->id){ echo 'selected'; } ?>><?php echo esc_attr($list->title); ?></option>
+								<?php
+							}
+						?>
+					</select>
+				</div>
+					<?php }else{ echo '<div class="own_label"> Ninja Form Plugin Required</div>'; } ?>
+			</div> */ ?>
+		</div>
 	</div>
 	<script>
 	jQuery(document).ready(function($){
@@ -970,17 +982,19 @@ function udm_related_service_display($post){
 	$rmeta = get_post_meta( $post->ID, 'related', true );
 	wp_nonce_field( basename( __FILE__ ), 'udm_related_service_nonce' );
 	 $show_related = isset($rmeta['show_related']) ? $rmeta['show_related'] : ''; ?>
-	<div class="inside own-fields">
-		<div class="own_fields own_input_field_text">
-			<label>Related Eyebrow</label>
-			<div class="own_label">
-				<input type="text" name="related[related_eyebrow]" value="<?php echo isset($rmeta['related_eyebrow']) ? $rmeta['related_eyebrow'] : ''; ?>">
+	 <div class="mcf_metabox">
+		<div class="inside own-fields">
+			<div class="own_fields own_input_field_text">
+				<label>Related Eyebrow</label>
+				<div class="own_label">
+					<input type="text" name="related[related_eyebrow]" value="<?php echo isset($rmeta['related_eyebrow']) ? $rmeta['related_eyebrow'] : ''; ?>">
+				</div>
 			</div>
-		</div>
-		<div class="own_fields own_input_field_text">
-			<label>Related Heading</label>
-			<div class="own_label">
-				<input type="text" name="related[related_heading]" value="<?php echo isset($rmeta['related_heading']) ? $rmeta['related_heading'] : ''; ?>">
+			<div class="own_fields own_input_field_text">
+				<label>Related Heading</label>
+				<div class="own_label">
+					<input type="text" name="related[related_heading]" value="<?php echo isset($rmeta['related_heading']) ? $rmeta['related_heading'] : ''; ?>">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1028,6 +1042,7 @@ function udm_service_options_display( $post ) {
   // get current value
    $dropdown_value = get_post_meta( $post->ID, 'udm_service_option', true );
   ?> 
+  <div class="mcf_metabox">
     <select name="udm_service_option" id="udm_service_option">
 		<option value="">Default Layout</option>
 		<?php  
@@ -1040,6 +1055,7 @@ function udm_service_options_display( $post ) {
 			}
 		?>
 	</select>
+	</div>
   <?php
 }
 
@@ -1091,39 +1107,41 @@ function udm_all_gallery_display($post){
 	$unserlizegallery = unserialize($my_gallery_data);
 	wp_nonce_field( basename( __FILE__ ), 'udm_all_gallery_nonce' ); 
 	?>
-	<div class="inside own-fields">
-		<div class="own_label"><label for="">Gallery List</label></div>
-		<input type="hidden" name="" id="myprefix_image_id" value="" class="regular-text" />
-		<div class="my-gallery_box" >
-		
-		<div class="saved_images" id="sortable">
-		<?php 
-		if($my_gallery_data != '' && count($unserlizegallery) > 0){ 
-			for($i = 0; $i < count($unserlizegallery); $i++){
-				$url = wp_get_attachment_image_url( $unserlizegallery[$i]);
-		?>
-			<div class="gallery_box" data-post-id="<?php echo $i; ?>" >
-				<input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="<?php echo $unserlizegallery[$i]; ?>" class="regular-text" />
-				<div class="has-image">
-					<div class="img_hover">
-						<a class="remove_image" href="#"><i class="fa fa-close"></i></a>
+	<div class="mcf_metabox">
+		<div class="inside own-fields">
+			<div class="own_label"><label for="">Gallery List</label></div>
+			<input type="hidden" name="" id="myprefix_image_id" value="" class="regular-text" />
+			<div class="my-gallery_box" >
+			
+			<div class="saved_images" id="sortable">
+			<?php 
+			if($my_gallery_data != '' && count($unserlizegallery) > 0){ 
+				for($i = 0; $i < count($unserlizegallery); $i++){
+					$url = wp_get_attachment_image_url( $unserlizegallery[$i]);
+			?>
+				<div class="gallery_box" data-post-id="<?php echo $i; ?>" >
+					<input type="hidden" name="mygallery_image_id[]" id="myprefix_image_id" value="<?php echo $unserlizegallery[$i]; ?>" class="regular-text" />
+					<div class="has-image">
+						<div class="img_hover">
+							<a class="remove_image" href="#"><i class="fa fa-close"></i></a>
+						</div>
+						<img id="myprefix-preview-image" src="<?php echo $url; ?>" >
 					</div>
-					<img id="myprefix-preview-image" src="<?php echo $url; ?>" >
 				</div>
+			<?php } ?>
+			<?php } ?>
+				<div class="dynamic_images"></div>
 			</div>
-		<?php } ?>
-		<?php } ?>
-			<div class="dynamic_images"></div>
+			</div>
 		</div>
-		</div>
-	</div>
-	<div class="my-gallery_footer">	
-	<ul class="hl clearfix repeater-footer addrow-btn">
-		<li class="right">
-			<a href="#" oid="" tid="tabs-" class="button add-image button button-primary button-large">Add Gallery</a>
-		</li>
-		<div class="clearfix"></div>
-	</ul> 
+		<div class="my-gallery_footer">	
+		<ul class="hl clearfix repeater-footer addrow-btn">
+			<li class="right">
+				<a href="#" oid="" tid="tabs-" class="button add-image button button-primary button-large">Add Gallery</a>
+			</li>
+			<div class="clearfix"></div>
+		</ul> 
+		</div>	 
 	</div>	 
 <script>
 $( function() {
