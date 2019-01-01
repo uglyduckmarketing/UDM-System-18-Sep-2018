@@ -10,34 +10,58 @@ $description = get_post(get_post_thumbnail_id())->post_content; // The Descripti
 
 $format = get_post_format() ? : 'standard';
 ?>
-<section <?php post_class('container'); ?>>
+<section <?php post_class('container single_blog_main'); ?>>
 	<div class="col-md-12 article-main">
-		<div class="article__intro">
-			<h1 class="article__intro-title"><?php the_title(); ?></h1>
-			<p class="author-information">By <?php the_author(); ?> - <?php the_time('F jS, Y') ?> in <?php the_category(', ') ?></p>
-			<div class="share-article">
-				<!-- Facebook -->
-				<a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" target="_blank">
-					<i class="fa fa-facebook"></i>
-				</a>
-				<!-- Google+ -->
-				<a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" target="_blank">
-					<i class="fa fa-google-plus"></i>
-				</a>
-				<!-- Pinterest -->
-				<a href="//pinterest.com/pin/create/link/?url=<?php echo get_permalink();?>">
-					<i class="fa fa-pinterest-p"></i>
-				</a>
-				<!-- Twitter -->
-				<a href="https://twitter.com/share?url=<?php echo get_permalink(); ?>&amp;" target="_blank">
-					<i class="fa fa-twitter"></i>
-				</a>
-			</div>
-			<?php if(has_post_thumbnail()) : ?>
-			<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" />
-			<?php endif; ?>
+		<div class="col-lg-8 offset-lg-2 article__intro">
+			<span class="single_post_category"><?php the_category(', ') ?></span>
+			<h1 class="article-intro-title"><?php the_title(); ?></h1>
+			<div class="row align-items-center">
+          <div class="col-6">
+            <div class="row align-items-center">
+              <div class="col-md-auto border-right">
+                <div class="author-image">
+                 <?php $get_author_id = get_the_author_meta('ID');
+						$get_author_gravatar = get_avatar_url($get_author_id, array('size' => 450)); ?>
+                            <img src="<?php echo $get_author_gravatar; ?>" alt="">
+                </div>
+                <div class="author-info">
+                  <span class="written-by">Written By</span><br>
+                  <span class="name"><?php the_author(); ?></span>
+                </div>
+              </div>
+              <div class="col-md-auto">
+                <strong><?php the_time('F jS, Y') ?></strong><br>
+                <span class="posted_in_category">Posted in <a href="#"><?php the_category(', ') ?></a></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 text-right share_post_icons">
+			<!-- Facebook -->
+			<?php  $url = urlencode(get_the_permalink()); $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')); ?>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank"><i class="ion-social-facebook"></i></a>
+			<!-- Pinterest -->
+			<a href="http://pinterest.com/pin/create/button/?url=<?php echo $url; ?>&amp;media=<?php echo $media;   ?>&amp;description=<?php echo $title; ?>" target="_blank"><i class="ion-social-pinterest"></i></a>
+			<!-- Twitter -->
+			<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&amp;via=WPCrumbs" target="_blank"><i class="ion-social-twitter"></i></a>
+          </div>
+        </div>
+			
 		</div>
-			<?php the_content(); ?>
+		<div class="col-md-12">
+			<div class="post_featured_image">
+				<?php if(has_post_thumbnail()) : ?>
+					<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" title="<?php echo isset($title) ? $title : ''; ?>" />
+					
+				<?php endif; ?>
+			</div>
+			<div class="post_featured_caption">
+				<figcaption><?php echo isset($caption) ? $caption : ''; ?></figcaption>
+			</div>
+		</div>
+		<div class="col-lg-8 offset-lg-2">
+			<div class="single_post_content">
+				<?php the_content(); ?>
+			</div>
 			<?php
 				if ( comments_open() || get_comments_number() ) {
 					comments_template();
@@ -53,6 +77,7 @@ $format = get_post_format() ? : 'standard';
 			?>
 			<p ><?php the_tags(); ?></p>
 		<?php endwhile; endif; ?>
+		</div>
 	</div>
 </section>
 

@@ -12,21 +12,25 @@ $data=unserialize(get_option('blog_layout_'.$layout));
 ?>
 <form method="post" action="" enctype="multipart/form-data">
 	
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="blog_layout_name" value="" required></li>
-		<li><h4>Select Template: </h4>
-			<select name="blog_layout_template" id="blog_layout_template" required>
-				<option value="">Select Template</option>
-				<option value="1">Grid</option>
-				<option value="2">Cards</option>
-			</select>
+	<ul class="common_setting">
+		<li>
+			<ul class="inner"> 
+				<li><h4>Enter Layout Name: </h4><input type="text" name="blog_layout_name" value="" required></li>
+				<li><h4>Select Template: </h4>
+					<select name="blog_layout_template" id="blog_layout_template" required>
+						<option value="">Select Template</option>
+						<option value="1">Grid</option>
+						<option value="2">Cards</option>
+					</select>
+				</li> 
+				<div class="clearfix"></div>
+			</ul>
 		</li>
 	</ul>
 	<div id="selected_layout"><div class='empty'><p>Select Blog Layout Template to change settings.</p></div></div>
-	<div class="uploaded_button"><p class="submit"><input type="submit" name="blog_createlayout_submit" class="button button-primary" value="Save Layout"></p> </div>
-
-</form>
-
+	<div class="uploaded_button"><p class="submit"><input type="submit" name="blog_createlayout_submit" class="button button-primary" value="Save Layout"></p></div>
+</form> 
+ 
 
 <!-- Theme Options JS -->
 <script>
@@ -74,7 +78,6 @@ $data=unserialize(get_option('blog_layout_'.$layout));
 				$('#selected_layout').html("<div class='empty'><p>Select Blog Layout Template to change settings.</p></div>");
 			}
 	   });
-	   
-	  
+	   	  
 	  });
 	 </script>

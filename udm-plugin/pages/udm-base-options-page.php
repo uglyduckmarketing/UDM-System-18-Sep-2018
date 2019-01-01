@@ -142,7 +142,7 @@
 							<option value="grid" <?php selected("grid",get_option('udm_gallery_layout_default')); ?>>Grid</option>
 							<option value="carousel" <?php selected("carousel",get_option('udm_gallery_layout_default')); ?>>Carousel</option>
 						</select>
-					</li>
+					</li> 
 					<li>
 						<h4>Google Map API Key</h4>
 						<input type="text" name="udm_google_map_key" value="<?php echo get_option('udm_google_map_key'); ?>">
@@ -191,7 +191,7 @@
 					<div class="clearfix"></div>
 			    </ul>
             </li>		
-	  </ul>
+	  </ul> 
 	  <?php submit_button(); ?> 
   </form>
 </div>

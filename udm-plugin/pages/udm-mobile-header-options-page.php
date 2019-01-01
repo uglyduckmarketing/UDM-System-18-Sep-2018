@@ -42,7 +42,7 @@ $prevlayout="";
 </div>	
 
 <!-- Create mobile_header layout start -->
-<div class="wrap udm-opt mobile_header_layouts">
+<div class="wrap udm-opt mobile_header_layouts custom_layout clearfix">
 	<h1>Mobile Header Options</h1>
 		<div class="container">
 			<div class="row newsection">
@@ -50,12 +50,11 @@ $prevlayout="";
 					<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
 				</div>
 			</div>
-			
-		</div>
+		</div>  
 </div>
 <!-- Create mobile_headers section End -->
 <!-- Edit mobile_header layout start -->
-<div class="wrap udm-opt mobile_header_layouts">
+<div class="wrap udm-opt mobile_header_layouts custom_layout clearfix">
 	<h1>Edit Layouts</h1>
 		<div class="container">
 			<div class="row editsection">
@@ -146,14 +145,16 @@ $prevlayout="";
 		?>
 	  });
 </script>
-<div class="defaultdatasection">
+<div class="defaultdatasection custom_color_picker">
 	<h2>Default Colors</h2>
 	<ul class="list">
 		<li><span>Primary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_primary_color'); ?>" readonly="" /></li>
 		<li><span>Secondary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_secondary_color'); ?>" readonly="" /></li>
 		<li><span>Global Light: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_light'); ?>" readonly="" /></li>
 		<li><span>Global Dark: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_dark'); ?>" readonly="" /></li>
+		<div class="clearfix"></div>
 	</ul>
+	<div class="clearfix"></div> 
 </div>
 
 <style>
