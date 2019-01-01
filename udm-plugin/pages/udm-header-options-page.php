@@ -125,7 +125,7 @@
 						<div class='empty'><p>Select Header Layout to change settings.</p>
 						</div>
 					</div>					
-				</div>
+				</div>  
 			</div>
 		</div>
 </div>

@@ -1,10 +1,10 @@
-<div class="wrap udm-opt">
+<div class="wrap udm-opt custom_layout clearfix">
 	<h1>Social Icons Options</h1>
 	<form method="post" action="options.php" enctype="multipart/form-data">
-    <?php
+    <?php 
       settings_fields("socail_icons");
 	?>
-		<ul class="base-setings" aria-multiselectable="true">
+		<ul class="base-setings common_setting" aria-multiselectable="true">
             <li>
                 <ul class="inner">
                     <li><h4>Facebook Link </h4><input type="text" name="udm_facebook_link" value="<?php if(get_option('udm_facebook_link')){ echo get_option('udm_facebook_link'); }else{ ?>https://www.facebook.com/heroistic/<?php } ?>" /></li>
@@ -13,6 +13,7 @@
                     <li><h4>Google Plus Link </h4><input type="text" name="udm_googleplus_link" value="<?php echo get_option('udm_googleplus_link'); ?>" /></li>
                     <li><h4>Linked In Link </h4><input type="text" name="udm_linkedin_link" value="<?php echo get_option('udm_linkedin_link'); ?>" /></li>
 				    <li><h4>Pinterest Link </h4><input type="text" name="udm_pinterest_link" value="<?php echo get_option('udm_pinterest_link'); ?>" /></li>
+					<div class="clearfix"></div>
                 </ul>
             </li>
 		</ul>  
@@ -21,14 +22,16 @@
     ?>
 	</form>
 </div>
-<div class="defaultdatasection">
+<div class="defaultdatasection custom_color_picker">
 	<h2>Default Colors</h2>
 	<ul class="list">
 		<li><span>Primary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_primary_color'); ?>" readonly="" /></li>
 		<li><span>Secondary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_secondary_color'); ?>" readonly="" /></li>
 		<li><span>Global Light: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_light'); ?>" readonly="" /></li>
 		<li><span>Global Dark: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_dark'); ?>" readonly="" /></li>
+		<div class="clearfix"></div>
 	</ul>
+	<div class="clearfix"></div>
 </div>
 
 <style>

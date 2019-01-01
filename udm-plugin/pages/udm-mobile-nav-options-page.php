@@ -74,20 +74,19 @@
 	</div>
 </div>	
 	<!-- Create mobile_navs section Start -->
-<div class="wrap udm-opt mobile_nav_layouts">
+<div class="wrap udm-opt mobile_nav_layouts custom_layout clearfix">
 	<h1>Mobile Nav Options</h1>
 		<div class="container">
 			<div class="row newsection">
 				<div class="col-md-12">
 					<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
 				</div>
-			</div>
-		
+			</div> 
 		</div>
 </div>
 	<!-- Create mobile_navs section End -->
 	<!-- Edit mobile_navs section Start -->
-<div class="wrap udm-opt mobile_nav_layouts">
+<div class="wrap udm-opt mobile_nav_layouts custom_layout clearfix">
 	<h1>Edit Layouts</h1>
 		<div class="container">
 			<div class="row editsection">
@@ -178,14 +177,16 @@
 		?>
 	  });
 </script>
-<div class="defaultdatasection">
+<div class="defaultdatasection custom_color_picker">
 	<h2>Default Colors</h2>
 	<ul class="list">
 		<li><span>Primary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_primary_color'); ?>" readonly="" /></li>
 		<li><span>Secondary: </span> <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_secondary_color'); ?>" readonly="" /></li>
 		<li><span>Global Light: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_light'); ?>" readonly="" /></li>
 		<li><span>Global Dark: </span>  <input class="udm_color_picker" type="text" value="<?php echo get_option('udm_global_dark'); ?>" readonly="" /></li>
+		<div class="clearfix"></div>
 	</ul>
+	<div class="clearfix"></div>
 </div>
 
 <style>
