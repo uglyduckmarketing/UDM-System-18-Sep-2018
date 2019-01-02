@@ -20,10 +20,10 @@
 		{
 			$layout=get_option('udm_footer_cta_default');
 			global $post,$wpdb;
-			$posttype = get_post_type();
+			$posttype = get_post_type(); 
 			$cta = get_post_meta($post->ID, 'service_cta', true);
 			if($posttype == 'service'){
-				if(isset($cta) && $cta['cta_show'] == 'yes' ){
+				if(isset($cta['cta_show']) && $cta['cta_show'] == 'yes' ){
 						include get_template_directory() . '/udm-plugin/footer-cta/split-cta/index.php';
 				}else{
 				
