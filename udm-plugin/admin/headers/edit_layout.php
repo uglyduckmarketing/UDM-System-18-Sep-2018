@@ -18,28 +18,30 @@ $data=unserialize(get_option('header_layout_'.$layout));
 		}
 		else
 		{
-	?>
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="header_layout_name" value="" required></li>
-		<li><h4>Select Template: </h4>
-			<select name="header_layout_template" id="editheader_layout_template" required>
-				<option value="">Select Template</option>
-				<option value="1">Basic Header</option>
-				<option value="2">Stacked Header</option>
-				<option value="3">Transparent Header</option>
-				<option value="4">New Header</option>
-			</select>
+	?> 
+	<ul class="common_setting">
+		<li>
+			<ul class="inner"> 
+				<li><h4>Enter Layout Name: </h4><input type="text" name="header_layout_name" value="" required></li>
+				<li><h4>Select Template: </h4>
+					<select name="header_layout_template" id="editheader_layout_template" required>
+						<option value="">Select Template</option>
+						<option value="1">Basic Header</option>
+						<option value="2">Stacked Header</option>
+						<option value="3">Transparent Header</option>
+						<option value="4">New Header</option>
+					</select>
+				</li>
+				<div class="clearfix"></div>
+			</ul>
 		</li>
 	</ul>
-	<?php 
+	<?php  
 		}
 	?>
 	<div id="editselected_layout"><div class='empty'><p>Select Header Layout Template to change settings.</p></div></div>
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="header_editlayout_submit" class="button button-primary" value="Save Layout"><input type="submit" name="header_deletelayout_submit" class="button button-primary" value="Delete Layout"></p> </div>
-
 </form>
-
-
 
 <!-- Theme Options JS -->
 <script>

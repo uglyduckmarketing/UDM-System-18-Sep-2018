@@ -9,23 +9,26 @@ if(isset($_POST['layout']))
 }
 $data=unserialize(get_option('header_layout_'.$layout));
 ?>
-<form method="post" action="" enctype="multipart/form-data">
-	
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="header_layout_name" value="" required></li>
-		<li><h4>Select Template: </h4>
-			<select name="header_layout_template" id="header_layout_template" required>
-				<option value="">Select Template</option>
-				<option value="1">Basic Header</option>
-				<option value="2">Stacked Header</option>
-				<option value="3">Transparent Header</option>
-				<option value="4">New Header</option>
-			</select>
+<form method="post" action="" enctype="multipart/form-data">	
+	<ul class="common_setting">
+		<li>
+			<ul class="inner"> 
+				<li><h4>Enter Layout Name: </h4><input type="text" name="header_layout_name" value="" required></li>
+				<li><h4>Select Template: </h4>
+					<select name="header_layout_template" id="header_layout_template" required>
+						<option value="">Select Template</option>
+						<option value="1">Basic Header</option>
+						<option value="2">Stacked Header</option>
+						<option value="3">Transparent Header</option>
+						<option value="4">New Header</option>
+					</select>
+				</li> 
+				<div class="clearfix"></div>
+			</ul>
 		</li>
-	</ul>
+	</ul> 
 	<div id="selected_layout"><div class='empty'><p>Select header Layout Template to change settings.</p></div></div>
-	<div class="uploaded_button"><p class="submit"><input type="submit" name="header_createlayout_submit" class="button button-primary" value="Save Layout"></p> </div>
-
+	<div class="uploaded_button"><p class="submit"><input type="submit" name="header_createlayout_submit" class="button button-primary" value="Save Layout"></p> </div> 
 </form>
 <!-- Theme Options JS -->
 <script>

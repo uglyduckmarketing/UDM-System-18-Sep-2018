@@ -11,22 +11,22 @@
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-
-<ul id="layoutsettings" class="header_type_style collapse show basic_header">
-	
-	<li><h3>Navigation: </h3>
+ 
+<ul id="layoutsettings" class="header_type_style collapse show basic_header common_setting"> 	 
+	<li><h4>Navigation: </h4>
 		<select name="navigation" id="navigation">
 			<option value="">Select Menu</option>
 			<?php $menus=wp_get_nav_menus();
-					foreach( $menus as $item ) {
-				?>
-					<option value="<?php echo esc_attr($item->slug);  ?>"> <?php echo esc_attr($item->name);  ?></option>
-				<?php
-					}
-				?>
+				foreach( $menus as $item ) {
+			?>
+			<option value="<?php echo esc_attr($item->slug);  ?>"> <?php echo esc_attr($item->name);  ?></option>
+			<?php
+				}
+			?>
 		</select>
+		<div class="clearfix"></div>
 	</li>
-	<li><h3>Drop Down Style: </h3>
+	<li><h4>Drop Down Style: </h4>
 		<select name="dropdownstyle" id="dropdownstyle">
 			<option value="">Select Style</option>
 			<?php  
@@ -39,140 +39,142 @@
 				}
 			?>
 		</select>
+		<div class="clearfix"></div>
 	</li>
+	
 	<h2 class="header_layout_heading">
 		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Layout Button</a>
 	</h2>
-	<li class="colorchange"><h3>Button Color: </h3>
-		<select name="button_color" id="button_color">
-			
+	<li class="colorchange"><h4>Button Color: </h4>
+		<select name="button_color" id="button_color">			
 			<option value="primary" selected>Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Button Custom Color: </h3>
+			<li><h4>Button Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="button_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Button Text Color: </h3>
-		<select name="button_text_color" id="button_text_color">
-			
+	<li class="colorchange"><h4>Button Text Color: </h4>
+		<select name="button_text_color" id="button_text_color">			
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Button Text Custom Color: </h3>
+			<li><h4>Button Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="button_text_custom_color" value="#fff" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
 	<h2 class="header_layout_heading">
 		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Background Setting</a>
 	</h2>
-	<li class="colorchange"><h3>Background Color: </h3>
-		<select name="background_color" id="background_color">
-			
+	<li class="colorchange"><h4>Background Color: </h4>
+		<select name="background_color" id="background_color">			
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Background Custom Color: </h3>
+			<li><h4>Background Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="background_custom_color" value="#fff" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
 	<h2 class="header_layout_heading">
 		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Link Setting</a>
 	</h2>
-	<li class="colorchange"><h3>Link Color: </h3>
-		<select name="link_color" id="link_color">
-			
+	<li class="colorchange"><h4>Link Color: </h4>
+		<select name="link_color" id="link_color">			
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark" selected>Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Link Custom Color: </h3>
+			<li><h4>Link Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="link_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
 	<h2 class="header_layout_heading">
 		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Top Bar Setting</a>
 	</h2>
-	<li><h3>Top Bar: </h3>
+	<li><h4>Top Bar: </h4>
 		<span class="switch">
 			<input type="checkbox" name="top_bar" class="switch" id="top_bar" value="yes">
 			<label for="top_bar">Hide/Show</label>
 		</span>
 		<ul id="topbardata" style="display:none;">
-			<li class="colorchange"><h3>Background Color: </h3>
-				<select name="topbar_background_color" id="topbar_background_color">
-					
+			<li class="colorchange"><h4>Background Color: </h4>
+				<select name="topbar_background_color" id="topbar_background_color">					
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
 					<option value="global_light" selected>Global Light</option>
 					<option value="global_dark">Global Dark</option>
 					<option value="custom">Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor" style="display:none;">
-					<li>
-						<h3>Background Custom Color: </h3>
+					<li><h4>Background Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="topbar_background_custom_color" value="" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
-			<li class="colorchange"><h3>Links Color: </h3>
+			<li class="colorchange"><h4>Links Color: </h4>
 				<select name="topbar_link_color" id="topbar_link_color">
-					
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
 					<option value="global_light">Global Light</option>
 					<option value="global_dark">Global Dark</option>
 					<option value="custom">Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor" style="display:none;">
-					<li>
-						<h3>Links Custom Color: </h3>
+					<li><h4>Links Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="topbar_link_custom_color" value="" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
-			<li class="colorchange"><h3>Text Color: </h3>
+			<li class="colorchange"><h4>Text Color: </h4>
 				<select name="topbar_link_color" id="topbar_text_color">
-					
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
 					<option value="global_light">Global Light</option>
 					<option value="global_dark" selected>Global Dark</option>
 					<option value="custom">Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor" style="display:none;">
-					<li>
-						<h3>Text Custom Color: </h3>
+					<li><h4>Text Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="topbar_text_custom_color" value="" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
 			<h2 class="header_layout_heading">
 				<a href="javascript:void(0);" data-toggle="collapse" data-target="">Top Bar Widget</a>
-			</h2>
+			</h2> 
 			<li>
 				<ul id="topbar_layouts">
 					<?php
@@ -185,83 +187,89 @@
 	<h2 class="header_layout_heading">
 		<a href="javascript:void(0);" data-toggle="collapse" data-target="">Right Header Setting</a>
 	</h2>
-	<li>
-				<h3>Header Button: </h3>
-				<span class="switch">
-					<input  type="checkbox" name="header_button" class="switch" id="header_button" value="yes" >
-					<label for="header_button">Hide/Show</label>
-				</span>
-				<ul id="show_button_text" style="display:none">
-					<li>
-					<h3>Header Button Text: </h3>
-						<input class="" type="text" name="header_button_text" value="" />
-					</li>
-					<li>
-					<h3>Header Button Link: </h3>
-						<input class="" type="text" name="header_button_link" value="" />
+	<li><h4>Header Button: </h4>
+		<span class="switch">
+			<input  type="checkbox" name="header_button" class="switch" id="header_button" value="yes" >
+			<label for="header_button">Hide/Show</label>
+		</span>
+		<ul id="show_button_text" style="display:none">
+			<li><h4>Header Button Text: </h4>
+				<input class="" type="text" name="header_button_text" value="" />
+				<div class="clearfix"></div>
+			</li>
+			<li><h4>Header Button Link: </h4>
+				<input class="" type="text" name="header_button_link" value="" />
+				<div class="clearfix"></div>
+			</li>
+		</ul>
+	</li>
+	<li><h4>Right Header: </h4>
+		<span class="switch">
+			<input  type="checkbox" name="right_header" class="switch" id="right_header" value="yes">
+			<label for="right_header">Hide/Show</label>
+		</span>
+		<ul id="show_header_right" style="display:none;">
+			<li><h4>Right Header: </h4>
+				<input type="text" name="right_header_text" value="" />
+				<div class="clearfix"></div>
+			</li>
+			<li class="colorchange">
+				<h4>Right Header Color: </h4>
+				<select name="right_header_color" id="button_color">
+					<option value="primary" >Primary</option>
+					<option value="secondary" >Secondary</option>
+					<option value="global_light" >Global Light</option>
+					<option value="global_dark" >Global Dark</option>
+					<option value="custom" >Custom</option>
+				</select>
+				<div class="clearfix"></div>
+				<ul class="customcolor"  style="display:none;" >
+					<li><h4>Right Header Custom Color: </h4>
+						<input class="udm_color_picker" type="text" name="right_header_custom_color" value="" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
-		<li>
-	<h3>Right Header: </h3>
-	<span class="switch">
-		<input  type="checkbox" name="right_header" class="switch" id="right_header" value="yes">
-		<label for="right_header">Hide/Show</label>
-	</span>
-	<ul id="show_header_right" style="display:none;">
-			<li>
-				<h3>Right Header: </h3>
-				<input type="text" name="right_header_text" value="">
+			<li><h4>Right Header Phone: </h4>
+				<input type="text" name="right_header_phone" value="" />
+				<div class="clearfix"></div>
 			</li>
 			<li class="colorchange">
-				<h3>Right Header Color: </h3>
-			<select name="right_header_color" id="button_color">
-				<option value="primary" >Primary</option>
-				<option value="secondary" >Secondary</option>
-				<option value="global_light" >Global Light</option>
-				<option value="global_dark" >Global Dark</option>
-				<option value="custom" >Custom</option>
-			</select>
-			<ul class="customcolor"  style="display:none;" >
-				<li>
-					<h3>Right Header Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="right_header_custom_color" value="" />
-				</li>
-			</ul>
-		</li>
-		<li>
-			<h3>Right Header Phone: </h3>
-			<input type="text" name="right_header_phone" value="">
-		</li>
-		<li class="colorchange">
-			<h3>Right Header Phone Color: </h3>
-			<select name="right_header_phone_color" id="button_color">
-				<option value="primary" >Primary</option>
-				<option value="secondary" >Secondary</option>
-				<option value="global_light" >Global Light</option>
-				<option value="global_dark" >Global Dark</option>
-				<option value="custom" >Custom</option>
-			</select>
-			<ul class="customcolor" style="display:none;" >
-				<li>
-					<h3>Right Header Custom Color: </h3>
-					<input class="udm_color_picker" type="text" name="right_header_phone_custom_color" value="" />
-				</li>
-			</ul>
-		</li>
-	</ul>
-</li>
-	<li id="bottombutton_data"><h3>Bottom Button Hide: </h3>
-			<span class="switch">
-				<input type="checkbox" name="bottom_button_hide" class="switch" id="bottom_button_hide" value="yes" >
-				<label for="bottom_button_hide">Hide/Show</label>
-			</span>
-		<ul>
-			<li><h5>Bottom Button Text </h5><input type="text" name="bottombar_button_text" value="" ></li>	 
-			<li><h5>Bottom Button Link </h5><input type="text" name="bottombar_button_link" value="" ></li>
+				<h4>Right Header Phone Color: </h4>
+				<select name="right_header_phone_color" id="button_color">
+					<option value="primary" >Primary</option>
+					<option value="secondary" >Secondary</option>
+					<option value="global_light" >Global Light</option>
+					<option value="global_dark" >Global Dark</option>
+					<option value="custom" >Custom</option>
+				</select>
+				<div class="clearfix"></div>
+				<ul class="customcolor" style="display:none;" >
+					<li><h4>Right Header Custom Color: </h4>
+						<input class="udm_color_picker" type="text" name="right_header_phone_custom_color" value="" />
+						<div class="clearfix"></div>
+					</li>
+				</ul>
+			</li>
+			<div class="clearfix"></div>
 		</ul>
 	</li>
-	
+	<li id="bottombutton_data"><h4>Bottom Button Hide: </h4>
+		<span class="switch">
+			<input type="checkbox" name="bottom_button_hide" class="switch" id="bottom_button_hide" value="yes" >
+			<label for="bottom_button_hide">Hide/Show</label>
+		</span>
+		<ul> 
+			<li><h4>Bottom Button Text </h4><input type="text" name="bottombar_button_text" value="" />
+			<div class="clearfix"></div>
+			</li>	 
+			<li><h4>Bottom Button Link </h4><input type="text" name="bottombar_button_link" value="" />
+			<div class="clearfix"></div>
+			</li>
+		</ul>
+		<div class="clearfix"></div>
+	</li> 
+	<div class="clearfix"></div>
 </ul>
 <script>
 	jQuery(document).ready(function($) {

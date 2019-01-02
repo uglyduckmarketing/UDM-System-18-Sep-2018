@@ -10,8 +10,7 @@ if(isset($_POST['layout']))
 }
 $data=unserialize(get_option('blog_layout_'.$layout));
 ?>
-<form method="post" action="" enctype="multipart/form-data">
-	
+<form method="post" action="" enctype="multipart/form-data">	
 	<ul class="common_setting">
 		<li>
 			<ul class="inner"> 
