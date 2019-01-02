@@ -1,13 +1,16 @@
 <?php
 global $post,$wpdb;
+$posttype = get_post_type();
  $layout1=get_post_meta( $post->ID, 'udm_service_option', true );
 	$layout=get_option('udm_footer_cta_default');
 	$data = unserialize(get_option("footer_cta_layout_".$layout));
- if($layout1 == ''){
+ if($layout1 == '' && $posttype == 'service'){
 	 $layout=get_option('udm_service_default');
 	 $datas=unserialize(get_option('service_layout_'.$layout));
- }else{
+ }else if($layout1 != '' && $posttype == 'service'){
 	 $datas=unserialize(get_option('service_layout_'.$layout1));
+ }else{
+	 $data = unserialize(get_option("footer_cta_layout_".$layout));
  }
 
 ?>
