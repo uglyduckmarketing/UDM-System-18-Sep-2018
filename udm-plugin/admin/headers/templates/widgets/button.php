@@ -12,17 +12,22 @@ include '../../../../../../../../wp-load.php';
 		$('.udm_color_picker').wpColorPicker();
 	});
 </script>
-<?php
+<?php 
 $bheader = isset($_POST['header']) ? $_POST['header'] : '';
 $buttodata=unserialize(get_option('header_layout_'.$bheader));
 $location=$_POST['location'];
 ?>
 
-<div id="bottommenu"> 
-	<h4>Button</h4>
+<div id="bottommenu">    
+	<h3>Button</h3>
 	<input type="hidden" name="<?php echo esc_attr($location); ?>button" value="yes">
-	<ul class="menuwidget">
-			<li><h5>Button Text </h5><input type="text" name="<?php echo esc_attr($location); ?>_button_text" value="<?php echo esc_attr($buttodata[$location.'_button_text']); ?>" ></li>	 
-			<li><h5>Button Link </h5><input type="text" name="<?php echo esc_attr($location); ?>_button_link" value="<?php echo esc_attr($buttodata[$location.'_button_link']); ?>" ></li>
+	<ul class="menuwidget common_setting"> 
+		<li><h4>Button Text </h4><input type="text" name="<?php echo esc_attr($location); ?>_button_text" value="<?php echo esc_attr($buttodata[$location.'_button_text']); ?>" />
+		<div class="clearfix"></div>
+		</li>	 
+		<li><h4>Button Link </h4><input type="text" name="<?php echo esc_attr($location); ?>_button_link" value="<?php echo esc_attr($buttodata[$location.'_button_link']); ?>" />
+		<div class="clearfix"></div>
+		</li>
+		<div class="clearfix"></div> 
 	</ul>
 </div>
