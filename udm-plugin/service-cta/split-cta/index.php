@@ -1,22 +1,10 @@
 <?php
 global $post,$wpdb;
-$posttype = get_post_type();
-$datas = array();
- $layout1=get_post_meta( $post->ID, 'udm_service_option', true );
-	$layout=get_option('udm_footer_cta_default');
-	$data = unserialize(get_option("footer_cta_layout_".$layout));
- /*if($layout1 == '' && $posttype == 'service'){
-	 $layout=get_option('udm_service_default');
-	 $datas=unserialize(get_option('service_layout_'.$layout));
- }else if($layout1 != '' && $posttype == 'service'){
-	 $datas=unserialize(get_option('service_layout_'.$layout1));
- }else{
-	 $data = unserialize(get_option("footer_cta_layout_".$layout));
- }*/
-
+$layout=get_option('udm_service_cta_default');
+$data = unserialize(get_option("service_cta_layout_".$layout));
 ?>
 <!--get_in_splitscreen--->
-<section class="get_in_splitscreen back">
+<section class="service_cta_splitscreen back">
     <div class="container-fluid">
         <div class="row">
             <div class="col col-lg-6 p1-left align-self-stretch <?php if($datas['cta_choose_button_form'] == 'form'){ echo "form_text"; } else if($data['element_type']=="form"){ echo "form_text"; }else if($data['element_type']=="image"){ echo "mobbackimage"; } ?>">
@@ -77,7 +65,7 @@ $datas = array();
 				<?php } ?>
                 </div>
             </div>
-            <div class="col col-lg-6 p1-both align-self-stretch element <?php if($data['element_type']=="form" ){ echo "formdata"; }else if($data['element_type']=="map" ){ }else{ echo "shadow"; } ?>">
+            <div class="col col-lg-6 p1-both align-self-stretch service_cta_element <?php if($data['element_type']=="form" ){ echo "formdata"; }else if($data['element_type']=="map" ){ }else{ echo "shadow"; } ?>">
                 <?php
 					if($data['element_type']=="image")
 					{

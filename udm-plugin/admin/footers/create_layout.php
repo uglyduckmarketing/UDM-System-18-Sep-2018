@@ -9,16 +9,20 @@ if(isset($_POST['layout']))
 }
 $data=unserialize(get_option('footer_layout_'.$layout));
 ?>
-<form method="post" action="" enctype="multipart/form-data">
-	
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="footer_layout_name" value="" required></li>
+<form method="post" action="" enctype="multipart/form-data">	
+	<ul class="common_setting">
+		<li>  
+			<ul class="inner"> 
+				<li><h4>Enter Layout Name: </h4><input type="text" name="footer_layout_name" value="" required />
+				<div class="clearfix"></div>
+				</li>
+				<div class="clearfix"></div>
+			</ul> 
+		</li>
 	</ul>
 	<div id="selected_layout"></div>
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="footer_createlayout_submit" class="button button-primary" value="Save Layout"></p> </div>
-
-</form>
-
+</form> 
 
 <!-- Theme Options JS -->
 <script>

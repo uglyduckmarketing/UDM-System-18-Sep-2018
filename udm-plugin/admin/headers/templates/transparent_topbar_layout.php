@@ -8,8 +8,9 @@ if($_POST['layout'])
 $data=unserialize(get_option('header_layout_'.$layout));
 ?>
 	<input type="hidden" name="menuintopbar" id="menuintopbar" value="">
-    <li>
+    <li class="cus_bar_widget"> 
         <h3>Left Top Bar Widget</h3>
+		<div class="clearfix"></div>
         <div id="lefttopbar" class="headwidget">
 			<div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -17,7 +18,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
         </div>
         <div class="create_leftbar_widget_button">
             <div class="dropup custom_design_dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
+                <button type="button" class="button button-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
                 <div class="dropdown-menu" id="newleftbarwidget">
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>
@@ -28,8 +29,9 @@ $data=unserialize(get_option('header_layout_'.$layout));
             </div>
         </div>
     </li> 
-	<li>
+	<li class="cus_bar_widget"> 
         <h3>Right Top Bar Widget</h3>
+		<div class="clearfix"></div>
         <div id="righttopbar" class="headwidget">
             <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -37,7 +39,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
         </div>
         <div class="create_rightbar_widget_button">
             <div class="dropup custom_design_dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Add widget</button>
+                <button type="button" class="button button-primary dropdown-toggle" data-toggle="dropdown">Add widget</button>
                 <div class="dropdown-menu" id="newrightbarwidget">
 					<a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>

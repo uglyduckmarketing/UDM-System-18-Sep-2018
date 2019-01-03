@@ -6,14 +6,17 @@ $layout = '';
 if(isset($_POST['layout']))
 {
 	$layout=$_POST['layout'];
-}
+} 
 $data=unserialize(get_option('header_layout_'.$layout));
 ?>
 <form method="post" action="" enctype="multipart/form-data">	
 	<ul class="common_setting">
-		<li>
+		<li>  
 			<ul class="inner"> 
-				<li><h4>Enter Layout Name: </h4><input type="text" name="header_layout_name" value="" required></li>
+				<li><h4>Enter Layout Name: </h4>
+					<input type="text" name="header_layout_name" value="" required />
+					<div class="clearfix"></div>
+				</li> 
 				<li><h4>Select Template: </h4>
 					<select name="header_layout_template" id="header_layout_template" required>
 						<option value="">Select Template</option>
@@ -22,6 +25,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						<option value="3">Transparent Header</option>
 						<option value="4">New Header</option>
 					</select>
+					<div class="clearfix"></div>
 				</li> 
 				<div class="clearfix"></div>
 			</ul>

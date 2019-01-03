@@ -3176,7 +3176,7 @@ header,.main_transparent_box {
 /**********get_in_touh_fullwidth*************/
 
 
-.get_in_touch_fullwidth{
+.get_in_touch_fullwidth, .get_in_touch_service_cta_fullwidth{
     display:flex;
     flex-basis:100%;
     flex-direction:row;
@@ -3184,7 +3184,7 @@ header,.main_transparent_box {
 align-items:center;
 }
 
-.get_in_touch_fullwidth:before{
+.get_in_touch_fullwidth:before, .get_in_touch_service_cta_fullwidth:before{
     position:absolute;
     content:'';
     width:100%;
@@ -3193,23 +3193,23 @@ align-items:center;
     left;0;
 }
 
-.get_in_touch_fullwidth .col span{
+.get_in_touch_fullwidth .col span, .get_in_touch_service_cta_fullwidth .col span{
     color:#fac11c;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size:14px;
 }
-.get_in_touch_fullwidth .col h2{
+.get_in_touch_fullwidth .col h2, .get_in_touch_service_cta_fullwidth .col h2{
     font-size:30px;
     margin-bottom:20px;
     margin-top:20px;
 }
 
-.get_in_touch_fullwidth .col p{
+.get_in_touch_fullwidth .col p, .get_in_touch_service_cta_fullwidth .col p{
 
     font-size:17px;
 }
-.get_in_touch_fullwidth .right_side_bt .btn h6{
+.get_in_touch_fullwidth .right_side_bt .btn h6, .get_in_touch_service_cta_fullwidth .right_side_bt .btn h6{
     display:inline-block;
 }
 
@@ -3229,24 +3229,24 @@ align-items:center;
 @media(max-width:576px){
 
 
-    .get_in_touch_fullwidth .right_side_bt .btn h6{
+    .get_in_touch_fullwidth .right_side_bt .btn h6, .get_in_touch_service_cta_fullwidth .right_side_bt .btn h6{
         float:left;
         line-height:38px;
     }
 
-    .get_in_touch_fullwidth .right_side_bt .btn .fa{
+    .get_in_touch_fullwidth .right_side_bt .btn .fa, .get_in_touch_service_cta_fullwidth .right_side_bt .btn .fa{
         float:right;
     }
 
-    .get_in_touch_fullwidth .col{
+    .get_in_touch_fullwidth .col, .get_in_touch_service_cta_fullwidth .col{
         padding:0;
     }
 
-    .get_in_touch_fullwidth .fullwidth_content{
+    .get_in_touch_fullwidth .fullwidth_content, .get_in_touch_service_cta_fullwidth .fullwidth_content{
         padding:0px 15px;
     }
 
-    .get_in_touch_fullwidth{
+    .get_in_touch_fullwidth, .get_in_touch_service_cta_fullwidth{
         padding-bottom:50px;
         padding-top:50px;
     }
@@ -3256,7 +3256,7 @@ align-items:center;
 
 /**********splitscreen-hero*************/
 
-.get_in_splitscreen{
+.get_in_splitscreen, .service_cta_splitscreen{
     display:flex;
     flex-basis:100%;
     flex-direction:row;
@@ -3281,13 +3281,13 @@ align-items:center;
 }
 
 
-.get_in_splitscreen  .col h2{
+.get_in_splitscreen  .col h2, .service_cta_splitscreen .col h2{
 	font-size: 30px;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
 
-.get_in_splitscreen .row{
+.get_in_splitscreen .row, .service_cta_splitscreen .row{
     align-items: center;
 }
 
@@ -3295,7 +3295,7 @@ align-items:center;
 	box-shadow:none;
 }
 
-.get_in_splitscreen.back .p1-left{
+.get_in_splitscreen.back .p1-left, .service_cta_splitscreen.back .p1-left{
     display:flex;
     align-items: center;
     justify-content:center;
@@ -3304,15 +3304,15 @@ align-items:center;
 /*******responsive*******/
 
 @media(min-width:992px) and (max-width:1199px){
-    .get_in_splitscreen .col span{
+    .get_in_splitscreen .col span, .service_cta_splitscreen .col span{
         margin-bottom:10px;
     }
-    .get_in_splitscreen .col h2 {
+    .get_in_splitscreen .col h2, .service_cta_splitscreen .col h2 {
 	   font-size: 24px;
 	   margin-bottom: 15px;
 	   margin-top: 15px;
     }
-    .get_in_splitscreen .col h2 {
+    .get_in_splitscreen .col h2, .service_cta_splitscreen .col h2 {
 	   font-size: 24px;
 	   margin-bottom: 15px;
 	   margin-top: 15px;
@@ -3320,39 +3320,39 @@ align-items:center;
 }
 
 @media(min-width:768px) and (max-width:991px){
-    .get_in_splitscreen .p1-left {
+    .get_in_splitscreen .p1-left, .service_cta_splitscreen .p1-left {
 	   padding-left: 15px;
     }
-    .get_in_splitscreen .col span{
+    .get_in_splitscreen .col span, .service_cta_splitscreen .col span{
         margin-bottom: 5px;
     }
-    .get_in_splitscreen .col h2 {
+    .get_in_splitscreen .col h2, .service_cta_splitscreen .col h2 {
 	   font-size: 20px;
 	   margin-bottom:8px;
 	   margin-top: 8px;
     }
 
-     .get_in_splitscreen .col p{
+     .get_in_splitscreen .col p, .service_cta_splitscreen .col p{
          font-size:14px;
     }
-    .get_in_splitscreen .right_side_bt {
+    .get_in_splitscreen .right_side_bt, .service_cta_splitscreen .right_side_bt {
 	   margin-top: 10px;
     }
 }
 
 @media(max-width:767px){
-    .get_in_splitscreen .p1-both{
+    .get_in_splitscreen .p1-both, .service_cta_splitscreen .p1-both{
         flex-basis:100%;
     }
 
-    .get_in_splitscreen .fullwidth_content{
+    .get_in_splitscreen .fullwidth_content, .service_cta_splitscreen .fullwidth_content{
         margin-top:20px;
     }
-    .get_in_splitscreen .col span{
+    .get_in_splitscreen .col span, .service_cta_splitscreen .col span{
         margin-bottom:20px;
     }
 
-    .get_in_splitscreen.back::before{
+    .get_in_splitscreen.back::before, .service_cta_splitscreen.back::before{
         width:100%;
     }
 
@@ -3435,7 +3435,7 @@ align-items:center;
     margin-bottom:24px;
 }
 
-.col.col-lg-6.p1-both.align-self-stretch.element{ padding:0; }
+.col.col-lg-6.p1-both.align-self-stretch.element, .col.col-lg-6.p1-both.align-self-stretch.service_cta_element{ padding:0; }
 
 
 .video_wrapper {
@@ -3524,7 +3524,7 @@ align-items:center;
   transition-delay: 0s, 800ms;
 }
 
-.get_in_splitscreen .element.shadow::after{
+.get_in_splitscreen .element.shadow::after, .service_cta_splitscreen .service_cta_element.shadow::after{
 	position: absolute;
     content: '';
     width: 100%;
@@ -3544,7 +3544,7 @@ align-items:center;
     width:400px;
 }
 
-.get_in_splitscreen .ninja-forms-req-symbol{
+.get_in_splitscreen .ninja-forms-req-symbol, .service_cta_splitscreen .ninja-forms-req-symbol{
     display:inline-block !important;
     margin-bottom:0px !important;
     text-transform: capitalize !important;
@@ -3755,12 +3755,12 @@ align-items:center;
         display:none;
     }
 
-    .get_in_splitscreen .p1-both{
+    .get_in_splitscreen .p1-both, .service_cta_splitscreen .p1-both{
         height:320px;
         overflow:hidden;
     }
 
-    .get_in_splitscreen .p1-both img{
+    .get_in_splitscreen .p1-both img, .service_cta_splitscreen .p1-both img{
         width:500px;
     }
 

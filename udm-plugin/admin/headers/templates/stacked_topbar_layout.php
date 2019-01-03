@@ -12,21 +12,22 @@ if($_POST['layoutnew'])
 }
 $topdata=unserialize(get_option('header_layout_'.$layout));
 
-?>
-    <li>
+?> 
+	<li class="cus_bar_widget">
         <h3>Left Top Bar Widget</h3>
-			<span class="switch" id="left_top_bar_show" style="display:none">
-				<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['left_top_bar_show']) ? $topdata['left_top_bar_show'] : ''); ?> id="left_top_bar_show_label" name="left_top_bar_show" >
-				<label for="left_top_bar_show_label">Yes / No</label>
-			</span>
+		<span class="switch cus_bar_switch" id="left_top_bar_show" style="display:none">
+			<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['left_top_bar_show']) ? $topdata['left_top_bar_show'] : ''); ?> id="left_top_bar_show_label" name="left_top_bar_show" >
+			<label for="left_top_bar_show_label">Yes / No</label>
+		</span>
+		<div class="clearfix"></div>
         <div id="lefttopbar" class="headwidget">
-          <div class="empty">
+			<div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
-            </div>
+			</div>
         </div>
         <div class="create_leftbar_widget_button">
             <div class="dropup custom_design_dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
+                <button type="button" class="button button-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
                 <div class="dropdown-menu" id="newleftbarwidget">
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>
@@ -40,12 +41,13 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 	<?php 
 		if($layoutnew=="1_3"){
 	?>
-	 <li>
+	<li class="cus_bar_widget">
         <h3>Middle Top Bar Widget</h3>
-		<span class="switch" id="middle_top_bar_show" style="display:none">
-				<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['middle_top_bar_show']) ? $topdata['middle_top_bar_show'] : ''); ?>  id="middle_top_bar_show_label" name="middle_top_bar_show" >
-				<label for="middle_top_bar_show_label">Yes / No</label>
+		<span class="switch cus_bar_switch" id="middle_top_bar_show" style="display:none">
+			<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['middle_top_bar_show']) ? $topdata['middle_top_bar_show'] : ''); ?>  id="middle_top_bar_show_label" name="middle_top_bar_show" >
+			<label for="middle_top_bar_show_label">Yes / No</label>
 		</span>
+		<div class="clearfix"></div>
         <div id="middletopbar" class="headwidget">
           <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -53,7 +55,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
         </div>
         <div class="create_middlebar_widget_button">
             <div class="dropup custom_design_dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
+                <button type="button" class="button button-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
                 <div class="dropdown-menu" id="newmiddlebarwidget">
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>
@@ -67,12 +69,13 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
 	<?php 
 		}
 	?>
-	<li>
+	<li class="cus_bar_widget">
         <h3>Right Top Bar Widget</h3>
-		<span class="switch" id="right_top_bar_show" style="display:none">
-				<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['right_top_bar_show']) ? $topdata['right_top_bar_show'] : ''); ?>  id="right_top_bar_show_label" name="right_top_bar_show" >
-				<label for="right_top_bar_show_label">Yes / No</label>
+		<span class="switch cus_bar_switch" id="right_top_bar_show" style="display:none">
+			<input type="checkbox" value="yes" <?php checked('yes', isset($topdata['right_top_bar_show']) ? $topdata['right_top_bar_show'] : ''); ?>  id="right_top_bar_show_label" name="right_top_bar_show" >
+			<label for="right_top_bar_show_label">Yes / No</label>
 		</span>
+		<div class="clearfix"></div>
         <div id="righttopbar" class="headwidget">
             <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
@@ -80,7 +83,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
         </div>
         <div class="create_rightbar_widget_button">
             <div class="dropup custom_design_dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Add widget</button>
+                <button type="button" class="button button-primary dropdown-toggle" data-toggle="dropdown">Add widget</button>
                 <div class="dropdown-menu" id="newrightbarwidget">
 					<a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>
@@ -88,7 +91,7 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="4">Button Widget</a>
                     <div class="arrow-down"></div>
                 </div>
-            </div>
+            </div> 
         </div>
     </li>
 	<script>

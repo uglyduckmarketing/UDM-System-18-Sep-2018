@@ -98,7 +98,7 @@
 					</div>
 					<a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a>
 				</div>
-			</div>
+			</div> 
 		</div>
 	</div>
 </div>

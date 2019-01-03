@@ -349,7 +349,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 				</li>
 			</ul>
 				
-			<h2 class="header_layout_heading">
+			<?php/*<h2 class="header_layout_heading">
 				<a href="javascript:void(0);" data-toggle="collapse" data-target="#servicectasettings">Services CTA</a>
 			</h2>
  
@@ -501,7 +501,7 @@ $data=unserialize(get_option('service_layout_'.$layout));
 					<div class="clearfix"></div>
 				</li>
 				<div class="clearfix"></div>
-			</ul>
+			</ul>*/?>
 		
 			<h2 class="header_layout_heading">
 				<a href="javascript:void(0);" data-toggle="collapse" data-target="#relatedsettings">Related Services</a>

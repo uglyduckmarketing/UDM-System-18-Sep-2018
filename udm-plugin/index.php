@@ -36,6 +36,7 @@ function add_theme_menu_item(){
 	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Submenu Options','manage_options', 'udm-submenu-panel','udm_submenu_options_page_func');
 	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'M Header Options','manage_options', 'udm-mobile-header-panel','udm_mobile_header_options_page_func');
 	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Services Options','manage_options', 'udm-service-panel','udm_service_options_page_func');
+	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Services CTA Options','manage_options', 'udm-service-cta-panel','udm_service_cta_options_page_func');
 	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'M Nav Options','manage_options', 'udm-mobile-nav-panel','udm_mobile_nav_options_page_func'); 
 	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Hero Options','manage_options', 'udm-hero-panel','udm_hero_options_page_func');
 	$menu[] = add_submenu_page('udm-options-panel', 'UDM Options', 'Footer Options','manage_options', 'udm-footer-panel','udm_footer_options_page_func');
@@ -121,6 +122,11 @@ function udm_footer_cta_options_page_func(){
   include(dirname(__FILE__) .'/pages/udm-footer-cta-options-page.php');
 }
 
+// Footer CTA Options Page
+function udm_service_cta_options_page_func(){
+  include(dirname(__FILE__) .'/pages/udm_service_cta_options_page.php');
+}
+
 
  //Register Settings of Base Options
  
@@ -133,6 +139,7 @@ function udm_footer_cta_options_page_func(){
  register_setting("section", "udm_mobile_nav_default");
  register_setting("section", "udm_mobile_header_default");
  register_setting("section", "udm_footer_cta_default");
+ register_setting("section", "udm_service_cta_default");
  register_setting("section", "udm_bloglayout_default");
  register_setting("section", "udm_gallery_layout_default");
  
@@ -662,11 +669,11 @@ function theme_custom_style_script() {
 	wp_enqueue_style( 'header-css', admin_url('admin-ajax.php').'?action=header_css&id='.$pid, '', VERSION);
 	wp_enqueue_style( 'mobile-nav-css', admin_url('admin-ajax.php').'?action=mobile_nav_css&id='.$pid, '', VERSION);
 	wp_enqueue_style( 'hero-css', admin_url('admin-ajax.php').'?action=hero_css&id='.$pid, '', VERSION);
+	wp_enqueue_style( 'service-cta-css', admin_url('admin-ajax.php').'?action=service_cta_css&id='.$pid, '', VERSION);
 	wp_enqueue_style( 'footer-cta-css', admin_url('admin-ajax.php').'?action=footer_cta_css&id='.$pid, '', VERSION);
 	wp_enqueue_style( 'blog-css', admin_url('admin-ajax.php').'?action=blog_css&id='.$pid, '', VERSION);
 	wp_enqueue_style( 'service-css', admin_url('admin-ajax.php').'?action=service_css&id='.$pid, '', VERSION);
 	wp_enqueue_style( 'footer-css', admin_url('admin-ajax.php').'?action=footer_css&id='.$pid, '', VERSION);
-	
 }
 
 //Header Css
@@ -681,6 +688,9 @@ add_action('wp_ajax_nopriv_mobile_nav_css', 'mobile_nav_css');
 
 add_action('wp_ajax_hero_css', 'hero_css');
 add_action('wp_ajax_nopriv_hero_css', 'hero_css');
+
+add_action('wp_ajax_service_cta_css', 'service_cta_css');
+add_action('wp_ajax_nopriv_service_cta_css', 'service_cta_css');
 
 add_action('wp_ajax_footer_cta_css', 'footer_cta_css');
 add_action('wp_ajax_nopriv_footer_cta_css', 'footer_cta_css');
@@ -712,6 +722,11 @@ function hero_css() {
 
 function footer_cta_css() {
 		require( get_template_directory().'/udm-plugin/footer-cta/custom_style.php' );
+	exit;
+}
+
+function service_cta_css() {
+		require( get_template_directory().'/udm-plugin/service-cta/custom_style.php' );
 	exit;
 }
 

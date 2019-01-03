@@ -7,58 +7,58 @@ include '../../../../../../../wp-load.php';
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-<ul id="layoutsettings" class="header_type_style collapse show new_two_header">
-	<li>
-		<h3>Logo size</h3>
+<ul id="layoutsettings" class="header_type_style collapse show new_two_header common_setting">  
+	<li><h4>Logo size</h4>
 		<select name="logo_size">
 			<option value="default">Default
 			</option>
 			<option value="large">Large
 			</option>
 		</select>
+		<div class="clearfix"></div>
 	</li>
-	<li>
-		<h3>Logo Background</h3>
+	<li><h4>Logo Background</h4>
 		<select name="logo_background_type" id="logo_background_type">
 			<option value="color">Color</option>
 			<option value="image">Image</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul id="logo_back_opt">
 			<li class="colorchange">
-				<h3>Logo Background Color</h3>
-				<select name="logo_background_color" id="logo_background_color">
-						
-						<option value="primary">Primary</option>
-						<option value="secondary">Secondary</option>
-						<option value="global_light">Global Light</option>
-						<option value="global_dark">Global Dark</option>
-						<option value="custom" selected>Custom</option>
+				<h4>Logo Background Color</h4>
+				<select name="logo_background_color" id="logo_background_color">						
+					<option value="primary">Primary</option>
+					<option value="secondary">Secondary</option>
+					<option value="global_light">Global Light</option>
+					<option value="global_dark">Global Dark</option>
+					<option value="custom" selected>Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor">
-					<li>
-						<h3>Logo Background Custom Color: </h3>
+					<li><h4>Logo Background Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="logo_background_custom_color" value="#fff" />
-					</li>
+						<div class="clearfix"></div>
+					</li> 
 				</ul>
 			</li>
-			<li class="imageupload" style="display:none;">
-				<h3>Logo Background Image</h3>
-				<input type="text" name="logo_background_image" class="background-logo" value="">
-				<input class="btn upload-image" my-attr="background-logo" type="button" value="Upload Image" />
+			<li class="imageupload image_upload" style="display:none;">
+				<h4>Logo Background Image</h4>
+				<input id="background-logo" type="text" name="logo_background_image" class="background-logo" value="">
+				<input class="btn upload-image button button-primary" my-attr="background-logo" type="button" value="Upload Image" />
 			</li>
+			<div class="clearfix"></div>
 		</ul>
 	</li>
-	<li>
-		<h3>Top Bar Style</h3>
+	<li><h4>Top Bar Style</h4>
 		<select name="top_bar_style" id="top_bar_style">
 			<option value="50_50">50/50</option>
 			<option value="1_3">1/3</option>
 		</select>
+		<div class="clearfix"></div>
 	</li>
 	<li class="topbarwiget">
 		<h2>Top Bar Widget</h2>
-		<ul id="topbar_layouts">
-		
+		<ul id="topbar_layouts">		
 			<?php
 				include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
 			?>
@@ -68,23 +68,23 @@ include '../../../../../../../wp-load.php';
 		<h2>Bottom Bar Widget</h2>
 		<div class="innerwidget">
 			<ul class="bottombardata">
-				<li class="colorchange"><h3>Background Color: </h3>
-					<select name="bottombar_background_color" id="bottombar_background_color">
-						
+				<li class="colorchange"><h4>Background Color: </h4>
+					<select name="bottombar_background_color" id="bottombar_background_color">						
 						<option value="primary">Primary</option>
 						<option value="secondary">Secondary</option>
 						<option value="global_light" selected>Global Light</option>
 						<option value="global_dark">Global Dark</option>
 						<option value="custom">Custom</option>
 					</select>
+					<div class="clearfix"></div>
 					<ul class="customcolor" style="display:none;">
-						<li>
-							<h3>Background Custom Color: </h3>
+						<li><h4>Background Custom Color: </h4>
 							<input class="udm_color_picker" type="text" name="bottombar_background_custom_color" value="" />
+							<div class="clearfix"></div>
 						</li>
 					</ul>
 				</li>
-				<li><h3>Navigation: </h3>
+				<li><h4>Navigation: </h4>
 					<select name="navigation" id="navigation">
 						<option value="">Select Menu</option>
 						<?php $menus=wp_get_nav_menus();
@@ -95,8 +95,9 @@ include '../../../../../../../wp-load.php';
 								}
 							?>
 					</select>
+					<div class="clearfix"></div>
 				</li>
-				<li><h3>Drop Down Style: </h3>
+				<li><h4>Drop Down Style: </h4>
 					<select name="dropdownstyle" id="dropdownstyle">
 						<option value="">Select Style</option>
 						<?php  
@@ -109,27 +110,29 @@ include '../../../../../../../wp-load.php';
 							}
 						?>
 					</select>
+					<div class="clearfix"></div>
 				</li>
-				<li class="colorchange"><h3>Navigation Link Color: </h3>
+				<li class="colorchange"><h4>Navigation Link Color: </h4>
 					<select name="bottombar_nav_link_color" id="link_color">
-						
 						<option value="primary">Primary</option>
 						<option value="secondary">Secondary</option>
 						<option value="global_light">Global Light</option>
 						<option value="global_dark" selected>Global Dark</option>
 						<option value="custom">Custom</option>
 					</select>
+					<div class="clearfix"></div>
 					<ul class="customcolor" style="display:none;">
-						<li>
-							<h3>Navigation Link Custom Color: </h3>
+						<li><h4>Navigation Link Custom Color: </h4>
 							<input class="udm_color_picker" type="text" name="bottombar_nav_link_custom_color" value="" />
+							<div class="clearfix"></div>
 						</li>
 					</ul>
 				</li>
+				<div class="clearfix"></div>
 			</ul>
-		</div>
-		
+		</div>		
 	</li>
+	<div class="clearfix"></div>
 </ul>
 <script>
 jQuery(document).ready(function($) {

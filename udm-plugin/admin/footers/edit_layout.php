@@ -16,18 +16,23 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 		}
 		else
 		{
-	?>
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="footer_layout_name" value="" required></li>
+	?> 
+	<ul class="common_setting">
+		<li>  
+			<ul class="inner">
+				<li><h4>Enter Layout Name: </h4><input type="text" name="footer_layout_name" value="" required />
+				<div class="clearfix"></div>
+				</li>
+				<div class="clearfix"></div>
+			</ul>
+		</li>
 	</ul>
 	<?php 
-		}
+		} 
 	?>
 	<div id="editselected_layout"><div class='empty'><p>Select Footer Layout Template to change settings.</p></div></div>
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="footer_editlayout_submit" class="button button-primary" value="Save Layout"><input type="submit" name="footer_deletelayout_submit" class="button button-primary" value="Delete Layout"></p> </div>
-
 </form>
-
 
 <!-- Theme Options JS -->
 <script>
