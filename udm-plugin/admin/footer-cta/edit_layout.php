@@ -18,24 +18,30 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 		else
 		{
 	?>
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="footer_cta_layout_name" value="" required></li>
-		<li><h4>Select Template: </h4>
-			<select name="footer_cta_layout_template" id="editfooter_cta_layout_template" required>
-				<option value="">Select Template</option>
-				<option value="1">Split CTA</option>
-				<option value="2">Fullwidth CTA</option>
-			</select>
+	<ul class="common_setting">
+		<li>  
+			<ul class="inner">
+				<li><h4>Enter Layout Name: </h4><input type="text" name="footer_cta_layout_name" value="" required />
+				<div class="clearfix"></div>
+				</li>
+				<li><h4>Select Template: </h4>
+					<select name="footer_cta_layout_template" id="editfooter_cta_layout_template" required>
+						<option value="">Select Template</option>
+						<option value="1">Split CTA</option>
+						<option value="2">Fullwidth CTA</option>
+					</select>
+					<div class="clearfix"></div>
+				</li>
+			</ul>  
 		</li>
+		<div class="clearfix"></div>
 	</ul>
 	<?php 
 		}
 	?>
 	<div id="editselected_layout"><div class='empty'><p>Select Footer CTA Layout Template to change settings.</p></div></div>
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="footer_cta_editlayout_submit" class="button button-primary" value="Save Layout"><input type="submit" name="footer_cta_deletelayout_submit" class="button button-primary" value="Delete Layout"></p> </div>
-
 </form>
-
 
 <!-- Theme Options JS -->
 <script>

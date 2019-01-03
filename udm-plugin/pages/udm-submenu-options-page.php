@@ -45,19 +45,24 @@ $prevlayout="";
 	</div>
 </div>	
 	<!-- Create mobile_navs section Start -->
-<div class="wrap udm-opt mobile_nav_layouts">
+<div class="wrap udm-opt mobile_nav_layouts custom_layout clearfix">
 	<h1>Submenu Options</h1>
 	<div class="container">
 		<div class="row newsection">
 			<div class="col-md-12">
-				<div id="newlayout"><div class='empty'><p>Click the "Create New Layout" button below to start creating your layout.</p></div><a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a></div>
+				<div id="newlayout">
+					<div class='empty'>
+						<p>Click the "Create New Layout" button below to start creating your layout.</p>
+					</div>
+					<a href="javascript:void(0);" id="newfeatlayout" class="button button-primary">Create new Layout</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 	<!-- Create mobile_navs section End -->
 	<!-- Edit mobile_navs section Start -->
-<div class="wrap udm-opt mobile_nav_layouts">
+<div class="wrap udm-opt mobile_nav_layouts custom_layout clearfix">
 	<h1>Edit Layouts</h1>
 		<div class="container">
 			<div class="row editsection">
@@ -74,11 +79,15 @@ $prevlayout="";
 							}
 						?>
 					</select>
-					<div id="editlayout"><div class='empty'><p>Select Submenu Layout to change settings.</p></div></div>
+					<div id="editlayout">
+						<div class='empty'>
+							<p>Select Submenu Layout to change settings.</p>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-</div>
+		</div>  
+</div> 
 	<!-- Edit mobile_navs section End -->
 <!-- Theme Options JS -->
 <script>

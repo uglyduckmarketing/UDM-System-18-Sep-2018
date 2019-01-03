@@ -9,17 +9,17 @@
 }
 
 <?php
-$post_type = get_post_type( $_GET['id'] );
-	$layout=get_option('udm_footer_cta_default');
+	$layout=get_option('udm_service_cta_default');
 	if(strpos($layout, 'Fullwidth_CTA') !== false){
-		$data=unserialize(get_option('footer_cta_layout_'.$layout));
+		$data=unserialize(get_option('service_cta_layout_'.$layout));
+	
 		if($data['background_type']=="image")
 		{
 			$background="url('".$data['background_image']."')";
 		}
 		else
 		{
-			if($data['background_color']=="custom")
+			 if($data['background_color']=="custom")
 			{
 				$background=$data['background_custom_color'];
 			}
@@ -126,42 +126,41 @@ $post_type = get_post_type( $_GET['id'] );
 		{
 			$button_text_color="var(--global_light-color)";
 		}
+
 		
 		?>
-		.get_in_touch_fullwidth{
+		.get_in_touch_service_cta_fullwidth{
 			background:<?php echo isset($background) ? $background : ''; ?>;
 			background-repeat: no-repeat;
 			background-size:cover;
 			height:<?php echo esc_attr($height); ?>
 		}
-		.get_in_touch_fullwidth:before{
+		.get_in_touch_service_cta_fullwidth:before{
 			background-color:<?php echo esc_attr($overlay_color); ?>;
 			opacity:<?php echo esc_attr($background_opacity); ?>;
 		}
-		.get_in_touch_fullwidth .col h2{
+		.get_in_touch_service_cta_fullwidth .col h2{
 			color:<?php echo esc_attr($title_text_color); ?>;
 		}
-		.get_in_touch_fullwidth .col p{
+		.get_in_touch_service_cta_fullwidth .col p{
 			color:<?php echo esc_attr($desc_text_color); ?>;
 		}
 		
-		.get_in_touch_fullwidth .col .btn{
+		.get_in_touch_service_cta_fullwidth .col .btn{
 			background:<?php echo esc_attr($button_color); ?>;
 			border:1px solid <?php echo esc_attr($button_color); ?>;
 			color:<?php echo esc_attr($button_text_color); ?>;
 		}
-		.right_side_bt .btn .fa{
+		.get_in_touch_service_cta_fullwidth .right_side_bt .btn .fa{
 			border-left:1px solid <?php echo esc_attr($button_text_color); ?>;
 		}
 		<?php
 	}
 	else
 	{	
-	
-		$data=unserialize(get_option('footer_cta_layout_'.$layout));
-
+		$data=unserialize(get_option('service_cta_layout_'.$layout));
 		
-	 if($data['background_color']=="custom")
+		if($data['background_color']=="custom")
 		{
 			$background=$data['background_custom_color'];
 		}
@@ -299,54 +298,54 @@ $post_type = get_post_type( $_GET['id'] );
 		}
 
 		?>
-		.get_in_splitscreen.back .p1-left{
+		.service_cta_splitscreen.back .p1-left{
 			background:<?php echo isset($background) ? $background : ''; ?>;
 		}
 		
-		.col.col-lg-6.p1-both.align-self-stretch.element{
+		.service_cta_splitscreen .col.col-lg-6.p1-both.align-self-stretch.service_cta_element{
 			background:<?php echo esc_attr($element_background); ?>;
 		}
-		.get_in_splitscreen .col h2{
+		.service_cta_splitscreen .col h2{
 			color:<?php echo esc_attr($title_text_color); ?>;
 		}
-		.get_in_splitscreen .col p{
+		.service_cta_splitscreen .col p{
 			color:<?php echo esc_attr($desc_text_color); ?>;
 		}
 		
-		.get_in_splitscreen .col .btn{
+		.service_cta_splitscreen .col .btn{
 			background:<?php echo esc_attr($button_color); ?>;
 			border:1px solid <?php echo esc_attr($button_color); ?>;
 			color:<?php echo esc_attr($button_text_color); ?>;
 		}
-		.get_in_splitscreen .right_side_bt .btn .fa{
+		.service_cta_splitscreen .right_side_bt .btn .fa{
 			border-left:1px solid <?php echo esc_attr($button_text_color); ?>;
 		}
-		.get_in_splitscreen .element.shadow::after{
+		.service_cta_splitscreen .service_cta_element.shadow::after{
 			background-color:<?php echo esc_attr($overlay_color); ?>;
 			opacity:<?php echo esc_attr($background_opacity); ?>;
 		}
 
-		.get_in_splitscreen .videoPoster {
+		.service_cta_splitscreen .videoPoster {
 			background-image:url('<?php echo esc_attr($element_video_poster_url); ?>');
 			background-size: cover;
 			background-repeat:no-repeat;
 		}
-		.videoPoster button:before
+		.service_cta_splitscreen .videoPoster button:before
 		{
 			border:1px solid <?php echo esc_attr($video_play_icon_color); ?>;
 		}
-		.videoPoster button:after
+		.service_cta_splitscreen .videoPoster button:after
 		{
 			border-left: 40px solid <?php echo esc_attr($video_play_icon_color); ?>;
 		}
-		.get_in_splitscreen .element, .get_in_splitscreen .align-self-stretch, .videoPoster, .videoIframe,#map  {
+		.service_cta_splitscreen .service_cta_element, .service_cta_splitscreen .align-self-stretch, .service_cta_splitscreen .videoPoster, .service_cta_splitscreen .videoIframe,#map  {
 			height:<?php echo esc_attr($height); ?>
 		}
-		 .videoIframe{
+		 .service_cta_splitscreen .videoIframe{
 			 position:absolute;
 			 z-index:99;
 		 }
-		.get_in_splitscreen .eyebrow{
+		.service_cta_splitscreen .eyebrow{
 			font-weight: 600; 
 			font-size: 24px;
 			line-height: 1.14286;
@@ -355,7 +354,7 @@ $post_type = get_post_type( $_GET['id'] );
 			margin-bottom: 1.5rem;
 			display: block;
 		}
-		.get_in_splitscreen .h2{
+		.service_cta_splitscreen .h2{
 			font-weight: 600; 
 			font-size: 24px;
 			line-height: 1.14286;

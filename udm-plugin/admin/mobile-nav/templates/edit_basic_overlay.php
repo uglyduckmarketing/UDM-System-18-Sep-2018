@@ -12,8 +12,8 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-<ul id="editlayoutsettings" class="header_type_style collapse show basic_hero">
-	<li class="colorchange"><h3>Background Color: </h3>
+<ul id="editlayoutsettings" class="header_type_style collapse show basic_hero common_setting"> 
+	<li class="colorchange"><h4>Background Color: </h4>
 		<select name="background_color" id="background_color">
 			<option value="primary" <?php selected('primary',$data['background_color']); ?>>Primary</option>
 			<option value="secondary" <?php selected('secondary',$data['background_color']); ?>>Secondary</option>
@@ -21,15 +21,19 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 			<option value="global_dark" <?php selected('global_dark',$data['background_color']); ?>>Global Dark</option>
 			<option value="custom" <?php selected('custom',$data['background_color']); ?>>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" <?php if($data['background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-			<li>
-				<h3>Background Custom Color: </h3>
+			<li><h4>Background Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="background_custom_color" value="<?php echo esc_attr($data['background_custom_color']); ?>" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Opacity(in %): </h3><input type="number" name="background_opacity" value="<?php echo esc_attr($data['background_opacity']); ?>" /></li>
-	<li class="colorchange"><h3>Text Color: </h3>
+	<li><h4>Background Opacity(in %): </h4>
+		<input type="number" name="background_opacity" value="<?php echo esc_attr($data['background_opacity']); ?>" />
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Text Color: </h4>
 		<select name="text_color" id="text_color">
 			<option value="primary" <?php selected('primary',$data['text_color']); ?>>Primary</option>
 			<option value="secondary" <?php selected('secondary',$data['text_color']); ?>>Secondary</option>
@@ -37,14 +41,15 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 			<option value="global_dark" <?php selected('global_dark',$data['text_color']); ?>>Global Dark</option>
 			<option value="custom" <?php selected('custom',$data['text_color']); ?>>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" <?php if($data['text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-			<li>
-				<h3>Text Custom Color: </h3>
+			<li><h4>Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="text_custom_color" value="<?php echo esc_attr($data['text_custom_color']); ?>" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>	
-	<li class="colorchange"><h3>Submenu Background Color: </h3>
+	<li class="colorchange"><h4>Submenu Background Color: </h4>
 		<select name="submenu_background_color" id="submenu_background_color">
 		<option value="primary" <?php selected('primary',$data['submenu_background_color']); ?>>Primary</option>
 			<option value="secondary" <?php selected('secondary',$data['submenu_background_color']); ?>>Secondary</option>
@@ -52,14 +57,15 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 			<option value="global_dark" <?php selected('global_dark',$data['submenu_background_color']); ?>>Global Dark</option>
 			<option value="custom" <?php selected('custom',$data['submenu_background_color']); ?>>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" <?php if($data['submenu_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-			<li>
-				<h3>Background Custom Color: </h3>
+			<li><h4>Background Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="submenu_background_custom_color" value="<?php echo esc_attr($data['submenu_background_custom_color']); ?>" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Submenu Text Color: </h3>
+	<li class="colorchange"><h4>Submenu Text Color: </h4>
 		<select name="submenu_text_color" id="submenu_text_color">
 			<option value="primary" <?php selected('primary',$data['submenu_text_color']); ?>>Primary</option>
 			<option value="secondary" <?php selected('secondary',$data['submenu_text_color']); ?>>Secondary</option>
@@ -67,13 +73,15 @@ $data=unserialize(get_option('mobile_nav_layout_'.$layout));
 			<option value="global_dark" <?php selected('global_dark',$data['submenu_text_color']); ?>>Global Dark</option>
 			<option value="custom" <?php selected('custom',$data['submenu_text_color']); ?>>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" <?php if($data['submenu_text_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-			<li>
-				<h3>Text Custom Color: </h3>
+			<li><h4>Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="submenu_text_custom_color" value="<?php echo esc_attr($data['submenu_text_custom_color']); ?>" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
+	<div class="clearfix"></div>
 </ul>
 <script>
 	jQuery(document).ready(function($) {

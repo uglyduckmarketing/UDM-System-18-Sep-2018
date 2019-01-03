@@ -7,8 +7,8 @@ include '../../../../../../../wp-load.php';
 <h2 class="header_layout_heading">
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
-<ul id="layoutsettings" class="header_type_style collapse show transparent_header">
-	<li><h3>Navigation: </h3>
+<ul id="layoutsettings" class="header_type_style collapse show transparent_header common_setting">
+	<li><h4>Navigation: </h4>
 		<select name="navigation" id="navigation">
 			<option value="">Select Menu</option>
 			<?php $menus=wp_get_nav_menus();
@@ -19,8 +19,9 @@ include '../../../../../../../wp-load.php';
 					}
 				?>
 		</select>
+		<div class="clearfix"></div>
 	</li>
-	<li><h3>Drop Down Style: </h3>
+	<li><h4>Drop Down Style: </h4>
 		<select name="dropdownstyle" id="dropdownstyle">
 			<option value="">Select Style</option>
 			<?php  
@@ -33,45 +34,46 @@ include '../../../../../../../wp-load.php';
 				}
 			?>
 		</select>
-	</li>
-	
-	<li class="colorchange"><h3>Button Color: </h3>
-		<select name="button_color" id="button_color">
-			
+		<div class="clearfix"></div>
+	</li>	
+	<li class="colorchange"><h4>Button Color: </h4>
+		<select name="button_color" id="button_color">			
 			<option value="primary" selected>Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Button Custom Color: </h3>
+			<li><h4>Button Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="button_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
+	</li>	
+	<li><h4>Opacity(in %): </h4>
+		<input type="number" name="opacity" value="" />
+		<div class="clearfix"></div>
 	</li>
 	
-	<li><h3>Opacity(in %): </h3><input type="number" name="opacity" value="" /></li>
-	
-	<li class="colorchange"><h3>Opacity Color: </h3>
-		<select name="opacity_color" id="opacity_color">
-			
+	<li class="colorchange"><h4>Opacity Color: </h4>
+		<select name="opacity_color" id="opacity_color">			
 			<option value="primary" selected>Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Button Custom Color: </h3>
+			<li><h4>Button Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="opacity_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-
-	<li class="colorchange"><h3>Button Text Color: </h3>
+	<li class="colorchange"><h4>Button Text Color: </h4>
 		<select name="button_text_color" id="button_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -79,14 +81,15 @@ include '../../../../../../../wp-load.php';
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected>Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Button Custom Color: </h3>
+			<li><h4>Button Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="button_text_custom_color" value="$fff" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Links Color: </h3>
+	<li class="colorchange"><h4>Links Color: </h4>
 		<select name="link_color" id="link_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -94,20 +97,22 @@ include '../../../../../../../wp-load.php';
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Links Custom Color: </h3>
+			<li><h4>Links Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="link_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Top Bar: </h3>
+	<li><h4>Top Bar: </h4>
 		<span class="switch">
 			<input type="checkbox" name="top_bar" class="switch" id="top_bar" value="yes">
 			<label for="top_bar">Hide/Show</label>
 		</span>
-		<ul id="topbardata" style="display:none;">
-			<li class="colorchange"><h3>Links Color: </h3>
+		<div class="clearfix"></div> 
+		<ul id="topbardata" style="display:none;">  
+			<li class="colorchange"><h4>Links Color: </h4>
 				<select name="topbar_link_color" id="topbar_link_color">
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
@@ -115,14 +120,15 @@ include '../../../../../../../wp-load.php';
 					<option value="global_dark">Global Dark</option>
 					<option value="custom">Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor" style="display:none;">
-					<li>
-						<h3>Links Custom Color: </h3>
+					<li><h4>Links Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="topbar_link_custom_color" value="" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
-			<li class="colorchange"><h3>Text Color: </h3>
+			<li class="colorchange"><h4>Text Color: </h4>
 				<select name="topbar_link_color" id="topbar_text_color">
 					<option value="primary">Primary</option>
 					<option value="secondary">Secondary</option>
@@ -130,10 +136,11 @@ include '../../../../../../../wp-load.php';
 					<option value="global_dark">Global Dark</option>
 					<option value="custom">Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor" style="display:none;">
-					<li>
-						<h3>Text Custom Color: </h3>
+					<li><h4>Text Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="topbar_text_custom_color" value="" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
@@ -145,25 +152,27 @@ include '../../../../../../../wp-load.php';
 				</ul>
 			</li>
 		</ul>
+		<div class="clearfix"></div>
 	</li>
 	<li>
-				<h3>Header Button: </h3>
-				<span class="switch">
-					<input  type="checkbox" name="header_button" class="switch" id="header_button" value="yes" >
-					<label for="header_button">Hide/Show</label>
-				</span>
-				<ul id="show_button_text" style="display:none">
-					<li>
-					<h3>Header Button Text: </h3>
-						<input class="" type="text" name="header_button_text" value="" />
-					</li>
-					<li>
-					<h3>Header Button Link: </h3>
-						<input class="" type="text" name="header_button_link" value="" />
-					</li>
-				</ul>
+		<h4>Header Button: </h4>
+		<span class="switch">
+			<input type="checkbox" name="header_button" class="switch" id="header_button" value="yes" >
+			<label for="header_button">Hide/Show</label>
+		</span>
+		<div class="clearfix"></div>
+		<ul id="show_button_text" style="display:none">
+			<li><h4>Header Button Text: </h4>
+				<input class="" type="text" name="header_button_text" value="" />
+				<div class="clearfix"></div>
 			</li>
-	<li id="bottombutton_data" style="display:none;"><h3>Bottom Button Hide: </h3>
+			<li><h4>Header Button Link: </h4>
+				<input class="" type="text" name="header_button_link" value="" />
+				<div class="clearfix"></div>
+			</li>
+		</ul>
+	</li>
+	<li id="bottombutton_data" style="display:none;"><h4>Bottom Button Hide: </h4>
 		<ul>
 			<li>
 				<span class="switch">
@@ -171,12 +180,19 @@ include '../../../../../../../wp-load.php';
 					<label for="bottom_button_hide">No/Yes</label>
 				</span>
 			</li>
-			<li><h5>Bottom Button Text </h5><input type="text" name="bottombar_button_text" value="" ></li>	 
-			<li><h5>Bottom Button Link </h5><input type="text" name="bottombar_button_link" value="" ></li>
+			<li><h4>Bottom Button Text </h4>
+				<input type="text" name="bottombar_button_text" value="" />
+				<div class="clearfix"></div>	
+			</li>	 
+			<li><h4>Bottom Button Link </h4>
+				<input type="text" name="bottombar_button_link" value="" />
+				<div class="clearfix"></div>
+			</li>
 		</ul>
 	</li>
+	<div class="clearfix"></div> 
 </ul>
-<script>
+<script> 
 	jQuery(document).ready(function($) {
 		$('.udm_color_picker').wpColorPicker();  //Add color picker 
 		$('.colorchange select').change(function(){

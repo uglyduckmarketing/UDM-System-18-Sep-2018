@@ -11,18 +11,19 @@
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
 
-<ul id="layoutsettings" class="header_type_style collapse show basic_hero">
+<ul id="layoutsettings" class="header_type_style collapse show basic_hero common_setting">
 	<li class="imageupload"><h4>Background Type: </h4>
 		<select name="background_type" id="background_type">
 			<option value="color">Color</option>
 			<option value="image">Image</option>
 		</select>
+		<div class="clearfix"></div>
 	</li>
-	<li id="type_image" class="imageupload" style="display:none;"><h4>Image Url: </h4>
-		<input type="text" name="background_image" id="background_image" class="meta-image regular-text main-image" value="">
-		<input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" />
+	<li id="type_image" class="imageupload image_upload" style="display:none;"><h4>Image Url: </h4>
+		<input type="text" name="background_image" id="background_image" class="meta-image regular-text main-image custom_logo_input" value="">
+		<input class="btn upload-image button button-primary" my-attr="main-image" type="button" value="Upload Image" />
 	</li>
-	<li id="type_color" class="colorchange"><h3>Background Color: </h3>
+	<li id="type_color" class="colorchange"><h4>Background Color: </h4>
 		<select name="background_color" id="background_color">
 			<option value="primary" selected>Primary</option>
 			<option value="secondary">Secondary</option>
@@ -30,31 +31,35 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Background Custom Color: </h3>
+			<li><h4>Background Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="background_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Opacity(in %): </h3><input type="number" name="background_opacity" value="50" /></li>
-	<li class="colorchange"><h3>Overlay Color: </h3>
-		<select name="overlay_color" id="overlay_color">
-			
+	<li><h4>Background Opacity(in %): </h4>
+		<input type="number" name="background_opacity" value="50" />
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Overlay Color: </h4>
+		<select name="overlay_color" id="overlay_color">			
 			<option value="primary">Primary</option>
 			<option value="secondary" >Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected="">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Overlay Custom Color: </h3>
+			<li><h4>Overlay Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="rgb(0,0,0)" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Heading Color: </h3>
+	<li class="colorchange"><h4>Heading Color: </h4>
 		<select name="heading_color" id="heading_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -62,14 +67,15 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Heading Custom Color: </h3>
+			<li><h4>Heading Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="heading_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Text Color: </h3>
+	<li class="colorchange"><h4>Text Color: </h4>
 		<select name="text_color" id="text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -77,14 +83,15 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Text Custom Color: </h3>
+			<li><h4>Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="text_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Link Color: </h3>
+	<li class="colorchange"><h4>Link Color: </h4>
 		<select name="link_color" id="link_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -92,39 +99,43 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Link Custom Color: </h3>
+			<li><h4>Link Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="link_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
-	</li>
-	 
-	<li>
-		<h3>Social Icons: </h3>
-		<span class="switch">
+	</li>	 
+	<li><h4>Social Icons: </h4>
+		<span class="switch cus_bar_switch">
 			<input type="checkbox" name="social_icons" class="switch" id="social_icons" value="yes">
 			<label for="social_icons">Hide/Show</label>
 		</span>
-	</li>
-	
-	<li>
-		<h3>Apps Icons: </h3>
-		<span class="switch">
+		<div class="clearfix"></div>
+	</li>	
+	<li><h4>Apps Icons: </h4>
+		<span class="switch cus_bar_switch">
 			<input type="checkbox" name="apps_icons" class="switch" id="apps_icons" value="yes">
 			<label for="apps_icons">Hide/Show</label>
 		</span>
-	</li>
-	<div id="appsicondata" style="display:none;">
-		<li><h3>Android App Url: </h3>
-			<input type="text" name="android_app_url" value="">
+		<div class="clearfix"></div>
+	</li> 
+	<div id="appsicondata" class="common_setting" style="display:none;">
+		<li><h4>Android App Url: </h4>
+			<input type="text" name="android_app_url" value="" />
+			<div class="clearfix"></div>
 		</li>
-		<li><h3>Ios App Url: </h3>
-			<input type="text" name="ios_app_url" value="">
+		<li><h4>Ios App Url: </h4>
+			<input type="text" name="ios_app_url" value="" />
+			<div class="clearfix"></div>
 		</li>
 	</div>
-	<li><h3>Title Text: </h3><input type="text" name="title_text" value="" /></li>
-	<li class="colorchange"><h3>Title Text Color: </h3>
+	<li><h4>Title Text: </h4>
+		<input type="text" name="title_text" value="" />
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Title Text Color: </h4>
 		<select name="title_text_color" id="title_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -132,15 +143,19 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected="">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Title Text Custom Color: </h3>
+			<li><h4>Title Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="#fff" />
+				<div class="clearfix"></div>
 			</li>
-		</ul>
+		</ul> 
 	</li>
-	<li><h3>Description: </h3><textarea name="desc_text"></textarea></li>
-	<li class="colorchange"><h3>Description Color: </h3>
+	<li><h4>Description: </h4>
+		<textarea name="desc_text"></textarea>
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Description Color: </h4>
 		<select name="desc_text_color" id="desc_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -148,18 +163,18 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Description Text Custom Color: </h3>
+			<li><h4>Description Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
-	</li>
-	
+	</li> 
+	<div class="clearfix"></div>
 </ul>
 <script>
 	jQuery(document).ready(function($) {
-
 		$('.udm_color_picker').wpColorPicker();  //Add color picker 
 		$('#apps_icons').change(function(){
 			if($(this).prop("checked") == true)
@@ -183,8 +198,7 @@
 				$('#type_color').show();
 				$('#type_image').hide();
 			}
-		});
-		
+		});		
 		
 		$('.colorchange select').change(function(){
 			if($(this).val() == "custom")
@@ -197,8 +211,7 @@
 			}
 		});
 		
-		$('.upload-image').click(function() {
-		
+		$('.upload-image').click(function() {		
 				var mediaUploader;
 				var myvar = $(this).attr('my-attr');	
 				//e.preventDefault();
@@ -214,8 +227,7 @@
 				  button: {
 				  text: 'Choose Image'
 				}, multiple: false });
-				
-		
+						
 				// When a file is selected, grab the URL and set it as the text field's value
 				mediaUploader.on('select', function() {
 				  attachment = mediaUploader.state().get('selection').first().toJSON();
@@ -224,8 +236,7 @@
 				});
 				// Open the uploader dialog
 				mediaUploader.open();
-		});
+		});		
 		
-		
-	  });																		
+	  });			 														
 </script>

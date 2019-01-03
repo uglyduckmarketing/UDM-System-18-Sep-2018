@@ -1,14 +1,15 @@
 <?php
 global $post,$wpdb;
+$datas = array();
  $layout1=get_post_meta( $post->ID, 'udm_service_option', true );
 	$layout=get_option('udm_footer_cta_default');
 	$data = unserialize(get_option("footer_cta_layout_".$layout));
- if($layout1 == ''){
+ /*if($layout1 == ''){
 	 $layout=get_option('udm_service_default');
 	 $datas=unserialize(get_option('service_layout_'.$layout));
  }else{
 	 $datas=unserialize(get_option('service_layout_'.$layout1));
- }
+ }*/
 ?>
 <!--get_in_touch_fullwidth-->
 <section class="get_in_touch_fullwidth">

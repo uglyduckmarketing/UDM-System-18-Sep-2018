@@ -38,7 +38,7 @@
 			<?php	
 				}
 			?>
-		</select>
+		</select> 
 		<div class="clearfix"></div>
 	</li>
 	

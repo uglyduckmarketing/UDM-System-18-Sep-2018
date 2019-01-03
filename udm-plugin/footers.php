@@ -1,5 +1,22 @@
 <?php
-
+		if(strpos(get_option('udm_service_cta_default'), 'Split_CTA_') !== false)
+		{
+			$layout=get_option('udm_service_cta_default');
+			global $post,$wpdb;
+			$posttype = get_post_type(); 
+			if($posttype == 'service'){
+				include get_template_directory() . '/udm-plugin/service-cta/split-cta/index.php';
+			}
+		}else if(strpos(get_option('udm_service_cta_default'), 'Fullwidth_CTA_') !== false)
+		{
+			$layout=get_option('udm_service_cta_default');
+			global $post,$wpdb;
+			$posttype = get_post_type(); 
+			if($posttype == 'service'){
+				include get_template_directory() . '/udm-plugin/service-cta/fullwidth-cta/index.php';
+			}
+		}
+		
 		if(strpos(get_option('udm_footer_cta_default'), 'Fullwidth_CTA_') !== false){
 			$layout=get_option('udm_footer_cta_default');
 				global $post,$wpdb;

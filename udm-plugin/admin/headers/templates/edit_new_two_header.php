@@ -13,92 +13,91 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
 
-<ul id="editlayoutsettings" class="header_type_style collapse show stacked_header">
-	
-	<li>
-		<h3>Logo size</h3>
+<ul id="editlayoutsettings" class="header_type_style collapse show stacked_header common_setting">	
+	<li><h4>Logo size</h4>
 		<select name="logo_size">
 			<option value="default" <?php selected("default",isset($data['logo']) ? $data['logo'] : ''); ?>>Default</option>
 			<option value="large" <?php selected("large",isset($data['logo']) ? $data['logo'] : ''); ?>>Large</option>
 		</select>
+		<div class="clearfix"></div>
 	</li>
-	<li>
-		<h3>Logo Background</h3>
+	<li><h4>Logo Background</h4>
 		<select name="logo_background_type" id="logo_background_type">
 			<option value="color" <?php selected("color",$data['logo_background_type']); ?>>Color</option>
 			<option value="image" <?php selected("image",$data['logo_background_type']); ?>>Image</option>
 		</select> 
-		<ul id="logo_back_opt"> 
-			<li class="colorchange" <?php if($data['logo_background_type']=="color"){}else{ ?> style="display:none;" <?php } ?>><h3>Logo Background Color: </h3>
-				<select name="logo_background_color" id="logo_background_color">
-					
+		<div class="clearfix"></div>
+		<ul id="logo_back_opt">    
+			<li class="colorchange" <?php if($data['logo_background_type']=="color"){}else{ ?> style="display:none;" <?php } ?>><h4>Logo Background Color: </h4>
+				<select name="logo_background_color" id="logo_background_color">					
 					<option value="primary" <?php selected('primary',$data['logo_background_color']); ?>>Primary</option>
 					<option value="secondary" <?php selected('secondary',$data['logo_background_color']); ?>>Secondary</option>
 					<option value="global_light" <?php selected('global_light',$data['logo_background_color']); ?>>Global Light</option>
 					<option value="global_dark" <?php selected('global_dark',$data['logo_background_color']); ?>>Global Dark</option>
 					<option value="custom" <?php selected('custom',$data['logo_background_color']); ?>>Custom</option>
 				</select>
+				<div class="clearfix"></div>
 				<ul class="customcolor" <?php if($data['logo_background_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
-					<li>
-						<h3>Button Custom Color: </h3>
+					<li><h4>Button Custom Color: </h4>
 						<input class="udm_color_picker" type="text" name="logo_background_custom_color" value="<?php echo esc_attr($data['logo_background_custom_color']); ?>" />
+						<div class="clearfix"></div>
 					</li>
 				</ul>
 			</li>
-			<li class="imageupload" <?php if($data['logo_background_type']=="image"){}else{ ?> style="display:none;" <?php } ?>>
-				<h3>Logo Background Image</h3>
-				<input type="text" name="logo_background_image" class="background-logo" value="<?php echo esc_attr($data['logo_background_image']); ?>">
-				<input class="btn upload-image" my-attr="background-logo" type="button" value="Upload Image" />
+			<li class="imageupload image_upload" <?php if($data['logo_background_type']=="image"){}else{ ?> style="display:none;" <?php } ?>>
+				<h4>Logo Background Image</h4>
+				<input id="background-logo" type="text" name="logo_background_image" class="background-logo" value="<?php echo esc_attr($data['logo_background_image']); ?>">
+				<input class="btn upload-image button button-primary" my-attr="background-logo" type="button" value="Upload Image" />
 			</li>
+			<div class="clearfix"></div>
 		</ul>
 	</li>
 	
-	<li>
-				<h3>Top Bar Style</h3>
-				<select name="top_bar_style" id="top_bar_style">
-					<option value="50_50" <?php selected('50_50',$data['top_bar_style']); ?>>50/50</option>
-					<option value="1_3" <?php selected('1_3',$data['top_bar_style']); ?>>1/3</option>
-				</select>
-			</li>
-			<li class="topbarwiget">
-				<h2>Top Bar Widget</h2>
-				<ul id="topbar_layouts">
-					
-					<?php
-						if($data['top_bar_style']!="")
-						{
-							$layoutnew=$data['top_bar_style'];
-							include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
-						}
-						else
-						{
-							$layoutnew="50_50";
-							include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
-						}
-					?>
-				</ul>
-			</li>
+	<li><h4>Top Bar Style</h4>
+		<select name="top_bar_style" id="top_bar_style">
+			<option value="50_50" <?php selected('50_50',$data['top_bar_style']); ?>>50/50</option>
+			<option value="1_3" <?php selected('1_3',$data['top_bar_style']); ?>>1/3</option>
+		</select>
+		<div class="clearfix"></div>
+	</li>
+	<li class="topbarwiget">
+		<h2>Top Bar Widget</h2>
+		<ul id="topbar_layouts">			
+			<?php
+				if($data['top_bar_style']!="")
+				{
+					$layoutnew=$data['top_bar_style'];
+					include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
+				}
+				else
+				{
+					$layoutnew="50_50";
+					include get_template_directory() . "/udm-plugin/admin/headers/templates/new_topbar_layout.php";
+				}
+			?>
+		</ul>
+	</li>
 	<li class="bottombarwiget">
 		<h2>Bottom Bar Widget</h2>
 		<div class="innerwidget">
 			<ul class="bottombardata">
-				<li class="colorchange"><h3>Background Color: </h3>
-					<select name="bottombar_background_color" id="bottom_background_color">
-						
+				<li class="colorchange"><h4>Background Color: </h4>
+					<select name="bottombar_background_color" id="bottom_background_color">						
 						<option value="primary" <?php selected('primary',$data['bottombar_background_color']); ?>>Primary</option>
 						<option value="secondary" <?php selected('secondary',$data['bottombar_background_color']); ?>>Secondary</option>
 						<option value="global_light" <?php selected('global_light',$data['bottombar_background_color']); ?>>Global Light</option>
 						<option value="global_dark" <?php selected('global_dark',$data['bottombar_background_color']); ?>>Global Dark</option>
 						<option value="custom" <?php selected('custom',$data['bottombar_background_color']); ?>>Custom</option>
 					</select>
+					<div class="clearfix"></div>
 					<ul class="customcolor" <?php if($data['bottombar_background_color']=="custom"){}else{ ?> style="display:none;"<?php } ?>>
-						<li>
-							<h3>Background Custom Color: </h3>
+						<li><h4>Background Custom Color: </h4>
 							<input class="udm_color_picker" type="text" name="bottombar_background_custom_color" value="<?php echo esc_attr($data['bottombar_background_custom_color']); ?>" />
+							<div class="clearfix"></div>
 						</li>
 					</ul>
 				</li>
-				<li><h3>Navigation: </h3>
+				<li><h4>Navigation: </h4>
 					<select name="navigation" id="navigation">
 						<option value="">Select Menu</option>
 						<?php $menus=wp_get_nav_menus();
@@ -109,9 +108,9 @@ $data=unserialize(get_option('header_layout_'.$layout));
 								}
 							?>
 					</select>
-				</li>
-				
-				<li><h3>Drop Down Style: </h3>
+					<div class="clearfix"></div>
+				</li>				
+				<li><h4>Drop Down Style: </h4>
 					<select name="dropdownstyle" id="editdropdownstyle">
 						<option value="">Select Style</option>
 						<?php  
@@ -124,23 +123,25 @@ $data=unserialize(get_option('header_layout_'.$layout));
 							}
 						?>
 					</select>
+					<div class="clearfix"></div>
 				</li>
-				<li class="colorchange"><h3>Navigation Link Color: </h3>
-					<select name="bottombar_nav_link_color" id="bottombar_nav_link_color">
-						
+				<li class="colorchange"><h4>Navigation Link Color: </h4>
+					<select name="bottombar_nav_link_color" id="bottombar_nav_link_color">						
 						<option value="primary" <?php selected('primary',$data['bottombar_nav_link_color']); ?>>Primary</option>
 						<option value="secondary" <?php selected('secondary',$data['bottombar_nav_link_color']); ?>>Secondary</option>
 						<option value="global_light" <?php selected('global_light',$data['bottombar_nav_link_color']); ?>>Global Light</option>
 						<option value="global_dark" <?php selected('global_dark',$data['bottombar_nav_link_color']); ?>>Global Dark</option>
 						<option value="custom" <?php selected('custom',$data['bottombar_nav_link_color']); ?>>Custom</option>
 					</select>
+					<div class="clearfix"></div>
 					<ul class="customcolor" <?php if($data['bottombar_nav_link_color']=="custom"){}else{ ?> style="display:none;"<?php } ?>>
-						<li>
-							<h3>Background Custom Color: </h3>
+						<li><h4>Background Custom Color: </h4>
 							<input class="udm_color_picker" type="text" name="bottombar_nav_link_custom_color" value="<?php echo esc_attr($data['bottombar_nav_link_custom_color']); ?>" />
+							<div class="clearfix"></div>
 						</li>
 					</ul>
 				</li>
+				<div class="clearfix"></div>
 			</ul>
 		</div>
 		<!--<div class="innerwidget">
@@ -161,9 +162,9 @@ $data=unserialize(get_option('header_layout_'.$layout));
 					</div>
 				</div>
 			</div>
-		</div>-->
-		
+		</div>-->		
 	</li>
+	<div class="clearfix"></div>
 </ul>
 <script>
 	jQuery(document).ready(function($) {

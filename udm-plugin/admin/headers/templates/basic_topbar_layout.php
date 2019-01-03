@@ -45,7 +45,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
             <div class="empty">
                 <p>Click the "Add widget" button below to start creating your layout.</p>
             </div>
-        </div>
+        </div> 
         <div class="create_rightbar_widget_button">
             <div class="dropup custom_design_dropdown">
                 <button type="button" class="button button-primary dropdown-toggle" data-toggle="dropdown">Add widget</button>
