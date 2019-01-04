@@ -876,8 +876,8 @@ function udm_service_cta_display($post){
 				<label for="service_cta[cta_show]">CTA Section Hide</label>
 				<br>
 				<span class="switch">
-						<input type="checkbox" name="service_cta[cta_show]" class="switch" id="service_cta[cta_show]" value="yes" <?php checked('yes', isset($cmeta['cta_show']) ? $cmeta['cta_show'] : ''); ?>>
-						<label for="service_cta[cta_show]">Show/Hide</label>
+						<input type="checkbox" name="service_cta[cta_show]" class="switch" id="service_cta[cta_show]" value="yes" <?php if(isset($cmeta['cta_show']) && $cmeta['cta_show'] == 'yes'){ echo 'checked'; }else if(isset($cmeta['cta_show']) && $cmeta['cta_show'] == 'no'){}else{ echo 'checked'; } ?>>
+						<label for="service_cta[cta_show]">Hide/Show</label>
 					</span>
 			</div>
 			<?php /*
@@ -970,11 +970,17 @@ function save_service_cta_meta( $post_id ) {
             }  
         }
     }
-	delete_post_meta( $post_id, 'service_cta');
+	$data = array();
+	if ( isset($_POST['udm_service_cta_nonce']) 
+			&& wp_verify_nonce( $_POST['udm_service_cta_nonce'], basename(__FILE__) ) ) {
 	if (isset($_POST['service_cta'])) { //Fix 3
 			$new = $_POST['service_cta'];
 				update_post_meta( $post_id, 'service_cta', $new );
+		}else{
+			$data['cta_show'] = 'no';
+				update_post_meta( $post_id, 'service_cta', $data );
 		}
+	}
 }
 add_action( 'save_post', 'save_service_cta_meta' );
 

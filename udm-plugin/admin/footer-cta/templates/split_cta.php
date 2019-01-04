@@ -248,7 +248,7 @@
 	<div class="clearfix"></div>
 </ul>   
 <script>
-	jQuery(document).ready(function($) {
+	jQuery(document).ready(function($) { 
 
 		$('.udm_color_picker').wpColorPicker();  //Add color picker 
 		$('#element_type').change(function(){

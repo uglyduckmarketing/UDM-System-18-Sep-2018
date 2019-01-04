@@ -11,8 +11,8 @@
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
 
-<ul id="layoutsettings" class="hero_type_style collapse show leadgen_hero">
-	<li class="colorchange"><h3>Background Color: </h3>
+<ul id="layoutsettings" class="hero_type_style collapse show leadgen_hero common_setting">
+	<li class="colorchange"><h4>Background Color: </h4>
 		<select name="background_color" id="background_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -20,31 +20,35 @@
 			<option value="global_dark" selected="">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Background Custom Color: </h3>
+			<li><h4>Background Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="background_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Image Opacity(in %): </h3><input type="number" name="background_opacity" value="" /></li>
-	<li class="colorchange"><h3>Overlay Color: </h3>
-		<select name="overlay_color" id="overlay_color">
-			
+	<li><h4>Background Image Opacity(in %): </h4>
+		<input type="number" name="background_opacity" value="" />
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Overlay Color: </h4>
+		<select name="overlay_color" id="overlay_color">			
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Overlay Custom Color: </h3>
+			<li><h4>Overlay Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li class="colorchange"><h3>Header Text Color: </h3>
+	<li class="colorchange"><h4>Header Text Color: </h4>
 		<select name="header_text_color" id="header_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -52,15 +56,15 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected="">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:block;">
-			<li>
-				<h3>Header Text Custom Color: </h3>
+			<li><h4>Header Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="header_text_custom_color" value="#fff" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
-	</li>
-	
-	<li class="colorchange"><h3>Eyebrow Text Color: </h3>
+	</li>	
+	<li class="colorchange"><h4>Eyebrow Text Color: </h4>
 		<select name="eyebrow_text_color" id="eyebrow_text_color">
 			<option value="primary" selected="">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -68,15 +72,15 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Text Custom Color: </h3>
+			<li><h4>Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="eyebrow_text_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
-	</li>
-	
-	<li class="colorchange"><h3>Description Color: </h3>
+	</li>	
+	<li class="colorchange"><h4>Description Color: </h4>
 		<select name="desc_text_color" id="desc_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -84,24 +88,31 @@
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Description Text Custom Color: </h3>
+			<li><h4>Description Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Height: </h3><input type="text" name="height" value="" /></li>
-	<li><h3>Form Shortcode: </h3><input type="text" name="form_shortcode" value="" /></li>
-	<li>
-		<h3>Button: </h3>
-		<span class="switch">
+	<li><h4>Height: </h4>
+		<input type="text" name="height" value="" />
+		<div class="clearfix"></div>
+	</li>
+	<li><h4>Form Shortcode: </h4>
+		<input type="text" name="form_shortcode" value="" />
+		<div class="clearfix"></div>
+	</li>
+	<li><h4>Button: </h4> 
+		<span class="switch cus_bar_switch">
 			<input type="checkbox" name="show_button" class="switch" id="show_button" value="yes">
 			<label for="show_button">Off/On</label>
 		</span>
+		<div class="clearfix"></div>
 	</li>
-	<div id="callactionwidget" style="display:none;">
-		<li class="colorchange"><h3>Button Color: </h3>
+	<div id="callactionwidget" class="common_setting" style="display:none;"> 
+		<li class="colorchange"><h4>Button Color: </h4>
 			<select name="button_color" id="button_color">
 				<option value="primary">Primary</option>
 				<option value="secondary" selected="">Secondary</option>
@@ -109,14 +120,15 @@
 				<option value="global_dark">Global Dark</option>
 				<option value="custom">Custom</option>
 			</select>
+			<div class="clearfix"></div>
 			<ul class="customcolor" style="display:none;">
-				<li>
-					<h3>Button Custom Color: </h3>
+				<li><h4>Button Custom Color: </h4>
 					<input class="udm_color_picker" type="text" name="button_custom_color" value="" />
+					<div class="clearfix"></div>
 				</li>
 			</ul>
 		</li>
-		<li class="colorchange"><h3>Button Text Color: </h3>
+		<li class="colorchange"><h4>Button Text Color: </h4>
 			<select name="button_text_color" id="button_text_color">
 				<option value="primary">Primary</option>
 				<option value="secondary" >Secondary</option>
@@ -124,21 +136,27 @@
 				<option value="global_dark">Global Dark</option>
 				<option value="custom">Custom</option>
 			</select>
+			<div class="clearfix"></div>
 			<ul class="customcolor" style="display:none;">
-				<li>
-					<h3>Button Custom Color: </h3>
+				<li><h4>Button Custom Color: </h4>
 					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="" />
+					<div class="clearfix"></div>
 				</li>
 			</ul>
 		</li>
-		<li><h3>Button Link: </h3><input type="text" name="button_link" value="" /></li>
-		<li><h3>Button Text: </h3><input type="text" name="button_text" value="" /></li>
+		<li><h4>Button Link: </h4>
+			<input type="text" name="button_link" value="" />
+			<div class="clearfix"></div>
+		</li>
+		<li><h4>Button Text: </h4>
+			<input type="text" name="button_text" value="" />
+			<div class="clearfix"></div>
+		</li>
 	</div>
-	
+	<div class="clearfix"></div>
 </ul>
 <script>
 	jQuery(document).ready(function($) {
-
 		$('.udm_color_picker').wpColorPicker();  //Add color picker 
 		$('#show_button').change(function(){
 			if($(this).prop("checked") == true)

@@ -15,7 +15,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 		<?php 
 			echo '<input type="hidden" name="mobile_header_layout_name" value="'.$data['mobile_header_layout_name'].'" readonly>';
 		?>
-				<li><h4>Hamber: </h4>
+				<li class="cus_txt_align"><h4>Hamber: </h4>
 					<span><input type="radio" name="hamber_position" value="left" <?php checked('left',isset($data['hamber_position']) ? $data['hamber_position'] : ''); ?>> Left </span><span><input type="radio" name="hamber_position" value="right" <?php checked('right',isset($data['hamber_position']) ? $data['hamber_position'] : ''); ?>> Right </span>
 					<div class="clearfix"></div>
 				</li>  
@@ -63,7 +63,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 						</li>
 					</ul>
 				</li>
-				<li><h4>Logo Position: </h4>
+				<li class="cus_txt_align"><h4>Logo Position: </h4>
 					<span><input type="radio" name="logo_position" value="center" <?php checked('center',isset($data['logo_position']) ? $data['logo_position'] : ''); ?>> Center </span><span><input type="radio" name="logo_position" value="opposite" <?php checked('opposite',isset($data['logo_position']) ? $data['logo_position'] : ''); ?>> Opposite of hamberger</span>
 					<div class="clearfix"></div>
 				</li>
@@ -129,7 +129,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 					</li>	
 					<li class="imageupload image_upload"><h4>Profile Image: </h4><input type="text" name="profile_image" id="editprofile_image" class="meta-image regular-text main-image custom_logo_input" value="<?php echo esc_attr($data['profile_image']); ?>"><input class="btn upload-image button button-primary" my-attr="main-image" type="button" value="Upload Image" />
 					</li>
-					<li><h4>Profile Image Type: </h4> 
+					<li class="cus_txt_align"><h4>Profile Image Type: </h4> 
 						<span><input type="radio" name="profile_image_type" value="circle" <?php checked('circle',isset($data['profile_image_type']) ? $data['profile_image_type'] : ''); ?>> Circle </span><span><input type="radio" name="profile_image_type" value="square" <?php checked('square',isset($data['profile_image_type']) ? $data['profile_image_type'] : ''); ?>> Square</span>
 						<div class="clearfix"></div>
 					</li>

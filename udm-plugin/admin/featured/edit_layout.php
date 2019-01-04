@@ -18,17 +18,26 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 		else
 		{
 	?>
-	<ul class="layout_top_data">
-		<li><h4>Enter Layout Name: </h4><input type="text" name="featured_layout_name" value="" required></li>
-		<li><h4>Select Template: </h4>
-			<select name="featured_layout_template" id="editfeatured_layout_template" required>
-				<option value="">Select Template</option>
-				<option value="1">Basic Hero</option>
-				<option value="2">Fullwidth Hero</option>
-				<option value="3">Splitscreen Hero</option>
-				<option value="4">Left/Right Elements Hero</option> 
-				<option value="5">Leadgen Hero</option> 
-			</select>
+	<ul class="common_setting">
+		<li>  
+			<ul class="inner">
+				<li><h4>Enter Layout Name: </h4>
+					<input type="text" name="featured_layout_name" value="" required />
+					<div class="clearfix"></div>
+				</li>
+				<li><h4>Select Template: </h4>
+					<select name="featured_layout_template" id="editfeatured_layout_template" required>
+						<option value="">Select Template</option>
+						<option value="1">Basic Hero</option>
+						<option value="2">Fullwidth Hero</option>
+						<option value="3">Splitscreen Hero</option>
+						<option value="4">Left/Right Elements Hero</option> 
+						<option value="5">Leadgen Hero</option> 
+					</select>
+					<div class="clearfix"></div>
+				</li>
+				<div class="clearfix"></div>
+			</ul>
 		</li>
 	</ul>
 	<?php 
@@ -36,9 +45,7 @@ $data=unserialize(get_option('featured_layout_'.$layout));
 	?>
 	<div id="editselected_layout"><div class='empty'><p>Select Featured Layout Template to change settings.</p></div></div>
 	<div class="uploaded_button"><p class="submit"><input type="submit" name="featured_editlayout_submit" class="button button-primary" value="Save Layout"><input type="submit" name="featured_deletelayout_submit" class="button button-primary" value="Delete Layout"></p> </div>
-
 </form>
-
 
 <!-- Theme Options JS -->
 <script>

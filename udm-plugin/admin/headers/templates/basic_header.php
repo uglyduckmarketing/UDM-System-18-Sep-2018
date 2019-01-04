@@ -62,7 +62,7 @@
 		</ul>
 	</li>
 	<li class="colorchange"><h4>Button Text Color: </h4>
-		<select name="button_text_color" id="button_text_color">			
+		<select name="button_text_color" id="button_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
 			<option value="global_light">Global Light</option>

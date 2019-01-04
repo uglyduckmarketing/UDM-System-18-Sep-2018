@@ -17,7 +17,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 					<input type="text" name="mobile_header_layout_name" value="" required />
 					<div class="clearfix"></div>
 				</li>	
-				<li><h4>Hamber: </h4>
+				<li class="cus_txt_align"><h4>Hamber: </h4>
 					<span><input type="radio" name="hamber_position" value="left"> Left</span><span><input type="radio" name="hamber_position" value="right"> Right</span>
 					<div class="clearfix"></div>	
 				</li>
@@ -65,7 +65,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 						</li>
 					</ul>
 				</li>	
-				<li><h4>Logo Position: </h4>
+				<li class="cus_txt_align"><h4>Logo Position: </h4>
 					<span><input type="radio" name="logo_position" value="center"> Center </span><span><input type="radio" name="logo_position" value="opposite"> Opposite of hamberger</span>
 					<div class="clearfix"></div>
 				</li>
@@ -129,7 +129,7 @@ $data=unserialize(get_option('mobile_header_layout_'.$layout));
 						</ul>
 					</li>	  
 					<li class="imageupload image_upload"><h4>Profile Image: </h4><input type="text" name="profile_image" id="profile_image" class="meta-image regular-text main-image custom_logo_input" value=""><input class="btn upload-image button button-primary" my-attr="main-image" type="button" value="Upload Image" /></li>
-					<li><h4>Profile Image Type: </h4>
+					<li class="cus_txt_align"><h4>Profile Image Type: </h4> 
 						<span><input type="radio" name="profile_image_type" value="circle"> Circle </span><span><input type="radio" name="profile_image_type" value="square" > Square</span>
 						<div class="clearfix"></div>
 					</li>

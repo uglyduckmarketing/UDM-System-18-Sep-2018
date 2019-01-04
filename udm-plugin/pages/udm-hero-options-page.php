@@ -102,7 +102,7 @@
 	<!-- Create featured section Start -->
 <div class="wrap udm-opt featured_layouts custom_layout clearfix">
 	<h1>Hero Options</h1>
-		<div class="container">
+		<div class="container"> 
 			<div class="row newsection"> 
 				<div class="col-md-12">
 					<div id="newlayout">

@@ -364,4 +364,4 @@ $post_type = get_post_type( $_GET['id'] );
 			margin-bottom: 1.5rem;
 			display: block;
 		}
-<?php } ?>
+<?php } ?> 
