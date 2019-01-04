@@ -85,7 +85,7 @@
 <div class="preloader">
 	<div class="loader">
 	</div>
-</div>	
+</div>	 
 	<!-- Create headers section Start -->
 <div class="wrap udm-opt header_layouts custom_layout clearfix">
 	<h1>Header Options</h1>

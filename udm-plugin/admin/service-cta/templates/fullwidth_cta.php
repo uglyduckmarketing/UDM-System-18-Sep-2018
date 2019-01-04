@@ -8,19 +8,20 @@ include '../../../../../../../wp-load.php';
 	<a href="javascript:void(0);" data-toggle="collapse" data-target="#layoutsettings">Layout Settings</a>
 </h2>
 
-<ul id="layoutsettings" class="footer_cta_type_style collapse show fullwidth_cta">
+<ul id="layoutsettings" class="footer_cta_type_style collapse show fullwidth_cta common_setting custom_cta">
 	<li class="imageupload"><h4>Background Type: </h4>
 		<select name="background_type" id="background_type">
 			<option value="">Select</option>
 			<option value="color">Color</option>
 			<option value="image">Image</option>
 		</select>
+		<div class="clearfix"></div>
 	</li>
-	<li id="type_image" class="imageupload" style="display:none;"><h4>Image Url: </h4>
-		<input type="text" name="background_image" id="background_image" class="meta-image regular-text main-image" value="">
-		<input class="btn upload-image" my-attr="main-image" type="button" value="Upload Image" />
+	<li id="type_image" class="imageupload image_upload" style="display:none;"><h4>Image Url: </h4>
+		<input type="text" name="background_image" id="background_image" class="meta-image regular-text main-image custom_logo_input" value="">
+		<input class="btn upload-image button button-primary" my-attr="main-image" type="button" value="Upload Image" />
 	</li>
-	<li id="type_color" class="colorchange" style="display:none;"><h3>Background Color: </h3>
+	<li id="type_color" class="colorchange" style="display:none;"><h4>Background Color: </h4>
 		<select name="background_color" id="background_color">
 			<option value="primary" selected>Primary</option>
 			<option value="secondary">Secondary</option>
@@ -28,41 +29,51 @@ include '../../../../../../../wp-load.php';
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Background Custom Color: </h3>
+			<li><h4>Background Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="background_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Background Image Opacity(in %): </h3><input type="number" name="background_opacity" value="50" /></li>
-	<li class="colorchange"><h3>Overlay Color: </h3>
-		<select name="overlay_color" id="overlay_color">
-			
+	<li><h4>Background Image Opacity(in %): </h4>
+		<input type="number" name="background_opacity" value="50" />
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Overlay Color: </h4>
+		<select name="overlay_color" id="overlay_color">			
 			<option value="primary">Primary</option>
 			<option value="secondary" >Secondary</option>
 			<option value="global_light">Global Light</option>
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected="">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Overlay Custom Color: </h3>
+			<li><h4>Overlay Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="overlay_custom_color" value="rgb(0,0,0)" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Text Alignment: </h3><span><input type="radio" name="text_align" value="left" />Left</span><span><input type="radio" name="text_align" value="center"  checked=""/>Center</span><span><input type="radio" name="text_align" value="right" />Right</span></li>
-	<li><h3>Height: </h3><input type="text" name="height" value="650px" /></li>
-	<li>
-		<h3>Button: </h3>
-		<span class="switch">
+	<li class="cus_txt_align"><h4>Text Alignment: </h4>
+		<span><input type="radio" name="text_align" value="left" />Left</span><span><input type="radio" name="text_align" value="center"  checked=""/>Center</span><span><input type="radio" name="text_align" value="right" />Right</span>
+		<div class="clearfix"></div>
+	</li>
+	<li><h4>Height: </h4>
+		<input type="text" name="height" value="650px" />
+		<div class="clearfix"></div>
+	</li>
+	<li><h4>Button: </h4>
+		<span class="switch cus_bar_switch">
 			<input type="checkbox" name="show_button" class="switch" id="show_button" value="yes">
 			<label for="show_button">Off/On</label>
 		</span>
+		<div class="clearfix"></div>
 	</li>
-	<div id="callactionwidget" style="display:none;">
-		<li class="colorchange"><h3>Button Color: </h3>
+	<div id="callactionwidget" class="common_setting" style="display:none;">
+		<li class="colorchange"><h4>Button Color: </h4>
 			<select name="button_color" id="button_color">
 				<option value="primary">Primary</option>
 				<option value="secondary" selected="">Secondary</option>
@@ -70,14 +81,15 @@ include '../../../../../../../wp-load.php';
 				<option value="global_dark">Global Dark</option>
 				<option value="custom">Custom</option>
 			</select>
+			<div class="clearfix"></div>
 			<ul class="customcolor" style="display:none;">
-				<li>
-					<h3>Button Custom Color: </h3>
+				<li><h4>Button Custom Color: </h4>
 					<input class="udm_color_picker" type="text" name="button_custom_color" value="" />
+					<div class="clearfix"></div>
 				</li>
 			</ul>
 		</li>
-		<li class="colorchange"><h3>Button Text Color: </h3>
+		<li class="colorchange"><h4>Button Text Color: </h4>
 			<select name="button_text_color" id="button_text_color">
 				<option value="primary">Primary</option>
 				<option value="secondary">Secondary</option>
@@ -85,18 +97,28 @@ include '../../../../../../../wp-load.php';
 				<option value="global_dark">Global Dark</option>
 				<option value="custom">Custom</option>
 			</select>
+			<div class="clearfix"></div>
 			<ul class="customcolor" style="display:none;">
-				<li>
-					<h3>Button Custom Color: </h3>
+				<li><h4>Button Custom Color: </h4>
 					<input class="udm_color_picker" type="text" name="button_text_custom_color" value="" />
+					<div class="clearfix"></div>
 				</li>
 			</ul>
 		</li>
-		<li><h3>Button Link: </h3><input type="text" name="button_link" value="" /></li>
-		<li><h3>Button Text: </h3><input type="text" name="button_text" value="" /></li>
+		<li><h4>Button Link: </h4>
+			<input type="text" name="button_link" value="" />
+			<div class="clearfix"></div>
+		</li>
+		<li><h4>Button Text: </h4>
+			<input type="text" name="button_text" value="" />
+			<div class="clearfix"></div>
+		</li>
 	</div>
-	<li><h3>Title Text: </h3><input type="text" name="title_text" value="" /></li>
-	<li class="colorchange"><h3>Title Text Color: </h3>
+	<li><h4>Title Text: </h4>
+		<input type="text" name="title_text" value="" />
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Title Text Color: </h4>
 		<select name="title_text_color" id="title_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -104,15 +126,19 @@ include '../../../../../../../wp-load.php';
 			<option value="global_dark">Global Dark</option>
 			<option value="custom" selected="">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor">
-			<li>
-				<h3>Title Text Custom Color: </h3>
+			<li><h4>Title Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="title_text_custom_color" value="#fff" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
-	<li><h3>Description: </h3><textarea name="desc_text"></textarea></li>
-	<li class="colorchange"><h3>Description Color: </h3>
+	<li><h4>Description: </h4>
+		<textarea name="desc_text"></textarea>
+		<div class="clearfix"></div>
+	</li>
+	<li class="colorchange"><h4>Description Color: </h4>
 		<select name="desc_text_color" id="desc_text_color">
 			<option value="primary">Primary</option>
 			<option value="secondary">Secondary</option>
@@ -120,13 +146,15 @@ include '../../../../../../../wp-load.php';
 			<option value="global_dark">Global Dark</option>
 			<option value="custom">Custom</option>
 		</select>
+		<div class="clearfix"></div>
 		<ul class="customcolor" style="display:none;">
-			<li>
-				<h3>Description Text Custom Color: </h3>
+			<li><h4>Description Text Custom Color: </h4>
 				<input class="udm_color_picker" type="text" name="desc_text_custom_color" value="" />
+				<div class="clearfix"></div>
 			</li>
 		</ul>
 	</li>
+	<div class="clearfix"></div>
 </ul>
 <script>
 	jQuery(document).ready(function($) {

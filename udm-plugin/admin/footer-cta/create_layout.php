@@ -24,7 +24,7 @@ $data=unserialize(get_option('footer_cta_layout_'.$layout));
 					</select>
 					<div class="clearfix"></div>
 				</li> 
-			</ul> 
+			</ul>  
 		</li>
 		<div class="clearfix"></div>	
 	</ul>
