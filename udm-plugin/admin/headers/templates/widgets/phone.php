@@ -14,6 +14,27 @@ $location=$_POST['location'];
 		<li><h4>Text/Contact Number(This pulls up from base options)</span></h4><input type="text" name="<?php echo isset($location) ? $location : ''; ?>_phone_left_text" value="<?php echo esc_attr($phonedata[$location.'_phone_left_text']); ?>" />
 		<div class="clearfix"></div>
 		</li>
+
+
+		<li class="colorchange"><h4>Text Color: </h4>
+		<select name="<?php echo isset($location) ? $location : ''; ?>_textt_color" id="<?php echo isset($location) ? $location : ''; ?>_textt_color">
+			<option value="primary" <?php selected('primary',$phonedata[$location.'_textt_color']); ?>>Primary</option>
+			<option value="secondary" <?php selected('secondary',$phonedata[$location.'_textt_color']); ?>>Secondary</option>
+			<option value="global_light" <?php selected('global_light',$phonedata[$location.'_textt_color']); ?>>Global Light</option>
+			<option value="global_dark" <?php selected('global_dark',$phonedata[$location.'_textt_color']); ?>>Global Dark</option>
+			<option value="custom" <?php selected('custom',$phonedata[$location.'_textt_color']); ?>>Custom</option>
+		</select>
+		<div class="clearfix"></div>  
+		<ul class="customcolor" <?php if($phonedata[$location.'_textt_color']=="custom"){}else{ ?> style="display:none;" <?php } ?>>
+			<li><h4>Text Custom Color: </h4>
+
+				<input class="udm_color_picker" type="text" name="<?php echo isset($location) ? $location : ''; ?>_textt_custom_color" value="<?php echo isset($phonedata[$location.'_textt_custom_color']) ? $phonedata[$location.'_textt_custom_color'] : ''; ?>" />
+				<div class="clearfix"></div> 
+			</li>
+		</ul> 
+		</li> 
+
+
 	
 		<li><h4>Phone Override: </h4>
 		<span class="switch cus_bar_switch">
@@ -21,10 +42,15 @@ $location=$_POST['location'];
 			<label for="<?php echo esc_attr($location); ?>_phone_overright">No / Yes</label></span>
 		<div class="clearfix"></div>
 		</li>
+ 
+
 		<div id="<?php echo esc_attr($location); ?>_numberdata" <?php if(isset($phonedata[$location.'_phone_overright']) && $phonedata[$location.'_phone_overright']=="yes"){}else{ ?> style="display:none;" <?php } ?>>   
+
 			<li><h4>Phone Number: </h4><input type="text" name="<?php echo esc_attr($location); ?>_phone_number" value="<?php echo isset($phonedata[$location.'_phone_number']) ? $phonedata[$location.'_phone_number'] : ''; ?>" />
 			<div class="clearfix"></div>
 			</li>
+
+
 			<div class="clearfix"></div>
 		</div>
 		<div class="clearfix"></div>
@@ -42,6 +68,16 @@ jQuery(document).ready(function($) {
 			else
 			{
 				$('#<?php echo isset($location) ? $location : ''; ?>_numberdata').hide();
+			}
+		});
+	$('.colorchange select').change(function(){
+			if($(this).val() == "custom")
+			{
+				$(this).parent().find('.customcolor').show();
+			}
+			else
+			{
+				$(this).parent().find('.customcolor').hide();
 			}
 		});
 });

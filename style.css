@@ -3893,3 +3893,22 @@ header .newtwo_header .menu-about-container{display: block;width:100%;}
 .share_post_icons a {border: 1px solid #dcdcdc;text-align: center;width: 45px;height: 45px;padding-top: 10px;display: inline-block;color: #21cb5a;transition: all .3s ease;}
 .share_post_icons a:hover {color: white;background: #21cb5a;}
 .post_featured_caption figcaption {margin-bottom: 2.5rem;display: block;margin-top: 6px;font-size: 12px;font-weight: 600;text-align: right;}
+header .common_header .squaresocial li a{padding-left: 0;} 
+header .top_basic_header .squaresocial li.socialics a{padding: 0;} 
+header .top_basic_header .squaresocial li a{padding: 0;} 
+  .Hero_space{
+    margin-bottom:30px;
+}
+.lefttopsocial li a i:hover {
+    filter: brightness(200%) !important;
+}
+.righttopsocial li a i:hover {
+    filter: brightness(200%) !important;
+}
+.leftsocialic{
+       margin-bottom: auto;
+}
+.leftsocialic li {
+    display: inline-block;
+    margin-left: 19px;
+}

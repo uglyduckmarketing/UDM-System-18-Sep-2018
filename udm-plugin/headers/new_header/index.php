@@ -33,7 +33,7 @@
 										if(isset($data['lefttopbar_phone_left_text']) && $data['lefttopbar_phone_left_text']!="")
 										{
 									?>
-									<small><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></small>
+									<small class="textt_phoneno"><?php echo isset($data['lefttopbar_phone_left_text']) ? $data['lefttopbar_phone_left_text'] : ''; ?></small>
 									<?php
 										}
 										if(isset($data['lefttopbar_phone_overright']) && $data['lefttopbar_phone_overright']=="yes")
@@ -53,48 +53,77 @@
 									else if(isset($data['lefttopbarsocial']) && $data['lefttopbarsocial'] == 'yes')
 									{ 
 								?>
-								<div class="col-md-auto social_icon_box">	 
-								<ul class="top_heade_right lefttopsocial">
+								<div class="col-md-auto social_icon_box">	
+									<?php
+									 $sociallefttype = '';
+										if(isset($data['lefttopbar_social_icon_style']) && $data['lefttopbar_social_icon_style']=='square')
+										{
+											 $sociallefttype="squaresocial"; 	
+										}
+									?>
+								<ul class="top_heade_right lefttopsocial <?php echo $sociallefttype; ?>">
 								
 									<?php
+
 									if(isset($data['lefttopbar_social_icon_style']) && $data['lefttopbar_social_icon_style']=='square')
 									{
-										 $type="-square"; 
+
+									 $type="-square"; 
+									 $facebook = "fa fa-facebook-square";
+									 $twitter = "fa fa-twitter-square";
+									 $googleplus = "fa fa-google-plus-square";
+									 $linkedin = "fa fa-linkedin-square";
+									 $instagram = "fa fa-instagram";
+									 $pinterest = "fa fa-pinterest-square";
+
 									}
 									else
 									{
-										$type="";
+											
+									$type="";
+									$facebook = "ion-social-facebook";
+									$twitter = "ion-social-twitter";
+									$googleplus ="ion-social-googleplus";
+									$linkedin = "ion-social-linkedin";
+									$instagram = "ion-social-instagram";
+									$pinterest = "ion-social-pinterest";
+
 									}
+
+
 										if(get_option('udm_facebook_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="ion-social-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+									<li>
+										<a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="<?php echo isset($facebook) ? $facebook : ''; ?>"></i></a>
+								    </li>
+
 									<?php
 										}
 										if(get_option('udm_twitter_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="ion-social-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="<?php echo isset($twitter) ? $twitter : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_instagram_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="ion-social-instagram"></i></a></li>
+										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="<?php echo isset($instagram) ? $instagram : ''; ?>"></i></a></li>
 									<?php 
 										}	
 										if(get_option('udm_googleplus_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="ion-social-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+						<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="<?php echo isset($googleplus) ? $googleplus : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_linkedin_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="ion-social-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="<?php echo isset($linkedin) ? $linkedin : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_pinterest_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="ion-social-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="<?php echo isset($pinterest) ? $pinterest : ''; ?>"></i></a></li>
 									<?php
 										}
 									?>
@@ -164,47 +193,71 @@
 									{ 
 								?> 
 								<div class="col-md-auto">
-								<ul class="top_heade_right middletopsocial">
-								
+								<?php
+									 $socialmiddletype = '';
+										if(isset($data['middletopbar_social_icon_style']) && $data['middletopbar_social_icon_style']=='square')
+										{
+											 $socialmiddletype="squaresocial"; 	
+										}
+									?>
+								<ul class="top_heade_right middletopsocial <?php echo $socialmiddletype; ?>">
+									
 									<?php
 									if(isset($data['middletopbar_social_icon_style']) && $data['middletopbar_social_icon_style']=='square')
 									{
-										 $type="-square"; 
+
+									 $type="-square"; 
+									 $facebook = "fa fa-facebook-square";
+									 $twitter = "fa fa-twitter-square";
+									 $googleplus = "fa fa-google-plus-square";
+									 $linkedin = "fa fa-linkedin-square";
+									 $instagram = "fa fa-instagram";
+									 $pinterest = "fa fa-pinterest-square";
+
 									}
 									else
 									{
-										$type="";
+									$type="";
+									$facebook = "ion-social-facebook";
+									$twitter = "ion-social-twitter";
+									$googleplus ="ion-social-googleplus";
+									$linkedin = "ion-social-linkedin";
+									$instagram = "ion-social-instagram";
+									$pinterest = "ion-social-pinterest";
+
 									}
 										if(get_option('udm_facebook_link')!=""){
+
 									?>
-										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="ion-social-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+
+										 <li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="<?php echo isset($facebook) ? $facebook : ''; ?>"></i></a></li> 
 									<?php
 										}
 										if(get_option('udm_twitter_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="ion-social-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="<?php echo isset($twitter) ? $twitter : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_instagram_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="ion-social-instagram"></i></a></li>
+										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="<?php echo isset($instagram) ? $instagram : ''; ?> "></i></a></li>
 									<?php
 										}	
 										if(get_option('udm_googleplus_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="ion-social-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="<?php echo isset($googleplus) ? $googleplus : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_linkedin_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="ion-social-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="<?php echo isset($linkedin) ? $linkedin : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_pinterest_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="ion-social-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="<?php echo isset($pinterest) ? $pinterest : ''; ?>"></i></a></li>
 									<?php
 										}
 										?>
@@ -273,46 +326,68 @@
 									{ 
 								?>
 								<div class="col-md-auto">
-								<ul class="top_heade_right righttopsocial">
+								<?php
+									 $socialrighttype = '';
+										if(isset($data['righttopbar_social_icon_style']) && $data['righttopbar_social_icon_style']=='square')
+										{
+											 $socialrighttype="squaresocial"; 	
+										}
+									?>
+								<ul class="top_heade_right righttopsocial <?php echo $socialrighttype; ?>">
 									<?php
 									if(isset($data['righttopbar_social_icon_style']) && $data['righttopbar_social_icon_style']=='square')
-									{
+										{
+											
 										 $type="-square"; 
-									}
+										 $facebook = "fa fa-facebook-square";
+										 $twitter = "fa fa-twitter-square";
+										 $googleplus = "fa fa-google-plus-square";
+										 $linkedin = "fa fa-linkedin-square";
+										 $instagram = "fa fa-instagram";
+										 $pinterest = "fa fa-pinterest-square";
+
+										}
 									else
-									{
+										{
 										$type="";
-									}
+										$facebook = "ion-social-facebook";
+										$twitter = "ion-social-twitter";
+										$googleplus ="ion-social-googleplus";
+										$linkedin = "ion-social-linkedin";
+										$instagram = "ion-social-instagram";
+										$pinterest = "ion-social-pinterest";
+
+										}
 										if(get_option('udm_facebook_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="ion-social-facebook<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="<?php echo isset($facebook) ? $facebook : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_twitter_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="ion-social-twitter<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="<?php echo isset($twitter) ? $twitter : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_instagram_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="ion-social-instagram"></i></a></li>
+										<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="<?php echo isset($instagram) ? $instagram : ''; ?>"></i></a></li>
 									<?php
 										}	
 										if(get_option('udm_googleplus_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="ion-social-google-plus<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="<?php echo isset($googleplus) ? $googleplus : ''; ?>"></i></a></li>
 									<?php
 										}
 										if(get_option('udm_linkedin_link')!="")
 										{
 									?>
-										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="ion-social-linkedin<?php echo isset($type) ? $type : ''; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="<?php echo isset($linkedin) ? $linkedin : ''; ?>"></i></a></li>
 									<?php
 										}			
 										if(get_option('udm_pinterest_link')!=""){
 									?>
-										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="ion-social-pinterest<?php if($type==""){ echo "-p"; }else{ echo isset($type) ? $type : ''; } ; ?>"></i></a></li>
+										<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="<?php echo isset($pinterest) ? $pinterest : ''; ?>"></i></a></li>
 									<?php
 										}
 										?>
