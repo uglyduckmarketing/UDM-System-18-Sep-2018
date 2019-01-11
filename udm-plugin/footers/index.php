@@ -62,6 +62,8 @@
 		</div>
 	</div>
 </div>
+<?php if(isset($data['footer_display']) && $data['footer_display']=="yes")
+				{ ?>
 <div class="footer-bottom">
 	<div class="container-fluid">
 		<div class="row">
@@ -119,7 +121,7 @@
 				}	
 				if($data['ios_app_url']!=""){
 			?>
-					<li><a href="<?php echo get_option('ios_app_url'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/apple-store.png"></i></a></li>
+					<li><a href="<?php echo get_option('ios_app_url'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/apple-store.png"></a></li>
 			<?php
 				}
 				}
@@ -130,4 +132,5 @@
 		</div>
 	</div>
 </div>
+<?php } ?>
 </footer>

@@ -155,6 +155,18 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 	<li><h4>Description: </h4>
 		<textarea name="desc_text"><?php echo esc_attr($data['desc_text']); ?></textarea>
 		<div class="clearfix"></div>
+
+<!-- ................................................. -->
+
+<li><h4>Footer Display: </h4>
+		<span class="switch cus_bar_switch">
+			<input type="checkbox" name="footer_display" class="switch" id="footer_display" value="yes">
+			<label for="footer_display">Hide/Show</label>
+		</span>
+		<div class="clearfix"></div>
+	</li>
+<!-- ................................................. -->
+
 	</li>
 	<li class="colorchange"><h4>Description Text Color: </h4>
 		<select name="desc_text_color" id="editdesc_text_color">
