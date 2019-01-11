@@ -57,8 +57,8 @@ $topdata=unserialize(get_option('header_layout_'.$layout));
             <div class="dropup custom_design_dropdown">
                 <button type="button" class="button button-primary dropdown-toggle addwidget" data-toggle="dropdown">Add widget</button>
                 <div class="dropdown-menu" id="newmiddlebarwidget">
-                    <a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
-                    <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>
+                   <a class="dropdown-item" href="javascript:void(0);" data-widget="1">Text Widget</a>
+                  <a class="dropdown-item" href="javascript:void(0);" data-widget="2">Phone Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="3">Social Widget</a>
                     <a class="dropdown-item" href="javascript:void(0);" data-widget="4">Button Widget</a>
                     <div class="arrow-down"></div>

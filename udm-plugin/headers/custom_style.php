@@ -32,6 +32,7 @@
 		$button_color="var(--primary-color)";
 	} 
 	
+
 	if($data['right_header_color']=="custom")
 	{
 		$right_header_color=$data['right_header_custom_color'];
@@ -44,8 +45,54 @@
 	{
 		$right_header_color="var(--primary-color)";
 	} 
+	// ....................................................
+
+	if($data['middletopbar_textt_color']=="custom")
+	{
+		$text_phone_color=$data['middletopbar_textt_custom_color'];
+	}
+	else if($data['middletopbar_textt_color']!="")
+	{
+		$text_phone_color="var(--".$data['middletopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phone_color="var(--primary-color)";
+	} 
 	
-	if($data['right_header_phone_color']=="custom")
+
+// ................................................................
+
+
+	if($data['lefttopbar_textt_color']=="custom")
+	{
+		$text_phoneleft_color=$data['lefttopbar_textt_custom_color'];
+	}
+	else if($data['lefttopbar_textt_color']!="")
+	{
+		$text_phoneleft_color="var(--".$data['lefttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneleft_color="var(--primary-color)";
+	} 
+// ................................................................
+
+if($data['righttopbar_textt_color']=="custom")
+	{
+		$text_phoneright_color=$data['righttopbar_textt_custom_color'];
+	}
+	else if($data['righttopbar_textt_color']!="")
+	{
+		$text_phoneright_color="var(--".$data['righttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneright_color="var(--primary-color)";
+	} 
+
+	// ................................................................
+if($data['right_header_phone_color']=="custom")
 	{
 		$right_header_phone_color=$data['right_header_phone_custom_color'];
 	}
@@ -249,6 +296,17 @@ header .right_side_header .right_side_phone{
 	color:<?php echo esc_attr($right_header_phone_color); ?>;
 }
 
+header .middletopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phone_color); ?>;
+}
+
+header .righttextt_phoneno a{
+	color:<?php echo esc_attr($text_phoneright_color); ?>;
+}
+header .lefttextt_phoneno{
+	color:<?php echo esc_attr($text_phoneleft_color); ?>;
+}
+
 <?php
 	}else if(strpos($layout, 'Stacked_Header') !== false){
 	$data=unserialize(get_option('header_layout_'.$layout));
@@ -286,6 +344,55 @@ header .right_side_header .right_side_phone{
 		$logo_background="url(".$data['logo_background_image'].")";
 	}
 	
+if($data['lefttopbar_textt_color']=="custom")
+	{
+		$text_phoneleft_color=$data['lefttopbar_textt_custom_color'];
+	}
+	else if($data['lefttopbar_textt_color']!="")
+	{
+		$text_phoneleft_color="var(--".$data['lefttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneleft_color="var(--primary-color)";
+	} 
+// ....................................................
+
+	if($data['middletopbar_textt_color']=="custom")
+	{
+		$text_phone_color=$data['middletopbar_textt_custom_color'];
+	}
+	else if($data['middletopbar_textt_color']!="")
+	{
+		$text_phone_color="var(--".$data['middletopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phone_color="var(--primary-color)";
+	} 
+	
+
+// ................................................................
+
+
+// ................................................................
+
+if($data['righttopbar_textt_color']=="custom")
+	{
+		$text_phoneright_color=$data['righttopbar_textt_custom_color'];
+	}
+	else if($data['righttopbar_textt_color']!="")
+	{
+		$text_phoneright_color="var(--".$data['righttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneright_color="var(--primary-color)";
+	} 
+
+	// ................................................................
+
+
 	if($data['lefttopbar_social_icon_color']=="custom")
 	{
 		$lefttopbar_social_icon_color=$data['lefttopbar_social_icon_custom_color'];
@@ -438,7 +545,7 @@ header .middletopsocial li a i{
 header .righttopsocial li a i{
 	color:<?php echo esc_attr($righttopbar_social_icon_color); ?>;
 }
-
+ 
 header .bottomsocial li a i{
 	color:<?php echo esc_attr($bottombar_social_icon_color); ?>;
 }
@@ -461,6 +568,18 @@ header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a{
 header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hover{
 	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
+
+header .middletopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phone_color); ?>;
+}
+
+header .righttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneright_color); ?>;
+}
+header .lefttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneleft_color); ?>;
+}
+
 
 <?php
 	}
@@ -614,6 +733,79 @@ header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hov
 	{
 		$subtext_color="#fff";
 	} 
+
+
+
+
+
+		// ....................................................
+
+	if($data['middletopbar_textt_color']=="custom")
+	{
+		$text_phone_color=$data['middletopbar_textt_custom_color'];
+	}
+	else if($data['middletopbar_textt_color']!="")
+	{
+		$text_phone_color="var(--".$data['middletopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phone_color="var(--primary-color)";
+	} 
+	
+// ................................................................
+
+
+	if($data['lefttopbar_textt_color']=="custom")
+	{
+		$text_phoneleft_color=$data['lefttopbar_textt_custom_color'];
+	}
+	else if($data['lefttopbar_textt_color']!="")
+	{
+		$text_phoneleft_color="var(--".$data['lefttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneleft_color="var(--primary-color)";
+	} 
+	
+
+
+// ................................................................
+
+	if($data['lefttopbar_textt_color']=="custom")
+	{
+		$text_phoneleft_color=$data['lefttopbar_textt_custom_color'];
+	}
+	else if($data['lefttopbar_textt_color']!="")
+	{
+		$text_phoneleft_color="var(--".$data['lefttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneleft_color="var(--primary-color)";
+	} 
+	
+
+
+
+// ................................................................
+
+if($data['righttopbar_textt_color']=="custom")
+	{
+		$text_phoneright_color=$data['righttopbar_textt_custom_color'];
+	}
+	else if($data['righttopbar_textt_color']!="")
+	{
+		$text_phoneright_color="var(--".$data['righttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneright_color="var(--primary-color)";
+	} 
+
+	// ................................................................
+
 	
 	if($subdata['hover_text_color']=="custom")
 	{
@@ -628,7 +820,11 @@ header .stacked_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hov
 		$subhover_text_color="var(--global_light-color)";
 	}
 
+
+
 	}	
+
+
 ?>
 
 
@@ -674,6 +870,17 @@ header .newtwo_header .bottom_stacked_header .navbar ul li ul.sub-menu li a{
 }
 header .newtwo_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hover{
 	color:<?php echo esc_attr($subhover_text_color); ?>;
+}
+header .middletopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phone_color); ?>;
+}
+
+header .righttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneright_color); ?>;
+}
+
+header .lefttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneleft_color); ?>;
 }
 
 <?php
@@ -828,6 +1035,61 @@ header .newtwo_header .bottom_stacked_header .navbar ul li ul.sub-menu li a:hove
 	}
 
 	}	
+
+
+		// ....................................................
+
+	if($data['middletopbar_textt_color']=="custom")
+	{
+		$text_phone_color=$data['middletopbar_textt_custom_color'];
+	}
+	else if($data['middletopbar_textt_color']!="")
+	{
+		$text_phone_color="var(--".$data['middletopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phone_color="var(--primary-color)";
+	} 
+	
+
+// ................................................................
+
+
+	if($data['lefttopbar_textt_color']=="custom")
+	{
+		$text_phoneleft_color=$data['lefttopbar_textt_custom_color'];
+	}
+	else if($data['lefttopbar_textt_color']!="")
+	{
+		$text_phoneleft_color="var(--".$data['lefttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneleft_color="var(--primary-color)";
+	} 
+	
+
+
+
+
+// ................................................................
+
+if($data['righttopbar_textt_color']=="custom")
+	{
+		$text_phoneright_color=$data['righttopbar_textt_custom_color'];
+	}
+	else if($data['righttopbar_textt_color']!="")
+	{
+		$text_phoneright_color="var(--".$data['righttopbar_textt_color']."-color)";
+	}
+	else
+	{
+		$text_phoneright_color="var(--primary-color)";
+	} 
+
+	// ................................................................
+
 	
 ?>
 
@@ -879,6 +1141,18 @@ header .main_transparent_box  ul.sub-menu li a{
 }
 header .main_transparent_box  ul.sub-menu li a:hover{
 	color:<?php echo esc_attr($subhover_text_color); ?>;
+}
+
+header .middletopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phone_color); ?>;
+}
+
+header .righttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneright_color); ?>;
+}
+
+header .lefttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneleft_color); ?>;
 }
 
 <?php
@@ -972,6 +1246,19 @@ header ul.sub-menu li a{
 header ul.sub-menu li a:hover{
 	color:<?php echo esc_attr($subhover_text_color); ?>;
 }
+
+header .middletopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phone_color); ?>;
+}
+
+header .righttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneright_color); ?>;
+}
+header .lefttopphone .textt_phoneno{
+	color:<?php echo esc_attr($text_phoneleft_color); ?>;
+}
+
+
 <?php
 	}
 ?>
