@@ -160,7 +160,7 @@ $data=unserialize(get_option('footer_layout_'.$layout));
 
 <li><h4>Footer Display: </h4>
 		<span class="switch cus_bar_switch">
-			<input type="checkbox" name="footer_display" class="switch" id="footer_display" value="yes">
+			<input type="checkbox" name="footer_display" <?php checked("yes",isset($data['footer_display']) ? $data['footer_display'] : ''); ?> class="switch" id="footer_display" value="yes">
 			<label for="footer_display">Hide/Show</label>
 		</span>
 		<div class="clearfix"></div>
