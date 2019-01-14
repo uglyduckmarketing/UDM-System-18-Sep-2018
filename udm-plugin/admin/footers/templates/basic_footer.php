@@ -162,13 +162,13 @@
 	<input type="checkbox" name="social_icons" class="switch" id="editsocial_icons" value="yes" <?php checked("yes",isset($data['social_icons']) ? $data['social_icons'] : ''); ?>>
 			<label for="editsocial_icons">Hide/Show </label>
 		</span> -->
-<li><h4>Footer Display: </h4>
+<!--<li><h4>Footer Display: </h4>
 		<span class="switch cus_bar_switch">
 			<input type="checkbox" name="footer_display" class="switch" id="footer_display" value="yes">
 			<label for="footer_display">Hide/Show</label>
 		</span>
 		<div class="clearfix"></div>
-	</li>	
+	</li>	-->
 <!-- ................................................. -->
 
 	<li class="colorchange"><h4>Description Color: </h4>
