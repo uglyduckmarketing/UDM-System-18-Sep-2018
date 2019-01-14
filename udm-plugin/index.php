@@ -241,8 +241,60 @@ function udm_specific_header_save( $post_id ) {
   update_post_meta( $post_id, 'udm_specific_header', $new_value );
 }  
 
+add_action( 'add_meta_boxes', 'udm_specific_footer' );
+function udm_specific_footer() {
+    add_meta_box( 
+        'udm_specific_footer',  // unique id
+        __( 'Footer Option', 'udmbase' ),  // metabox title
+        'udm_specific_footer_display'  // callback to show the dropdown
+   
+    );
+}
 
+function udm_specific_footer_display($post){
+  $postid = isset($_GET['post']) ? $_GET['post'] : '';
+  wp_nonce_field( basename( __FILE__ ), 'udm_specific_footer_nonce' );
+  $meta = get_post_meta( $postid, 'footer_fields', true ); 
+
+	?>
+	<p>
+		<label for="footer_fields[footer_section_show]">Footer Section Hide</label>
+		<br>
+		<span class="switch">
+			<input type="checkbox" name="footer_fields[footer_section_show]" class="switch" id="footer_fields[footer_section_show]" value="yes" <?php checked('yes', isset($meta['footer_section_show']) ? $meta['footer_section_show'] : ''); ?>>
+			<label for="footer_fields[footer_section_show]">Hide/Show</label>
+		</span>
+	</p>
+	<?php
+}
+
+add_action( 'save_post', 'udm_specific_footer_save' );
+function udm_specific_footer_save( $post_id ) {   
+	// verify nonce
+	if ( isset($_POST['udm_specific_footer_nonce']) 
+			&& !wp_verify_nonce( $_POST['udm_specific_footer_nonce'], basename(__FILE__) ) ) {
+			return $post_id; 
+		}
+	// check autosave
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return $post_id;
+	}
+	// check permissions
+	if (isset($_POST['post_type'])) { //Fix 2
+        if ( 'page' === $_POST['post_type'] ) {
+            if ( !current_user_can( 'edit_page', $post_id ) ) {
+                return $post_id;
+            } elseif ( !current_user_can( 'edit_post', $post_id ) ) {
+                return $post_id;
+            }  
+        }
+    }
 	
+	 //Fix 3
+		 $new = isset($_POST['footer_fields']) ? $_POST['footer_fields'] : ''; 
+		update_post_meta( $post_id, 'footer_fields', $new );
+	
+}	
 
 // action to add meta boxes
 add_action( 'add_meta_boxes', 'udm_specific_hero' );

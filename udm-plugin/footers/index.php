@@ -1,6 +1,8 @@
 <?php
+global $post;
 	$layout=get_option("udm_footer_default");
 	$data=unserialize(get_option('footer_layout_'.$layout)); 
+	$footer_fields = get_post_meta(get_the_ID(),'footer_fields', true); 
 ?>
 <footer class="footer-mailchimp">
 <div class="footer-top">
@@ -62,7 +64,7 @@
 		</div>
 	</div>
 </div>
-<?php if(isset($data['footer_display']) && $data['footer_display']=="yes")
+<?php if(isset($footer_fields['footer_section_show']) && $footer_fields['footer_section_show']=="yes")
 				{ ?>
 <div class="footer-bottom">
 	<div class="container-fluid">
