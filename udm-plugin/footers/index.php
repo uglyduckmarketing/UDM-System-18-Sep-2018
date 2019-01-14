@@ -4,6 +4,8 @@ global $post;
 	$data=unserialize(get_option('footer_layout_'.$layout)); 
 	$footer_fields = get_post_meta(get_the_ID(),'footer_fields', true); 
 ?>
+<?php if(isset($footer_fields['footer_section_show']) && $footer_fields['footer_section_show']=="yes")
+				{ ?>
 <footer class="footer-mailchimp">
 <div class="footer-top">
 	<div class="container">
@@ -64,8 +66,7 @@ global $post;
 		</div>
 	</div>
 </div>
-<?php if(isset($footer_fields['footer_section_show']) && $footer_fields['footer_section_show']=="yes")
-				{ ?>
+
 <div class="footer-bottom">
 	<div class="container-fluid">
 		<div class="row">
@@ -134,5 +135,5 @@ global $post;
 		</div>
 	</div>
 </div>
-<?php } ?>
 </footer>
+<?php } ?>
