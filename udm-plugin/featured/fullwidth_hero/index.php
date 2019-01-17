@@ -12,8 +12,8 @@ $data=unserialize(get_option('featured_layout_'.$layout));
                     <h2><?php if (isset($meta['udm_fullwidth_header_text']) &&  is_array($meta) && $meta['udm_fullwidth_header_text']!="") {	echo esc_attr($meta['udm_fullwidth_header_text']); }else{ the_title(); } ?></h2>
                     <p><?php if (isset($meta['udm_fullwidth_description']) && is_array($meta) && $meta['udm_fullwidth_description']!="") {	echo esc_attr($meta['udm_fullwidth_description']); }else{ ?><?php } ?></p>
                 </div>
-                <?php if($data['show_button']=="yes"){ ?><span class="right_side_bt"><a class="btn btn-info" href="<?php if($data['button_link']!=""){ echo esc_attr($data['button_link']); } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span><?php } ?>
-            </div>
+                <?php if($data['show_button']=="yes"){ ?><span class="right_side_bt"><a class="btn btn-info custbtn" href="<?php if($data['button_link']!=""){ echo esc_attr($data['button_link']); } ?>"><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']); }else{ ?>Get Started<?php } ?><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span><?php } ?>
+            </div> 
         </div>
     </div>
 </section>

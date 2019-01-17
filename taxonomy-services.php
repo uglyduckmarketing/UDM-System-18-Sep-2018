@@ -19,7 +19,7 @@ $term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
 					<a href="<?php the_permalink(); ?>" class="service__box" style="background-image: url(<?php echo isset($img[0]) ? $img[0] : ''; ?>)">
 						<div class="padded_col-overlay"></div>
 						<div class="service_box-content">
-							<h3><?php the_title(); ?></h3>
+							<div class="rel_title"><?php the_title(); ?></div>
 							<span>View Service</span>
 						</div>
 					</a>

@@ -80,34 +80,34 @@ global $post;
 				{
 						if(get_option('udm_facebook_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook-square"></i></a></li>
+								<li><a alt="Visit Us On FaceBook" href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook-square"></i></a></li>
 							<?php
 								}	
 								if(get_option('udm_googleplus_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus-square"></i></a></li>
+								<li><a alt="Visit Us On Googleplus" href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus-square"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_linkedin_link')!="")
 								{
 							?>
-								<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin-square"></i></a></li>
+								<li><a alt="Visit Us On Linkedin" href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin-square"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_instagram_link')!="")
 								{
 							?>
-								<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
+								<li><a alt="Visit Us On Instagram" href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_twitter_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter-square"></i></a></li>
+								<li><a alt="Visit Us On Twitter" href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter-square"></i></a></li>
 							<?php
 								}
 								if(get_option('udm_pinterest_link')!=""){
 							?>
-								<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest-square"></i></a></li>
+								<li><a alt="Visit Us On Pinterest" href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest-square"></i></a></li>
 							<?php
 								}
 				}
@@ -119,12 +119,12 @@ global $post;
 				{
 					if($data['android_app_url']!=""){
 			?>
-					<li><a href="<?php echo get_option('android_app_url'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/google-play.png"></a></li>
+					<li><a href="<?php echo get_option('android_app_url'); ?>"><img alt="google play store" src="<?php echo get_template_directory_uri(); ?>/images/google-play.png"></a></li>
 			<?php
 				}	
 				if($data['ios_app_url']!=""){
 			?>
-					<li><a href="<?php echo get_option('ios_app_url'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/apple-store.png"></a></li>
+					<li><a href="<?php echo get_option('ios_app_url'); ?>"><img alt="ios app store" src="<?php echo get_template_directory_uri(); ?>/images/apple-store.png"></a></li>
 			<?php
 				}
 				}

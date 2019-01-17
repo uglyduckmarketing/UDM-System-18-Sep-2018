@@ -37,34 +37,34 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						}
 							if(get_option('udm_facebook_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On FaceBook" href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}	
 							if(get_option('udm_googleplus_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On Googleplus" href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_linkedin_link')!="")
 							{
 						?>
-							<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On Linkedin" href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_instagram_link')!="")
 							{
 						?>
-							<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
+							<li><a alt="Visit Us On Instagram" href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_twitter_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On Twitter" href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_pinterest_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo esc_attr($type); } ; ?>"></i></a></li>
+							<li><a alt="Visit Us On Pinterest" href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo esc_attr($type); } ; ?>"></i></a></li>
 						<?php
 							}
 						}
@@ -79,7 +79,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 								$url=isset($data['lefttopbar_button_link']) ? $data['lefttopbar_button_link'] : '';
 							}
 						?>
-							<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['lefttopbar_button_text']) && $data['lefttopbar_button_text']!=""){ echo esc_attr($data['lefttopbar_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+							<li><span class="right_side_bt"><a class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><?php if(isset($data['lefttopbar_button_text']) && $data['lefttopbar_button_text']!=""){ echo esc_attr($data['lefttopbar_button_text']); }else{ ?>Get Started<?php } ?><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span></li>
 					<?php 
 						}
 					?>
@@ -113,34 +113,34 @@ $data=unserialize(get_option('header_layout_'.$layout));
 						}
 							if(get_option('udm_facebook_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On FaceBook" href="<?php echo get_option('udm_facebook_link'); ?>"><i class="fa fa-facebook<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}	
 							if(get_option('udm_googleplus_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On Googleplus" href="<?php echo get_option('udm_googleplus_link'); ?>"><i class="fa fa-google-plus<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_linkedin_link')!="")
 							{
 						?>
-							<li><a href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On Linkedin" href="<?php echo get_option('udm_linkedin_link'); ?>"><i class="fa fa-linkedin<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_instagram_link')!="")
 							{
 						?>
-							<li><a href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
+							<li><a alt="Visit Us On Instagram" href="<?php echo get_option('udm_instagram_link'); ?>"><i class="fa fa-instagram"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_twitter_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo esc_attr($type); ?>"></i></a></li>
+							<li><a alt="Visit Us On Twitter" href="<?php echo get_option('udm_twitter_link'); ?>"><i class="fa fa-twitter<?php echo esc_attr($type); ?>"></i></a></li>
 						<?php
 							}
 							if(get_option('udm_pinterest_link')!=""){
 						?>
-							<li><a href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo esc_attr($type); } ; ?>"></i></a></li>
+							<li><a alt="Visit Us On Pinterest" href="<?php echo get_option('udm_pinterest_link'); ?>"><i class="fa fa-pinterest<?php if($type==""){ echo "-p"; }else{ echo esc_attr($type); } ; ?>"></i></a></li>
 						<?php
 							}
 						}
@@ -155,7 +155,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 								$url=isset($data['righttopbar_button_link']) ? $data['righttopbar_button_link'] : '';
 							}
 						?>
-							<li><span class="right_side_bt"><a href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><button type="button" class="btn"><h6><?php if(isset($data['righttopbar_button_text']) && $data['righttopbar_button_text']!=""){ echo esc_attr($data['righttopbar_button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></button></a></span></li>
+							<li><span class="right_side_bt"><a class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : ''; }else{ echo "#"; } ?>"><?php if(isset($data['righttopbar_button_text']) && $data['righttopbar_button_text']!=""){ echo esc_attr($data['righttopbar_button_text']); }else{ ?>Get Started<?php } ?><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span></li>
 					<?php 
 						}
 					?>
@@ -167,7 +167,7 @@ $data=unserialize(get_option('header_layout_'.$layout));
 	<!--basic-header-default-->    
 	<section class="basic_header_default">
 		<nav class="navbar navbar-expand-md bg-light navbar-light">
-			<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"></a>
+			<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><img alt="Back To Home Page" src="<?php echo get_option('udm_company_logo'); ?>"></a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 				<span class="navbar-toggler-icon"></span>
 			  </button>

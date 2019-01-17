@@ -11,7 +11,7 @@
                  
                 <span class="right_side_bt"><a style="background: #540909;
     border: 1px solid #540909;
-    color: var(--global_light-color);" class="btn" href="#"><h6>Get Started</h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+    color: var(--global_light-color);" class="btn" href="#">Get Started<i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 			
                 </div>
             </div>

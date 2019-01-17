@@ -61,7 +61,7 @@ $data = unserialize(get_option("service_cta_layout_".$layout));
 						if($data['button_text']!=""){ $button = $data['button_text']; }else{ $button = 'Get Started'; }
 					}
 				?>
-                <span class="right_side_bt"><a <?php if(isset($url) && $url!=""){ ?> target="_blank" <?php } ?> class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php echo esc_attr($button); ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+                <span class="right_side_bt"><a <?php if(isset($url) && $url!=""){ ?> target="_blank" <?php } ?> class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><?php echo esc_attr($button); ?><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 				<?php } ?>
                 </div>
             </div>

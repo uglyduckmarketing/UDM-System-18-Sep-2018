@@ -11,7 +11,7 @@ $meta = get_post_meta( $post->ID, 'hero_fields', true );
                     <h2><?php if (is_array($meta) && $meta['udm_leftrightelement_header_text']!="") {	echo esc_attr($meta['udm_leftrightelement_header_text']); }else{ the_title(); } ?></h2>
                     <p><?php if (is_array($meta) && $meta['udm_leftrightelement_description']!="") {	echo esc_attr($meta['udm_leftrightelement_description']); }else{ ?>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<?php } ?></p>
                 </div>
-                <?php if(isset($data['show_button']) && $data['show_button']=="yes"){ ?><span class="right_side_bt"><a class="btn btn-info" href="<?php if(isset($data['button_link']) && $data['button_link']!=""){ echo esc_attr($data['button_link']); } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']); }else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span><?php } ?>
+                <?php if(isset($data['show_button']) && $data['show_button']=="yes"){ ?><span class="right_side_bt"><a class="btn btn-info custbtn" href="<?php if(isset($data['button_link']) && $data['button_link']!=""){ echo esc_attr($data['button_link']); } ?>"><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']); }else{ ?>Get Started<?php } ?><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span><?php } ?>
             </div>
             <div class="col col-md-6">
                 <div class="form_part_top">

@@ -28,7 +28,7 @@ $posttype = get_post_type();
                   
                 <span class="right_side_bt"><a style="background: #f44336;
     border: 1px solid #f44336;
-    color: #fff;" class="btn" href="#"><h6>Get Started</h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+    color: #fff;" class="btn" href="#">Get Started<i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 		
                 </div>
             </div>

@@ -67,7 +67,7 @@
 			<div class="blog-nav-image" style="background: url(<?php echo isset($nextthumbnail[0]) ? $nextthumbnail[0] : ''; ?> ) no-repeat scroll center / cover !important; height: 300px;"></div>
 			<div class="blog-nav-content">
 				<span class="post-status">Next Article</span>
-				<h3><?php echo get_the_title( $nextPost->ID ); ?></h3>
+				<div class="rel_title"><?php echo get_the_title( $nextPost->ID ); ?></div>
 			</div>
 		</a>
 		<?php endif; ?>

@@ -8,7 +8,7 @@ $meta = get_post_meta( $post->ID, 'hero_fields', true );
   <div class="row">
     <div class="basic_hero_inner">
         <div class="col col-lg-6">
-            <h4><?php  if (is_array($meta) && isset($meta['udm_basic_header_text']) && $meta['udm_basic_header_text']!="") { echo esc_attr($meta['udm_basic_header_text']); }else{ the_title(); } ?></h4>
+            <h1><?php  if (is_array($meta) && isset($meta['udm_basic_header_text']) && $meta['udm_basic_header_text']!="") { echo esc_attr($meta['udm_basic_header_text']); }else{ the_title(); } ?></h1>
         </div>
 		<?php
 			if($data['right_side_widget']=="2")

@@ -199,7 +199,7 @@ if($show_related == 'yes'){
 						<a href="<?php the_permalink(); ?>" class="service_box" style="background-image: url(<?php echo esc_attr($img[0]); ?>)">
 							<div class="padded_col-overlay"></div>
 							<div class="service_box-content">
-								<h3><?php the_title(); ?></h3>
+								<div class="rel_title"><?php the_title(); ?></div>
 								<span>View Service</span>
 							</div>
 						</a>
