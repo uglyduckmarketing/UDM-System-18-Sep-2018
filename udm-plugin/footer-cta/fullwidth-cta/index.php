@@ -49,7 +49,7 @@ $datas = array();
 						}
 						if($datas['cta_button_text'] != ''){ $button = $datas['cta_button_text']; }else if($data['button_text']!=""){ $button = $data['button_text']; }else{ $button = 'Get Started'; }
 						?>
-						<span class="right_side_bt"><a class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']);}else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+						<span class="right_side_bt"><a class="btn custbtn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']);}else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 						<?php
 				}
 				else if(isset($data['show_button']) && $data['show_button']=="yes")
@@ -66,7 +66,7 @@ $datas = array();
 					}
 				
 				?>
-				<span class="right_side_bt"><a class="btn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><h6><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']);}else{ ?>Get Started<?php } ?></h6><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+				<span class="right_side_bt"><a class="btn custbtn" href="<?php if($url!=""){ echo isset($url) ? $url : '';}else{ ?>#<?php } ?>"><?php if($data['button_text']!=""){ echo esc_attr($data['button_text']);}else{ ?>Get Started<?php } ?><i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
 				<?php 
 				}
 				?>

@@ -67,7 +67,7 @@
 		background:<?php echo esc_attr($overlay_color); ?>;
 	}
 	
-	.main-cards-view h2.blog_title{
+	.main-cards-view .h2title.blog_title{
 		color:<?php echo esc_attr($post_heading_color); ?>;
 	}
 	

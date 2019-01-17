@@ -24,7 +24,7 @@
 						<div class="blog_image" style="background-image: url(<?php echo isset($img[0]) ? $img[0] : ''; ?>);"></div>
 						<div class="blog_content">
 							<?php if(isset($data['show_date']) && $data['show_date']=="yes"){ ?><span class="blog_date"><?php echo get_the_date('F jS, Y'); ?></span> <?php } ?>
-							<h2 class="blog_title"><?php the_title(); ?></h2>
+							<div class="h2title blog_title"><?php the_title(); ?></div>
 							<span class="blog_read">Read More <i class="ion-ios-arrow-forward"></i></span>
 						</div>
 					</a>

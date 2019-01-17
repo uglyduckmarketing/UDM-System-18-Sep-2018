@@ -126,7 +126,7 @@
 	opacity:<?php echo esc_attr($background_opacity); ?>;
 }
 
-.basic_hero .basic_hero_inner h4{
+.basic_hero .basic_hero_inner h1{
 	color:<?php echo esc_attr($header_text_color); ?>;
 }
 

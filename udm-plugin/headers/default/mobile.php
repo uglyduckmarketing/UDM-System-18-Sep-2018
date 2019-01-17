@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="row align-items-center">
             <div class="col col-sm-12 text-center mobile_logo">
-				<a href="<?php echo esc_url( home_url() ); ?>"><img class="header--logo" src="<?php echo isset($logo) ? $logo : ''; ?>" /></a>
+				<a href="<?php echo esc_url( home_url() ); ?>"><img alt="Back To Home Page" class="header--logo" src="<?php echo isset($logo) ? $logo : ''; ?>" /></a>
 			</div>
         </div>
         <div class="row menu_bar_custom">

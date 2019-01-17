@@ -13,7 +13,7 @@ $description = get_post(get_post_thumbnail_id())->post_content;
 			<img src="<?php echo isset($img[0]) ? $img[0] : ''; ?>" title="<?php echo esc_attr($title); ?>" alt="<?php echo esc_attr($alt); ?>" />
 		</div>
 		<div class="blog__item-content">
-			<h3><?php the_title(); ?></h3>
+			<div class="rel_title"><?php the_title(); ?></div>
 			<span class="blog__item-date"><?php echo get_the_date(); ?></span>
 		</div>
 	</div>

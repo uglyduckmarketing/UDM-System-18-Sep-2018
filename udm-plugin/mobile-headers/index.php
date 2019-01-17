@@ -16,7 +16,7 @@
 					if($data['logo_position']=="center")
 					{
 					?>
-						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img alt="Back To Home Page" src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 					<?php
 						}
 					?>
@@ -26,7 +26,7 @@
 					if($data['logo_position']!="center")
 					{
 				?>
-					<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+					<a class="" href="<?php echo esc_url( home_url() ); ?>"><img alt="Back To Home Page" src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 				<?php
 					}
 				?>
@@ -41,7 +41,7 @@
 						if($data['logo_position']!="center")
 						{
 					?>
-						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img alt="Back To Home Page" src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 					<?php
 						}
 					?>
@@ -51,7 +51,7 @@
 					if($data['logo_position']=="center")
 					{
 					?>
-						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_option('udm_company_logo'); ?>"/></a>
+						<a class="" href="<?php echo esc_url( home_url() ); ?>"><img alt="Back To Home Page" src="<?php echo get_option('udm_company_logo'); ?>"/></a>
 					<?php
 					}
 					?>
